@@ -2,13 +2,7 @@
 <html lang="pt">
 <head>
   <meta charset="utf-8">
-  <!-- Base dinâmico para GitHub Pages e domínio próprio -->
-  <script>
-    (function(){
-      var href = location.hostname.endsWith('github.io') ? '/braziltrad-site/' : '/';
-      document.write('<base href="' + href + '">');
-    })();
-  </script>
+  <!-- Caminhos relativos simples (sem <base>) -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BrazilTrad — Conectando o Brasil ao mercado global de commodities</title>
   <meta name="description" content="Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF.">
@@ -33,7 +27,6 @@
       </a>
       <nav>
         <ul>
-          <li><a href="index.html">Início</a></li>
           <li><a href="#about">Sobre</a></li>
           <li><a href="#services">Serviços</a></li>
           <li><a href="#products">Produtos</a></li>
@@ -55,8 +48,8 @@
       <h1>Conectando o Brasil ao mercado global de commodities</h1>
       <p>Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF. Atuamos com fornecedores selecionados e compradores qualificados.</p>
       <div class="cta">
-        <a class="button" href="contato.html?tipo=compra">Quero comprar</a>
-        <a class="button secondary" href="contato.html?tipo=venda">Quero vender</a>
+        <a class="button" href="contato.html?tipo=compra" id="btn-comprar" data-tipo="buy">Quero comprar</a>
+        <a class="button secondary" href="contato.html?tipo=venda" id="btn-vender" data-tipo="sell">Quero vender</a>
       </div>
     </div>
   </section>
@@ -146,11 +139,21 @@
       <div>© BrazilTrad. Connecting Brazilian producers to global markets.</div>
       <div class="links">
         🌐 <a href="https://www.braziltrad.com">www.braziltrad.com</a> |
-        ✉️ <a href="mailto:rsequeira@braziltrad.com">rsequeira@braziltrad.com</a> |
+        ✉️ <a href="mailto:rui@braziltrad.com">rui@braziltrad.com</a> |
         🔗 <a href="https://www.linkedin.com/company/braziltrad/">LinkedIn</a>
       </div>
       <div>São Paulo — Brazil</div>
     </div>
   </footer>
+
+  <!-- Script: grava a intenção do clique -->
+  <script>
+    (function(){
+      var bc = document.getElementById('btn-comprar');
+      var bv = document.getElementById('btn-vender');
+      if (bc) bc.addEventListener('click', function(){ sessionStorage.setItem('bt_type','buy'); });
+      if (bv) bv.addEventListener('click', function(){ sessionStorage.setItem('bt_type','sell'); });
+    })();
+  </script>
 </body>
 </html>
