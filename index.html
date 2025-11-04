@@ -10,4 +10,19 @@
 <img src="/assets/img/braziltrad-logo.png" alt="BrazilTrad" style="height:34px;width:auto;display:block;margin:0 auto 8px"/>
 <div>© BrazilTrad. Connecting Brazilian producers to global markets.</div>
 <div class="links">🌐 <a href="https://www.braziltrad.com">www.braziltrad.com</a> | ✉️ <a href="mailto:rui@braziltrad.com">rui@braziltrad.com</a> | 🔗 <a href="https://linkedin.com/company/braziltrad">LinkedIn</a> | 💬 <a href="https://wa.me/5511916170199">WhatsApp</a> • <a href="/contato.html">Contato</a></div>
-<div>São Paulo — Brazil</div></div></footer></body></html>
+<div>São Paulo — Brazil</div></div></footer>
+<script>
+  // Lê o parâmetro da URL
+  const params = new URLSearchParams(window.location.search);
+  const tipo = params.get('tipo');
+  const select = document.querySelector('select[name="type"]');
+  
+  if (select && tipo) {
+    if (tipo.toLowerCase().includes('compra') || tipo.toLowerCase().includes('buy')) {
+      select.value = 'buy';
+    } else if (tipo.toLowerCase().includes('venda') || tipo.toLowerCase().includes('sell')) {
+      select.value = 'sell';
+    }
+  }
+</script>
+</body></html>
