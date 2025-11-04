@@ -74,35 +74,37 @@
     </div>
   </footer>
 
-  <!-- Script final: lida com Safari, GitHub Pages e DOM completo -->
+  <!-- Script robusto -->
   <script>
-  window.addEventListener('load', function() {
-    const params = new URL(window.location.href).searchParams;
-    const tipo = (params.get('tipo') || params.get('type') || '').toLowerCase();
-    const select = document.querySelector('select[name="type"]');
-
-    // Seleciona automaticamente "Comprar" ou "Vender"
-    if (select && tipo) {
-      if (tipo.includes('compra') || tipo.includes('buy')) select.value = 'buy';
-      if (tipo.includes('venda') || tipo.includes('sell')) select.value = 'sell';
+  window.addEventListener('load', function(){
+    function getType(){
+      try{
+        const p = new URL(window.location.href).searchParams;
+        let t = (p.get('tipo') || p.get('type') || '').toLowerCase();
+        if (t.includes('compra') || t.includes('buy')) return 'buy';
+        if (t.includes('venda') || t.includes('sell')) return 'sell';
+        const s = (sessionStorage.getItem('bt_type') || '').toLowerCase();
+        if (s === 'buy' || s === 'sell') return s;
+      }catch(e){}
+      return '';
     }
+
+    const type = getType();
+    const select = document.querySelector('select[name="type"]');
+    if (select && type) select.value = type;
 
     const form = document.getElementById('contactForm');
     const success = document.getElementById('success');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      success.style.display = 'block';
-      form.reset();
-
-      // Reaplica a seleção após reset, se veio via parâmetro
-      if (select && tipo) {
-        if (tipo.includes('compra') || tipo.includes('buy')) select.value = 'buy';
-        if (tipo.includes('venda') || tipo.includes('sell')) select.value = 'sell';
-      }
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    if (form){
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        success.style.display = 'block';
+        form.reset();
+        if (select && type) select.value = type;
+        sessionStorage.removeItem('bt_type');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   });
   </script>
 </body>
