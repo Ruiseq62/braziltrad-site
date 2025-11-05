@@ -132,12 +132,12 @@
     document.getElementById("contact-form").addEventListener("submit", function(event) {
       event.preventDefault();
 
-      emailjs.send("service_zujyemw", "template_TEUIDAQUI", {
-        from_name: document.getElementById("name").value,
-        from_email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value
-      })
+      emailjs.send("service_zujyemw", "template_hslmzyd", {
+  from_name: document.getElementById("name").value,
+  from_email: document.getElementById("email").value,
+  subject: document.getElementById("subject").value,
+  message: document.getElementById("message").value
+})
       .then(function() {
         document.getElementById("form-status").innerText = "Mensagem enviada com sucesso!";
         document.getElementById("form-status").style.color = "green";
