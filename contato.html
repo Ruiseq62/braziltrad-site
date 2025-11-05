@@ -1,85 +1,152 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BrazilTrad — Contato</title>
-  <meta name="description" content="Entre em contato com a equipe BrazilTrad para comprar ou vender commodities brasileiras com segurança e confiança.">
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato — Braziltrad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f8f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      background: #ffffff;
+      margin: 60px auto;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      color: #004b5c;
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #004b5c;
+      outline: none;
+      box-shadow: 0 0 4px rgba(0, 75, 92, 0.3);
+    }
+
+    button {
+      width: 100%;
+      background-color: #004b5c;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #036777;
+    }
+
+    #form-status {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      margin-top: 20px;
+    }
+
+    .footer-note a {
+      color: #004b5c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
 </head>
 
 <body>
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="index.html">
-        <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad">
-        <div>
-          <div class="title">BrazilTrad</div>
-          <div class="slogan"><em>Connecting Brazilian producers to global markets</em></div>
-        </div>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="index.html#about">Sobre</a></li>
-          <li><a href="index.html#services">Serviços</a></li>
-          <li><a href="index.html#products">Produtos</a></li>
-          <li><a href="index.html#markets">Mercados</a></li>
-          <li><a href="index.html#insights">Insights</a></li>
-          <li><a href="contato.html" class="active">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="container">
+    <h2>Entre em contato</h2>
 
-  <main class="section">
-    <div class="container">
-      <h1>Contato</h1>
-      <p class="lead">Envie a sua mensagem. Nossa equipe retornará o contato rapidamente para entender a sua necessidade.</p>
+    <form id="contact-form">
+      <label for="name">Nome completo</label>
+      <input type="text" id="name" name="name" placeholder="Digite o seu nome" required>
 
-      <!-- 🔗 SUBSTITUI este link PELO TEU ENDPOINT DO FORMSPREE -->
-      <form action="https://formspree.io/f/mwpwdgzo" method="POST" class="form">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="Digite o seu e-mail" required>
 
-        <label for="empresa">Empresa:</label>
-        <input type="text" id="empresa" name="empresa">
+      <label for="subject">Assunto</label>
+      <input type="text" id="subject" name="subject" placeholder="Assunto da mensagem">
 
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="_replyto" required>
+      <label for="message">Mensagem</label>
+      <textarea id="message" name="message" rows="5" placeholder="Digite a sua mensagem" required></textarea>
 
-        <label for="assunto">Assunto:</label>
-        <input type="text" id="assunto" name="assunto" placeholder="Compra, venda, parceria..." required>
+      <button type="submit">Enviar mensagem</button>
+      <p id="form-status"></p>
+    </form>
 
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+    <p class="footer-note">
+      🌐 Este formulário é parte do site oficial da <a href="https://braziltrad.com">Braziltrad</a>.
+    </p>
+  </div>
 
-        <button type="submit" class="button">Enviar mensagem</button>
-      </form>
-
-      <p id="msg-sucesso" style="display:none; color:green; margin-top:15px;">
-        ✅ Sua mensagem foi enviada com sucesso!
-      </p>
-
-      <p style="margin-top:20px;">
-        <a href="index.html" class="button secondary">← Voltar ao início</a>
-      </p>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="inner container">
-      <div>© BrazilTrad — Conectando produtores brasileiros ao mercado global.</div>
-      <div>São Paulo — Brasil</div>
-    </div>
-  </footer>
-
+  <!-- Script EmailJS -->
   <script>
-    // Mostra mensagem de sucesso após o envio
-    const form = document.querySelector('form');
-    const msg = document.getElementById('msg-sucesso');
-    form.addEventListener('submit', () => {
-      setTimeout(() => msg.style.display = 'block', 1000);
+    // Inicializa o EmailJS
+    (function() {
+      emailjs.init({
+        publicKey: "TUA_PUBLIC_KEY_AQUI" // substitui pela tua public key
+      });
+    })();
+
+    // Envio do formulário
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      emailjs.send("service_zujyemw", "template_TEUIDAQUI", {
+        from_name: document.getElementById("name").value,
+        from_email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value
+      })
+      .then(function() {
+        document.getElementById("form-status").innerText = "Mensagem enviada com sucesso!";
+        document.getElementById("form-status").style.color = "green";
+        document.getElementById("contact-form").reset();
+      }, function(error) {
+        document.getElementById("form-status").innerText = "Erro ao enviar. Tente novamente.";
+        document.getElementById("form-status").style.color = "red";
+        console.error("Erro:", error);
+      });
     });
   </script>
 </body>
