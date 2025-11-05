@@ -17,18 +17,20 @@
 <body>
 
   <!-- 🔸 Barra de cotações Braziltrad (tema dark) -->
-  <div id="braziltrad-ticker" style="
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background-color: #004b5c;
-    padding: 4px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-  ">
-    <div class="tradingview-widget-container" style="max-width:100%;">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {
+<div id="braziltrad-ticker" style="
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background-color: #004b5c;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+">
+  <div class="tradingview-widget-container" style="max-width:100%;">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript"
+      src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+      async
+      data-config='{
         "symbols": [
           { "proName": "TVC:GOLD",   "title": "Ouro (XAU)" },
           { "proName": "TVC:SILVER", "title": "Prata (XAG)" },
@@ -47,11 +49,11 @@
         "isTransparent": true,
         "displayMode": "adaptive",
         "locale": "pt"
-      }
-      </script>
-    </div>
+      }'>
+    </script>
   </div>
-  <!-- 🔸 Fim da barra -->
+</div>
+<!-- 🔸 Fim da barra -->
 
   <header class="header">
     <div class="container nav">
