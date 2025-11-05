@@ -8,7 +8,6 @@
   <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
   <header class="header">
     <div class="container nav">
@@ -35,31 +34,31 @@
   <main class="section">
     <div class="container">
       <h1>Quero Comprar</h1>
-      <p class="lead">Preencha o formulário abaixo e entraremos em contato com as melhores opções de fornecedores e condições FOB/CIF.</p>
+      <p class="lead">Preencha os campos e clique em “Enviar por e-mail”. O seu cliente de e-mail abrirá com a mensagem pronta para envio.</p>
 
-      <form action="mailto:rui@braziltrad.com" method="post" enctype="text/plain" class="form">
+      <div class="form">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+        <input type="text" id="nome" placeholder="Seu nome" required>
 
         <label for="empresa">Empresa:</label>
-        <input type="text" id="empresa" name="empresa">
+        <input type="text" id="empresa" placeholder="Opcional">
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <label for="email">Seu e-mail:</label>
+        <input type="email" id="email" placeholder="voce@exemplo.com" required>
 
         <label for="produto">Produto de interesse:</label>
-        <input type="text" id="produto" name="produto" placeholder="ex.: soja, lítio, milho, açúcar...">
+        <input type="text" id="produto" placeholder="ex.: soja, lítio, milho, açúcar...">
 
         <label for="quantidade">Quantidade estimada:</label>
-        <input type="text" id="quantidade" name="quantidade" placeholder="ex.: 50 toneladas / mês">
+        <input type="text" id="quantidade" placeholder="ex.: 50 toneladas / mês">
 
         <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+        <textarea id="mensagem" rows="5" placeholder="Detalhes adicionais"></textarea>
 
-        <button type="submit" class="button">Enviar mensagem</button>
-      </form>
+        <button id="enviar" class="button" type="button">Enviar por e-mail</button>
+      </div>
 
-      <p style="margin-top: 20px;">
+      <p style="margin-top:20px;">
         <a href="index.html" class="button secondary">← Voltar ao início</a>
       </p>
     </div>
@@ -71,5 +70,30 @@
       <div>São Paulo — Brasil</div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      function enc(s){ return encodeURIComponent(s || "").replace(/%20/g, "+"); }
+      document.getElementById('enviar').addEventListener('click', function(){
+        var nome = document.getElementById('nome').value;
+        var empresa = document.getElementById('empresa').value;
+        var email = document.getElementById('email').value;
+        var produto = document.getElementById('produto').value;
+        var quantidade = document.getElementById('quantidade').value;
+        var msg = document.getElementById('mensagem').value;
+
+        var assunto = enc("Compra — " + (produto || "Commodities"));
+        var corpo =
+          "Nome: " + (nome||"") + "%0D%0A" +
+          "Empresa: " + (empresa||"") + "%0D%0A" +
+          "E-mail: " + (email||"") + "%0D%0A" +
+          "Produto: " + (produto||"") + "%0D%0A" +
+          "Quantidade: " + (quantidade||"") + "%0D%0A%0D%0A" +
+          (msg||"");
+
+        window.location.href = "mailto:rui@braziltrad.com?subject=" + assunto + "&body=" + corpo;
+      });
+    })();
+  </script>
 </body>
 </html>
