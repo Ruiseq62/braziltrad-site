@@ -3,11 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contato — BrazilTrad</title>
-  <meta name="description" content="Fale com a BrazilTrad para compras e vendas de commodities (FOB/CIF).">
+  <title>BrazilTrad — Contato</title>
+  <meta name="description" content="Entre em contato com a equipe BrazilTrad para comprar ou vender commodities brasileiras com segurança e confiança.">
   <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -28,84 +26,61 @@
           <li><a href="index.html#products">Produtos</a></li>
           <li><a href="index.html#markets">Mercados</a></li>
           <li><a href="index.html#insights">Insights</a></li>
-          <li><a class="active" href="contato.html">Contato</a></li>
+          <li><a href="contato.html" class="active">Contato</a></li>
         </ul>
       </nav>
-      <div class="lang">
-        <a class="active" href="contato.html">PT</a>
-        <a href="en/contact.html">EN</a>
-        <a href="zh/contact.html">中文</a>
-      </div>
     </div>
   </header>
 
-  <section class="section">
+  <main class="section">
     <div class="container">
       <h1>Contato</h1>
-      <p class="lead">Preencha o formulário abaixo e entraremos em contacto em breve.</p>
+      <p class="lead">Envie a sua mensagem. Nossa equipe retornará o contato rapidamente para entender a sua necessidade.</p>
 
-      <form class="form" id="contactForm">
-        <input class="input" name="name" placeholder="Nome" required>
-        <input class="input" type="email" name="email" placeholder="E-mail" required>
-        <input class="input" name="phone" placeholder="Telefone">
-        <select class="input" name="type" required>
-          <option value="">Selecione...</option>
-          <option value="buy">Comprar</option>
-          <option value="sell">Vender</option>
-        </select>
-        <input class="input" name="product" placeholder="Produto">
-        <textarea name="message" placeholder="Mensagem"></textarea>
-        <button class="submit" type="submit">Enviar</button>
-        <div id="success" class="alert" style="display:none;">✅ Mensagem enviada com sucesso! Entraremos em contacto em breve.</div>
+      <!-- 🔗 SUBSTITUI este link PELO TEU ENDPOINT DO FORMSPREE -->
+      <form action="https://formspree.io/f/mabcdxyz" method="POST" class="form">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="empresa">Empresa:</label>
+        <input type="text" id="empresa" name="empresa">
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="_replyto" required>
+
+        <label for="assunto">Assunto:</label>
+        <input type="text" id="assunto" name="assunto" placeholder="Compra, venda, parceria..." required>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit" class="button">Enviar mensagem</button>
       </form>
+
+      <p id="msg-sucesso" style="display:none; color:green; margin-top:15px;">
+        ✅ Sua mensagem foi enviada com sucesso!
+      </p>
+
+      <p style="margin-top:20px;">
+        <a href="index.html" class="button secondary">← Voltar ao início</a>
+      </p>
     </div>
-  </section>
+  </main>
 
   <footer class="footer">
     <div class="inner container">
-      <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" style="height:34px;width:auto;display:block;margin:0 auto 8px">
-      <div>© BrazilTrad. Connecting Brazilian producers to global markets.</div>
-      <div class="links">
-        🌐 <a href="https://www.braziltrad.com">www.braziltrad.com</a> |
-        ✉️ <a href="mailto:rsequeira@braziltrad.com">rsequeira@braziltrad.com</a> |
-        🔗 <a href="https://www.linkedin.com/company/braziltrad/">LinkedIn</a>
-      </div>
-      <div>São Paulo — Brazil</div>
+      <div>© BrazilTrad — Conectando produtores brasileiros ao mercado global.</div>
+      <div>São Paulo — Brasil</div>
     </div>
   </footer>
 
-  <!-- Script robusto -->
   <script>
-  window.addEventListener('load', function(){
-    function getType(){
-      try{
-        const p = new URL(window.location.href).searchParams;
-        let t = (p.get('tipo') || p.get('type') || '').toLowerCase();
-        if (t.includes('compra') || t.includes('buy')) return 'buy';
-        if (t.includes('venda') || t.includes('sell')) return 'sell';
-        const s = (sessionStorage.getItem('bt_type') || '').toLowerCase();
-        if (s === 'buy' || s === 'sell') return s;
-      }catch(e){}
-      return '';
-    }
-
-    const type = getType();
-    const select = document.querySelector('select[name="type"]');
-    if (select && type) select.value = type;
-
-    const form = document.getElementById('contactForm');
-    const success = document.getElementById('success');
-    if (form){
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        success.style.display = 'block';
-        form.reset();
-        if (select && type) select.value = type;
-        sessionStorage.removeItem('bt_type');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-  });
+    // Mostra mensagem de sucesso após o envio
+    const form = document.querySelector('form');
+    const msg = document.getElementById('msg-sucesso');
+    form.addEventListener('submit', () => {
+      setTimeout(() => msg.style.display = 'block', 1000);
+    });
   </script>
 </body>
 </html>
