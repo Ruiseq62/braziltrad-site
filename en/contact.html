@@ -67,16 +67,17 @@
       e.preventDefault();
       const s=document.getElementById("form-status");
       s.textContent="Sending..."; s.style.color="#004b5c";
-      emailjs.send("service_swyd6le","template_hslmzyd_en",{
-        from_name: document.getElementById("name").value,
-        from_email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value
-      }).then(()=>{
-        emailjs.send("service_swyd6le","template_autoreply_braziltrad_en",{
-          from_name: document.getElementById("name").value,
-          from_email: document.getElementById("email").value
-        });
+      emailjs.send("service_swyd6le","template_hslmzyd",{
+  from_name: document.getElementById("name").value,
+  from_email: document.getElementById("email").value,
+  subject: document.getElementById("subject").value,
+  message: document.getElementById("message").value
+}).then(()=>{
+  emailjs.send("service_swyd6le","template_autoreply_braziltrad",{
+    from_name: document.getElementById("name").value,
+    from_email: document.getElementById("email").value
+  });
+
         s.textContent="Message sent successfully!"; s.style.color="green";
         document.getElementById("contact-form").reset();
       },()=>{ s.textContent="Error sending. Please try again."; s.style.color="red"; });
