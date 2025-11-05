@@ -40,3 +40,24 @@ textarea{min-height:120px;resize:vertical}
 .notice{font-size:14px;color:var(--muted)}
 @media (max-width:980px){.grid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.nav ul{display:none}.grid{grid-template-columns:1fr}}
+/* --- Correção: liberar cliques na seção principal --- */
+.header {
+  position: relative !important;
+  z-index: 10 !important;
+  height: auto !important;
+}
+
+/* Garantir que a hero fique acima */
+.hero {
+  position: relative !important;
+  z-index: 20 !important;
+}
+
+/* Garantir que os botões sejam clicáveis */
+.hero .cta a.button,
+.hero .cta a.button.secondary {
+  position: relative !important;
+  z-index: 30 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
