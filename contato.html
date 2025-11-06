@@ -1,333 +1,132 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contato — BrazilTrad</title>
-  <meta name="description" content="Fale connosco. A BrazilTrad conecta produtores brasileiros a compradores internacionais com transparência e confiança.">
-  <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="alternate" href="./contato.html#pt" hreflang="pt-br">
-  <link rel="alternate" href="./contato.html#en" hreflang="en">
-  <link rel="alternate" href="./contato.html#es" hreflang="es">
-  <link rel="alternate" href="./contato.html#zh" hreflang="zh">
   <style>
     .langbar{position:fixed;top:0;left:0;right:0;height:36px;display:flex;align-items:center;justify-content:center;gap:14px;background:#0F4C5C;color:#fff;font:500 14px/1 Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;z-index:10000}
     .langbar a{color:#fff;text-decoration:none;opacity:.8;padding:6px 10px;border-radius:999px}
     .langbar a.active,.langbar a:hover{background:rgba(255,255,255,.14);opacity:1}
-    body{padding-top:36px}
-    .contact-wrap{max-width:960px;margin:0 auto;padding:32px 16px}
-    .contact-card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 6px 24px rgba(0,0,0,.06)}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .row-1{display:grid;grid-template-columns:1fr;gap:16px}
-    label{font-weight:600;display:block;margin-bottom:4px}
-    input,textarea{width:100%;padding:12px 14px;border:1px solid #e1e5ea;border-radius:10px;font:400 16px/1.4 Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-    textarea{min-height:160px;resize:vertical}
-    .button{display:inline-block;background:#0F4C5C;color:#fff;text-decoration:none;border-radius:999px;padding:12px 18px;font-weight:600;border:0;cursor:pointer}
-    .button.secondary{background:#2D8A9D}
-    .note{font-size:14px;color:#5a646b;margin-top:8px}
-    .success{display:none;margin-top:16px;padding:12px 14px;border-radius:10px;background:#e8f5ee;border:1px solid #c8e8d6;color:#205c3b;font-weight:600}
-    .error{display:none;margin-top:16px;padding:12px 14px;border-radius:10px;background:#fdecea;border:1px solid #f6c7c1;color:#8a1f11;font-weight:600}
-    .hero h1{margin-bottom:6px}
-    .crumbs{font-size:12px;color:#6b757d;margin-bottom:10px}
+    body{padding-top:60px}
+    form{max-width:520px;margin:0 auto;background:#fff;padding:30px;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+    label{display:block;margin-top:12px;font-weight:500}
+    input,textarea{width:100%;padding:10px;margin-top:4px;border:1px solid #ccc;border-radius:6px;font-family:inherit}
+    button{margin-top:16px;background:#0F4C5C;color:#fff;border:none;padding:12px 20px;border-radius:6px;cursor:pointer}
+    button:hover{background:#12697a}
+    .msg{margin-top:16px;text-align:center;font-weight:600}
+    .success{color:#008f4c}
+    .error{color:#c62828}
   </style>
 </head>
 <body>
-  <!-- Barra fixa de idioma -->
-  <div class="langbar" aria-label="Selecionar idioma">
+
+  <!-- Barra de idioma -->
+  <div class="langbar">
     <a href="#pt" data-lang-select="pt">🇧🇷 PT</a>
     <a href="#en" data-lang-select="en">🇬🇧 EN</a>
     <a href="#es" data-lang-select="es">🇪🇸 ES</a>
     <a href="#zh" data-lang-select="zh">🇨🇳 中文</a>
   </div>
 
-  <header class="header">
-    <div class="container nav" style="padding-top:8px">
-      <a class="brand" href="index.html">
-        <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" />
-        <div>
-          <div class="title">BrazilTrad</div>
-          <div class="slogan"><em data-i18n="header.slogan"></em></div>
-        </div>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="index.html#about" data-i18n="menu.about"></a></li>
-          <li><a href="index.html#services" data-i18n="menu.services"></a></li>
-          <li><a href="index.html#products" data-i18n="menu.products"></a></li>
-          <li><a href="index.html#markets" data-i18n="menu.markets"></a></li>
-          <li><a href="index.html#insights" data-i18n="menu.insights"></a></li>
-          <li><a href="contato.html" data-i18n="menu.contact"></a></li>
-        </ul>
-      </nav>
-      <div class="lang"></div>
-    </div>
-  </header>
+  <main class="container">
+    <h1 data-i18n="title">Fale Conosco</h1>
+    <p data-i18n="desc" style="text-align:center">Envie sua mensagem e retornaremos em breve.</p>
 
-  <section class="hero">
-    <div class="container contact-wrap">
-      <div class="crumbs" data-i18n="crumbs"></div>
-      <h1 data-i18n="page.title">Contato — BrazilTrad</h1>
-      <p class="lead" data-i18n="page.lead"></p>
-    </div>
-  </section>
+    <form id="contactForm" action="enviar.php" method="POST">
+      <label for="name" data-i18n="form.name">Nome</label>
+      <input type="text" id="name" name="name" required>
 
-  <section class="section">
-    <div class="container contact-wrap">
-      <div class="contact-card">
-        <form id="contactForm" novalidate>
-          <div class="row">
-            <div>
-              <label for="name" data-i18n="form.name.label">Nome</label>
-              <input id="name" name="name" type="text" required placeholder="" data-i18n-attr-placeholder="form.name.placeholder">
-            </div>
-            <div>
-              <label for="email" data-i18n="form.email.label">E-mail</label>
-              <input id="email" name="email" type="email" required placeholder="" data-i18n-attr-placeholder="form.email.placeholder">
-            </div>
-          </div>
-          <div class="row">
-            <div>
-              <label for="subject" data-i18n="form.subject.label">Assunto</label>
-              <input id="subject" name="subject" type="text" required placeholder="" data-i18n-attr-placeholder="form.subject.placeholder">
-            </div>
-            <div>
-              <label for="company" data-i18n="form.company.label">Empresa (opcional)</label>
-              <input id="company" name="company" type="text" placeholder="" data-i18n-attr-placeholder="form.company.placeholder">
-            </div>
-          </div>
-          <div class="row-1">
-            <div>
-              <label for="message" data-i18n="form.message.label">Mensagem</label>
-              <textarea id="message" name="message" required placeholder="" data-i18n-attr-placeholder="form.message.placeholder"></textarea>
-            </div>
-          </div>
-          <div class="row-1">
-            <div class="note" data-i18n="form.note"></div>
-          </div>
-          <div class="row-1" style="margin-top:6px">
-            <button type="submit" class="button" data-i18n="form.submit">Enviar mensagem</button>
-          </div>
-          <div id="success" class="success" data-i18n="form.success"></div>
-          <div id="error" class="error" data-i18n="form.error"></div>
-        </form>
-      </div>
-    </div>
-  </section>
+      <label for="email" data-i18n="form.email">E-mail</label>
+      <input type="email" id="email" name="email" required>
 
-  <footer class="footer">
-    <div class="inner container">
-      <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" style="height:34px;width:auto;display:block;margin:0 auto 8px">
-      <div data-i18n="footer.claim"></div>
-      <div class="links">
-        🌐 <a href="https://www.braziltrad.com">www.braziltrad.com</a> |
-        ✉️ <a href="mailto:rsequeira@braziltrad.com">rsequeira@braziltrad.com</a> |
-        🔗 <a href="https://www.linkedin.com/company/braziltrad/">LinkedIn</a>
-      </div>
-      <div data-i18n="footer.location"></div>
-    </div>
+      <label for="company" data-i18n="form.company">Empresa (opcional)</label>
+      <input type="text" id="company" name="company">
+
+      <label for="subject" data-i18n="form.subject">Assunto</label>
+      <input type="text" id="subject" name="subject" required>
+
+      <label for="message" data-i18n="form.message">Mensagem</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit" data-i18n="form.send">Enviar mensagem</button>
+      <div id="formMsg" class="msg"></div>
+    </form>
+  </main>
+
+  <footer class="footer" style="margin-top:60px;text-align:center;padding:20px;color:#444">
+    <div>© BrazilTrad — <span data-i18n="footer">Conectando produtores brasileiros a mercados globais.</span></div>
+    <div>✉️ <a href="mailto:rsequeira@braziltrad.com">rsequeira@braziltrad.com</a></div>
   </footer>
 
   <script>
     const I18N = {
-      pt:{
-        htmlLang:'pt',
-        head:{title:'Contato — BrazilTrad',desc:'Fale connosco. A BrazilTrad conecta produtores brasileiros a compradores internacionais com transparência e confiança.'},
-        header:{slogan:'Conectando produtores brasileiros a mercados globais'},
-        crumbs:'Início • Contato',
-        menu:{about:'Sobre',services:'Serviços',products:'Produtos',markets:'Mercados',insights:'Insights',contact:'Contato'},
-        page:{title:'Contato — BrazilTrad',lead:'Fale connosco sobre compras, vendas e parcerias de commodities.'},
-        form:{
-          name:{label:'Nome',placeholder:'Seu nome'},
-          email:{label:'E-mail',placeholder:'seu@email.com'},
-          subject:{label:'Assunto',placeholder:'Ex.: Compra de soja / Venda de lítio'},
-          company:{label:'Empresa (opcional)',placeholder:'Nome da empresa'},
-          message:{label:'Mensagem',placeholder:'Conte-nos o que precisa. Voltamos rapidamente.'},
-          note:'Ao enviar, abriremos seu app de e-mail com os dados preenchidos.',
-          submit:'Enviar mensagem',
-          success:'Mensagem enviada com sucesso!',
-          error:'Revise os campos obrigatórios (Nome, E-mail, Assunto, Mensagem).'
-        },
-        footer:{claim:'© BrazilTrad. Conectando produtores brasileiros a mercados globais.',location:'São Paulo — Brasil'}
-      },
-      en:{
-        htmlLang:'en',
-        head:{title:'Contact — BrazilTrad',desc:'Get in touch. BrazilTrad connects Brazilian producers with international buyers with transparency and trust.'},
-        header:{slogan:'Connecting Brazilian producers to global markets'},
-        crumbs:'Home • Contact',
-        menu:{about:'About',services:'Services',products:'Products',markets:'Markets',insights:'Insights',contact:'Contact'},
-        page:{title:'Contact — BrazilTrad',lead:'Talk to us about buying, selling and partnerships in commodities.'},
-        form:{
-          name:{label:'Name',placeholder:'Your name'},
-          email:{label:'Email',placeholder:'you@example.com'},
-          subject:{label:'Subject',placeholder:'e.g., Soybean purchase / Lithium sale'},
-          company:{label:'Company (optional)',placeholder:'Company name'},
-          message:{label:'Message',placeholder:'Tell us what you need. We will reply quickly.'},
-          note:'When you submit, we will open your email app with the details pre-filled.',
-          submit:'Send message',
-          success:'Message sent successfully!',
-          error:'Please review the required fields (Name, Email, Subject, Message).'
-        },
-        footer:{claim:'© BrazilTrad. Connecting Brazilian producers to global markets.',location:'São Paulo — Brazil'}
-      },
-      es:{
-        htmlLang:'es',
-        head:{title:'Contacto — BrazilTrad',desc:'Contáctanos. BrazilTrad conecta productores brasileños con compradores internacionales con transparencia y confianza.'},
-        header:{slogan:'Conectando productores brasileños con mercados globales'},
-        crumbs:'Inicio • Contacto',
-        menu:{about:'Sobre',services:'Servicios',products:'Productos',markets:'Mercados',insights:'Insights',contact:'Contacto'},
-        page:{title:'Contacto — BrazilTrad',lead:'Hable con nosotros sobre compras, ventas y alianzas de materias primas.'},
-        form:{
-          name:{label:'Nombre',placeholder:'Tu nombre'},
-          email:{label:'Correo',placeholder:'tu@email.com'},
-          subject:{label:'Asunto',placeholder:'Ej.: Compra de soja / Venta de litio'},
-          company:{label:'Empresa (opcional)',placeholder:'Nombre de la empresa'},
-          message:{label:'Mensaje',placeholder:'Cuéntenos qué necesita. Responderemos pronto.'},
-          note:'Al enviar, abriremos tu aplicación de correo con los datos completados.',
-          submit:'Enviar',
-          success:'¡Mensaje enviado con éxito!',
-          error:'Revisa los campos obligatorios (Nombre, Correo, Asunto, Mensaje).'
-        },
-        footer:{claim:'© BrazilTrad. Conectando productores brasileños con mercados globales.',location:'São Paulo — Brasil'}
-      },
-      zh:{
-        htmlLang:'zh',
-        head:{title:'联系 — BrazilTrad',desc:'联系我们。BrazilTrad 以透明与信任连接巴西生产商与国际买家。'},
-        header:{slogan:'连接巴西生产者与全球市场'},
-        crumbs:'首页 • 联系',
-        menu:{about:'简介',services:'服务',products:'产品',markets:'市场',insights:'洞察',contact:'联系'},
-        page:{title:'联系 — BrazilTrad',lead:'就采购、销售与合作事宜与我们联系。'},
-        form:{
-          name:{label:'姓名',placeholder:'您的姓名'},
-          email:{label:'邮箱',placeholder:'you@example.com'},
-          subject:{label:'主题',placeholder:'例如：采购大豆 / 出售锂'},
-          company:{label:'公司（可选）',placeholder:'公司名称'},
-          message:{label:'信息',placeholder:'请告诉我们您的需求。我们会尽快回复。'},
-          note:'提交后，我们会打开您的邮件应用并自动填入内容。',
-          submit:'发送',
-          success:'消息已成功发送！',
-          error:'请检查必填项（姓名、邮箱、主题、信息）。'
-        },
-        footer:{claim:'© BrazilTrad. 连接巴西生产者与全球市场。',location:'巴西 • 圣保罗'}
-      }
+      pt:{title:"Fale Conosco",desc:"Envie sua mensagem e retornaremos em breve.",
+          form:{name:"Nome",email:"E-mail",company:"Empresa (opcional)",subject:"Assunto",message:"Mensagem",send:"Enviar mensagem"},
+          success:"Mensagem enviada com sucesso! Entraremos em contato em breve.",
+          error:"Erro ao enviar. Tente novamente.",
+          footer:"Conectando produtores brasileiros a mercados globais."},
+      en:{title:"Contact Us",desc:"Send us your message and we’ll get back to you soon.",
+          form:{name:"Name",email:"Email",company:"Company (optional)",subject:"Subject",message:"Message",send:"Send message"},
+          success:"Message sent successfully! We’ll be in touch soon.",
+          error:"Error sending. Please try again.",
+          footer:"Connecting Brazilian producers to global markets."},
+      es:{title:"Contáctenos",desc:"Envíe su mensaje y responderemos pronto.",
+          form:{name:"Nombre",email:"Correo",company:"Empresa (opcional)",subject:"Asunto",message:"Mensaje",send:"Enviar mensaje"},
+          success:"¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+          error:"Error al enviar. Intente nuevamente.",
+          footer:"Conectando productores brasileños con mercados globales."},
+      zh:{title:"联系我们",desc:"请发送您的信息，我们会尽快回复。",
+          form:{name:"姓名",email:"电子邮件",company:"公司（可选）",subject:"主题",message:"留言内容",send:"发送信息"},
+          success:"信息发送成功！我们会尽快与您联系。",
+          error:"发送失败，请重试。",
+          footer:"连接巴西生产者与全球市场。"}
     };
 
-    function setHead(dict){
-      document.title = dict.head.title;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if(metaDesc) metaDesc.setAttribute('content', dict.head.desc);
-      document.documentElement.setAttribute('lang', dict.htmlLang || 'pt');
-      // Atualiza hreflang anchors
-      const alts = {
-        'pt-br':'./contato.html#pt',
-        'en':'./contato.html#en',
-        'es':'./contato.html#es',
-        'zh':'./contato.html#zh'
-      };
-      document.querySelectorAll('link[rel="alternate"]').forEach(link=>{
-        const hreflang = link.getAttribute('hreflang');
-        if(alts[hreflang]) link.setAttribute('href', alts[hreflang]);
-      });
-    }
-
-    function applyI18n(dict){
-      setHead(dict);
+    function setLanguage(lang){
+      const t = I18N[lang]||I18N.pt;
       document.querySelectorAll('[data-i18n]').forEach(el=>{
         const path = el.getAttribute('data-i18n').split('.');
-        let val = dict; path.forEach(k=>{ if(val) val = val[k]; });
-        if(typeof val === 'string') el.textContent = val;
+        let val=t; path.forEach(k=>{ if(val) val=val[k]; });
+        if(typeof val==='string') el.textContent=val;
       });
-      document.querySelectorAll('[data-i18n-attr-placeholder]').forEach(el=>{
-        const path = el.getAttribute('data-i18n-attr-placeholder').split('.');
-        let val = dict; path.forEach(k=>{ if(val) val = val[k]; });
-        if(val && typeof val.placeholder==='string') el.setAttribute('placeholder', val.placeholder);
+      document.querySelectorAll('[data-lang-select]').forEach(a=>{
+        a.classList.toggle('active',a.getAttribute('data-lang-select')===lang);
       });
-    }
-
-    function setLanguage(lang){
-      const dict = I18N[lang] || I18N.pt;
-      applyI18n(dict);
-      document.querySelectorAll('.langbar a').forEach(a=>{
-        a.classList.toggle('active', a.getAttribute('data-lang-select')===lang);
-      });
-      if(location.hash !== '#' + lang) history.replaceState(null,'','#'+lang);
-      try{ localStorage.setItem('bt_lang', lang); }catch(e){}
+      localStorage.setItem('bt_lang',lang);
     }
 
     (function initLang(){
-      const hash = (location.hash||'').replace('#','');
-      const saved = (function(){ try{ return localStorage.getItem('bt_lang'); }catch(e){ return null; } })();
-      let lang = 'pt';
-      if(['pt','en','es','zh'].includes(hash)) lang = hash;
-      else if(saved && ['pt','en','es','zh'].includes(saved)) lang = saved;
-      else {
-        const nav = (navigator.language||navigator.userLanguage||'pt').toLowerCase();
-        if(nav.startsWith('pt')) lang='pt'; else if(nav.startsWith('es')) lang='es'; else if(nav.startsWith('zh')) lang='zh'; else lang='en';
-      }
+      const saved=localStorage.getItem('bt_lang');
+      const hash=(location.hash||'').replace('#','');
+      let lang='pt';
+      if(['pt','en','es','zh'].includes(hash)) lang=hash;
+      else if(saved) lang=saved;
       setLanguage(lang);
       document.querySelectorAll('[data-lang-select]').forEach(a=>{
-        a.addEventListener('click',function(ev){ ev.preventDefault(); setLanguage(this.getAttribute('data-lang-select')); });
+        a.addEventListener('click',e=>{e.preventDefault();setLanguage(a.getAttribute('data-lang-select'));});
       });
     })();
-  </script>
 
-  <script>
-    // Mailto submission and client-side validation
-    (function(){
-      const form = document.getElementById('contactForm');
-      const success = document.getElementById('success');
-      const error = document.getElementById('error');
-      const getLang = () => (location.hash||'#pt').replace('#','') || (localStorage.getItem('bt_lang')||'pt');
-
-      function t(key){
-        const lang = getLang();
-        const dict = (I18N[lang] || I18N.pt);
-        const parts = key.split('.');
-        let v = dict; parts.forEach(k=>{ if(v) v=v[k]; });
-        return v || '';
+    document.getElementById("contactForm").addEventListener("submit", async (e)=>{
+      e.preventDefault();
+      const form=e.target;
+      const data=new FormData(form);
+      const msg=document.getElementById("formMsg");
+      msg.textContent="";
+      try{
+        const res=await fetch(form.action,{method:"POST",body:data});
+        if(res.ok){
+          msg.textContent=I18N[localStorage.getItem("bt_lang")||"pt"].success;
+          msg.className="msg success";
+          form.reset();
+        }else throw new Error();
+      }catch{
+        msg.textContent=I18N[localStorage.getItem("bt_lang")||"pt"].error;
+        msg.className="msg error";
       }
-
-      form.addEventListener('submit', function(ev){
-        ev.preventDefault();
-        success.style.display='none'; error.style.display='none';
-
-        const name = (document.getElementById('name').value||'').trim();
-        const email = (document.getElementById('email').value||'').trim();
-        const subject = (document.getElementById('subject').value||'').trim();
-        const company = (document.getElementById('company').value||'').trim();
-        const message = (document.getElementById('message').value||'').trim();
-
-        if(!name || !email || !subject || !message){
-          error.textContent = t('form.error');
-          error.style.display='block';
-          return;
-        }
-
-        // Compose mailto
-        const to = 'rsequeira@braziltrad.com';
-        const bodyLines = [
-          `Nome/Name: ${name}`,
-          `Email: ${email}`,
-          company ? `Empresa/Company: ${company}` : null,
-          '',
-          'Mensagem/Message:',
-          message,
-          '',
-          `Origem: braziltrad.com/contato.html (${getLang().toUpperCase()})`
-        ].filter(Boolean);
-        const mailtoUrl = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-
-        // Open email client
-        window.location.href = mailtoUrl;
-
-        // Show success message
-        success.textContent = t('form.success');
-        success.style.display = 'block';
-        form.reset();
-      });
-    })();
+    });
   </script>
 </body>
 </html>
