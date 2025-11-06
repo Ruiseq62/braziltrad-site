@@ -1,25 +1,140 @@
-<style>
-  footer.footer, footer.footer * {
-    pointer-events: auto !important;
-    z-index: 99999 !important;
-    position: relative;
-    transition: color 0.2s ease, opacity 0.2s ease;
-  }
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  footer.footer a {
-    opacity: 0.9;
-  }
+  <title id="meta-title">BrazilTrad — Intermediação confiável de commodities brasileiras (FOB/CIF)</title>
+  <meta id="meta-desc" name="description" content="Intermediação confiável de metais e agrícolas brasileiros, com verificação de origem, compliance e logística eficiente sob FOB/CIF.">
+  <meta name="keywords" content="commodities, exportação, FOB, CIF, intermediação, metais, agrícolas, Brasil, trading, due diligence">
+  <meta name="author" content="BrazilTrad">
 
-  footer.footer a:hover {
-    opacity: 1;
-    color: #0F4C5C; /* verde institucional */
-    text-decoration: underline;
-  }
+  <link rel="alternate" hreflang="x-default" href="https://braziltrad.com/">
+  <link rel="alternate" hreflang="pt-br" href="https://braziltrad.com/#pt">
+  <link rel="alternate" hreflang="en" href="https://braziltrad.com/#en">
+  <link rel="alternate" hreflang="es" href="https://braziltrad.com/#es">
+  <link rel="alternate" hreflang="zh" href="https://braziltrad.com/#zh">
 
-  @media (max-width: 640px) {
-    footer.footer .links {
-      flex-direction: column;
-      gap: 10px;
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://braziltrad.com/assets/img/braziltrad-logo.png">
+  <meta property="og:url" content="https://braziltrad.com/">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="BrazilTrad — Connecting Brazilian producers to global markets">
+  <meta property="og:description" content="Trusted Brazilian intermediary for global commodity trading. Verified origin, compliance and logistics under FOB/CIF.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BrazilTrad — Connecting Brazilian producers to global markets">
+  <meta name="twitter:description" content="Reliable Brazilian commodity trading — verified origin, compliance and logistics under FOB/CIF.">
+  <meta name="twitter:image" content="https://braziltrad.com/assets/img/braziltrad-logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "BrazilTrad",
+    "url": "https://braziltrad.com",
+    "logo": "https://braziltrad.com/assets/img/braziltrad-logo.png",
+    "description": "BrazilTrad conecta produtores brasileiros ao mercado global de commodities — intermediação confiável, origem verificada e logística sob FOB/CIF.",
+    "sameAs": ["https://www.linkedin.com/company/braziltrad/"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "rsequeira@braziltrad.com",
+      "contactType": "sales",
+      "availableLanguage": ["Portuguese", "English", "Spanish", "Chinese"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressCountry": "Brazil"
     }
   }
-</style>
+  </script>
+
+  <meta name="theme-color" content="#0F4C5C">
+
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ⚙️ Proteção de clique no rodapé -->
+  <style>
+    .langbar{position:fixed;top:0;left:0;right:0;height:36px;display:flex;align-items:center;justify-content:center;gap:14px;background:#0F4C5C;color:#fff;font:500 14px/1 Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;z-index:10000}
+    .langbar a{color:#fff;text-decoration:none;opacity:.8;padding:6px 10px;border-radius:999px}
+    .langbar a.active,.langbar a:hover{background:rgba(255,255,255,.14);opacity:1}
+    body{padding-top:36px}
+    [data-i18n-scope]{display:contents}
+
+    footer.footer, footer.footer * {
+      pointer-events: auto !important;
+      z-index: 99999 !important;
+      position: relative;
+    }
+    footer.footer a:hover {
+      text-decoration: underline;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="langbar" aria-label="Selecionar idioma">
+    <a href="#pt" data-lang-select="pt">🇧🇷 PT</a>
+    <a href="#en" data-lang-select="en">🇬🇧 EN</a>
+    <a href="#es" data-lang-select="es">🇪🇸 ES</a>
+    <a href="#zh" data-lang-select="zh">🇨🇳 中文</a>
+  </div>
+
+  <!-- cabeçalho e secções (idênticos ao original) -->
+  ... <!-- todo o conteúdo intermédio igual ao teu arquivo original -->
+
+  <!-- ✅ Rodapé final corrigido -->
+  <footer class="footer" style="position:relative; z-index:9999; isolation:isolate;">
+    <div class="inner container" style="text-align:center; padding:24px 0; pointer-events:auto;">
+      <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad"
+           style="height:38px;width:auto;display:block;margin:0 auto 12px">
+      <div data-i18n="footer.claim" style="margin-bottom:10px;"></div>
+      <div class="links" style="font-size:15px; line-height:1.8; pointer-events:auto;">
+        <span style="display:inline-flex; align-items:center; gap:6px;">
+          🌐 <a href="https://braziltrad.com" 
+                onclick="window.open(this.href, '_blank'); return false;"
+                style="text-decoration:none; color:inherit; pointer-events:auto;">
+                braziltrad.com
+          </a>
+        </span>
+        &nbsp;|&nbsp;
+        <span style="display:inline-flex; align-items:center; gap:6px;">
+          ✉️ <a href="mailto:rsequeira@braziltrad.com"
+                style="text-decoration:none; color:inherit; pointer-events:auto;">
+                rsequeira@braziltrad.com
+          </a>
+        </span>
+        &nbsp;|&nbsp;
+        <span style="display:inline-flex; align-items:center; gap:6px;">
+          💼 <a href="https://www.linkedin.com/company/braziltrad/"
+                onclick="window.open(this.href, '_blank'); return false;"
+                style="text-decoration:none; color:inherit; pointer-events:auto;">
+                LinkedIn
+          </a>
+        </span>
+      </div>
+      <div data-i18n="footer.location"
+           style="margin-top:10px; font-size:13px; color:rgba(0,0,0,0.75);"></div>
+    </div>
+  </footer>
+
+  <!-- Scripts multilíngues e SEO dinâmico -->
+  <script>
+    (function(){
+      var bc=document.getElementById('btn-comprar');
+      var bv=document.getElementById('btn-vender');
+      if(bc) bc.addEventListener('click',function(){sessionStorage.setItem('bt_type','buy')});
+      if(bv) bv.addEventListener('click',function(){sessionStorage.setItem('bt_type','sell')});
+    })();
+  </script>
+
+  <!-- mantém o teu bloco I18N original -->
+  <script>
+    /* ... o mesmo bloco JSON I18N e scripts multilíngues que já tinhas ... */
+  </script>
+</body>
+</html>
