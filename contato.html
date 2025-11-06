@@ -34,7 +34,8 @@
     <h1 data-i18n="title">Fale Conosco</h1>
     <p data-i18n="desc" style="text-align:center">Envie sua mensagem e retornaremos em breve.</p>
 
-    <form id="contactForm" action="enviar.php" method="POST">
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="36b646fd-5467-4ff8-8a3a-9df90aae76fe">
       <label for="name" data-i18n="form.name">Nome</label>
       <input type="text" id="name" name="name" required>
 
