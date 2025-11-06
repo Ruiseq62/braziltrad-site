@@ -3,25 +3,114 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BrazilTrad — Conectando o Brasil ao mercado global de commodities</title>
-  <meta name="description" content="Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF.">
+
+  <!-- 🌍 SEO Internacional — versão dinâmica única BrazilTrad -->
+  <title id="meta-title">BrazilTrad — Intermediação confiável de commodities brasileiras (FOB/CIF)</title>
+  <meta id="meta-desc" name="description" content="Intermediação confiável de metais e agrícolas brasileiros, com verificação de origem, compliance e logística eficiente sob FOB/CIF.">
+  <meta name="keywords" content="commodities, exportação, FOB, CIF, intermediação, metais, agrícolas, Brasil, trading, due diligence">
+  <meta name="author" content="BrazilTrad">
+
+  <!-- Links multilíngues (para buscadores entenderem os idiomas) -->
+  <link rel="alternate" hreflang="x-default" href="https://braziltrad.com/">
+  <link rel="alternate" hreflang="pt-br" href="https://braziltrad.com/#pt">
+  <link rel="alternate" hreflang="en" href="https://braziltrad.com/#en">
+  <link rel="alternate" hreflang="es" href="https://braziltrad.com/#es">
+  <link rel="alternate" hreflang="zh" href="https://braziltrad.com/#zh">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://braziltrad.com/assets/img/braziltrad-logo.png">
+  <meta property="og:url" content="https://braziltrad.com/">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="BrazilTrad — Connecting Brazilian producers to global markets">
+  <meta property="og:description" content="Trusted Brazilian intermediary for global commodity trading. Verified origin, compliance and logistics under FOB/CIF.">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BrazilTrad — Connecting Brazilian producers to global markets">
+  <meta name="twitter:description" content="Reliable Brazilian commodity trading — verified origin, compliance and logistics under FOB/CIF.">
+  <meta name="twitter:image" content="https://braziltrad.com/assets/img/braziltrad-logo.png">
+
+  <!-- Schema.org (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "BrazilTrad",
+    "url": "https://braziltrad.com",
+    "logo": "https://braziltrad.com/assets/img/braziltrad-logo.png",
+    "description": "BrazilTrad conecta produtores brasileiros ao mercado global de commodities — intermediação confiável, origem verificada e logística sob FOB/CIF.",
+    "sameAs": ["https://www.linkedin.com/company/braziltrad/"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "rsequeira@braziltrad.com",
+      "contactType": "sales",
+      "availableLanguage": ["Portuguese", "English", "Spanish", "Chinese"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressCountry": "Brazil"
+    }
+  }
+  </script>
+
+  <meta name="theme-color" content="#0F4C5C">
+
+  <!-- 🌐 Script dinâmico de SEO multilíngue -->
+  <script>
+  const SEO_TEXT = {
+    pt: {
+      title: "BrazilTrad — Intermediação confiável de commodities brasileiras (FOB/CIF)",
+      desc: "Intermediação confiável de metais e agrícolas brasileiros, com verificação de origem, compliance e logística eficiente sob FOB/CIF."
+    },
+    en: {
+      title: "BrazilTrad — Trusted Brazilian Commodity Trading (FOB/CIF)",
+      desc: "Reliable Brazilian intermediary for global commodity trading. Verified origin, compliance and logistics under FOB/CIF."
+    },
+    es: {
+      title: "BrazilTrad — Comercio confiable de commodities brasileñas (FOB/CIF)",
+      desc: "Intermediación confiable de metales y agrícolas brasileños, con origen verificado, cumplimiento y logística eficiente bajo FOB/CIF."
+    },
+    zh: {
+      title: "BrazilTrad — 巴西大宗商品出口与贸易（FOB/CIF）",
+      desc: "可靠的巴西商品贸易商，提供经过验证的来源、合规性和高效的FOB/CIF物流。"
+    }
+  };
+
+  function updateSEO(lang) {
+    const { title, desc } = SEO_TEXT[lang] || SEO_TEXT.pt;
+    document.title = title;
+    document.getElementById("meta-title").textContent = title;
+    document.getElementById("meta-desc").setAttribute("content", desc);
+    document.querySelector('meta[property="og:title"]').setAttribute("content", title);
+    document.querySelector('meta[property="og:description"]').setAttribute("content", desc);
+    document.querySelector('meta[name="twitter:title"]').setAttribute("content", title);
+    document.querySelector('meta[name="twitter:description"]').setAttribute("content", desc);
+  }
+
+  (function() {
+    const savedLang = localStorage.getItem("bt_lang") || "pt";
+    updateSEO(savedLang);
+  })();
+  </script>
+  <!-- 🌍 / Fim do bloco SEO Internacional -->
+
+  <!-- Restante do cabeçalho -->
   <link rel="icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="alternate" href="https://braziltrad.com/#pt" hreflang="pt-br">
-  <link rel="alternate" href="https://braziltrad.com/#en" hreflang="en">
-  <link rel="alternate" href="https://braziltrad.com/#es" hreflang="es">
-  <link rel="alternate" href="https://braziltrad.com/#zh" hreflang="zh">
+
   <style>
     .langbar{position:fixed;top:0;left:0;right:0;height:36px;display:flex;align-items:center;justify-content:center;gap:14px;background:#0F4C5C;color:#fff;font:500 14px/1 Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;z-index:10000}
     .langbar a{color:#fff;text-decoration:none;opacity:.8;padding:6px 10px;border-radius:999px}
     .langbar a.active,.langbar a:hover{background:rgba(255,255,255,.14);opacity:1}
-    #braziltrad-ticker{position:sticky;top:36px}
     body{padding-top:36px}
     [data-i18n-scope]{display:contents}
   </style>
 </head>
+
 <body>
   <div class="langbar" aria-label="Selecionar idioma">
     <a href="#pt" data-lang-select="pt">🇧🇷 PT</a>
