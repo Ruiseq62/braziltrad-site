@@ -109,6 +109,28 @@
     body{padding-top:36px}
     [data-i18n-scope]{display:contents}
   </style>
+  <!-- 🔧 Correção: ativar cliques no rodapé -->
+<style>
+  footer a {
+    position: relative;
+    z-index: 10001 !important;
+    pointer-events: auto !important;
+  }
+
+  footer {
+    position: relative;
+    z-index: 10000 !important;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* cor branca para o texto de São Paulo */
+  footer [data-i18n="footer.location"] {
+    color: #ffffff !important;
+  }
+</style>
 </head>
 
 <body>
