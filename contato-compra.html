@@ -118,16 +118,37 @@
       });
     })();
 
+    // Envio para Web3Forms + Google Sheets
     document.getElementById("contactForm").addEventListener("submit", async (e)=>{
       e.preventDefault();
       const form=e.target;
       const data=new FormData(form);
       const msg=document.getElementById("formMsg");
       msg.textContent="";
+      const idioma = localStorage.getItem("bt_lang") || "pt";
+
       try{
+        // 1️⃣ Envia para Web3Forms (mantém funcionalidade atual)
         const res=await fetch(form.action,{method:"POST",body:data});
+
+        // 2️⃣ Envia para Google Sheets
+        const sheetData = {
+          nome: form.name.value,
+          email: form.email.value,
+          telefone: form.company.value || "",
+          tipo: "Compra",
+          idioma: idioma,
+          mensagem: form.message.value
+        };
+
+        // 👉 Substitui o link abaixo pelo teu URL do Apps Script
+        await fetch("https://script.google.com/macros/s/TEU_LINK_AQUI/exec", {
+          method: "POST",
+          body: JSON.stringify(sheetData)
+        });
+
         if(res.ok){
-          msg.textContent=I18N[localStorage.getItem("bt_lang")||"pt"].success;
+          msg.textContent=I18N[idioma].success;
           msg.className="msg success";
           form.reset();
         }else throw new Error();
