@@ -32,7 +32,7 @@
 
   <main class="container">
     <h1 data-i18n="title">Quero Vender</h1>
-    <p data-i18n="desc" style="text-align:center">Preencha o formulário abaixo para apresentar sua oferta.</p>
+    <p data-i18n="desc" style="text-align:center">Preencha o formulário abaixo e nossa equipe entrará em contato.</p>
 
     <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="36b646fd-5467-4ff8-8a3a-9df90aae76fe">
@@ -50,10 +50,10 @@
       <label for="product" data-i18n="form.product">Produto que deseja vender</label>
       <input type="text" id="product" name="product" required>
 
-      <label for="capacity" data-i18n="form.capacity">Capacidade de fornecimento mensal</label>
-      <input type="text" id="capacity" name="capacity">
+      <label for="volume" data-i18n="form.volume">Volume mensal disponível</label>
+      <input type="text" id="volume" name="volume">
 
-      <label for="origin" data-i18n="form.origin">Local de origem</label>
+      <label for="origin" data-i18n="form.origin">País de origem</label>
       <input type="text" id="origin" name="origin">
 
       <label for="message" data-i18n="form.message">Mensagem</label>
@@ -71,23 +71,23 @@
 
   <script>
     const I18N = {
-      pt:{title:"Quero Vender",desc:"Preencha o formulário abaixo para apresentar sua oferta.",
-          form:{name:"Nome",email:"E-mail",company:"Empresa (opcional)",product:"Produto que deseja vender",capacity:"Capacidade de fornecimento mensal",origin:"Local de origem",message:"Mensagem",send:"Enviar mensagem"},
+      pt:{title:"Quero Vender",desc:"Preencha o formulário abaixo e nossa equipe entrará em contato.",
+          form:{name:"Nome",email:"E-mail",company:"Empresa (opcional)",product:"Produto que deseja vender",volume:"Volume mensal disponível",origin:"País de origem",message:"Mensagem",send:"Enviar mensagem"},
           success:"Mensagem enviada com sucesso! Entraremos em contato em breve.",
           error:"Erro ao enviar. Tente novamente.",
           footer:"Conectando produtores brasileiros a mercados globais."},
-      en:{title:"I Want to Sell",desc:"Fill out the form below to present your offer.",
-          form:{name:"Name",email:"Email",company:"Company (optional)",product:"Product you want to sell",capacity:"Monthly supply capacity",origin:"Origin location",message:"Message",send:"Send message"},
+      en:{title:"I Want to Sell",desc:"Fill out the form below and our team will contact you soon.",
+          form:{name:"Name",email:"Email",company:"Company (optional)",product:"Product you want to sell",volume:"Monthly available volume",origin:"Country of origin",message:"Message",send:"Send message"},
           success:"Message sent successfully! We’ll be in touch soon.",
           error:"Error sending. Please try again.",
           footer:"Connecting Brazilian producers to global markets."},
-      es:{title:"Quiero Vender",desc:"Complete el formulario para presentar su oferta.",
-          form:{name:"Nombre",email:"Correo",company:"Empresa (opcional)",product:"Producto que desea vender",capacity:"Capacidad de suministro mensual",origin:"Lugar de origen",message:"Mensaje",send:"Enviar mensaje"},
+      es:{title:"Quiero Vender",desc:"Complete el formulario y nuestro equipo se pondrá en contacto.",
+          form:{name:"Nombre",email:"Correo",company:"Empresa (opcional)",product:"Producto que desea vender",volume:"Volumen mensual disponible",origin:"País de origen",message:"Mensaje",send:"Enviar mensaje"},
           success:"¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
           error:"Error al enviar. Intente nuevamente.",
           footer:"Conectando productores brasileños con mercados globales."},
-      zh:{title:"我想出售",desc:"请填写以下表格以展示您的报价。",
-          form:{name:"姓名",email:"电子邮件",company:"公司（可选）",product:"想要出售的产品",capacity:"每月供应能力",origin:"产地",message:"留言内容",send:"发送信息"},
+      zh:{title:"我想出售",desc:"请填写以下表格，我们的团队将尽快与您联系。",
+          form:{name:"姓名",email:"电子邮件",company:"公司（可选）",product:"想要出售的产品",volume:"可用的月度数量",origin:"原产国",message:"留言内容",send:"发送信息"},
           success:"信息发送成功！我们会尽快与您联系。",
           error:"发送失败，请重试。",
           footer:"连接巴西生产者与全球市场。"}
@@ -124,13 +124,31 @@
       const data=new FormData(form);
       const msg=document.getElementById("formMsg");
       msg.textContent="";
+
+      const idioma = localStorage.getItem("bt_lang") || "pt";
+
       try{
-        const res=await fetch(form.action,{method:"POST",body:data});
-        if(res.ok){
-          msg.textContent=I18N[localStorage.getItem("bt_lang")||"pt"].success;
-          msg.className="msg success";
-          form.reset();
-        }else throw new Error();
+        // Envia para Web3Forms
+        await fetch(form.action,{method:"POST",body:data});
+
+        // Envia para Google Sheets
+        const sheetData = {
+          nome: form.name.value,
+          email: form.email.value,
+          telefone: form.company.value || "",
+          tipo: "Venda",
+          idioma: idioma,
+          mensagem: form.message.value
+        };
+
+        await fetch("https://script.google.com/macros/s/AKfycbwk5A92hZuN_G8-CBClFlJczaLWPokVvxHCzGB_nKClQYxuL4O0LYac8qRpR3TnZuQ0Ug/exec", {
+          method: "POST",
+          body: JSON.stringify(sheetData)
+        });
+
+        msg.textContent=I18N[idioma].success;
+        msg.className="msg success";
+        form.reset();
       }catch{
         msg.textContent=I18N[localStorage.getItem("bt_lang")||"pt"].error;
         msg.className="msg error";
