@@ -131,6 +131,7 @@
         // 1️⃣ Envia para Web3Forms (mantém funcionalidade atual)
         const res=await fetch(form.action,{method:"POST",body:data});
 
+   
         // 2️⃣ Envia para Google Sheets
         const sheetData = {
           nome: form.name.value,
@@ -142,7 +143,7 @@
         };
 
         // 👉 Substitui o link abaixo pelo teu URL do Apps Script
-        await fetch("https://script.google.com/macros/s/TEU_LINK_AQUI/exec", {
+        await fetch("https://script.google.com/macros/s/TKfycbwr9bcB6GGJWiC-xdBkC_OBCMj5qL5jZRv-bYDD3pk0GylNyoLQoKNxZuyoajh1UjMJvA/exec", {
           method: "POST",
           body: JSON.stringify(sheetData)
         });
