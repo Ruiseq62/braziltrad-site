@@ -143,10 +143,11 @@
         };
 
         // 👉 Substitui o link abaixo pelo teu URL do Apps Script
-        await fetch("https://script.google.com/macros/s/TKfycbwr9bcB6GGJWiC-xdBkC_OBCMj5qL5jZRv-bYDD3pk0GylNyoLQoKNxZuyoajh1UjMJvA/exec", {
-          method: "POST",
-          body: JSON.stringify(sheetData)
-        });
+        await fetch("https://script.google.com/macros/s/AKfycbwk5A92hZuN_G8-CBClFlJczaLWPokVvxHCzGB_nKClQYxuL4O0LYac8qRpR3TnZuQ0Ug/exec", {
+  method: "POST",
+  body: JSON.stringify(sheetData)
+});
+
 
         if(res.ok){
           msg.textContent=I18N[idioma].success;
