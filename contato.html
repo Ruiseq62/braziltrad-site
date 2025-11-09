@@ -31,20 +31,20 @@
   </div>
 
   <main class="container">
-    <h1 data-i18n="title">Fale Conosco</h1>
-    <p data-i18n="desc" style="text-align:center">Envie sua mensagem e retornaremos em breve.</p>
+    <h1 data-i18n="title">Entre em Contato</h1>
+    <p data-i18n="desc" style="text-align:center">
+      Fale com a equipe da BrazilTrad. Estamos prontos para esclarecer dúvidas, receber propostas e conectar o Brasil ao mercado global de commodities.
+    </p>
 
     <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="36b646fd-5467-4ff8-8a3a-9df90aae76fe">
-    
+      <input type="hidden" name="access_key" value="36b646fd-5467-4ff8-8a3a-9df90aae76fe">
+      <input type="hidden" name="form_origem" value="Contato Geral">
+
       <label for="name" data-i18n="form.name">Nome</label>
       <input type="text" id="name" name="name" required>
 
       <label for="email" data-i18n="form.email">E-mail</label>
       <input type="email" id="email" name="email" required>
-
-      <label for="company" data-i18n="form.company">Empresa (opcional)</label>
-      <input type="text" id="company" name="company">
 
       <label for="subject" data-i18n="form.subject">Assunto</label>
       <input type="text" id="subject" name="subject" required>
@@ -58,32 +58,32 @@
   </main>
 
   <footer class="footer" style="margin-top:60px;text-align:center;padding:20px;color:#444">
-    <div>© BrazilTrad — <span data-i18n="footer">Conectando produtores brasileiros a mercados globais.</span></div>
+    <div>© BrazilTrad — <span data-i18n="footer">Conectando o Brasil ao mercado global de commodities.</span></div>
     <div>✉️ <a href="mailto:rsequeira@braziltrad.com">rsequeira@braziltrad.com</a></div>
   </footer>
 
   <script>
     const I18N = {
-      pt:{title:"Fale Conosco",desc:"Envie sua mensagem e retornaremos em breve.",
-          form:{name:"Nome",email:"E-mail",company:"Empresa (opcional)",subject:"Assunto",message:"Mensagem",send:"Enviar mensagem"},
-          success:"Mensagem enviada com sucesso! Entraremos em contato em breve.",
+      pt:{title:"Entre em Contato",desc:"Fale com a equipe da BrazilTrad. Estamos prontos para esclarecer dúvidas, receber propostas e conectar o Brasil ao mercado global de commodities.",
+          form:{name:"Nome",email:"E-mail",subject:"Assunto",message:"Mensagem",send:"Enviar mensagem"},
+          success:"Mensagem enviada com sucesso! Em breve entraremos em contato.",
           error:"Erro ao enviar. Tente novamente.",
-          footer:"Conectando produtores brasileiros a mercados globais."},
-      en:{title:"Contact Us",desc:"Send us your message and we’ll get back to you soon.",
-          form:{name:"Name",email:"Email",company:"Company (optional)",subject:"Subject",message:"Message",send:"Send message"},
-          success:"Message sent successfully! We’ll be in touch soon.",
+          footer:"Conectando o Brasil ao mercado global de commodities."},
+      en:{title:"Contact Us",desc:"Get in touch with the BrazilTrad team. We are ready to answer questions, receive proposals, and connect Brazil to the global commodities market.",
+          form:{name:"Name",email:"Email",subject:"Subject",message:"Message",send:"Send message"},
+          success:"Message sent successfully! We’ll get back to you soon.",
           error:"Error sending. Please try again.",
-          footer:"Connecting Brazilian producers to global markets."},
-      es:{title:"Contáctenos",desc:"Envíe su mensaje y responderemos pronto.",
-          form:{name:"Nombre",email:"Correo",company:"Empresa (opcional)",subject:"Asunto",message:"Mensaje",send:"Enviar mensaje"},
+          footer:"Connecting Brazil to the global commodities market."},
+      es:{title:"Contáctenos",desc:"Comuníquese con el equipo de BrazilTrad. Estamos listos para responder preguntas, recibir propuestas y conectar Brasil con el mercado mundial de productos básicos.",
+          form:{name:"Nombre",email:"Correo",subject:"Asunto",message:"Mensaje",send:"Enviar mensaje"},
           success:"¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
           error:"Error al enviar. Intente nuevamente.",
-          footer:"Conectando productores brasileños con mercados globales."},
-      zh:{title:"联系我们",desc:"请发送您的信息，我们会尽快回复。",
-          form:{name:"姓名",email:"电子邮件",company:"公司（可选）",subject:"主题",message:"留言内容",send:"发送信息"},
+          footer:"Conectando Brasil con el mercado mundial de productos básicos."},
+      zh:{title:"联系我们",desc:"与BrazilTrad团队取得联系。我们随时准备回答问题、接受提案，并将巴西与全球大宗商品市场连接起来。",
+          form:{name:"姓名",email:"电子邮件",subject:"主题",message:"留言内容",send:"发送信息"},
           success:"信息发送成功！我们会尽快与您联系。",
           error:"发送失败，请重试。",
-          footer:"连接巴西生产者与全球市场。"}
+          footer:"连接巴西与全球大宗商品市场。"}
     };
 
     function setLanguage(lang){
@@ -114,18 +114,32 @@
     document.getElementById("contactForm").addEventListener("submit", async (e)=>{
       e.preventDefault();
       const form=e.target;
-      const data=new FormData(form);
       const msg=document.getElementById("formMsg");
       msg.textContent="";
+      const idioma = localStorage.getItem("bt_lang") || "pt";
+
       try{
-        const res=await fetch(form.action,{method:"POST",body:data});
-        if(res.ok){
-          msg.textContent=I18N[localStorage.getItem("bt_lang")||"pt"].success;
-          msg.className="msg success";
-          form.reset();
-        }else throw new Error();
+        await fetch(form.action,{method:"POST",body:new FormData(form)});
+
+        const sheetData = {
+          nome: form.name.value,
+          email: form.email.value,
+          telefone: "",
+          tipo: "Contato Geral",
+          idioma: idioma,
+          mensagem: form.message.value
+        };
+
+        await fetch("https://script.google.com/macros/s/AKfycbwk5A92hZuN_G8-CBClFlJczaLWPokVvxHCzGB_nKClQYxuL4O0LYac8qRpR3TnZuQ0Ug/exec", {
+          method: "POST",
+          body: JSON.stringify(sheetData)
+        });
+
+        msg.textContent=I18N[idioma].success;
+        msg.className="msg success";
+        form.reset();
       }catch{
-        msg.textContent=I18N[localStorage.getItem("bt_lang")||"pt"].error;
+        msg.textContent=I18N[idioma].error;
         msg.className="msg error";
       }
     });
