@@ -209,22 +209,28 @@
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const langFloating = document.querySelector(".lang-floating");
-    const langBtn = langFloating.querySelector(".lang-btn");
+  (function initLangMenu() {
+    const btn  = document.querySelector(".lang-btn");
+    const menu = document.querySelector(".lang-menu");
+    if (!btn || !menu) return;
 
-    langBtn.addEventListener("click", () => {
-      langFloating.classList.toggle("active");
+    // Garante cliques mesmo com elementos sobrepostos
+    btn.style.pointerEvents = "auto";
+    menu.style.pointerEvents = "auto";
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.classList.toggle("open");
+      btn.setAttribute("aria-expanded", menu.classList.contains("open") ? "true" : "false");
     });
 
-    // Fecha o menu se clicar fora
-    document.addEventListener("click", (e) => {
-      if (!langFloating.contains(e.target)) {
-        langFloating.classList.remove("active");
-      }
+    document.addEventListener("click", () => {
+      menu.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
     });
-  });
+  })();
 </script>
+
 
 
   <div class="langbar" aria-label="Selecionar idioma">
