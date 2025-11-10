@@ -266,6 +266,169 @@
       </script>
     </div>
   </div>
+<!-- 🌎 Botão multilíngue flutuante -->
+<div class="lang-floating">
+  <button class="lang-btn">🌎</button>
+  <div class="lang-menu">
+    <a href="/compradores-de-commodities.html">🇧🇷 Português</a>
+    <a href="/en/buyers.html">🇬🇧 English</a>
+    <a href="/es/compradores.html">🇪🇸 Español</a>
+    <a href="/zh/buyers.html">🇨🇳 中文</a>
+  </div>
+</div>
 
+<style>
+  .lang-floating {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 999999 !important;
+  }
+
+  .lang-btn {
+    background-color: #004d40 !important;
+    color: #fff !important;
+    font-size: 22px !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
+    transition: transform 0.2s ease, background 0.3s ease !important;
+  }
+
+  .lang-btn:hover {
+    background-color: #00796b !important;
+    transform: scale(1.05) !important;
+  }
+
+  .lang-menu {
+    display: none !important;
+    position: absolute !important;
+    bottom: 60px !important;
+    right: 0 !important;
+    background: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25) !important;
+    padding: 8px 0 !important;
+    min-width: 170px !important;
+    text-align: left !important;
+  }
+
+  .lang-menu a {
+    display: block !important;
+    padding: 10px 16px !important;
+    color: #004d40 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+  }
+
+  .lang-menu a:hover {
+    background-color: #e0f2f1 !important;
+  }
+
+  .lang-floating.active .lang-menu {
+    display: block !important;
+    animation: fadeIn 0.2s ease !important;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+<!-- 🌎 Botão multilíngue flutuante -->
+<div class="lang-floating">
+  <button class="lang-btn">🌎</button>
+  <div class="lang-menu">
+    <a href="/compradores-de-commodities.html">🇧🇷 Português</a>
+    <a href="/en/buyers.html">🇬🇧 English</a>
+    <a href="/es/compradores.html">🇪🇸 Español</a>
+    <a href="/zh/buyers.html">🇨🇳 中文</a>
+  </div>
+</div>
+
+<style>
+  .lang-floating {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 999999 !important;
+  }
+
+  .lang-btn {
+    background-color: #004d40 !important;
+    color: #fff !important;
+    font-size: 22px !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
+    transition: transform 0.2s ease, background 0.3s ease !important;
+  }
+
+  .lang-btn:hover {
+    background-color: #00796b !important;
+    transform: scale(1.05) !important;
+  }
+
+  .lang-menu {
+    display: none !important;
+    position: absolute !important;
+    bottom: 60px !important;
+    right: 0 !important;
+    background: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25) !important;
+    padding: 8px 0 !important;
+    min-width: 170px !important;
+    text-align: left !important;
+  }
+
+  .lang-menu a {
+    display: block !important;
+    padding: 10px 16px !important;
+    color: #004d40 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+  }
+
+  .lang-menu a:hover {
+    background-color: #e0f2f1 !important;
+  }
+
+  .lang-floating.active .lang-menu {
+    display: block !important;
+    animation: fadeIn 0.2s ease !important;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const langFloating = document.querySelector(".lang-floating");
+    const btn = langFloating.querySelector(".lang-btn");
+    const menu = langFloating.querySelector(".lang-menu");
+
+    if (!btn || !menu) return;
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      langFloating.classList.toggle("active");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!langFloating.contains(e.target)) {
+        langFloating.classList.remove("active");
+      }
+    });
+  });
+</script>
 </body>
 </html>
