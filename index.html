@@ -223,44 +223,38 @@
   </div>
 
   <!-- Ticker de commodities (TOPO) -->
-  <!-- Ticker de commodities (TOPO) -->
-<div id="braziltrad-ticker" style="
-  z-index: 9999;
-  background-color: #004b5c;
-  padding: 4px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  position: sticky;
-  top: 36px;
-">
-  <div class="tradingview-widget-container" style="max-width: 100%">
+ <!-- === Ticker de Commodities (corrigido) === -->
+<div id="braziltrad-ticker"
+     style="position:sticky; top:36px; z-index:9999; background-color:#004b5c; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.15);">
+  <div class="tradingview-widget-container" style="max-width:100%">
     <div class="tradingview-widget-container__widget"></div>
-    <script
-      type="text/javascript"
-      src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
-      async
-      data-config='{
-        "symbols": [
-          {"proName": "TVC:GOLD", "title": "Ouro (XAU)"},
-          {"proName": "TVC:SILVER", "title": "Prata (XAG)"},
-          {"proName": "TVC:USOIL", "title": "Petróleo WTI"},
-          {"proName": "TVC:UKOIL", "title": "Brent"},
-          {"proName": "NYMEX:NG1!", "title": "Gás Natural"},
-          {"proName": "COMEX:HG1!", "title": "Cobre"},
-          {"proName": "CBOT:ZC1!", "title": "Milho"},
-          {"proName": "CBOT:ZS1!", "title": "Soja"},
-          {"proName": "CBOT:ZW1!", "title": "Trigo"},
-          {"proName": "ICEUS:KC1!", "title": "Café"},
-          {"proName": "ICEUS:SB1!", "title": "Açúcar"}
-        ],
-        "showSymbolLogo": true,
-        "colorTheme": "dark",
-        "isTransparent": true,
-        "displayMode": "adaptive",
-        "locale": "pt"
-      }'>
+    <script type="text/javascript"
+            src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+            async>
+    {
+      "symbols": [
+        {"proName":"TVC:GOLD","title":"Ouro (XAU)"},
+        {"proName":"TVC:SILVER","title":"Prata (XAG)"},
+        {"proName":"TVC:USOIL","title":"Petróleo WTI"},
+        {"proName":"TVC:UKOIL","title":"Brent"},
+        {"proName":"NYMEX:NG1!","title":"Gás Natural"},
+        {"proName":"COMEX:HG1!","title":"Cobre"},
+        {"proName":"CBOT:ZC1!","title":"Milho"},
+        {"proName":"CBOT:ZS1!","title":"Soja"},
+        {"proName":"CBOT:ZW1!","title":"Trigo"},
+        {"proName":"ICEUS:KC1!","title":"Café"},
+        {"proName":"ICEUS:SB1!","title":"Açúcar"}
+      ],
+      "showSymbolLogo": true,
+      "colorTheme": "dark",
+      "isTransparent": true,
+      "displayMode": "adaptive",
+      "locale": "pt"
+    }
     </script>
   </div>
 </div>
+
 
   <!-- Header + Menu -->
   <header class="header">
