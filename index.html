@@ -149,11 +149,19 @@
   }
 }
 
-/* === Correção definitiva: menu acima da faixa branca === */
+/* === Correção total: menu acima e ticker abaixo === */
+
+/* 🔽 Força o ticker (faixa de índices) a ficar atrás */
+#braziltrad-ticker {
+  position: relative;
+  z-index: 1 !important; /* fica atrás de tudo */
+}
+
+/* 🔼 Faz o menu ficar visível sobre o ticker */
 .header {
   position: sticky;
   top: 36px; /* logo abaixo da barra de idioma */
-  z-index: 99999 !important; /* fica acima de tudo, inclusive o ticker */
+  z-index: 99999 !important; /* menu por cima */
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.98) 0%,
@@ -164,9 +172,9 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Ajuste de espaçamento para o conteúdo não colar no menu */
+/* Ajuste de espaçamento abaixo do cabeçalho */
 .hero {
-  margin-top: 60px !important;
+  margin-top: 70px !important;
 }
 
 </style>
