@@ -141,25 +141,14 @@
     @media (max-width:900px){ .grid{grid-template-columns:1fr} .hero h1{font-size:32px} }
   </style>
 @media (max-width:900px){ .grid{grid-template-columns:1fr} .hero h1{font-size:32px} }
-/* === Correção: cabeçalho sobre o ticker === */
+/* === Correção: cabeçalho visível sobre o ticker === */
 .header {
   position: sticky;
-  top: 36px; /* abaixo da barra de idioma */
-  z-index: 12000 !important; /* sobe acima da faixa branca */
-  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(245,250,248,0.95) 100%) !important;
+  top: 36px; /* logo abaixo da barra de idioma */
+  z-index: 12000 !important; /* garante que fique acima da faixa branca */
+  background: linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(245,250,248,0.97) 100%) !important;
   backdrop-filter: blur(10px) saturate(180%) !important;
-  border-bottom: 2px solid rgba(15, 76, 92, 0.15) !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-  
-/* === Correção: cabeçalho sobre o ticker === */
-.header {
-  position: sticky;
-  top: 36px; /* abaixo da barra de idioma */
-  z-index: 12000 !important; /* sobe acima da faixa branca */
-  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(245,250,248,0.95) 100%) !important;
-  backdrop-filter: blur(10px) saturate(180%) !important;
-  border-bottom: 2px solid rgba(15, 76, 92, 0.15) !important;
+  border-bottom: 1px solid rgba(15, 76, 92, 0.1) !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 </style>
