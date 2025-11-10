@@ -3,7 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Hotfixes temporários -->
+  <style id="bt-hotfix-images">
+    #products .card img {
+      width: 100% !important;
+      height: 200px !important;
+      object-fit: cover !important;
+      border-radius: 12px !important;
+      display: block !important;
+      margin-bottom: 12px !important;
+    }
+    @media (max-width: 900px) {
+      #products .card img {
+        height: 150px !important;
+      }
+    }
+  </style>
+
+  <style id="bt-hotfix-ticker">
+    #braziltrad-ticker {
+      position: sticky !important;
+      top: 36px !important;
+      z-index: 9999 !important;
+    }
+    .header {
+      position: sticky !important;
+      top: 72px !important;
+      z-index: 100000 !important;
+      background: rgba(255,255,255,.98) !important;
+      backdrop-filter: blur(12px) saturate(180%) !important;
+    }
+    .hero {
+      margin-top: 110px !important;
+    }
+  </style>
+
+
+  ...
   <!-- SEO base -->
   <title id="meta-title">BrazilTrad — Intermediação confiável de commodities brasileiras (FOB/CIF)</title>
   <meta id="meta-desc" name="description" content="Intermediação confiável de metais e agrícolas brasileiros, com verificação de origem, compliance e logística eficiente sob FOB/CIF.">
