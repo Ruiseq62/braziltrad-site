@@ -1,7 +1,7 @@
-/* BrazilTrad CSS principal */
+//* BrazilTrad CSS principal */
 :root {
-  --bt-green-1:#0F4C5C;
-  --bt-text:#0e2230;
+  --bt-green-1: #0F4C5C;
+  --bt-text: #0e2230;
 }
 
 body {
@@ -11,16 +11,17 @@ body {
   padding: 0;
 }
 
-/* Correção de tamanho das imagens dos cards */
+/* === Correção de tamanho das imagens dos cards === */
 .card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 12px;
+  display: block;
 }
 
-/* Responsivo */
+/* Responsivo: reduz a altura das imagens no mobile */
 @media (max-width: 900px) {
   .card img {
     height: 140px;
