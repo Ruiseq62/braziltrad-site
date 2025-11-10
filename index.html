@@ -22,30 +22,36 @@
   </style>
 
  <style id="bt-hotfix-ticker">
-  /* === Barra de cotações fixa e sempre visível === */
+  /* === Barra de cotações fixa visível e sobreposta === */
   #braziltrad-ticker {
     position: fixed !important;
-    top: 36px !important; /* abaixo da barra de idiomas */
+    top: 36px !important; /* abaixo da langbar */
     left: 0;
     right: 0;
-    z-index: 9999 !important; /* acima de tudo, inclusive header */
+    z-index: 10000 !important; /* acima de tudo */
     background-color: #004b5c !important;
-    padding: 4px 0;
+    padding: 4px 0 !important;
     border-bottom: 1px solid rgba(255,255,255,0.15);
   }
 
-  /* Header normal (rolável) */
+  /* Força o iframe do TradingView a respeitar a hierarquia */
+  #braziltrad-ticker iframe,
+  #braziltrad-ticker .tradingview-widget-container {
+    position: relative !important;
+    z-index: 10001 !important;
+  }
+
+  /* Header volta a rolar normalmente */
   .header {
     position: relative !important;
     top: auto !important;
     z-index: 1 !important;
-    background: rgba(255,255,255,1) !important;
-    box-shadow: none !important;
+    background: #fff !important;
   }
 
-  /* Ajusta espaçamento do conteúdo para não cobrir o ticker */
+  /* Espaço no topo do conteúdo para não sobrepor */
   body {
-    margin-top: 100px !important; /* espaço p/ langbar + ticker */
+    margin-top: 110px !important; /* langbar + ticker */
   }
 
   .hero {
