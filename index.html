@@ -134,111 +134,105 @@
 </head>
 <body>
 
- <!-- 🌍 Botão multilíngue flutuante com menu -->
-<div class="lang-floating">
-  <button class="lang-btn">🌎</button>
-  <div class="lang-menu">
-    <a href="/compradores-de-commodities.html">🇧🇷 Português</a>
-    <a href="/en/buyers.html">🇬🇧 English</a>
-    <a href="/es/compradores.html">🇪🇸 Español</a>
-    <a href="/zh/buyers.html">🇨🇳 中文</a>
+  <!-- 🌎 Botão multilíngue flutuante com menu funcional -->
+  <div class="lang-floating">
+    <button class="lang-btn" aria-expanded="false" aria-label="Selecionar idioma">🌎</button>
+    <div class="lang-menu" role="menu">
+      <a href="/compradores-de-commodities.html" role="menuitem">🇧🇷 Português</a>
+      <a href="/en/buyers.html" role="menuitem">🇬🇧 English</a>
+      <a href="/es/compradores.html" role="menuitem">🇪🇸 Español</a>
+      <a href="/zh/buyers.html" role="menuitem">🇨🇳 中文</a>
+    </div>
   </div>
-</div>
 
-<style>
-  .lang-floating {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-  }
+  <style>
+    /* === MENU MULTILÍNGUE FLUTUANTE === */
+    .lang-floating {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999999;
+    }
 
-  .lang-btn {
-    background-color: #004d40;
-    color: #fff;
-    font-size: 20px;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    transition: transform 0.2s ease, background 0.3s ease;
-  }
+    .lang-btn {
+      background-color: #004d40;
+      color: #fff;
+      font-size: 22px;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
 
-  .lang-btn:hover {
-    background-color: #00796b;
-    transform: scale(1.05);
-  }
+    .lang-btn:hover {
+      background-color: #00796b;
+      transform: scale(1.05);
+    }
 
-  .lang-menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    padding: 10px 0;
-    min-width: 160px;
-    text-align: left;
-  }
+    .lang-menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      padding: 8px 0;
+      min-width: 170px;
+      text-align: left;
+    }
 
-  .lang-menu a {
-    display: block;
-    padding: 10px 16px;
-    color: #004d40;
-    text-decoration: none;
-    font-weight: bold;
-  }
+    .lang-menu a {
+      display: block;
+      padding: 10px 16px;
+      color: #004d40;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-  .lang-menu a:hover {
-    background-color: #e0f2f1;
-  }
+    .lang-menu a:hover {
+      background-color: #e0f2f1;
+    }
 
-  /* Mostrar o menu quando ativo */
-  .lang-floating.active .lang-menu {
-    display: block;
-    animation: fadeIn 0.2s ease;
-  }
+    /* Animação ao abrir o menu */
+    .lang-menu.open {
+      display: block;
+      animation: fadeIn 0.2s ease;
+    }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 
-<script>
-  (function initLangMenu() {
-    const btn  = document.querySelector(".lang-btn");
-    const menu = document.querySelector(".lang-menu");
-    if (!btn || !menu) return;
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.querySelector(".lang-btn");
+      const menu = document.querySelector(".lang-menu");
 
-    // Garante cliques mesmo com elementos sobrepostos
-    btn.style.pointerEvents = "auto";
-    menu.style.pointerEvents = "auto";
+      if (!btn || !menu) return;
 
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      menu.classList.toggle("open");
-      btn.setAttribute("aria-expanded", menu.classList.contains("open") ? "true" : "false");
+      // Alterna o menu ao clicar no botão
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.classList.toggle("open");
+        const expanded = menu.classList.contains("open");
+        btn.setAttribute("aria-expanded", expanded);
+      });
+
+      // Fecha o menu ao clicar fora
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+          menu.classList.remove("open");
+          btn.setAttribute("aria-expanded", "false");
+        }
+      });
     });
-
-    document.addEventListener("click", () => {
-      menu.classList.remove("open");
-      btn.setAttribute("aria-expanded", "false");
-    });
-  })();
-</script>
-
-
-
-  <div class="langbar" aria-label="Selecionar idioma">
-    <a href="#pt" data-lang-select="pt">🇧🇷 PT</a>
-    <a href="#en" data-lang-select="en">🇬🇧 EN</a>
-    <a href="#es" data-lang-select="es">🇪🇸 ES</a>
-    <a href="#zh" data-lang-select="zh">🇨🇳 中文</a>
-  </div>
+  </script>
 
   <div id="braziltrad-ticker" style="z-index:9999;background-color:#004b5c;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.15)">
     <div class="tradingview-widget-container" style="max-width:100%">
