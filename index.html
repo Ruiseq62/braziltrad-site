@@ -149,25 +149,26 @@
   }
 }
 
-/* === Correção final: menu visível sobre o ticker === */
+/* === Correção definitiva: menu acima da faixa branca === */
 .header {
   position: sticky;
-  top: 38px; /* logo abaixo da barra de idioma */
-  z-index: 12000 !important;
+  top: 36px; /* logo abaixo da barra de idioma */
+  z-index: 99999 !important; /* fica acima de tudo, inclusive o ticker */
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.97) 0%,
-    rgba(245, 250, 248, 0.97) 100%
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(245, 250, 248, 0.98) 100%
   ) !important;
-  backdrop-filter: blur(10px) saturate(180%) !important;
-  border-bottom: 1px solid rgba(15, 76, 92, 0.1) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(15, 76, 92, 0.15) !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* === Espaçamento extra abaixo do cabeçalho === */
+/* Ajuste de espaçamento para o conteúdo não colar no menu */
 .hero {
-  margin-top: 85px !important; /* empurra o conteúdo um pouco para baixo */
+  margin-top: 60px !important;
 }
+
 </style>
 
 
