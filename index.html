@@ -257,13 +257,15 @@
 <!-- Barra de idiomas -->
 <!-- Ticker de commodities (TOPO) -->
 <!-- Ticker de commodities (TOPO) -->
+<!-- === Ticker de Commodities (fixo abaixo da barra de idiomas) === -->
 <div id="braziltrad-ticker"
-     style="z-index:9999; background-color:#004b5c; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.15); position:sticky; top:36px;">
+  style="position:fixed; top:36px; left:0; right:0;
+  z-index:9500; background-color:#004b5c;
+  padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.15);">
   <div class="tradingview-widget-container" style="max-width:100%">
     <div class="tradingview-widget-container__widget"></div>
     <script type="text/javascript"
-      src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
-      async
+      src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async
       data-config='{
         "symbols":[
           {"proName":"TVC:GOLD","title":"Ouro (XAU)"},
@@ -278,16 +280,15 @@
           {"proName":"ICEUS:KC1!","title":"Café"},
           {"proName":"ICEUS:SB1!","title":"Açúcar"}
         ],
-        "showSymbolLogo": true,
-        "colorTheme": "dark",
-        "isTransparent": true,
-        "displayMode": "adaptive",
-        "locale": "pt"
+        "showSymbolLogo":true,
+        "colorTheme":"dark",
+        "isTransparent":true,
+        "displayMode":"adaptive",
+        "locale":"pt"
       }'>
     </script>
   </div>
 </div>
-
 
 
   <!-- Header + Menu -->
