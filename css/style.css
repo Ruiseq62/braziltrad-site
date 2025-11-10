@@ -1,29 +1,30 @@
-//* BrazilTrad CSS principal */
-:root {
-  --bt-green-1: #0F4C5C;
-  --bt-text: #0e2230;
+/* === Correção definitiva para imagens dos cards === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
 }
 
-body {
-  font-family: Inter, Arial, sans-serif;
-  color: var(--bt-text);
-  margin: 0;
-  padding: 0;
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  text-align: center;
 }
 
-/* === Correção de tamanho das imagens dos cards === */
 .card img {
   width: 100%;
-  height: 180px;
+  max-height: 200px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
+  border-radius: 10px;
   display: block;
+  margin-bottom: 10px;
 }
 
-/* Responsivo: reduz a altura das imagens no mobile */
+/* Responsivo */
 @media (max-width: 900px) {
   .card img {
-    height: 140px;
+    max-height: 160px;
   }
 }
