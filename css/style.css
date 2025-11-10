@@ -13,18 +13,27 @@
   text-align: center;
 }
 
-.card img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-  margin-bottom: 10px;
-}
+
 
 /* Responsivo */
 @media (max-width: 900px) {
   .card img {
     max-height: 160px;
+  }
+}
+/* === Correção definitiva das imagens dos cards (BrazilTrad) === */
+#products .card img {
+  width: 100% !important;
+  height: 200px !important;      /* podes ajustar p/ 180px se quiser mais compacto */
+  object-fit: cover !important;
+  border-radius: 12px !important;
+  margin-bottom: 12px !important;
+  display: block !important;
+}
+
+/* Responsivo: reduz a altura no mobile */
+@media (max-width: 900px) {
+  #products .card img {
+    height: 150px !important;
   }
 }
