@@ -149,19 +149,19 @@
   }
 }
 
-/* === Correção total: menu acima e ticker abaixo === */
+/* === Correção final e garantida para Safari/Chrome === */
 
-/* 🔽 Força o ticker (faixa de índices) a ficar atrás */
+/* 🔽 Ticker abaixo de tudo */
 #braziltrad-ticker {
-  position: relative;
-  z-index: 1 !important; /* fica atrás de tudo */
+  position: relative !important;
+  z-index: 0 !important; /* força ficar atrás de header */
 }
 
-/* 🔼 Faz o menu ficar visível sobre o ticker */
+/* 🔼 Menu fixo acima de tudo */
 .header {
   position: sticky;
   top: 36px; /* logo abaixo da barra de idioma */
-  z-index: 99999 !important; /* menu por cima */
+  z-index: 100000 !important; /* garante ficar acima de ticker e de todo o resto */
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.98) 0%,
@@ -169,10 +169,10 @@
   ) !important;
   backdrop-filter: blur(12px) saturate(180%) !important;
   border-bottom: 1px solid rgba(15, 76, 92, 0.15) !important;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Ajuste de espaçamento abaixo do cabeçalho */
+/* Ajuste para o conteúdo não colar no menu */
 .hero {
   margin-top: 70px !important;
 }
