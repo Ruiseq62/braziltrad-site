@@ -140,17 +140,27 @@
     /* Responsivo */
     @media (max-width:900px){ .grid{grid-template-columns:1fr} .hero h1{font-size:32px} }
   </style>
-@media (max-width:900px){ .grid{grid-template-columns:1fr} .hero h1{font-size:32px} }
-/* === Correção: cabeçalho visível sobre o ticker === */
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .hero h1{font-size:32px}
+}
+
+/* === Correção final: menu visível sobre o ticker === */
 .header {
   position: sticky;
-  top: 36px; /* logo abaixo da barra de idioma */
-  z-index: 12000 !important; /* garante que fique acima da faixa branca */
+  top: 38px; /* sobe um pouco mais abaixo da barra de idioma */
+  z-index: 12000 !important;
   background: linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(245,250,248,0.97) 100%) !important;
   backdrop-filter: blur(10px) saturate(180%) !important;
   border-bottom: 1px solid rgba(15, 76, 92, 0.1) !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
+/* Espaçamento extra abaixo do cabeçalho */
+.hero {
+  margin-top: 85px !important; /* empurra o conteúdo um pouco para baixo */
+}
+
 </style>
   
   <!-- SEO dinâmico por idioma -->
