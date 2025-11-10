@@ -10,7 +10,7 @@
   <meta name="keywords" content="commodities, exportação, FOB, CIF, intermediação, metais, agrícolas, Brasil, trading, due diligence">
   <meta name="author" content="BrazilTrad">
 
-  <!-- Links multilíngues (para buscadores entenderem os idiomas) -->
+  <!-- Links multilíngues -->
   <link rel="alternate" hreflang="x-default" href="https://braziltrad.com/">
   <link rel="alternate" hreflang="pt-br" href="https://braziltrad.com/#pt">
   <link rel="alternate" hreflang="en" href="https://braziltrad.com/#en">
@@ -31,125 +31,67 @@
   <meta name="twitter:description" content="Reliable Brazilian commodity trading — verified origin, compliance and logistics under FOB/CIF.">
   <meta name="twitter:image" content="https://braziltrad.com/assets/img/braziltrad-logo.png">
 
-  <!-- Schema.org (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "BrazilTrad",
-    "url": "https://braziltrad.com",
-    "logo": "https://braziltrad.com/assets/img/braziltrad-logo.png",
-    "description": "BrazilTrad conecta produtores brasileiros ao mercado global de commodities — intermediação confiável, origem verificada e logística sob FOB/CIF.",
-    "sameAs": ["https://www.linkedin.com/company/braziltrad/"],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "rsequeira@braziltrad.com",
-      "contactType": "sales",
-      "availableLanguage": ["Portuguese", "English", "Spanish", "Chinese"]
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "São Paulo",
-      "addressCountry": "Brazil"
-    }
-  }
-  </script>
-
   <meta name="theme-color" content="#0F4C5C">
 
-  <!-- 🌐 Script dinâmico de SEO multilíngue -->
-  <script>
-  const SEO_TEXT = {
-    pt: {
-      title: "BrazilTrad — Intermediação confiável de commodities brasileiras (FOB/CIF)",
-      desc: "Intermediação confiável de metais e agrícolas brasileiros, com verificação de origem, compliance e logística eficiente sob FOB/CIF."
-    },
-    en: {
-      title: "BrazilTrad — Trusted Brazilian Commodity Trading (FOB/CIF)",
-      desc: "Reliable Brazilian intermediary for global commodity trading. Verified origin, compliance and logistics under FOB/CIF."
-    },
-    es: {
-      title: "BrazilTrad — Comercio confiable de commodities brasileñas (FOB/CIF)",
-      desc: "Intermediación confiable de metales y agrícolas brasileños, con origen verificado, cumplimiento y logística eficiente bajo FOB/CIF."
-    },
-    zh: {
-      title: "BrazilTrad — 巴西大宗商品出口与贸易（FOB/CIF）",
-      desc: "可靠的巴西商品贸易商，提供经过验证的来源、合规性和高效的FOB/CIF物流。"
-    }
-  };
-
-  function updateSEO(lang) {
-    const { title, desc } = SEO_TEXT[lang] || SEO_TEXT.pt;
-    document.title = title;
-    document.getElementById("meta-title").textContent = title;
-    document.getElementById("meta-desc").setAttribute("content", desc);
-    document.querySelector('meta[property="og:title"]').setAttribute("content", title);
-    document.querySelector('meta[property="og:description"]').setAttribute("content", desc);
-    document.querySelector('meta[name="twitter:title"]').setAttribute("content", title);
-    document.querySelector('meta[name="twitter:description"]').setAttribute("content", desc);
-  }
-
-  (function() {
-    const savedLang = localStorage.getItem("bt_lang") || "pt";
-    updateSEO(savedLang);
-  })();
-  </script>
-  <!-- 🌍 / Fim do bloco SEO Internacional -->
-
-  <!-- Restante do cabeçalho -->
   <link rel="icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    .langbar{position:fixed;top:0;left:0;right:0;height:36px;display:flex;align-items:center;justify-content:center;gap:14px;background:#0F4C5C;color:#fff;font:500 14px/1 Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;z-index:10000}
-    .langbar a{color:#fff;text-decoration:none;opacity:.8;padding:6px 10px;border-radius:999px}
-    .langbar a.active,.langbar a:hover{background:rgba(255,255,255,.14);opacity:1}
-    body{padding-top:36px}
-    [data-i18n-scope]{display:contents}
-  </style>
-  <!-- 🔧 Correção: ativar cliques no rodapé -->
-<style>
-  footer a {
-    position: relative;
-    z-index: 10001 !important;
-    pointer-events: auto !important;
-  }
+    /* Barra superior */
+    .langbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: #0F4C5C;
+      color: #fff;
+      font: 500 14px/1 Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      z-index: 10000;
+    }
 
-  footer {
-    position: relative;
-    z-index: 10000 !important;
-  }
+    .langbar a {
+      color: #fff;
+      text-decoration: none;
+      opacity: .8;
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
 
-  footer a:hover {
-    text-decoration: underline;
-  }
+    .langbar a.active, .langbar a:hover {
+      background: rgba(255,255,255,.14);
+      opacity: 1;
+    }
 
-  /* cor branca para o texto de São Paulo */
-  footer [data-i18n="footer.location"] {
-    color: #ffffff !important;
-  }
-</style>
-</head>
-<body>
+    body { padding-top: 36px; }
 
-  <!-- 🌎 Botão multilíngue flutuante -->
-  <div class="lang-floating">
-    <button class="lang-btn">🌎</button>
-    <div class="lang-menu">
-      <a href="/compradores-de-commodities.html">🇧🇷 Português</a>
-      <a href="/en/buyers.html">🇬🇧 English</a>
-      <a href="/es/compradores.html">🇪🇸 Español</a>
-      <a href="/zh/buyers.html">🇨🇳 中文</a>
-    </div>
-  </div>
+    footer a {
+      position: relative;
+      z-index: 10001 !important;
+      pointer-events: auto !important;
+    }
 
-  <style>
-    /* === MENU MULTILÍNGUE FLUTUANTE ISOLADO === */
+    footer {
+      position: relative;
+      z-index: 10000 !important;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer [data-i18n="footer.location"] {
+      color: #ffffff !important;
+    }
+
+    /* Botão multilíngue flutuante */
     .lang-floating {
       position: fixed !important;
-      bottom: 20px !important; /* canto inferior direito */
+      bottom: 20px !important;
       right: 20px !important;
       z-index: 999999 !important;
     }
@@ -207,36 +149,27 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
+</head>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const langFloating = document.querySelector(".lang-floating");
-      const btn = langFloating.querySelector(".lang-btn");
-      const menu = langFloating.querySelector(".lang-menu");
+<body>
 
-      if (!btn || !menu) return;
-
-      // Ativa/desativa menu
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        langFloating.classList.toggle("active");
-      });
-
-      // Fecha se clicar fora
-      document.addEventListener("click", (e) => {
-        if (!langFloating.contains(e.target)) {
-          langFloating.classList.remove("active");
-        }
-      });
-    });
-  </script>
-
-  <!-- === BARRA MULTILÍNGUE SUPERIOR === -->
+  <!-- 🌍 Barra superior de idiomas -->
   <div class="langbar" aria-label="Selecionar idioma">
     <a href="#pt" data-lang-select="pt">🇧🇷 PT</a>
     <a href="#en" data-lang-select="en">🇬🇧 EN</a>
     <a href="#es" data-lang-select="es">🇪🇸 ES</a>
     <a href="#zh" data-lang-select="zh">🇨🇳 中文</a>
+  </div>
+
+  <!-- 🌎 Botão multilíngue flutuante -->
+  <div class="lang-floating">
+    <button class="lang-btn">🌎</button>
+    <div class="lang-menu">
+      <a href="/compradores-de-commodities.html">🇧🇷 Português</a>
+      <a href="/en/buyers.html">🇬🇧 English</a>
+      <a href="/es/compradores.html">🇪🇸 Español</a>
+      <a href="/zh/buyers.html">🇨🇳 中文</a>
+    </div>
   </div>
 
   <!-- === RESTANTE DO SITE === -->
@@ -262,173 +195,30 @@
         "isTransparent":true,
         "displayMode":"adaptive",
         "locale":"pt"
-      }'>
-      </script>
+      }'></script>
     </div>
   </div>
-<!-- 🌎 Botão multilíngue flutuante -->
-<div class="lang-floating">
-  <button class="lang-btn">🌎</button>
-  <div class="lang-menu">
-    <a href="/compradores-de-commodities.html">🇧🇷 Português</a>
-    <a href="/en/buyers.html">🇬🇧 English</a>
-    <a href="/es/compradores.html">🇪🇸 Español</a>
-    <a href="/zh/buyers.html">🇨🇳 中文</a>
-  </div>
-</div>
 
-<style>
-  .lang-floating {
-    position: fixed !important;
-    bottom: 20px !important;
-    right: 20px !important;
-    z-index: 999999 !important;
-  }
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const langFloating = document.querySelector(".lang-floating");
+      const btn = langFloating.querySelector(".lang-btn");
+      const menu = langFloating.querySelector(".lang-menu");
 
-  .lang-btn {
-    background-color: #004d40 !important;
-    color: #fff !important;
-    font-size: 22px !important;
-    border: none !important;
-    border-radius: 50% !important;
-    width: 50px !important;
-    height: 50px !important;
-    cursor: pointer !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
-    transition: transform 0.2s ease, background 0.3s ease !important;
-  }
+      if (!btn || !menu) return;
 
-  .lang-btn:hover {
-    background-color: #00796b !important;
-    transform: scale(1.05) !important;
-  }
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        langFloating.classList.toggle("active");
+      });
 
-  .lang-menu {
-    display: none !important;
-    position: absolute !important;
-    bottom: 60px !important;
-    right: 0 !important;
-    background: #fff !important;
-    border-radius: 10px !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25) !important;
-    padding: 8px 0 !important;
-    min-width: 170px !important;
-    text-align: left !important;
-  }
-
-  .lang-menu a {
-    display: block !important;
-    padding: 10px 16px !important;
-    color: #004d40 !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-  }
-
-  .lang-menu a:hover {
-    background-color: #e0f2f1 !important;
-  }
-
-  .lang-floating.active .lang-menu {
-    display: block !important;
-    animation: fadeIn 0.2s ease !important;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
-<!-- 🌎 Botão multilíngue flutuante -->
-<div class="lang-floating">
-  <button class="lang-btn">🌎</button>
-  <div class="lang-menu">
-    <a href="/compradores-de-commodities.html">🇧🇷 Português</a>
-    <a href="/en/buyers.html">🇬🇧 English</a>
-    <a href="/es/compradores.html">🇪🇸 Español</a>
-    <a href="/zh/buyers.html">🇨🇳 中文</a>
-  </div>
-</div>
-
-<style>
-  .lang-floating {
-    position: fixed !important;
-    bottom: 20px !important;
-    right: 20px !important;
-    z-index: 999999 !important;
-  }
-
-  .lang-btn {
-    background-color: #004d40 !important;
-    color: #fff !important;
-    font-size: 22px !important;
-    border: none !important;
-    border-radius: 50% !important;
-    width: 50px !important;
-    height: 50px !important;
-    cursor: pointer !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
-    transition: transform 0.2s ease, background 0.3s ease !important;
-  }
-
-  .lang-btn:hover {
-    background-color: #00796b !important;
-    transform: scale(1.05) !important;
-  }
-
-  .lang-menu {
-    display: none !important;
-    position: absolute !important;
-    bottom: 60px !important;
-    right: 0 !important;
-    background: #fff !important;
-    border-radius: 10px !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25) !important;
-    padding: 8px 0 !important;
-    min-width: 170px !important;
-    text-align: left !important;
-  }
-
-  .lang-menu a {
-    display: block !important;
-    padding: 10px 16px !important;
-    color: #004d40 !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-  }
-
-  .lang-menu a:hover {
-    background-color: #e0f2f1 !important;
-  }
-
-  .lang-floating.active .lang-menu {
-    display: block !important;
-    animation: fadeIn 0.2s ease !important;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const langFloating = document.querySelector(".lang-floating");
-    const btn = langFloating.querySelector(".lang-btn");
-    const menu = langFloating.querySelector(".lang-menu");
-
-    if (!btn || !menu) return;
-
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      langFloating.classList.toggle("active");
+      document.addEventListener("click", (e) => {
+        if (!langFloating.contains(e.target)) {
+          langFloating.classList.remove("active");
+        }
+      });
     });
+  </script>
 
-    document.addEventListener("click", (e) => {
-      if (!langFloating.contains(e.target)) {
-        langFloating.classList.remove("active");
-      }
-    });
-  });
-</script>
 </body>
 </html>
