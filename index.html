@@ -22,36 +22,33 @@
   </style>
 
   <style id="bt-hotfix-ticker">
-  /* === Ticker fixo logo abaixo da barra de idiomas === */
+  /* === Ticker fixo (único elemento fixo no topo) === */
   #braziltrad-ticker {
     position: fixed !important;
-    top: 36px !important; /* altura da langbar */
+    top: 36px !important; /* altura da barra de idiomas */
     left: 0;
     right: 0;
-    z-index: 999999 !important; /* acima de tudo */
+    z-index: 999999 !important;
     background-color: #004b5c;
     padding: 4px 0;
     border-bottom: 1px solid rgba(255,255,255,0.15);
   }
 
-  /* Header (menu) também fixo, logo abaixo do ticker */
+  /* Header volta a ser normal (rolável) */
   .header {
-    position: fixed !important;
-    top: 72px !important; /* 36 (langbar) + 36 (ticker) */
-    left: 0;
-    right: 0;
-    z-index: 999998 !important;
-    background: rgba(255,255,255,.98) !important;
-    backdrop-filter: blur(12px) saturate(180%) !important;
-    box-shadow: 0 2px 6px rgba(0,0,0,.05);
+    position: relative !important;
+    top: auto !important;
+    z-index: 100 !important;
+    background: rgba(255,255,255,1) !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
   }
 
-  /* Cria espaço no topo do site para langbar + ticker + header */
+  /* Espaço no topo do site para langbar + ticker */
   body {
-    margin-top: 140px !important;
+    margin-top: 85px !important;
   }
 
-  /* Garante que o hero não se sobreponha */
   .hero {
     margin-top: 0 !important;
   }
