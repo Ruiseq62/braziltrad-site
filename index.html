@@ -134,15 +134,98 @@
 </head>
 <body>
 
-  <!-- 🌎 Botão de seleção de idiomas -->
-  <a href="/languages.html"
-    style="position: fixed; top: 20px; right: 20px;
-           background-color: #004d40; color: #fff;
-           padding: 10px 16px; border-radius: 8px;
-           text-decoration: none; font-weight: bold;
-           z-index: 9999; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
-    🌎 Idiomas
-  </a>
+ <!-- 🌍 Botão multilíngue flutuante com menu -->
+<div class="lang-floating">
+  <button class="lang-btn">🌎</button>
+  <div class="lang-menu">
+    <a href="/compradores-de-commodities.html">🇧🇷 Português</a>
+    <a href="/en/buyers.html">🇬🇧 English</a>
+    <a href="/es/compradores.html">🇪🇸 Español</a>
+    <a href="/zh/buyers.html">🇨🇳 中文</a>
+  </div>
+</div>
+
+<style>
+  .lang-floating {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+  }
+
+  .lang-btn {
+    background-color: #004d40;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+
+  .lang-btn:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
+  }
+
+  .lang-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    padding: 10px 0;
+    min-width: 160px;
+    text-align: left;
+  }
+
+  .lang-menu a {
+    display: block;
+    padding: 10px 16px;
+    color: #004d40;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .lang-menu a:hover {
+    background-color: #e0f2f1;
+  }
+
+  /* Mostrar o menu quando ativo */
+  .lang-floating.active .lang-menu {
+    display: block;
+    animation: fadeIn 0.2s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const langFloating = document.querySelector(".lang-floating");
+    const langBtn = langFloating.querySelector(".lang-btn");
+
+    langBtn.addEventListener("click", () => {
+      langFloating.classList.toggle("active");
+    });
+
+    // Fecha o menu se clicar fora
+    document.addEventListener("click", (e) => {
+      if (!langFloating.contains(e.target)) {
+        langFloating.classList.remove("active");
+      }
+    });
+  });
+</script>
+
 
   <div class="langbar" aria-label="Selecionar idioma">
     <a href="#pt" data-lang-select="pt">🇧🇷 PT</a>
