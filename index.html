@@ -514,27 +514,49 @@ body {
     </script>
 
   <!-- 🌎 Script do botão multilíngua -->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const langBtn = document.getElementById("langBtn");
-    const langs = ["PT", "EN", "ZH"];
-    let index = 0;
+    </script>
 
-    if (langBtn) {
-      langBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        index = (index + 1) % langs.length;
-        langBtn.textContent = "🌎 " + langs[index];
+  <!-- 🌎 Script do botão multilíngua funcional -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('langBtn');
+    const order = ['pt','en','es','zh']; // inclui espanhol
+    const label = (code) => ({
+      pt: '🌎 PT', en: '🌎 EN', es: '🌎 ES', zh: '🌎 中文'
+    }[code] || '🌎 PT');
+
+    let idx = order.indexOf(
+      (localStorage.getItem('lang') || document.documentElement.lang || 'pt').toLowerCase()
+    );
+    if (idx < 0) idx = 0;
+
+    function apply(code){
+      if (btn) btn.textContent = label(code);
+      localStorage.setItem('lang', code);
+      document.documentElement.setAttribute('lang', code);
+      const link = document.querySelector(`.langbar a[data-lang-select="${code}"]`);
+      if (link) {
+        link.dispatchEvent(new MouseEvent('click', { bubbles:true, cancelable:true }));
+      }
+    }
+
+    apply(order[idx]);
+
+    if (btn){
+      btn.addEventListener('click', (e) => {
+        e.preventDefault(); e.stopPropagation();
+        idx = (idx + 1) % order.length;
+        apply(order[idx]);
       });
     } else {
-      console.warn("Botão multilíngua não encontrado.");
+      console.warn('langBtn não encontrado no DOM.');
     }
   });
   </script>
 
 </body>
 </html>
+
 
 
 
