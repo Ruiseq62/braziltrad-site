@@ -194,3 +194,111 @@ body {
   right: 0;
   z-index: 10000;
 }
+/* === CORREÇÃO GERAL TOPO BRAZILTRAD === */
+
+/* Ajuste da margem superior do conteúdo */
+body {
+  margin-top: 140px !important; /* soma da barra de idiomas + ticker + header */
+}
+
+/* Header mais compacto */
+.header {
+  position: sticky;
+  top: 76px; /* logo abaixo do ticker */
+  background: #fff;
+  z-index: 10010;
+  padding: 8px 0; /* reduz espaço interno */
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Imagem do logo menor */
+.header .brand img {
+  height: 48px; /* antes devia estar 80px ou mais */
+  width: auto;
+}
+
+/* Espaçamento entre logo e menu */
+.header .container.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Corrigir o ticker fixo */
+.tradingview-widget-container {
+  position: fixed;
+  top: 36px; /* logo abaixo da barra de idiomas */
+  left: 0;
+  right: 0;
+  z-index: 10000;
+}
+
+/* Reajuste do menu */
+.header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav a {
+  text-decoration: none;
+  color: #0F4C5C;
+  font-weight: 500;
+}
+
+.header nav a:hover {
+  color: #00796b;
+}
+
+/* === Botão multilíngua === */
+.lang-floating {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 11000;
+}
+
+.lang-btn {
+  background: #0F4C5C;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+.lang-btn:hover {
+  background: #00695c;
+}
+
+.lang-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.lang-floating.active .lang-menu {
+  display: flex;
+}
+
+.lang-menu a {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #0F4C5C;
+  font-weight: 500;
+}
+
+.lang-menu a:hover {
+  background: #f5f5f5;
+}
