@@ -158,23 +158,29 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
-
-/* ===== BOTÃO MULTILÍNGUA ===== */
+/* ===== BOTÃO MULTILÍNGUA FIXO ===== */
 .lang-btn {
   position: fixed;
-  top: 6px; /* levemente ajustado */
-  right: 16px;
-  background: #ffffff;
-  color: #333;
-  border: none;
-  border-radius: 20px;
-  padding: 4px 12px;
-  font-size: 0.85rem;
+  top: 5px;             /* alinha verticalmente com a barra verde */
+  right: 18px;          /* afastado da borda direita */
+  background: rgba(255,255,255,0.95); /* leve transparência */
+  color: #004d2c;       /* tom verde escuro BrazilTrad */
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 25px;
+  padding: 4px 14px;
+  font-size: 0.9rem;
   cursor: pointer;
-  z-index: 1000000; /* ainda acima da barra */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  z-index: 1000000;     /* acima de tudo */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
 }
+
+.lang-btn:hover {
+  background: #f0f0f0;
+  color: #006838;
+  border-color: rgba(0,0,0,0.1);
+}
+
 .lang-btn:hover {
   background: #f2f2f2;
 }
