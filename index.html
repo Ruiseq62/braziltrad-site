@@ -491,8 +491,50 @@ body {
       console.warn("Botão multilíngua não encontrado.");
     }
   });
+    </script>
+
+  <!-- 🌎 Script do botão multilíngua -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const langBtn = document.getElementById("langBtn");
+    const langs = ["PT", "EN", "ZH"];
+    let index = 0;
+
+    if (langBtn) {
+      langBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        index = (index + 1) % langs.length;
+        langBtn.textContent = "🌎 " + langs[index];
+      });
+    } else {
+      console.warn("Botão multilíngua não encontrado.");
+    }
+  });
+    </script>
+
+  <!-- 🌎 Script do botão multilíngua -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const langBtn = document.getElementById("langBtn");
+    const langs = ["PT", "EN", "ZH"];
+    let index = 0;
+
+    if (langBtn) {
+      langBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        index = (index + 1) % langs.length;
+        langBtn.textContent = "🌎 " + langs[index];
+      });
+    } else {
+      console.warn("Botão multilíngua não encontrado.");
+    }
+  });
   </script>
 
 </body>
 </html>
+
+
 
