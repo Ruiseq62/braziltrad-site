@@ -130,6 +130,58 @@
   footer [data-i18n="footer.location"] {
     color: #ffffff !important;
   }
+/* ===== BARRA DE COTAÇÕES - ESTILO BRAZILTRAD ===== */
+.ticker-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 28px;
+  background: linear-gradient(90deg, #006838, #00914a); /* verde BrazilTrad */
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 1500;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.ticker-content {
+  display: inline-block;
+  padding: 6px 0;
+  animation: scroll 25s linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ===== BOTÃO MULTILÍNGUA ===== */
+.lang-btn {
+  position: fixed;
+  top: 4px;
+  right: 12px;
+  background: #ffffff;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  z-index: 1600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+.lang-btn:hover {
+  background: #f2f2f2;
+}
+
+/* ===== AFASTAR CONTEÚDO PRINCIPAL ===== */
+body {
+  margin-top: 28px;
+}
 </style>
 
 </head>
