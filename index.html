@@ -131,6 +131,35 @@
     color: #ffffff !important;
   }
 </style>
+<script>
+  // 🌍 Troca de idioma simples
+  const langBtn = document.getElementById("langBtn");
+  const langs = ["PT", "EN", "ZH"];
+  let index = 0;
+
+  langBtn.addEventListener("click", () => {
+    index = (index + 1) % langs.length;
+    langBtn.textContent = "🌎 " + langs[index];
+
+    // Aqui podes depois integrar as traduções dinâmicas:
+    // translatePage(langs[index].toLowerCase());
+  });
+
+  // ⏳ Atualização automática dos valores (fictícia por enquanto)
+  const ticker = document.getElementById("commodities-ticker");
+  const items = [
+    "🪙 Ouro: $2,350",
+    "🛢️ Petróleo: $83",
+    "🫘 Soja: $14,20",
+    "☕ Café: $1,95",
+    "⚙️ Ferro: $108",
+    "🔋 Lítio: $23.000"
+  ];
+  setInterval(() => {
+    ticker.innerHTML = items.join(" | ");
+  }, 15000);
+</script>
+
 </head>
 
 <body>
