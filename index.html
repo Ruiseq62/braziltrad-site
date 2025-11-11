@@ -1,82 +1,121 @@
-<!DOCTYPE html>
-<html lang="pt">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Hotfixes temporários -->
-  <style id="bt-hotfix-ticker">
-  /* === Fixar completamente ticker acima da barra branca === */
+  <title>BrazilTrad — Intermediação confiável de commodities brasileiras (FOB/CIF)</title>
+  <meta id="meta-desc" name="description" content="Intermediação confiável de metais e agrícolas brasileiros, com verificação de origem, compliance e logística eficiente sob FOB/CIF.">
+  <meta name="keywords" content="commodities, exportação, FOB, CIF, intermediação, metais, agrícolas, Brasil, trading, due diligence" />
+  <meta name="author" content="BrazilTrad" />
+  <meta name="theme-color" content="#0F4C5C" />
 
-  /* Barra de idiomas fixa no topo */
-  .langbar {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0;
-    right: 0;
-    height: 36px !important;
-    z-index: 10030 !important;
-  }
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- ======== FIX: LAYOUT TOP ======== -->
+  <style>
+    .langbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 36px;
+      z-index: 10000;
+    }
 
-  /* Ticker fixo logo abaixo das bandeiras */
-  <!-- Ticker de commodities -->
-<div id="braziltrad-ticker">
-  <div class="tradingview-widget-container">
-    <div id="tv-tape"></div>
+    #braziltrad-ticker {
+      position: fixed;
+      top: 36px;
+      left: 0; right: 0;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #004b5c;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+      z-index: 10020;
+      overflow: hidden;
+    }
+
+    .header {
+      position: fixed;
+      top: calc(36px + 40px);
+      left: 0; right: 0;
+      background: rgba(255,255,255,.98);
+      backdrop-filter: blur(10px) saturate(160%);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      z-index: 10010;
+    }
+
+    body {
+      margin-top: calc(36px + 40px + 64px);
+    }
+
+    .hero {
+      margin-top: 0 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Barra de idiomas -->
+  <div class="langbar" aria-label="Selecionar idioma">
+    <a href="#pt" data-lang-select="pt">🇧🇷 PT</a>
+    <a href="#en" data-lang-select="en">🇬🇧 EN</a>
+    <a href="#es" data-lang-select="es">🇪🇸 ES</a>
+    <a href="#zh" data-lang-select="zh">🇨🇳 中文</a>
   </div>
-</div>
 
-<script defer>
-document.addEventListener("DOMContentLoaded", function () {
-  var container = document.getElementById("tv-tape");
-  if (!container) return;
+  <!-- === TICKER DE COMMODITIES FIXO === -->
+  <div id="braziltrad-ticker">
+    <div class="tradingview-widget-container" style="width:100%;">
+      <div id="tv-tape"></div>
+    </div>
+  </div>
 
-  var s = document.createElement("script");
-  s.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
-  s.async = true;
-  s.innerHTML = JSON.stringify({
-    symbols: [
-      { proName:"TVC:GOLD",  title:"Ouro (XAU)" },
-      { proName:"TVC:SILVER",title:"Prata (XAG)" },
-      { proName:"TVC:USOIL", title:"Petróleo WTI" },
-      { proName:"TVC:UKOIL", title:"Brent" },
-      { proName:"NYMEX:NG1!",title:"Gás Natural" },
-      { proName:"COMEX:HG1!",title:"Cobre" },
-      { proName:"CBOT:ZC1!",title:"Milho" },
-      { proName:"CBOT:ZS1!",title:"Soja" },
-      { proName:"CBOT:ZW1!",title:"Trigo" },
-      { proName:"ICEUS:KC1!",title:"Café" },
-      { proName:"ICEUS:SB1!",title:"Açúcar" }
-    ],
-    showSymbolLogo: true,
-    colorTheme: "dark",
-    isTransparent: true,
-    displayMode: "adaptive",
-    locale: "pt"
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("tv-tape");
+      if (!container) return;
+      const s = document.createElement("script");
+      s.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
+      s.async = true;
+      s.innerHTML = JSON.stringify({
+        symbols: [
+          { proName:"TVC:GOLD",  title:"Ouro (XAU)" },
+          { proName:"TVC:SILVER",title:"Prata (XAG)" },
+          { proName:"TVC:USOIL", title:"Petróleo WTI" },
+          { proName:"TVC:UKOIL", title:"Brent" },
+          { proName:"NYMEX:NG1!",title:"Gás Natural" },
+          { proName:"COMEX:HG1!",title:"Cobre" },
+          { proName:"CBOT:ZC1!",title:"Milho" },
+          { proName:"CBOT:ZS1!",title:"Soja" },
+          { proName:"CBOT:ZW1!",title:"Trigo" },
+          { proName:"ICEUS:KC1!",title:"Café" },
+          { proName:"ICEUS:SB1!",title:"Açúcar" }
+        ],
+        showSymbolLogo: true,
+        colorTheme: "dark",
+        isTransparent: true,
+        displayMode: "adaptive",
+        locale: "pt"
+      });
+      container.appendChild(s);
+    });
+  </script>
+  </head>
+  <body>
+    
+ 
+  <!-- Agora vem o header -->
+
+<header class="header">
+  ...
+</header>
+
+<!-- Espaçamento para o conteúdo não ficar por baixo -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.style.marginTop = "148px";
   });
-  container.appendChild(s);
-});
 </script>
-
-
-
-  /* Header fixo logo abaixo do ticker */
-  ..header {
-  position: fixed !important;
-  top: 74px !important; /* 36 (langbar) + 38 (ticker) */
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.98) !important;
-  backdrop-filter: blur(10px) saturate(160%) !important;
-  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
-  z-index: 10010 !important;
-}
-
-
-  /* Espaçamento para o conteúdo não ficar por baixo */
-  body {
-  margin-top: 148px !important; /* 36 + 38 + 74 */
-}
+</body>
 
 
   /* Ajuste do TradingView dentro do ticker */
