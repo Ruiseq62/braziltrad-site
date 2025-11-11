@@ -174,3 +174,23 @@ body {
 .hero, main, section {
   padding-top: 0 !important;
 }
+/* === CORREÇÃO FINAL DO TOPO === */
+body {
+  margin-top: 160px !important; /* 36 (idiomas) + 40 (ticker) + 84 (header) */
+}
+
+.header {
+  background: #fff;
+  position: sticky;
+  top: 76px;
+  z-index: 10010;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.tradingview-widget-container {
+  position: fixed;
+  top: 36px; /* logo abaixo da barra de idiomas */
+  left: 0;
+  right: 0;
+  z-index: 10000;
+}
