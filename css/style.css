@@ -1,39 +1,155 @@
-/* === Correção definitiva para imagens dos cards === */
+/* === RESET BÁSICO === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === FONTE E CORES BASE === */
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #333;
+  background-color: #fff;
+  line-height: 1.6;
+  margin-top: calc(36px + 40px + 64px);
+}
+
+/* === BARRA DE IDIOMAS === */
+.langbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #0f4c5c;
+  color: #fff;
+  font: 500 14px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.langbar a {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.85;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.langbar a:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* === BARRA DE COTAÇÕES === */
+.ticker {
+  position: fixed;
+  top: 36px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  z-index: 10005;
+  overflow: hidden;
+}
+
+/* === HEADER FIXO ABAIXO DO TICKER === */
+.header {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(10px) saturate(160%);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  z-index: 10010;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5%;
+}
+
+/* === LOGO === */
+.header img {
+  height: 50px;
+}
+
+/* === NAVEGAÇÃO === */
+.nav a {
+  color: #0f4c5c;
+  font-weight: 500;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: #189ab4;
+}
+
+/* === HERO / SEÇÕES === */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+h1, h2, h3 {
+  color: #0f4c5c;
+  margin-bottom: 12px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/* === GRID DE SERVIÇOS, PRODUTOS ETC === */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 18px;
+  padding: 40px 5%;
 }
 
+/* === CARDS === */
 .card {
   background: #fff;
   border-radius: 14px;
   padding: 18px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-
-
-/* Responsivo */
-@media (max-width: 900px) {
-  .card img {
-    max-height: 160px;
-  }
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
 }
-/* === Correção definitiva das imagens dos cards (BrazilTrad) === */
+
+/* === IMAGENS DOS CARDS === */
 #products .card img {
   width: 100% !important;
-  height: 200px !important;      /* podes ajustar p/ 180px se quiser mais compacto */
+  height: 200px !important; /* Ajuste aqui se quiser mais compacto */
   object-fit: cover !important;
   border-radius: 12px !important;
   margin-bottom: 12px !important;
   display: block !important;
 }
 
-/* Responsivo: reduz a altura no mobile */
+/* === RESPONSIVO === */
 @media (max-width: 900px) {
+  body {
+    margin-top: 140px;
+  }
+
   #products .card img {
     height: 150px !important;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 8px;
   }
 }
