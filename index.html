@@ -19,22 +19,45 @@
   }
 
   /* Ticker fixo logo abaixo das bandeiras */
-  #braziltrad-ticker {
-  position: fixed !important;
-  top: 36px !important; /* logo abaixo da langbar */
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 38px !important; /* altura uniforme do ticker */
-  background-color: #004b5c !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-  padding: 2px 0 !important; /* menos padding, mais equilíbrio */
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  z-index: 10020 !important;
-  overflow: hidden !important;
-}
+  <!-- Ticker de commodities -->
+<div id="braziltrad-ticker">
+  <div class="tradingview-widget-container">
+    <div id="tv-tape"></div>
+  </div>
+</div>
+
+<script defer>
+document.addEventListener("DOMContentLoaded", function () {
+  var container = document.getElementById("tv-tape");
+  if (!container) return;
+
+  var s = document.createElement("script");
+  s.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
+  s.async = true;
+  s.innerHTML = JSON.stringify({
+    symbols: [
+      { proName:"TVC:GOLD",  title:"Ouro (XAU)" },
+      { proName:"TVC:SILVER",title:"Prata (XAG)" },
+      { proName:"TVC:USOIL", title:"Petróleo WTI" },
+      { proName:"TVC:UKOIL", title:"Brent" },
+      { proName:"NYMEX:NG1!",title:"Gás Natural" },
+      { proName:"COMEX:HG1!",title:"Cobre" },
+      { proName:"CBOT:ZC1!",title:"Milho" },
+      { proName:"CBOT:ZS1!",title:"Soja" },
+      { proName:"CBOT:ZW1!",title:"Trigo" },
+      { proName:"ICEUS:KC1!",title:"Café" },
+      { proName:"ICEUS:SB1!",title:"Açúcar" }
+    ],
+    showSymbolLogo: true,
+    colorTheme: "dark",
+    isTransparent: true,
+    displayMode: "adaptive",
+    locale: "pt"
+  });
+  container.appendChild(s);
+});
+</script>
+
 
 
   /* Header fixo logo abaixo do ticker */
@@ -57,11 +80,7 @@
 
 
   /* Ajuste do TradingView dentro do ticker */
-  #braziltrad-ticker .tradingview-widget-container {
-    width: 100% !important;
-    overflow: hidden !important;
-  }
-</style>
+  
 
 
 
@@ -211,8 +230,7 @@
     @media (max-width:900px){ .grid{grid-template-columns:1fr} .hero h1{font-size:32px} }
 
     /* 🔽 Ticker abaixo de tudo */
-    #braziltrad-ticker { position: relative !important; z-index: 0 !important; }
-  </style>
+    
 
   <!-- SEO dinâmico por idioma -->
   <script>
@@ -257,8 +275,7 @@
 <!-- === Ticker de Commodities (fixo abaixo da barra de idiomas) === -->
 <!-- Ticker de commodities (TOPO) -->
 <!-- Ticker de commodities (TOPO) -->
-<div id="braziltrad-ticker"
-     style="position:sticky; top:36px; z-index:9999; background-color:#004b5c; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.15);">
+
   <div class="tradingview-widget-container" style="max-width:100%">
     <div id="tradingview-widget"></div>
   </div>
