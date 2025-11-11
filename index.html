@@ -1,45 +1,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title id="meta-title">BrazilTrad — Intermediação confiável de commodities brasileiras (FOB/CIF)</title>
+
   <!-- CSS principal -->
-  
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- ===== FIXO TOPO: LANG + TICKER + HEADER ===== -->
-  
-
   <!-- ===== SEO BASE ===== -->
-  <title id="meta-title">BrazilTrad — Intermediação confiável de commodities brasileiras (FOB/CIF)</title>
   <meta id="meta-desc" name="description" content="Intermediação confiável de metais e agrícolas brasileiros, com verificação de origem, compliance e logística eficiente sob FOB/CIF.">
   <meta name="keywords" content="commodities, exportação, FOB, CIF, intermediação, metais, agrícolas, Brasil, trading, due diligence" />
   <meta name="author" content="BrazilTrad" />
   <meta name="theme-color" content="#0F4C5C" />
-
-  <!-- Hreflang -->
-  <link rel="alternate" hreflang="x-default" href="https://braziltrad.com/">
-  <link rel="alternate" hreflang="pt-br" href="https://braziltrad.com/#pt">
-  <link rel="alternate" hreflang="en" href="https://braziltrad.com/#en">
-  <link rel="alternate" hreflang="es" href="https://braziltrad.com/#es">
-  <link rel="alternate" hreflang="zh" href="https://braziltrad.com/#zh">
-
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://braziltrad.com/assets/img/braziltrad-logo.png">
   <meta property="og:url" content="https://braziltrad.com/">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="BrazilTrad — Connecting Brazilian producers to global markets">
   <meta property="og:description" content="Trusted Brazilian intermediary for global commodity trading. Verified origin, compliance and logistics under FOB/CIF.">
+
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="BrazilTrad — Connecting Brazilian producers to global markets">
   <meta name="twitter:description" content="Reliable Brazilian commodity trading — verified origin, compliance and logistics under FOB/CIF.">
   <meta name="twitter:image" content="https://braziltrad.com/assets/img/braziltrad-logo.png">
 
-  <!-- Assets -->
+  <!-- Ícones -->
   <link rel="icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css">
+</head>
 
-  <!-- ===== SCRIPT DO TICKER ===== -->
+<body>
+  <!-- Barra de idiomas -->
+  <div class="langbar" aria-label="Selecionar idioma">
+    <a href="#pt" data-lang-select="pt">🇧🇷 PT</a>
+    <a href="#en" data-lang-select="en">🇬🇧 EN</a>
+    <a href="#es" data-lang-select="es">🇪🇸 ES</a>
+    <a href="#zh" data-lang-select="zh">🇨🇳 中文</a>
+  </div>
+
+  <!-- === Ticker de Commodities (único e corrigido) === -->
+  <div class="tradingview-widget-container" style="max-width:100%">
+    <div id="tradingview-widget"></div>
+  </div>
+
   <script defer>
     document.addEventListener("DOMContentLoaded", function() {
       const container = document.getElementById("tradingview-widget");
@@ -71,64 +73,8 @@
       container.appendChild(s);
     });
   </script>
-</head>
 
-<body>
-  <!-- Barra de idiomas (bandeiras) -->
-  <div class="langbar" aria-label="Selecionar idioma">
-    <a href="#pt" data-lang-select="pt">🇧🇷 PT</a>
-    <a href="#en" data-lang-select="en">🇬🇧 EN</a>
-    <a href="#es" data-lang-select="es">🇪🇸 ES</a>
-    <a href="#zh" data-lang-select="zh">🇨🇳 中文</a>
-  </div>
-
-  <!-- Ticker de commodities (TOPO) -->
- <!-- === Ticker de Commodities (corrigido) === -->
-<!-- Barra de idiomas -->
-<!-- Ticker de commodities (TOPO) -->
-<!-- Ticker de commodities (TOPO) -->
-<!-- === Ticker de Commodities (fixo abaixo da barra de idiomas) === -->
-<!-- === Ticker de Commodities (fixo abaixo da barra de idiomas) === -->
-<!-- Ticker de commodities (TOPO) -->
-<!-- Ticker de commodities (TOPO) -->
-
-  <div class="tradingview-widget-container" style="max-width:100%">
-    <div id="tradingview-widget"></div>
-  </div>
-</div>
-
-<script defer>
-document.addEventListener("DOMContentLoaded", function() {
-  var container = document.getElementById("tradingview-widget");
-  if (!container) return;
-  var script = document.createElement("script");
-  script.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
-  script.async = true;
-  script.innerHTML = JSON.stringify({
-    "symbols": [
-      {"proName":"TVC:GOLD","title":"Ouro (XAU)"},
-      {"proName":"TVC:SILVER","title":"Prata (XAG)"},
-      {"proName":"TVC:USOIL","title":"Petróleo WTI"},
-      {"proName":"TVC:UKOIL","title":"Brent"},
-      {"proName":"NYMEX:NG1!","title":"Gás Natural"},
-      {"proName":"COMEX:HG1!","title":"Cobre"},
-      {"proName":"CBOT:ZC1!","title":"Milho"},
-      {"proName":"CBOT:ZS1!","title":"Soja"},
-      {"proName":"CBOT:ZW1!","title":"Trigo"},
-      {"proName":"ICEUS:KC1!","title":"Café"},
-      {"proName":"ICEUS:SB1!","title":"Açúcar"}
-    ],
-    "showSymbolLogo": true,
-    "colorTheme": "dark",
-    "isTransparent": true,
-    "displayMode": "adaptive",
-    "locale": "pt"
-  });
-  container.appendChild(script);
-});
-</script>
-
-  <!-- Header + Menu -->
+  <!-- Header -->
   <header class="header">
     <div class="container nav">
       <a class="brand" href="#top">
@@ -140,16 +86,17 @@ document.addEventListener("DOMContentLoaded", function() {
       </a>
       <nav>
         <ul>
-          <li><a href="#about"    data-i18n="menu.about"></a></li>
+          <li><a href="#about" data-i18n="menu.about"></a></li>
           <li><a href="#services" data-i18n="menu.services"></a></li>
           <li><a href="#products" data-i18n="menu.products"></a></li>
-          <li><a href="#markets"  data-i18n="menu.markets"></a></li>
+          <li><a href="#markets" data-i18n="menu.markets"></a></li>
           <li><a href="#insights" data-i18n="menu.insights"></a></li>
           <li><a href="contato.html" data-i18n="menu.contact"></a></li>
         </ul>
       </nav>
     </div>
   </header>
+
 
   <!-- Hero -->
   <section id="top" class="hero">
