@@ -142,6 +142,48 @@ document.addEventListener("DOMContentLoaded", function () {
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
+<style>
+/* ===== Layout fixo topo: langbar (36) + ticker (40) + header (64) ===== */
+.langbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  z-index: 10000;
+}
+
+#braziltrad-ticker{
+  position: fixed;
+  top: 36px;
+  left: 0; right: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #004b5c;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  z-index: 10020;
+  overflow: hidden;
+}
+
+.header{
+  position: fixed;
+  top: calc(36px + 40px);
+  left: 0; right: 0;
+  background: rgba(255,255,255,.98);
+  backdrop-filter: blur(10px) saturate(160%);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  z-index: 10010;
+}
+
+body{
+  margin-top: calc(36px + 40px + 64px);
+}
+
+.hero{
+  margin-top: 0 !important;
+}
+</style>
+
 
   <!-- CSS adicional (gradientes + layout) -->
   <style>
