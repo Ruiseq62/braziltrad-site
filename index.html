@@ -75,27 +75,44 @@
   </script>
 
   <!-- Header -->
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="#top">
-        <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" />
-        <div>
-          <div class="title">BrazilTrad</div>
-          <div class="slogan" data-i18n="slogan"></div>
+<header class="header">
+  <div class="container">
+    <a class="brand" href="#top">
+      <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" />
+      <div>
+        <div class="title">BrazilTrad</div>
+        <div class="slogan" data-i18n="slogan"></div>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="#about" data-i18n="menu.about"></a></li>
+        <li><a href="#services" data-i18n="menu.services"></a></li>
+        <li><a href="#products" data-i18n="menu.products"></a></li>
+        <li><a href="#markets" data-i18n="menu.markets"></a></li>
+        <li><a href="#insights" data-i18n="menu.insights"></a></li>
+        <li><a href="contato.html" data-i18n="menu.contact"></a></li>
+      </ul>
+
+      <!-- Bloco multilíngua -->
+      <div class="lang" id="lang">
+        <button class="lang-toggle" id="langToggle" type="button" aria-haspopup="true" aria-expanded="false">
+          🌐 PT
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <a href="#" data-lang="pt">🇧🇷 Português</a>
+          <a href="#" data-lang="en">🇬🇧 English</a>
+          <a href="#" data-lang="es">🇪🇸 Español</a>
+          <a href="#" data-lang="zh">🇨🇳 中文</a>
         </div>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="#about" data-i18n="menu.about"></a></li>
-          <li><a href="#services" data-i18n="menu.services"></a></li>
-          <li><a href="#products" data-i18n="menu.products"></a></li>
-          <li><a href="#markets" data-i18n="menu.markets"></a></li>
-          <li><a href="#insights" data-i18n="menu.insights"></a></li>
-          <li><a href="contato.html" data-i18n="menu.contact"></a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Compensador de altura da barra fixa -->
+<div class="header-spacer"></div>
 
 
   <!-- Hero -->
