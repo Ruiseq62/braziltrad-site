@@ -21,13 +21,30 @@
     }
   </style>
 
+<!-- Hotfixes temporários -->
+<style id="bt-hotfix-images">
+  #products .card img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+    border-radius: 12px !important;
+    display: block !important;
+    margin-bottom: 12px !important;
+  }
+  @media (max-width: 900px) {
+    #products .card img {
+      height: 150px !important;
+    }
+  }
+</style>
+
 <style id="bt-hotfix-ticker">
-  /* === Correção de sobreposição do ticker === */
+  /* === Correção de sobreposição do ticker e header === */
   #braziltrad-ticker {
     position: sticky !important;
     display: block !important;
-    top: 36px !important; /* logo abaixo da barra de idiomas */
-    z-index: 9500 !important; /* abaixo do header, acima do hero */
+    top: 36px !important; /* abaixo da barra de idiomas */
+    z-index: 9500 !important;
     background-color: #004b5c !important;
     padding: 4px 0 !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
@@ -35,7 +52,7 @@
 
   .header {
     position: sticky !important;
-    top: 72px !important; /* 36px da langbar + 36px do ticker */
+    top: 72px !important; /* 36px langbar + 36px ticker */
     z-index: 10000 !important;
     background: linear-gradient(
       180deg,
@@ -48,27 +65,10 @@
   }
 
   body {
-    body {
-  margin-top: calc(36px + 36px + 36px) !important; /* langbar + ticker + espaçamento do header */
-}
-
+    margin-top: calc(36px + 36px + 64px) !important; /* langbar + ticker + header */
   }
 </style>
 
-
-  /* Header deixa de ser fixo */
-  .header {
-    position: relative !important;
-    top: auto !important;
-    z-index: 1 !important;
-    background: #fff !important;
-  }
-
-  /* Adiciona espaço para langbar + ticker */
-  body {
-    margin-top: 110px !important;
-  }
-</style>
 
 
 
