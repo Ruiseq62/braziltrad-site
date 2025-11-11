@@ -160,3 +160,17 @@ p {
     gap: 8px;
   }
 }
+/* === CORREÇÃO FINAL DE ESPAÇAMENTO DO CONTEÚDO === */
+body {
+  margin-top: 180px !important; /* 36 (idiomas) + 40 (ticker) + 104 (header) */
+}
+
+.header {
+  background: #fff !important; /* fundo sólido, evita transparência */
+  backdrop-filter: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.hero, main, section {
+  padding-top: 0 !important;
+}
