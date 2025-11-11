@@ -1,304 +1,160 @@
-/* === RESET BÁSICO === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* === FONTE E CORES BASE === */
+/* ====== Reset & base ====== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-y: scroll; /* evita “pulo” por causa da barra de rolagem */ }
 body {
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  color: #333;
-  background-color: #fff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #0f172a;
+  background: #fff;
   line-height: 1.6;
-  margin-top: calc(36px + 40px + 64px);
 }
 
-/* === BARRA DE IDIOMAS === */
-.langbar {
+/* Paleta */
+:root{
+  --bt-teal: #0f766e;
+  --bt-teal-700: #115e59;
+  --bt-bg: #ffffff;
+  --bt-muted:#64748b;
+  --bt-border:#e2e8f0;
+}
+
+/* Contêiner padrão */
+.container{
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+/* ====== Header (barra branca) ====== */
+.header{
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 36px;
-  z-index: 10000;
+  inset: 0 0 auto 0;     /* top:0; left:0; right:0 */
+  height: 72px;
+  background: var(--bt-bg);
+  border-bottom: 1px solid var(--bt-border);
+  z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
-  background: #0f4c5c;
-  color: #fff;
-  font: 500 14px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  will-change: transform;           /* ajuda Safari a manter estável */
+  backface-visibility: hidden;      /* evita “vibração” ao rolar */
 }
 
-.langbar a {
-  color: #fff;
-  text-decoration: none;
-  opacity: 0.85;
-  padding: 6px 10px;
-  border-radius: 999px;
+.header .container{
+  display:flex; align-items:center; gap: 24px;
 }
 
-.langbar a:hover {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.15);
+/* Logo + título */
+.brand{
+  display:flex; align-items:center; gap:12px;
+}
+.brand img{ height:36px; width:auto; display:block; }
+.brand .title{
+  font-weight:700; color:#0f172a; font-size:18px;
 }
 
-/* === BARRA DE COTAÇÕES === */
-.ticker {
-  position: fixed;
-  top: 36px;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: #fff;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  z-index: 10005;
-  overflow: hidden;
+/* Nav */
+.nav{
+  margin-left:auto;
+  display:flex; align-items:center; gap: 22px;
 }
-
-/* === HEADER FIXO ABAIXO DO TICKER === */
-/* === HEADER FIXO ABAIXO DO TICKER === */
-.header {
-  position: fixed;
-  top: 76px; /* 36 (langbar) + 40 (ticker) */
-  left: 0;
-  right: 0;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(8px) saturate(160%);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  z-index: 10010;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 6%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+.nav a{
+  text-decoration:none; color:#0f172a; font-weight:500;
 }
+.nav a:hover{ color: var(--bt-teal); }
 
-body {
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  color: #333;
-  background-color: #fff;
-  line-height: 1.6;
-  margin-top: 170px; /* Ajuste total (36 + 40 + 94) */
-  padding-bottom: 50px;
-}
+/* Espaçador para compensar header fixo (evita “pular”) */
+.header-spacer{ height:72px; }
 
-
-/* === NAVEGAÇÃO === */
-.nav a {
-  color: #0f4c5c;
-  font-weight: 500;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-.nav a:hover {
-  color: #189ab4;
-}
-
-/* === HERO / SEÇÕES === */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-h1, h2, h3 {
-  color: #0f4c5c;
-  margin-bottom: 12px;
-}
-
-p {
-  margin-bottom: 10px;
-}
-
-/* === GRID DE SERVIÇOS, PRODUTOS ETC === */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
-  padding: 40px 5%;
-}
-
-/* === CARDS === */
-.card {
-  background: #fff;
-  border-radius: 14px;
-  padding: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-}
-
-/* === IMAGENS DOS CARDS === */
-#products .card img {
-  width: 100% !important;
-  height: 200px !important; /* Ajuste aqui se quiser mais compacto */
-  object-fit: cover !important;
-  border-radius: 12px !important;
-  margin-bottom: 12px !important;
-  display: block !important;
-}
-
-/* === RESPONSIVO === */
-@media (max-width: 900px) {
-  body {
-    margin-top: 140px;
-  }
-
-  #products .card img {
-    height: 150px !important;
-  }
-
-  .header {
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-/* === CORREÇÃO FINAL DE ESPAÇAMENTO DO CONTEÚDO === */
-body {
-  margin-top: 180px !important; /* 36 (idiomas) + 40 (ticker) + 104 (header) */
-}
-
-.header {
-  background: #fff !important; /* fundo sólido, evita transparência */
-  backdrop-filter: none !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.hero, main, section {
-  padding-top: 0 !important;
-}
-/* === CORREÇÃO FINAL DO TOPO === */
-body {
-  margin-top: 160px !important; /* 36 (idiomas) + 40 (ticker) + 84 (header) */
-}
-
-.header {
-  background: #fff;
+/* ====== Barra de cotações (ticker) ====== */
+.ticker{
   position: sticky;
-  top: 76px;
-  z-index: 10010;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  top: 72px;                       /* gruda logo abaixo do header fixo */
+  z-index: 950;
+  background:#0b3c44;              /* a tua cor atual do topo */
+  color:#e6fffb;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+.ticker .container{
+  display:flex; gap:18px; align-items:center;
+  overflow-x:auto; white-space:nowrap;
+  padding:10px 0;
 }
 
-.tradingview-widget-container {
-  position: fixed;
-  top: 36px; /* logo abaixo da barra de idiomas */
-  left: 0;
-  right: 0;
-  z-index: 10000;
+/* ====== Hero / topo ====== */
+.hero{
+  text-align:center;               /* centra todo o conteúdo */
+  padding: clamp(28px, 4vw, 44px) 0 28px;
 }
-/* === CORREÇÃO GERAL TOPO BRAZILTRAD === */
-
-/* Ajuste da margem superior do conteúdo */
-body {
-  margin-top: 140px !important; /* soma da barra de idiomas + ticker + header */
+.hero h1{
+  font-size: clamp(26px, 3.4vw, 36px);
+  color:#0f2b2e;
 }
-
-/* Header mais compacto */
-.header {
-  position: sticky;
-  top: 76px; /* logo abaixo do ticker */
-  background: #fff;
-  z-index: 10010;
-  padding: 8px 0; /* reduz espaço interno */
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+.hero p{
+  color: var(--bt-muted);
+  margin-top: 10px;
+  max-width: 820px;
+  margin-left:auto; margin-right:auto;   /* centra o parágrafo */
 }
 
-/* Imagem do logo menor */
-.header .brand img {
-  height: 48px; /* antes devia estar 80px ou mais */
-  width: auto;
+/* CTA */
+.cta{
+  margin-top: 14px;
+  display:flex; gap:18px; justify-content:center; flex-wrap:wrap;
 }
-
-/* Espaçamento entre logo e menu */
-.header .container.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+.btn{
+  padding:10px 16px; border-radius:999px; font-weight:600;
+  text-decoration:none; border:1px solid var(--bt-border);
 }
-
-/* Corrigir o ticker fixo */
-.tradingview-widget-container {
-  position: fixed;
-  top: 36px; /* logo abaixo da barra de idiomas */
-  left: 0;
-  right: 0;
-  z-index: 10000;
+.btn.primary{
+  background: var(--bt-teal);
+  color:#fff; border-color: transparent;
 }
+.btn.primary:hover{ background: var(--bt-teal-700); }
 
-/* Reajuste do menu */
-.header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 18px;
-  margin: 0;
-  padding: 0;
+/* ====== Seções ====== */
+section{
+  padding: 28px 0;
 }
-
-.header nav a {
-  text-decoration: none;
-  color: #0F4C5C;
-  font-weight: 500;
+section .section-card{
+  background:#f8fafc; border:1px solid var(--bt-border);
+  border-radius:14px; padding:18px;
 }
-
-.header nav a:hover {
-  color: #00796b;
+section h2{
+  text-align:center;               /* títulos centrados */
+  margin-bottom:10px;
 }
-
-/* === Botão multilíngua === */
-.lang-floating {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 11000;
+section p, section li{
+  max-width: 900px;
+  margin-left:auto; margin-right:auto;   /* texto centrado */
 }
+ul{ list-style: disc inside; }
+li + li{ margin-top:6px; }
 
-.lang-btn {
-  background: #0F4C5C;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 20px;
-  transition: 0.2s;
+/* ====== Multilíngua ====== */
+.lang{
+  position: relative;
 }
-
-.lang-btn:hover {
-  background: #00695c;
+.lang-toggle{
+  display:flex; align-items:center; gap:8px;
+  border:1px solid var(--bt-border);
+  background:#fff; height:38px; padding:0 12px; border-radius:10px;
+  cursor:pointer; user-select:none;
 }
-
-.lang-menu {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  bottom: 60px;
-  right: 0;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.lang-menu{
+  position:absolute; right:0; top:46px;
+  width: 220px; max-height: 60vh; overflow:auto;
+  background:#fff; border:1px solid var(--bt-border);
+  border-radius:12px; box-shadow: 0 12px 20px rgba(2,8,23,.08);
+  display:none;
 }
-
-.lang-floating.active .lang-menu {
-  display: flex;
+.lang-menu.open{ display:block; }
+.lang-menu a{
+  display:flex; align-items:center; gap:10px;
+  padding:10px 12px; text-decoration:none; color:#0f172a;
 }
+.lang-menu a:hover{ background:#f1f5f9; }
 
-.lang-menu a {
-  padding: 8px 16px;
-  text-decoration: none;
-  color: #0F4C5C;
-  font-weight: 500;
-}
-
-.lang-menu a:hover {
-  background: #f5f5f5;
+/* ====== Responsivo ====== */
+@media (max-width: 860px){
+  .brand .title{ display:none; }           /* deixa só o logo em telas menores */
+  .nav{ gap:14px; }
 }
