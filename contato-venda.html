@@ -89,70 +89,71 @@
     }
   </style>
 </head>
+
 <body>
 
-  <main class="container">
-    <h1>Quero Vender</h1>
-    <p class="desc">Preencha o formulário com os dados da sua oferta e a nossa equipa entrará em contacto.</p>
+<main class="container">
+  <h1>Quero Vender</h1>
+  <p class="desc">Preencha o formulário com os dados da sua oferta e a nossa equipa entrará em contacto.</p>
 
-    <form id="contactForm">
+  <form id="contactForm">
 
-      <!-- TOKENS DO ZOHO -->
-      <input type="hidden" name="xnQsjsdp" value="006d2ecb73ad998ea05f038497601dc3ffae95c11e530d1250cc6309dabfc502">
-      <input type="hidden" name="xmIwtLD" value="0c16e695af92187629acdbe97f14dc0656f785e23f9449adbc346216ab10aaebe8d345eda125a27c49af0f12ee5c0f23">
-      <input type="hidden" name="actionType" value="TGVhZHM=">
-      <input type="hidden" name="returnURL" value="https://braziltrad.com">
+    <!-- TOKENS DO ZOHO -->
+    <input type="hidden" name="xnQsjsdp" value="006d2ecb73ad998ea05f038497601dc3ffae95c11e530d1250cc6309dabfc502">
+    <input type="hidden" name="xmIwtLD" value="0c16e695af92187629acdbe97f14dc0656f785e23f9449adbc346216ab10aaebe8d345eda125a27c49af0f12ee5c0f23">
+    <input type="hidden" name="actionType" value="TGVhZHM=">
+    <input type="hidden" name="returnURL" value="https://braziltrad.com">
 
-      <!-- FONTE DO CLIENTE POTENCIAL (CORRETO E FUNCIONANDO) -->
-      <input type="hidden" name="Lead Source" value="Vendedor">
+    <!-- FONTE DO LEAD -->
+    <input type="hidden" name="Lead Source" value="Vendedor">
 
-      <!-- CAMPOS DO FORMULÁRIO -->
-      <label for="nome">Nome *</label>
-      <input id="nome" name="Last Name" type="text" required>
+    <!-- CAMPOS DO FORMULÁRIO -->
+    <label for="nome">Nome *</label>
+    <input id="nome" name="Last Name" type="text" required>
 
-      <label for="email">E-mail *</label>
-      <input id="email" name="Email" type="email" required>
+    <label for="email">E-mail *</label>
+    <input id="email" name="Email" type="email" required>
 
-      <label for="telefone">Telefone</label>
-      <input id="telefone" name="Mobile" type="text">
+    <label for="telefone">Telefone</label>
+    <input id="telefone" name="Mobile" type="text">
 
-      <label for="empresa">Empresa (opcional)</label>
-      <input id="empresa" name="Company" type="text">
+    <label for="empresa">Empresa (opcional)</label>
+    <input id="empresa" name="Company" type="text">
 
-      <label for="produto">Produto que pretende vender *</label>
-      <select id="produto" name="Industry" required>
-        <option value="">Selecione...</option>
-        <option value="Café">Café</option>
-        <option value="Soja">Soja</option>
-        <option value="Milho">Milho</option>
-        <option value="Carnes">Carnes</option>
-        <option value="Minérios">Minérios</option>
-        <option value="Açúcar">Açúcar</option>
-        <option value="Outros">Outros</option>
-      </select>
+    <label for="produto">Produto que pretende vender *</label>
+    <select id="produto" name="Industry" required>
+      <option value="">Selecione...</option>
+      <option value="Café">Café</option>
+      <option value="Soja">Soja</option>
+      <option value="Milho">Milho</option>
+      <option value="Carnes">Carnes</option>
+      <option value="Minérios">Minérios</option>
+      <option value="Açúcar">Açúcar</option>
+      <option value="Outros">Outros</option>
+    </select>
 
-      <label for="capacidade">Capacidade mensal (ex.: 1000 t)</label>
-      <input id="capacidade" name="Annual Revenue" type="text">
+    <label for="capacidade">Capacidade mensal (ex.: 1000 t)</label>
+    <input id="capacidade" name="Annual Revenue" type="text">
 
-      <label for="pais">País de origem *</label>
-      <input id="pais" name="City" type="text" required>
+    <label for="pais">País de origem *</label>
+    <input id="pais" name="City" type="text" required>
 
-      <label for="mensagem">Mensagem / Observações</label>
-      <textarea id="mensagem" name="Description" rows="5"></textarea>
+    <label for="mensagem">Mensagem / Observações</label>
+    <textarea id="mensagem" name="Description" rows="5"></textarea>
 
-      <button type="submit">Enviar</button>
+    <button type="submit">Enviar</button>
 
-      <div id="msg" class="msg"></div>
-      <button id="backBtn" type="button" onclick="history.back()">Voltar ao site</button>
+    <div id="msg" class="msg"></div>
+    <button id="backBtn" type="button" onclick="history.back()">Voltar ao site</button>
 
-    </form>
-  </main>
+  </form>
+</main>
 
 <script>
 (function(){
 
   const ZOHO_URL = "https://crm.zoho.com/crm/WebToLeadForm";
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybOzPVqJnp2WTRuUphikBBgL6EUToNmmQpi6wlHkIdEpnv4Jp0fzyYCryNJV8FnkRb/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyg93-3LT-GzMnhz69KZ-Xkh3ppSgNJXLFSCmmt099q6XwiDumVId8n8CZ9VJTSo5DI/exec";
 
   const form = document.getElementById("contactForm");
   const msg = document.getElementById("msg");
@@ -172,29 +173,32 @@
     msg.textContent = "";
     msg.className = "msg";
 
-    // FormData para Zoho
+    // ----- ENVIO PARA O ZOHO -----
     const fdZoho = new FormData(form);
 
-    // FormData para Apps Script
-    const fdScript = new FormData();
-    fdScript.append("nome", document.getElementById("nome").value);
-    fdScript.append("email", document.getElementById("email").value);
-    fdScript.append("telefone", document.getElementById("telefone").value);
-    fdScript.append("empresa", document.getElementById("empresa").value);
-    fdScript.append("produto", document.getElementById("produto").value);
-    fdScript.append("volume", document.getElementById("capacidade").value);
-    fdScript.append("pais", document.getElementById("pais").value);
-    fdScript.append("mensagem", document.getElementById("mensagem").value);
-    fdScript.append("idioma", detectLang());
-    fdScript.append("origem_formulario", "vender.html");
+    // ----- ENVIO PARA O APPS SCRIPT (JSON) -----
+    const payload = {
+      nome: document.getElementById("nome").value,
+      email: document.getElementById("email").value,
+      telefone: document.getElementById("telefone").value,
+      empresa: document.getElementById("empresa").value,
+      produto: document.getElementById("produto").value,
+      volume: document.getElementById("capacidade").value,
+      pais: document.getElementById("pais").value,
+      mensagem: document.getElementById("mensagem").value,
+      idioma: detectLang(),
+      origem_formulario: "vender.html"
+    };
 
     try {
-      await fetch(SCRIPT_URL, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(Object.fromEntries(fdScript))
-});
-
+      await Promise.all([
+        fetch(ZOHO_URL, { method: "POST", body: fdZoho }),
+        fetch(SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        })
+      ]);
 
       msg.textContent = "Mensagem enviada com sucesso! Em breve entraremos em contacto.";
       msg.classList.add("success");
@@ -210,5 +214,6 @@
 
 })();
 </script>
+
 </body>
 </html>
