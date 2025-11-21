@@ -189,10 +189,12 @@
     fdScript.append("origem_formulario", "vender.html");
 
     try {
-      await Promise.all([
-        fetch(ZOHO_URL, { method: "POST", body: fdZoho }),
-        fetch(SCRIPT_URL, { method: "POST", body: fdScript })
-      ]);
+      await fetch(SCRIPT_URL, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(Object.fromEntries(fdScript))
+});
+
 
       msg.textContent = "Mensagem enviada com sucesso! Em breve entraremos em contacto.";
       msg.classList.add("success");
