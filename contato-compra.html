@@ -74,9 +74,21 @@
     }
     .success { color: #008f4c; }
     .error { color: #c62828; }
+
+    #backBtn {
+      display:none;
+      margin-top:14px;
+      background:#0F4C5C;
+      color:white;
+      padding:12px;
+      border:none;
+      cursor:pointer;
+      border-radius:6px;
+      font-size:15px;
+    }
+
   </style>
 </head>
-
 <body>
 
   <main class="container">
@@ -85,7 +97,7 @@
 
     <form id="contactForm">
 
-      <!-- Tokens Zoho -->
+      <!-- Tokens Zoho (mesmos do formulário principal) -->
       <input type="hidden" name="xnQsjsdp" value="006d2ecb73ad998ea05f038497601dc3ffae95c11e530d1250cc6309dabfc502">
       <input type="hidden" name="xmIwtLD" value="0c16e695af92187629acdbe97f14dc0656f785e23f9449adbc346216ab10aaebe8d345eda125a27c49af0f12ee5c0f23">
       <input type="hidden" name="actionType" value="TGVhZHM=">
@@ -93,7 +105,7 @@
       <input type="hidden" name="returnURL" value="">
       <input type="hidden" name="Lead Source" value="Comprador">
 
-      <!-- Campos -->
+      <!-- Campos do formulário -->
       <label>Nome *</label>
       <input type="text" name="Last Name" id="nome" required>
 
@@ -130,6 +142,7 @@
       <button type="submit">Enviar</button>
 
       <div id="formMsg" class="msg"></div>
+      <button id="backBtn" type="button" onclick="history.back()">Voltar ao site</button>
 
     </form>
   </main>
@@ -138,7 +151,6 @@
 (function() {
 
   const ZOHO_URL = "https://crm.zoho.com/crm/WebToLeadForm";
-
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyFVtE30xdqcrjBCs-s3Frqf9DJ3SxjGRq7UQ0zBWx87v91U2mo4FxjGrg1A82JpNiH/exec";
 
   function detectLang() {
@@ -152,41 +164,44 @@
 
   const form = document.getElementById("contactForm");
   const msg = document.getElementById("formMsg");
+  const backBtn = document.getElementById("backBtn");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     msg.textContent = "";
     msg.className = "msg";
 
+    // Envio Zoho
     const fdZoho = new FormData(form);
 
+    // Envio Apps Script
     const fdScript = new FormData();
     fdScript.append("nome", document.getElementById("nome").value);
     fdScript.append("email", document.getElementById("email").value);
     fdScript.append("telefone", document.getElementById("telefone").value);
+    fdScript.append("pais", document.getElementById("pais").value);
     fdScript.append("empresa", document.getElementById("empresa").value);
+    fdScript.append("mensagem", document.getElementById("mensagem").value);
     fdScript.append("produto", document.getElementById("produto").value);
     fdScript.append("volume", document.getElementById("volume").value);
-    fdScript.append("pais", document.getElementById("pais").value);
-    fdScript.append("mensagem", document.getElementById("mensagem").value);
     fdScript.append("idioma", detectLang());
     fdScript.append("origem_formulario", "comprar.html");
 
     try {
+      await Promise.all([
+        fetch(ZOHO_URL, { method: "POST", body: fdZoho }),
+        fetch(SCRIPT_URL, { method: "POST", body: fdScript })
+      ]);
 
-      // Envia para o Zoho (não aguarda)
-      fetch(ZOHO_URL, { method: "POST", body: fdZoho }).catch(() => {});
-
-      // Envia para o Apps Script (aguarda)
-      await fetch(SCRIPT_URL, { method: "POST", body: fdScript });
-
-      window.location.href = "obrigado.html";
+      msg.textContent = "Mensagem enviada com sucesso! Em breve entraremos em contato.";
+      msg.classList.add("success");
+      form.reset();
+      backBtn.style.display = "block";
 
     } catch (err) {
       msg.textContent = "Erro ao enviar. Tente novamente.";
       msg.classList.add("error");
     }
-
   });
 
 })();
