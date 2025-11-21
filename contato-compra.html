@@ -174,17 +174,21 @@
     fdScript.append("origem_formulario", "comprar.html");
 
     try {
-      await Promise.all([
-        fetch(ZOHO_URL, { method: "POST", body: fdZoho }),
-        fetch(SCRIPT_URL, { method: "POST", body: fdScript })
-      ]);
+      try {
+    // Envia para o Zoho sem aguardar a resposta (evita erro CORS)
+    fetch(ZOHO_URL, { method: "POST", body: fdZoho }).catch(() => {});
 
-      window.location.href = "obrigado.html";
+    // Envia para o Apps Script aguardando retorno
+    await fetch(SCRIPT_URL, { method: "POST", body: fdScript });
 
-    } catch (err) {
-      msg.textContent = "Erro ao enviar. Tente novamente.";
-      msg.classList.add("error");
-    }
+    // Redireciona após sucesso
+    window.location.href = "obrigado.html";
+
+} catch (err) {
+    msg.textContent = "Erro ao enviar. Tente novamente.";
+    msg.classList.add("error");
+}
+
   });
 
 })();
