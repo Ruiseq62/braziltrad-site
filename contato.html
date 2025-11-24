@@ -34,6 +34,7 @@
   .success { color:#008f4c; }
   .error { color:#c62828; }
   #backBtn { display:none; margin-top:16px; background:#0F4C5C; color:#fff; border:none; padding:10px; border-radius:6px; cursor:pointer; }
+  .small { font-size:13px; color:#666; margin-top:6px; }
 </style>
 
 </head>
@@ -45,28 +46,42 @@
 
   <form id="contactForm">
 
-    <label>Nome *</label>
-    <input type="text" id="name" required>
+    <!-- Campos escondidos do Zoho -->
+    <input type="hidden" name="xnQsjsdp" value="006d2ecb73ad998ea05f038497601dc3ffae95c11e530d1250cc6309dabfc502">
+    <input type="hidden" name="xmIwtLD" value="0c16e695af92187629acdbe97f14dc0656f785e23f9449adbc346216ab10aaebe8d345eda125a27c49af0f12ee5c0f23">
+    <input type="hidden" name="actionType" value="TGVhZHM=">
+    <input type="hidden" name="returnURL" value="https://braziltrad.com">
 
-    <label>E-mail *</label>
-    <input type="email" id="email" required>
+    <!-- CAMPOS CORRIGIDOS -->
+    <label for="name">Nome *</label>
+    <input type="text" id="name" name="nome" required>
 
-    <label>Telefone *</label>
-    <input type="text" id="phone" required>
+    <label for="email">E-mail *</label>
+    <input type="email" id="email" name="email" required>
 
-    <label>País de atuação *</label>
-    <input type="text" id="country" required>
+    <label for="phone">Telefone *</label>
+    <input type="text" id="phone" name="telefone" required>
 
-    <label>Empresa (opcional)</label>
-    <input type="text" id="company">
+    <label for="country">País de atuação *</label>
+    <input type="text" id="country" name="pais" required>
 
-    <label>Mensagem *</label>
-    <textarea id="message" rows="5" required></textarea>
+    <label for="company">Empresa (opcional)</label>
+    <input type="text" id="company" name="empresa">
+
+    <label for="message">Mensagem *</label>
+    <textarea id="message" name="mensagem" rows="5" required></textarea>
+
+    <!-- Campos extra do Zoho -->
+    <input type="hidden" name="Industry" value="-None-">
+    <input type="hidden" name="Lead Source" value="Contato">
+    <input type="hidden" name="Annual Revenue" value="">
+    <input type="hidden" id="rating" name="idioma" value="PT">
 
     <button type="submit">Enviar</button>
 
     <div id="msgStatus"></div>
     <button id="backBtn" type="button" onclick="history.back()">Voltar ao site</button>
+    <div class="small">Ao enviar, os dados entram diretamente no CRM interno.</div>
 
   </form>
 </div>
@@ -74,15 +89,14 @@
 <script>
 (function(){
 
-  const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbyFVtE30xdqcrjBCs-s3Frqf9DJ3SxjGRq7UQ0zBWx87v91U2mo4FxjGrg1A82JpNiH/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybOzPVqJnp2WTRuUphikBBgL6EUToNmmQpi6wlHkIdEpnv4Jp0fzyYCryNJV8FnkRb/exec";
 
-  function detectLang(){
+  function detectLang() {
     const lang = (document.documentElement.lang || navigator.language).toLowerCase();
-    if(lang.startsWith("pt")) return "PT";
-    if(lang.startsWith("en")) return "EN";
-    if(lang.startsWith("es")) return "ES";
-    if(lang.startsWith("zh")) return "ZH";
+    if (lang.startsWith("pt")) return "PT";
+    if (lang.startsWith("en")) return "EN";
+    if (lang.startsWith("es")) return "ES";
+    if (lang.startsWith("zh")) return "ZH";
     return "PT";
   }
 
@@ -97,17 +111,17 @@
     msg.className = "";
 
     const fd = new FormData();
-    fd.append("nome", name.value);
-    fd.append("email", email.value);
-    fd.append("telefone", phone.value);
-    fd.append("pais", country.value);
-    fd.append("empresa", company.value);
-    fd.append("mensagem", message.value);
+    fd.append("nome", document.getElementById("name").value);
+    fd.append("email", document.getElementById("email").value);
+    fd.append("telefone", document.getElementById("phone").value);
+    fd.append("pais", document.getElementById("country").value);
+    fd.append("empresa", document.getElementById("company").value);
+    fd.append("mensagem", document.getElementById("message").value);
     fd.append("idioma", detectLang());
     fd.append("origem_formulario", "contato.html");
 
     try {
-      await fetch(SCRIPT_URL, { method:"POST", body: fd });
+      await fetch(SCRIPT_URL, { method: "POST", body: fd });
 
       msg.textContent = "Mensagem enviada com sucesso!";
       msg.classList.add("success");
@@ -115,7 +129,8 @@
       form.reset();
       backBtn.style.display = "block";
 
-    } catch(err){
+    } catch (err) {
+      console.error(err);
       msg.textContent = "Erro ao enviar. Tente novamente.";
       msg.classList.add("error");
     }
