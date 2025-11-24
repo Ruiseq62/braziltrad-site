@@ -81,19 +81,46 @@
 </main>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit", function(){
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyFVtE30xdqcrjBCs-s3Frqf9DJ3SxjGRq7UQ0zBWx87v91U2mo4FxjGrg1A82JpNiH/exec";
+
+document.getElementById("contactForm").addEventListener("submit", async function(e){
+  e.preventDefault(); // impede envio imediato ao Zoho
+
+  const form = document.getElementById("contactForm");
   const msg = document.getElementById("formMsg");
   const backBtn = document.getElementById("backBtn");
 
-  msg.textContent = "Mensagem enviada com sucesso!";
-  msg.classList.add("success");
+  // Criar payload para o Apps Script
+  const fd = new FormData();
+  fd.append("nome", document.getElementById("nome").value);
+  fd.append("email", document.getElementById("email").value);
+  fd.append("telefone", document.getElementById("telefone").value);
+  fd.append("empresa", document.getElementById("empresa").value);
+  fd.append("pais", document.getElementById("pais").value);
+  fd.append("produto", document.getElementById("produto").value);
+  fd.append("volume", document.getElementById("volume").value);
+  fd.append("mensagem", document.getElementById("mensagem").value);
+  fd.append("idioma", "PT");
+  fd.append("origem_formulario", "comprar.html");
 
-  backBtn.style.display = "block";
+  try {
+    // Envio para Apps Script (gravar + e-mails)
+    await fetch(SCRIPT_URL, { method: "POST", body: fd });
 
-  // limpa o formulário depois de enviar
-  setTimeout(() => {
-    document.getElementById("contactForm").reset();
-  }, 300);
+    // Envio para o Zoho (agora deixamos o submit ir)
+    form.submit();
+
+    // mensagem de sucesso
+    msg.textContent = "Mensagem enviada com sucesso!";
+    msg.classList.add("success");
+    backBtn.style.display = "block";
+
+    setTimeout(() => form.reset(), 300);
+
+  } catch (err) {
+    msg.textContent = "Erro ao enviar. Tente novamente.";
+    msg.classList.add("error");
+  }
 });
 </script>
 
