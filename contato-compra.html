@@ -24,6 +24,8 @@
   <p class="desc">Preencha o formulário abaixo e nossa equipe entrará em contato.</p>
 
   <form id="contactForm">
+
+    <!-- REQUIRED ZOHO HIDDEN FIELDS (mantidos conforme solicitado) -->
     <input type="hidden" name="xnQsjsdp" value="006d2ecb73ad998ea05f038497601dc3ffae95c11e530d1250cc6309dabfc502">
     <input type="hidden" name="xmIwtLD" value="0c16e695af92187629acdbe97f14dc0656f785e23f9449adbc346216ab10aaebe8d345eda125a27c49af0f12ee5c0f23">
     <input type="hidden" name="actionType" value="TGVhZHM=">
@@ -72,6 +74,10 @@
 
 <script>
 (function(){
+
+  /* ——————————————————————————————
+     CONFIGURAÇÃO URLs
+  ——————————————————————————————— */
   const ZOHO_URL = "https://crm.zoho.com/crm/WebToLeadForm";
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyFVtE30xdqcrjBCs-s3Frqf9DJ3SxjGRq7UQ0zBWx87v91U2mo4FxjGrg1A82JpNiH/exec";
 
@@ -90,10 +96,13 @@
 
   form.addEventListener("submit",async(e)=>{
     e.preventDefault();
-    msg.textContent=""; msg.className="msg";
+    msg.textContent="";
+    msg.className="msg";
 
+    /* ——— payload enviado ao Zoho ——— */
     const fdZoho=new FormData(form);
 
+    /* ——— payload enviado ao Google Script ——— */
     const fdScript=new FormData();
     fdScript.append("nome",nome.value);
     fdScript.append("email",email.value);
@@ -107,17 +116,23 @@
     fdScript.append("origem_formulario","comprar.html");
 
     try{
-      fetch(ZOHO_URL,{method:"POST",body:fdZoho}); // fire-and-forget
+      /* ——— envio para o Zoho (não aguarda resposta) ——— */
+      fetch(ZOHO_URL,{method:"POST",body:fdZoho});
+
+      /* ——— envio para Google Script (aguardado) ——— */
       await fetch(SCRIPT_URL,{method:"POST",body:fdScript});
+
       msg.textContent="Mensagem enviada com sucesso! Em breve entraremos em contato.";
       msg.classList.add("success");
       form.reset();
       backBtn.style.display="block";
+
     }catch(err){
       msg.textContent="Erro ao enviar. Tente novamente.";
       msg.classList.add("error");
     }
   });
+
 })();
 </script>
 
