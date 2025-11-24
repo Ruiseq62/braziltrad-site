@@ -7,25 +7,25 @@
 
 <style>
   body {
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #f1f5f4;
-      padding: 40px 10px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f1f5f4;
+    padding: 40px 10px;
   }
   .container {
-      max-width: 520px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-      text-align: center;
+    max-width: 520px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    text-align: center;
   }
   h1 { margin-bottom: 5px; color: #0F4C5C; font-size: 26px; }
   p.subtitle { margin-bottom: 25px; color: #444; }
   label { display:block; text-align:left; font-weight:600; margin-top:12px; }
   input, textarea {
-      width:100%; padding:12px; margin-top:5px; border:1px solid #ccc;
-      border-radius:6px; font-size:15px;
+    width:100%; padding:12px; margin-top:5px; border:1px solid #ccc;
+    border-radius:6px; font-size:15px;
   }
   button { width:100%; margin-top:18px; padding:14px; background:#0F4C5C; color:#fff;
     border:none; border-radius:6px; cursor:pointer; font-size:15px; font-weight:600; }
@@ -42,18 +42,18 @@
 
 <div class="container">
   <h1>Contact</h1>
-  <p class="subtitle">Fill out the form below and we will get back to you.</p>
+  <p class="subtitle">Fill out the form below and we will contact you shortly.</p>
 
   <form id="contactForm">
 
-    <!-- Hidden Zoho fields -->
     <input type="hidden" name="xnQsjsdp" value="006d2ecb73ad998ea05f038497601dc3ffae95c11e530d1250cc6309dabfc502">
     <input type="hidden" name="xmIwtLD" value="0c16e695af92187629acdbe97f14dc0656f785e23f9449adbc346216ab10aaebe8d345eda125a27c49af0f12ee5c0f23">
     <input type="hidden" name="actionType" value="TGVhZHM=">
-    <input type="hidden" name="zc_gad" id="zc_gad" value="">
     <input type="hidden" name="returnURL" value="https://braziltrad.com">
+    <input type="hidden" name="Lead Source" value="Contact">
+    <input type="hidden" name="Industry" value="-None-">
+    <input type="hidden" name="Annual Revenue" value="">
 
-    <!-- Fields -->
     <label for="name">Name *</label>
     <input type="text" id="name" name="Last Name" required>
 
@@ -72,25 +72,20 @@
     <label for="message">Message *</label>
     <textarea id="message" name="Description" rows="5" required></textarea>
 
-    <!-- Extra Zoho fields -->
-    <input type="hidden" name="Industry" value="-None-">
-    <input type="hidden" name="Lead Source" value="-None-">
-    <input type="hidden" name="Annual Revenue" value="">
-    <input type="hidden" id="rating" name="Rating" value="EN">
-
     <button type="submit">Send</button>
 
     <div id="msgStatus"></div>
-    <button id="backBtn" type="button" onclick="history.back()">Back to website</button>
-    <div class="small">By submitting, your data goes directly into the Zoho CRM.</div>
+    <button id="backBtn" type="button" onclick="history.back()">Back to site</button>
+    <div class="small">When submitted, the data goes directly into our internal CRM.</div>
 
   </form>
 </div>
 
 <script>
 (function(){
+
   const ZOHO_URL = "https://crm.zoho.com/crm/WebToLeadForm";
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwFo6HUJP6IpOmCAthcYtG89kwQKlU6Cj0G7Ph3mKlqMTUtTD5jMHcFoXCfEQ_glT4J/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyFVtE30xdqcrjBCs-s3Frqf9DJ3SxjGRq7UQ0zBWx87v91U2mo4FxjGrg1A82JpNiH/exec";
 
   function detectLang() {
     const lang = (document.documentElement.lang || navigator.language).toLowerCase();
@@ -100,8 +95,6 @@
     if (lang.startsWith("zh")) return "ZH";
     return "EN";
   }
-
-  document.getElementById("rating").value = detectLang();
 
   const form = document.getElementById("contactForm");
   const msg = document.getElementById("msgStatus");
@@ -117,33 +110,35 @@
     fdScript.append("nome", document.getElementById("name").value);
     fdScript.append("email", document.getElementById("email").value);
     fdScript.append("telefone", document.getElementById("phone").value);
-    fdScript.append("pais", document.getElementById("country").value);
     fdScript.append("empresa", document.getElementById("company").value);
+    fdScript.append("pais", document.getElementById("country").value);
     fdScript.append("mensagem", document.getElementById("message").value);
+    fdScript.append("produto", "");
+    fdScript.append("volume", "");
     fdScript.append("idioma", detectLang());
     fdScript.append("origem_formulario", "contact.html");
 
     const fdZoho = new FormData(form);
 
-    try {
+    try{
       await Promise.all([
         fetch(ZOHO_URL, { method: "POST", body: fdZoho }),
         fetch(SCRIPT_URL, { method: "POST", body: fdScript })
       ]);
 
-      msg.textContent = "Message sent successfully!";
+      msg.textContent = "Message successfully sent!";
       msg.classList.add("success");
-
       form.reset();
-      document.getElementById("rating").value = detectLang();
       backBtn.style.display = "block";
 
-    } catch (err) {
+    } catch(err){
       console.error(err);
       msg.textContent = "Error sending. Please try again.";
       msg.classList.add("error");
     }
+
   });
+
 })();
 </script>
 
