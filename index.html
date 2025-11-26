@@ -392,7 +392,32 @@ document.addEventListener('DOMContentLoaded', ()=>{
   // smooth scroll for anchors
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click', e=>{ const id = a.getAttribute('href').substring(1); const el = document.getElementById(id); if(el){ e.preventDefault(); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' }); } }));
 });
+// ✅ REATIVA DEFINITIVAMENTE O BOTÃO MULTILÍNGUE 🌎
+document.addEventListener('DOMContentLoaded', ()=>{
+  const langBtn = document.getElementById('langBtn');
+  if(!langBtn){
+    console.warn('Botão de idioma não encontrado!');
+    return;
+  }
 
+  let current = localStorage.getItem('bt_lang') || 'pt';
+  if(!LANGS.includes(current)) current = 'pt';
+
+  let idx = LANGS.indexOf(current);
+
+  // força aplicar o idioma correto ao carregar
+  applyLang(current);
+
+  langBtn.addEventListener('click', ()=>{
+    idx = (idx + 1) % LANGS.length;
+    const next = LANGS[idx];
+    applyLang(next);
+    localStorage.setItem('bt_lang', next);
+    console.log('Idioma trocado para:', next);
+  });
+
+  console.log('Seletor de idioma reativado com sucesso ✅');
+});
 </script>
 
 </body>
