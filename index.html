@@ -178,11 +178,6 @@
 .bt-lang-btn:hover{opacity:0.9;}
 </style>
 
-<script>
-function btShowLang(lang){
-  document.getElementById('bt-'+lang).style.display='block';
-}
-</script>
 
     <section id="services" class="section" style="background:#ffffff;">
   <div class="container">
@@ -243,12 +238,6 @@ function btShowLang(lang){
     
 </section>
 
-<script>
-function svShowLang(lang){
-  document.querySelectorAll('#services .bt-lang').forEach(el=>el.style.display='none');
-  document.getElementById('sv-'+lang).style.display='block';
-}
-</script>
 
     <section id="products" class="section"><div class="container"><h2>Produtos</h2><div class="grid"><article class="card"><img src="assets/img/agricolas.png" alt="Agrícolas" /><h3>Agrícolas</h3><p>Soja, milho, açúcar e café.</p></article><article class="card"><img src="assets/img/energeticas.png" alt="Energéticas" /><h3>Energéticas</h3><p>Etanol, diesel renovável, biomassa.</p></article><article class="card"><img src="assets/img/minerais.png" alt="Minerais" /><h3>Minerais</h3><p>Lítio, ferro, nióbio e cobre.</p></article></div></div></section>
     <section id="markets" class="section" style="background:#f8f8f8;">
@@ -293,13 +282,6 @@ function svShowLang(lang){
 
   </div>
 </section>
-
-<script>
-function mkShowLang(lang){
-  document.querySelectorAll('#markets .bt-lang').forEach(el=>el.style.display='none');
-  document.getElementById('mk-'+lang).style.display='block';
-}
-</script>
 
    <section id="insights" class="section" style="background:#ffffff;">
   <div class="container">
@@ -533,65 +515,54 @@ function correctPathsForGitHub(){
 
 // aplica idioma
 function applyLang(code){
+
   const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
 
-  // nav
-  const navLinks = document.querySelectorAll('header nav ul li a');
-  navLinks.forEach((a,i)=>{
-    if(t.nav[i]) a.textContent = t.nav[i];
-  });
+  // NAV
+  document.querySelectorAll('header nav ul li a')
+    .forEach((a,i)=>{ if(t.nav[i]) a.textContent = t.nav[i]; });
 
-  // hero
+  // HERO
   const heroTitle = document.querySelector('.hero-title');
+  const heroLead  = document.querySelector('.hero-lead');
   if(heroTitle) heroTitle.textContent = t.title;
+  if(heroLead)  heroLead.textContent  = t.lead;
 
-  const heroLead = document.querySelector('.hero-lead');
-  if(heroLead) heroLead.textContent = t.lead;
-
+  // BOTÕES
   const btnC = document.getElementById('btn-comprar');
-  if(btnC) btnC.textContent = t.btnComprar;
-
   const btnV = document.getElementById('btn-vender');
+  if(btnC) btnC.textContent = t.btnComprar;
   if(btnV) btnV.textContent = t.btnVender;
 
+  // BOTÃO 🌎
   const langBtn = document.getElementById('langBtn');
   if(langBtn) langBtn.textContent = '🌎 ' + (FLAGS[code] || FLAGS.pt);
 
-  updateLinks(code);
-  initTradingView(code);
-
-  // SEO dinâmico
+  // SEO
   const seo = SEO[code] || SEO.pt;
   const seoDesc = document.getElementById('seo-desc');
   document.title = seo.title;
   if(seoDesc) seoDesc.setAttribute("content", seo.desc);
 
-  // título institucional
+  // TÍTULO INSTITUCIONAL
   const btTitle = document.getElementById('bt-title');
   if(btTitle){
     if(code === 'pt') btTitle.textContent = 'Braziltrad — Apresentação Institucional';
-    else if(code === 'en') btTitle.textContent = 'Braziltrad — Institutional Overview';
-    else if(code === 'es') btTitle.textContent = 'Braziltrad — Presentación Institucional';
-    else if(code === 'zh') btTitle.textContent = 'Braziltrad — 公司简介';
-    // sincroniza serviços com o seletor global 🌎
+    if(code === 'en') btTitle.textContent = 'Braziltrad — Institutional Overview';
+    if(code === 'es') btTitle.textContent = 'Braziltrad — Presentación Institucional';
+    if(code === 'zh') btTitle.textContent = 'Braziltrad — 公司简介';
+  }
 
+  // SINCRONIZA TODOS OS BLOCOS
+  syncSection('#institutional', 'bt-',  code);
+  syncSection('#services',      'sv-',  code);
+  syncSection('#markets',       'mk-',  code);
+  syncSection('#insights',      'ins-', code);
 
-// sincroniza mercados com o seletor global 🌎
-if(document.getElementById('mk-' + code)){
-  document.querySelectorAll('#markets .bt-lang').forEach(el=>el.style.display='none');
-  document.getElementById('mk-' + code).style.display = 'block';
+  updateLinks(code);
+  initTradingView(code);
 }
 
-// sincroniza insights com o seletor global 🌎
-if(document.getElementById('ins-' + code)){
-  document.querySelectorAll('#insights .bt-lang').forEach(el=>el.style.display='none');
-  document.getElementById('ins-' + code).style.display = 'block';
-}
-// sincroniza SERVIÇOS com o seletor global 🌎
-if(document.getElementById('sv-' + code)){
-  document.querySelectorAll('#services .bt-lang').forEach(el=>el.style.display='none');
-  document.getElementById('sv-' + code).style.display = 'block';
-}
 
 
 
@@ -641,17 +612,23 @@ document.addEventListener('DOMContentLoaded', function(){
   </script>
 <script>
 function svShowLang(lang){
-  document.querySelectorAll('#services .bt-lang').forEach(el=>el.style.display='none');
+  document.querySelectorAll('#services .bt-lang')
+    .forEach(el => el.style.display = 'none');
+
   const el = document.getElementById('sv-' + lang);
   if(el) el.style.display = 'block';
 }
 
 // força mostrar português ao carregar
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('#services .bt-lang')
+    .forEach(el => el.style.display = 'none');
+
   const el = document.getElementById('sv-pt');
   if(el) el.style.display = 'block';
 });
 </script>
+
 
 </body>
 </html>
