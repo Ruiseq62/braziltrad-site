@@ -67,7 +67,117 @@
     </section>
 
     <!-- Seções exemplo (mantém as tuas) -->
-    <section id="about" class="section"><div class="container"><h2>Sobre a BrazilTrad</h2><p>Somos um parceiro brasileiro confiável para compradores internacionais. Atuamos com due diligence, auditoria de fornecedores e coordenação logística sob Incoterms.</p></div></section>
+    <section id="institutional" class="section" style="background:#ffffff;">
+  <div class="container">
+
+    <h2 style="text-align:center;margin-bottom:20px;">Braziltrad — Institutional Overview</h2>
+
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
+      <button onclick="btShowLang('pt')" class="bt-lang-btn">Português</button>
+      <button onclick="btShowLang('en')" class="bt-lang-btn">English</button>
+      <button onclick="btShowLang('es')" class="bt-lang-btn">Español</button>
+      <button onclick="btShowLang('cn')" class="bt-lang-btn">中文</button>
+    </div>
+
+    <!-- PORTUGUÊS -->
+    <div id="bt-pt" class="bt-lang">
+      <h3>Quem Somos</h3>
+      <p>A <strong>Braziltrad</strong> é uma plataforma brasileira especializada na intermediação de exportações, conectando produtores e fornecedores do Brasil a compradores internacionais de forma segura, rápida e eficiente.</p>
+      <p>Facilitamos o acesso ao comércio exterior, especialmente para pequenos e médios produtores, oferecendo suporte completo desde a prospecção até a entrega final.</p>
+
+      <h3>O Que Fazemos</h3>
+      <ul>
+        <li>Conectamos produtores brasileiros a compradores internacionais</li>
+        <li>Estruturamos operações de exportação</li>
+        <li>Apoiamos na negociação, documentação e logística</li>
+        <li>Atuamos em operações de small export e grandes volumes</li>
+      </ul>
+
+      <p><strong>Setores:</strong> Agronegócio, Alimentos, Commodities, Minerais e Produtos sob demanda.</p>
+
+      <p><strong>Braziltrad</strong><br>O Brasil produz. O mundo compra. A Braziltrad conecta.</p>
+    </div>
+
+    <!-- ENGLISH -->
+    <div id="bt-en" class="bt-lang" style="display:none;">
+      <h3>Who We Are</h3>
+      <p><strong>Braziltrad</strong> is a Brazilian trading platform specialized in export intermediation, connecting Brazilian producers and suppliers with international buyers in a fast, secure, and efficient way.</p>
+      <p>We simplify access to global trade, especially for small and medium producers, offering full support from buyer prospecting to final delivery.</p>
+
+      <h3>What We Do</h3>
+      <ul>
+        <li>Connect Brazilian suppliers with global buyers</li>
+        <li>Structure export operations</li>
+        <li>Support negotiation, documentation, and logistics</li>
+        <li>Operate small export and high-volume trades</li>
+      </ul>
+
+      <p><strong>Sectors:</strong> Agribusiness, Food, Commodities, Minerals, and Custom Products.</p>
+
+      <p><strong>Braziltrad</strong><br>Brazil produces. The world buys. Braziltrad connects.</p>
+    </div>
+
+    <!-- ESPAÑOL -->
+    <div id="bt-es" class="bt-lang" style="display:none;">
+      <h3>Quiénes Somos</h3>
+      <p><strong>Braziltrad</strong> es una plataforma brasileña especializada en la intermediación de exportaciones, que conecta productores de Brasil con compradores internacionales de forma segura, rápida y eficiente.</p>
+      <p>Facilitamos el acceso al comercio exterior, especialmente para pequeños y medianos productores, ofreciendo soporte completo desde la prospección hasta la entrega final.</p>
+
+      <h3>Qué Hacemos</h3>
+      <ul>
+        <li>Conectamos proveedores brasileños con compradores internacionales</li>
+        <li>Estructuramos operaciones de exportación</li>
+        <li>Apoyamos en negociação, documentação e logística</li>
+        <li>Operamos small export e grandes volumes</li>
+      </ul>
+
+      <p><strong>Sectores:</strong> Agroindustria, Alimentos, Commodities, Minerales y Productos bajo demanda.</p>
+
+      <p><strong>Braziltrad</strong><br>Brasil produce. El mundo compra. Braziltrad conecta.</p>
+    </div>
+
+    <!-- CHINÊS -->
+    <div id="bt-cn" class="bt-lang" style="display:none;">
+      <h3>关于我们</h3>
+      <p><strong>Braziltrad</strong> 是一家来自巴西的国际贸易平台，专注于出口业务对接，安全、高效地连接巴西生产商与全球买家。</p>
+      <p>我们为中小型生产商提供从买家对接到最终交付的全流程支持，帮助其进入国际市场。</p>
+
+      <h3>我们的服务</h3>
+      <ul>
+        <li>连接巴西供应商与国际买家</li>
+        <li>结构化出口业务</li>
+        <li>商务、文件与物流支持</li>
+        <li>小额出口与大宗贸易</li>
+      </ul>
+
+      <p><strong>业务领域：</strong> 农业、食品、大宗商品、矿产及定制产品。</p>
+
+      <p><strong>Braziltrad</strong><br>巴西负责生产。世界负责采购。Braziltrad 负责连接。</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.bt-lang-btn{
+  padding:8px 16px;
+  border-radius:20px;
+  border:1px solid rgba(0,0,0,0.2);
+  background:#0F4C5C;
+  color:#fff;
+  cursor:pointer;
+  font-weight:500;
+}
+.bt-lang-btn:hover{opacity:0.9;}
+</style>
+
+<script>
+function btShowLang(lang){
+  document.querySelectorAll('.bt-lang').forEach(el=>el.style.display='none');
+  document.getElementById('bt-'+lang).style.display='block';
+}
+</script>
+
     <section id="services" class="section"><div class="container"><h2>Serviços</h2><ul class="list"><li>Intermediação ponta a ponta entre produtor e comprador.</li><li>Due diligence: origem, documentação, compliance e KYC.</li><li>Logística FOB/CIF via portos brasileiros.</li><li>Negociação internacional: contratos, L/C, T/T.</li></ul></div></section>
     <section id="products" class="section"><div class="container"><h2>Produtos</h2><div class="grid"><article class="card"><img src="assets/img/agricolas.png" alt="Agrícolas" /><h3>Agrícolas</h3><p>Soja, milho, açúcar e café.</p></article><article class="card"><img src="assets/img/energeticas.png" alt="Energéticas" /><h3>Energéticas</h3><p>Etanol, diesel renovável, biomassa.</p></article><article class="card"><img src="assets/img/minerais.png" alt="Minerais" /><h3>Minerais</h3><p>Lítio, ferro, nióbio e cobre.</p></article></div></div></section>
     <section id="markets" class="section"><div class="container"><h2>Mercados</h2><ul class="list"><li>Ásia: foco em China e Índia (minerais e agrícolas).</li><li>EUA/UE: contratos com requisitos ESG e compliance.</li><li>Rede de fornecedores qualificados no Brasil.</li></ul></div></section>
