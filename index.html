@@ -633,6 +633,52 @@
     const seo = SEO[code];
     document.title = seo.title;
     document.getElementById('seo-desc').setAttribute("content", seo.desc);
+// ===== TÍTULOS DAS SEÇÕES =====
+const titles = {
+  pt: {
+    institutional: "Braziltrad — Apresentação Institucional",
+    services: "Serviços",
+    products: "Produtos",
+    markets: "Mercados",
+    insights: "Insights"
+  },
+  en: {
+    institutional: "Braziltrad — Institutional Presentation",
+    services: "Services",
+    products: "Products",
+    markets: "Markets",
+    insights: "Insights"
+  },
+  es: {
+    institutional: "Braziltrad — Presentación Institucional",
+    services: "Servicios",
+    products: "Productos",
+    markets: "Mercados",
+    insights: "Insights"
+  },
+  zh: {
+    institutional: "Braziltrad — 公司介绍",
+    services: "服务",
+    products: "产品",
+    markets: "市场",
+    insights: "洞察"
+  }
+};
+
+if(document.getElementById("bt-title"))
+  document.getElementById("bt-title").textContent = titles[code].institutional;
+
+if(document.getElementById("sv-title"))
+  document.getElementById("sv-title").textContent = titles[code].services;
+
+if(document.getElementById("products")?.querySelector("h2"))
+  document.querySelector("#products h2").textContent = titles[code].products;
+
+if(document.getElementById("mk-title"))
+  document.getElementById("mk-title").textContent = titles[code].markets;
+
+if(document.getElementById("ins-title"))
+  document.getElementById("ins-title").textContent = titles[code].insights;
 
     syncSection('#institutional', 'bt-',  code);
     syncSection('#services',      'sv-',  code);
