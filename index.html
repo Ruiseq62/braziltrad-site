@@ -317,6 +317,18 @@ function applyLang(code){
   const langBtn = document.getElementById('langBtn'); if(langBtn) langBtn.textContent = '🌎 ' + (FLAGS[code]||FLAGS.pt);
   updateLinks(code);
   initTradingView(code);
+  
+// SEO dinâmico por idioma
+const seo = SEO[code] || SEO.pt;
+const seoDesc = document.getElementById('seo-desc');
+
+document.title = seo.title;
+if(seoDesc) seoDesc.setAttribute("content", seo.desc);
+
+
+if(seoTitle) document.title = seo.title;
+if(seoDesc) seoDesc.setAttribute("content", seo.desc);
+  
     // título institucional por idioma
   const btTitle = document.getElementById('bt-title');
   if(btTitle){
