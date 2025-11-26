@@ -6,214 +6,675 @@
   <title id="seo-title">BrazilTrad — Conectando o Brasil ao mercado global de commodities</title>
   <meta name="description" id="seo-desc" content="Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF.">
 
-<link rel="alternate" hreflang="en" href="https://braziltrad.com/en/" />
-<link rel="alternate" hreflang="es" href="https://braziltrad.com/es/" />
-<link rel="alternate" hreflang="zh" href="https://braziltrad.com/zh/" />
-<link rel="alternate" hreflang="x-default" href="https://braziltrad.com/" />
+  <link rel="alternate" hreflang="en" href="https://braziltrad.com/en/" />
+  <link rel="alternate" hreflang="es" href="https://braziltrad.com/es/" />
+  <link rel="alternate" hreflang="zh" href="https://braziltrad.com/zh/" />
+  <link rel="alternate" hreflang="x-default" href="https://braziltrad.com/" />
 
-<link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
 
-<style>
-@media (max-width:420px){
-  body{margin-top:95px !important;}
-  .lang-btn{top:86px;}
-}
+  <style>
+    @media (max-width:420px){
+      body{margin-top:95px !important;}
+      .lang-btn{top:86px;}
+    }
 
-.tradingview-widget-container.main-bar {
-  position: fixed !important;
-  top: 0; left: 0;
-  width: 100%; height: 38px;
-  background: #ffffff !important;
-  z-index: 99999;
-}
+    .tradingview-widget-container.main-bar {
+      position: fixed !important;
+      top: 0; left: 0;
+      width: 100%; height: 38px;
+      background: #ffffff !important;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      z-index: 99999;
+    }
 
-.tradingview-widget-container.commodities-bar {
-  position: fixed !important;
-  top: 38px; left: 0;
-  width: 100%; height: 38px;
-  background: #0F4C5C !important;
-  z-index: 99998;
-}
+    .tradingview-widget-container.commodities-bar {
+      position: fixed !important;
+      top: 38px; left: 0;
+      width: 100%; height: 38px;
+      background: #0F4C5C !important;
+      color: #ffffff !important;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      z-index: 99998;
+    }
 
-body { margin-top: 86px !important; }
+    body { margin-top: 86px !important; }
 
-.lang-btn {
-  position: fixed;
-  top: 90px;
-  right: 20px;
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 25px;
-  padding: 6px 16px;
-  font-size: 0.9rem;
-  color: #0F4C5C;
-  font-weight: 500;
-  cursor: pointer;
-  z-index: 1000000;
-}
+    .lang-btn {
+      position: fixed;
+      top: 90px;
+      right: 20px;
+      background: #ffffff;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 25px;
+      padding: 6px 16px;
+      font-size: 0.9rem;
+      color: #0F4C5C;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      transition: all 0.25s ease;
+      z-index: 1000000;
+    }
 
-.bt-lang-btn{
-  padding:8px 16px;
-  border-radius:20px;
-  border:1px solid rgba(0,0,0,0.2);
-  background:#0F4C5C;
-  color:#fff;
-  cursor:pointer;
-}
-</style>
+    .lang-btn:hover {
+      background: #f7f7f7;
+      color: #0b3d47;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .bt-lang-btn{
+      padding:8px 16px;
+      border-radius:20px;
+      border:1px solid rgba(0,0,0,0.2);
+      background:#0F4C5C;
+      color:#fff;
+      cursor:pointer;
+      font-weight:500;
+    }
+    .bt-lang-btn:hover{opacity:0.9;}
+  </style>
 </head>
 
 <body>
 
-<div class="tradingview-widget-container main-bar"><div id="tv-indices"></div></div>
-<div class="tradingview-widget-container commodities-bar"><div id="tv-commodities"></div></div>
+  <!-- ===== BARRAS TRADINGVIEW (RESTAURADAS) ===== -->
+  <div class="tradingview-widget-container main-bar">
+    <div id="tv-indices"></div>
+  </div>
 
-<button id="langBtn" class="lang-btn">🌎 🇧🇷 PT</button>
+  <div class="tradingview-widget-container commodities-bar">
+    <div id="tv-commodities"></div>
+  </div>
 
-<header class="header">
-  <div class="container nav">
-    <a class="brand" href="./">
-      <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" />
-      <div>
-        <div class="title">BrazilTrad</div>
-        <div class="slogan"><em>Conectando produtores brasileiros a mercados globais</em></div>
+  <!-- ===== BOTÃO DE IDIOMA ===== -->
+  <button id="langBtn" class="lang-btn">🌎 🇧🇷 PT</button>
+
+  <!-- ===== CABEÇALHO ===== -->
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="./">
+        <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" />
+        <div>
+          <div class="title">BrazilTrad</div>
+          <div class="slogan">
+            <em>Conectando produtores brasileiros a mercados globais</em>
+          </div>
+        </div>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="#institutional">Sobre</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#products">Produtos</a></li>
+          <li><a href="#markets">Mercados</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a class="doc-link" href="#">Documentos</a></li>
+          <li><a class="links-link" href="#">Links Úteis</a></li>
+          <li><a class="contact-link" href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">
+          Conectando o Brasil ao mercado global de commodities
+        </h1>
+
+        <p class="hero-lead">
+          Intermediação confiável de metais e agrícolas, com verificação de origem,
+          compliance e logística eficiente sob FOB/CIF.
+        </p>
+
+        <div class="cta">
+          <a id="btn-comprar" class="button" href="contato-compra.html">
+            Quero comprar
+          </a>
+          <a id="btn-vender" class="button secondary" href="contato-venda.html">
+            Quero vender
+          </a>
+        </div>
       </div>
-    </a>
+    </section>
 
-    <nav>
-      <ul>
-        <li><a href="#institutional">Sobre</a></li>
-        <li><a href="#services">Serviços</a></li>
-        <li><a href="#products">Produtos</a></li>
-        <li><a href="#markets">Mercados</a></li>
-        <li><a href="#insights">Insights</a></li>
-        <li><a class="doc-link" href="#">Documentos</a></li>
-        <li><a class="links-link" href="#">Links Úteis</a></li>
-        <li><a class="contact-link" href="#contact">Contato</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <!-- ===== INSTITUCIONAL (INÍCIO) ===== -->
+    <section id="institutional" class="section" style="background:#ffffff;">
+      <div class="container">
 
-<main>
+        <h2 id="bt-title" style="text-align:center;margin-bottom:20px;">
+          Braziltrad — Apresentação Institucional
+        </h2>
 
-<!-- ✅ HERO -->
-<section class="hero">
-  <div class="container">
-    <h1 class="hero-title">Conectando o Brasil ao mercado global de commodities</h1>
-    <p class="hero-lead">Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF.</p>
-    <div class="cta">
-      <a id="btn-comprar" class="button" href="contato-compra.html">Quero comprar</a>
-      <a id="btn-vender" class="button secondary" href="contato-venda.html">Quero vender</a>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
+          <button onclick="syncSection('#institutional','bt-','pt')" class="bt-lang-btn">Português</button>
+          <button onclick="syncSection('#institutional','bt-','en')" class="bt-lang-btn">English</button>
+          <button onclick="syncSection('#institutional','bt-','es')" class="bt-lang-btn">Español</button>
+          <button onclick="syncSection('#institutional','bt-','zh')" class="bt-lang-btn">中文</button>
+        </div>
+        <!-- ========= INSTITUCIONAL — PORTUGUÊS ========= -->
+        <div id="bt-pt" class="bt-lang">
+          <h3>Quem Somos</h3>
+          <p>
+            A <strong>Braziltrad</strong> é uma plataforma brasileira especializada na intermediação de exportações,
+            conectando produtores e fornecedores do Brasil a compradores internacionais de forma segura,
+            rápida e eficiente.
+          </p>
+          <p>
+            Facilitamos o acesso ao comércio exterior, especialmente para pequenos e médios produtores,
+            oferecendo suporte completo desde a prospecção até a entrega final.
+          </p>
+
+          <h3>O Que Fazemos</h3>
+          <ul>
+            <li>Conectamos produtores brasileiros a compradores internacionais</li>
+            <li>Estruturamos operações de exportação</li>
+            <li>Apoiamos na negociação, documentação e logística</li>
+            <li>Atuamos em operações de small export e grandes volumes</li>
+          </ul>
+
+          <p>
+            <strong>Setores:</strong> Agronegócio, Alimentos, Commodities, Minerais e Produtos sob demanda.
+          </p>
+
+          <p>
+            <strong>Braziltrad</strong><br>
+            O Brasil produz. O mundo compra. A Braziltrad conecta.
+          </p>
+        </div>
+
+        <!-- ========= INSTITUCIONAL — ENGLISH ========= -->
+        <div id="bt-en" class="bt-lang" style="display:none;">
+          <h3>Who We Are</h3>
+          <p>
+            <strong>Braziltrad</strong> is a Brazilian trading platform specialized in export intermediation,
+            connecting Brazilian producers and suppliers with international buyers in a fast, secure,
+            and efficient way.
+          </p>
+          <p>
+            We simplify access to global trade, especially for small and medium producers, offering
+            full support from buyer prospecting to final delivery.
+          </p>
+
+          <h3>What We Do</h3>
+          <ul>
+            <li>Connect Brazilian suppliers with global buyers</li>
+            <li>Structure export operations</li>
+            <li>Support negotiation, documentation, and logistics</li>
+            <li>Operate small export and high-volume trades</li>
+          </ul>
+
+          <p>
+            <strong>Sectors:</strong> Agribusiness, Food, Commodities, Minerals, and Custom Products.
+          </p>
+
+          <p>
+            <strong>Braziltrad</strong><br>
+            Brazil produces. The world buys. Braziltrad connects.
+          </p>
+        </div>
+
+        <!-- ========= INSTITUCIONAL — ESPAÑOL ========= -->
+        <div id="bt-es" class="bt-lang" style="display:none;">
+          <h3>Quiénes Somos</h3>
+          <p>
+            <strong>Braziltrad</strong> es una plataforma brasileña especializada en la intermediación de exportaciones,
+            que conecta productores de Brasil con compradores internacionales de forma segura, rápida y eficiente.
+          </p>
+          <p>
+            Facilitamos el acceso al comercio exterior, especialmente para pequeños y medianos productores,
+            ofreciendo soporte completo desde la prospección hasta la entrega final.
+          </p>
+
+          <h3>Qué Hacemos</h3>
+          <ul>
+            <li>Conectamos proveedores brasileños con compradores internacionales</li>
+            <li>Estructuramos operaciones de exportación</li>
+            <li>Apoyamos en negociación, documentación y logística</li>
+            <li>Operamos small export y grandes volúmenes</li>
+          </ul>
+
+          <p>
+            <strong>Sectores:</strong> Agroindustria, Alimentos, Commodities, Minerales y Productos bajo demanda.
+          </p>
+
+          <p>
+            <strong>Braziltrad</strong><br>
+            Brasil produce. El mundo compra. Braziltrad conecta.
+          </p>
+        </div>
+
+        <!-- ========= INSTITUCIONAL — CHINÊS ========= -->
+        <div id="bt-zh" class="bt-lang" style="display:none;">
+          <h3>关于我们</h3>
+          <p>
+            <strong>Braziltrad</strong> 是一家来自巴西的国际贸易平台，
+            专注于出口业务对接，安全、高效地连接巴西生产商与全球买家。
+          </p>
+          <p>
+            我们为中小型生产商提供从买家对接到最终交付的全流程支持，
+            帮助其进入国际市场。
+          </p>
+
+          <h3>我们的服务</h3>
+          <ul>
+            <li>连接巴西供应商与国际买家</li>
+            <li>结构化出口业务</li>
+            <li>商务、文件与物流支持</li>
+            <li>小额出口与大宗贸易</li>
+          </ul>
+
+          <p>
+            <strong>业务领域：</strong> 农业、食品、大宗商品、矿产及定制产品。
+          </p>
+
+          <p>
+            <strong>Braziltrad</strong><br>
+            巴西负责生产。世界负责采购。Braziltrad 负责连接。
+          </p>
+        </div>
+
+      </div>
+    </section>
+    <!-- ===== FIM DO INSTITUCIONAL ===== -->
+
+    <!-- ===== SERVIÇOS ===== -->
+    <section id="services" class="section" style="background:#ffffff;">
+      <div class="container">
+
+        <h2 id="sv-title" class="section-title" style="text-align:center;margin-bottom:20px;">
+          Serviços
+        </h2>
+
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
+          <button onclick="syncSection('#services','sv-','pt')" class="bt-lang-btn">Português</button>
+          <button onclick="syncSection('#services','sv-','en')" class="bt-lang-btn">English</button>
+          <button onclick="syncSection('#services','sv-','es')" class="bt-lang-btn">Español</button>
+          <button onclick="syncSection('#services','sv-','zh')" class="bt-lang-btn">中文</button>
+        </div>
+
+        <!-- PT -->
+        <div id="sv-pt" class="bt-lang">
+          <ul class="list">
+            <li>Intermediação completa entre produtores e compradores internacionais</li>
+            <li>Estruturação de operações de exportação</li>
+            <li>Negociação internacional e contratos</li>
+            <li>Documentação, compliance e verificação de origem</li>
+            <li>Coordenação logística FOB e CIF</li>
+          </ul>
+        </div>
+
+        <!-- EN -->
+        <div id="sv-en" class="bt-lang" style="display:none;">
+          <ul class="list">
+            <li>Full intermediation between producers and international buyers</li>
+            <li>Export operation structuring</li>
+            <li>International negotiation and contracts</li>
+            <li>Documentation, compliance and origin verification</li>
+            <li>FOB and CIF logistics coordination</li>
+          </ul>
+        </div>
+
+        <!-- ES -->
+        <div id="sv-es" class="bt-lang" style="display:none;">
+          <ul class="list">
+            <li>Intermediación completa entre productores y compradores internacionales</li>
+            <li>Estructuración de operaciones de exportación</li>
+            <li>Negociación internacional y contratos</li>
+            <li>Documentación, cumplimiento y verificación de origen</li>
+            <li>Coordinación logística FOB y CIF</li>
+          </ul>
+        </div>
+
+        <!-- ZH -->
+        <div id="sv-zh" class="bt-lang" style="display:none;">
+          <ul class="list">
+            <li>连接巴西生产商与国际买家</li>
+            <li>出口业务结构化</li>
+            <li>国际谈判与合同支持</li>
+            <li>文件、合规与产地验证</li>
+            <li>FOB 与 CIF 物流协调</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+    <!-- ===== FIM SERVIÇOS ===== -->
+
+    <!-- ===== PRODUTOS ===== -->
+    <section id="products" class="section">
+      <div class="container">
+        <h2>Produtos</h2>
+
+        <div class="grid">
+
+          <article class="card">
+            <img src="assets/img/agricolas.png" alt="Agrícolas" />
+            <h3>Agrícolas</h3>
+            <p>Soja, milho, açúcar e café.</p>
+          </article>
+
+          <article class="card">
+            <img src="assets/img/energeticas.png" alt="Energéticas" />
+            <h3>Energéticas</h3>
+            <p>Etanol, diesel renovável, biomassa.</p>
+          </article>
+
+          <article class="card">
+            <img src="assets/img/minerais.png" alt="Minerais" />
+            <h3>Minerais</h3>
+            <p>Lítio, ferro, nióbio e cobre.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+    <!-- ===== FIM PRODUTOS ===== -->
+    <!-- ===== MERCADOS ===== -->
+    <section id="markets" class="section" style="background:#f8f8f8;">
+      <div class="container">
+
+        <h2 id="mk-title" style="text-align:center;margin-bottom:20px;">Mercados</h2>
+
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
+          <button onclick="syncSection('#markets','mk-','pt')" class="bt-lang-btn">Português</button>
+          <button onclick="syncSection('#markets','mk-','en')" class="bt-lang-btn">English</button>
+          <button onclick="syncSection('#markets','mk-','es')" class="bt-lang-btn">Español</button>
+          <button onclick="syncSection('#markets','mk-','zh')" class="bt-lang-btn">中文</button>
+        </div>
+
+        <ul id="mk-pt" class="bt-lang">
+          <li>Ásia: China e Índia</li>
+          <li>Europa e Estados Unidos</li>
+          <li>América Latina</li>
+          <li>Parcerias globais de fornecimento</li>
+        </ul>
+
+        <ul id="mk-en" class="bt-lang" style="display:none;">
+          <li>Asia: China and India</li>
+          <li>Europe and the United States</li>
+          <li>Latin America</li>
+          <li>Global supply partnerships</li>
+        </ul>
+
+        <ul id="mk-es" class="bt-lang" style="display:none;">
+          <li>Asia: China e India</li>
+          <li>Europa y Estados Unidos</li>
+          <li>América Latina</li>
+          <li>Alianzas globales de suministro</li>
+        </ul>
+
+        <ul id="mk-zh" class="bt-lang" style="display:none;">
+          <li>亚洲：中国与印度</li>
+          <li>欧洲与美国</li>
+          <li>拉丁美洲</li>
+          <li>全球供应合作伙伴</li>
+        </ul>
+
+      </div>
+    </section>
+    <!-- ===== FIM MERCADOS ===== -->
+
+    <!-- ===== INSIGHTS ===== -->
+    <section id="insights" class="section" style="background:#ffffff;">
+      <div class="container">
+
+        <h2 id="ins-title" style="text-align:center;margin-bottom:20px;">Insights</h2>
+
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
+          <button onclick="syncSection('#insights','ins-','pt')" class="bt-lang-btn">Português</button>
+          <button onclick="syncSection('#insights','ins-','en')" class="bt-lang-btn">English</button>
+          <button onclick="syncSection('#insights','ins-','es')" class="bt-lang-btn">Español</button>
+          <button onclick="syncSection('#insights','ins-','zh')" class="bt-lang-btn">中文</button>
+        </div>
+
+        <ul id="ins-pt" class="bt-lang">
+          <li>Tendências de exportação do agronegócio</li>
+          <li>Demanda crescente por minerais estratégicos</li>
+          <li>Novas rotas logísticas globais</li>
+        </ul>
+
+        <ul id="ins-en" class="bt-lang" style="display:none;">
+          <li>Agribusiness export trends</li>
+          <li>Growing demand for strategic minerals</li>
+          <li>New global logistics routes</li>
+        </ul>
+
+        <ul id="ins-es" class="bt-lang" style="display:none;">
+          <li>Tendencias de exportación del agronegocio</li>
+          <li>Creciente demanda de minerales estratégicos</li>
+          <li>Nuevas rutas logísticas globales</li>
+        </ul>
+
+        <ul id="ins-zh" class="bt-lang" style="display:none;">
+          <li>农业出口趋势</li>
+          <li>战略矿产需求增长</li>
+          <li>全球物流新通道</li>
+        </ul>
+
+      </div>
+    </section>
+    <!-- ===== FIM INSIGHTS ===== -->
+
+  </main>
+
+  <!-- ===== RODAPÉ (RESTAURADO) ===== -->
+  <footer class="footer">
+    <div class="inner container">
+      <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" style="height:34px;width:auto;margin:0 auto 10px">
+      <div>© BrazilTrad. Conectando produtores brasileiros a mercados globais.</div>
+      <div style="margin-top:8px;">
+        🌐 <a href="https://braziltrad.com" target="_blank">braziltrad.com</a> |
+        ✉️ <a href="mailto:rsequeira@braziltrad.com">rsequeira@braziltrad.com</a> |
+        💼 <a href="https://www.linkedin.com/company/braziltrad/" target="_blank">LinkedIn</a>
+      </div>
+      <div style="margin-top:8px;opacity:0.9;">São Paulo — Brasil</div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ✅ INSTITUCIONAL -->
-<section id="institutional" class="section">
-  <div class="container">
-    <h2 id="bt-title" style="text-align:center;"> Braziltrad — Apresentação Institucional</h2>
+  <!-- ===== SCRIPT FINAL ÚNICO (SEM CONFLITOS) ===== -->
+  <script>
+  // ===== CONFIG =====
+  const LANGS = ["pt","en","es","zh"];
+  const FLAGS = {pt:"🇧🇷 PT", en:"🇬🇧 EN", es:"🇪🇸 ES", zh:"🇨🇳 中文"};
 
-    <div style="text-align:center;margin-bottom:20px;">
-      <button onclick="syncSection('#institutional','bt-','pt')" class="bt-lang-btn">PT</button>
-      <button onclick="syncSection('#institutional','bt-','en')" class="bt-lang-btn">EN</button>
-      <button onclick="syncSection('#institutional','bt-','es')" class="bt-lang-btn">ES</button>
-      <button onclick="syncSection('#institutional','bt-','zh')" class="bt-lang-btn">中文</button>
-    </div>
+  const TRANSLATIONS = {
+    pt:{
+      nav:["Sobre","Serviços","Produtos","Mercados","Insights","Documentos","Links Úteis","Contato"],
+      title:"Conectando o Brasil ao mercado global de commodities",
+      lead:"Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF.",
+      btnComprar:"Quero comprar",
+      btnVender:"Quero vender"
+    },
+    en:{
+      nav:["About","Services","Products","Markets","Insights","Documents","Useful Links","Contact"],
+      title:"Connecting Brazil to the global commodities market",
+      lead:"Reliable intermediation of metals and agricultural products, with origin verification, compliance and efficient FOB/CIF logistics.",
+      btnComprar:"I want to buy",
+      btnVender:"I want to sell"
+    },
+    es:{
+      nav:["Sobre","Servicios","Productos","Mercados","Insights","Documentos","Enlaces Útiles","Contacto"],
+      title:"Conectando a Brasil con el mercado global de commodities",
+      lead:"Intermediación confiable de metales y agrícolas, con verificación de origen, cumplimiento y logística eficiente FOB/CIF.",
+      btnComprar:"Quiero comprar",
+      btnVender:"Quiero vender"
+    },
+    zh:{
+      nav:["关于","服务","产品","市场","洞察","文件","实用链接","联系"],
+      title:"连接巴西与全球大宗商品市场",
+      lead:"提供可靠的金属与农产品中介服务，进行产地验证、合规与高效的FOB/CIF物流。",
+      btnComprar:"我要买",
+      btnVender:"我要卖"
+    }
+  };
 
-    <!-- ✅ TODOS OS TEUS TEXTOS FORAM MANTIDOS AQUI INTACTOS -->
-    <!-- PORTUGUÊS -->
-    <div id="bt-pt" class="bt-lang">
-      <h3>Quem Somos</h3>
-      <p>A <strong>Braziltrad</strong> é uma plataforma brasileira especializada na intermediação de exportações...</p>
-    </div>
+  const SEO = {
+    pt: {
+      title: "Braziltrad — Conectando o Brasil ao mercado global de commodities",
+      desc: "Intermediação confiável de metais, agrícolas e minerais, com compliance, verificação de origem e logística FOB e CIF."
+    },
+    en: {
+      title: "Braziltrad — Connecting Brazil to the global commodities market",
+      desc: "Reliable intermediation of metals, agricultural products and minerals, with compliance, origin verification and FOB/CIF logistics."
+    },
+    es: {
+      title: "Braziltrad — Conectando a Brasil con el mercado global de commodities",
+      desc: "Intermediación confiable de metales, productos agrícolas y minerales, con cumplimiento, verificación de origen y logística FOB/CIF."
+    },
+    zh: {
+      title: "Braziltrad — 连接巴西与全球大宗商品市场",
+      desc: "提供可靠的金属、农产品和矿产中介服务，具备合规、产地验证及FOB/CIF国际物流能力。"
+    }
+  };
 
-    <div id="bt-en" class="bt-lang" style="display:none;">...</div>
-    <div id="bt-es" class="bt-lang" style="display:none;">...</div>
-    <div id="bt-zh" class="bt-lang" style="display:none;">...</div>
+  function syncSection(sectionSelector, prefix, lang){
+    document.querySelectorAll(`${sectionSelector} .bt-lang`)
+      .forEach(el => el.style.display = 'none');
 
-  </div>
-</section>
+    const el = document.getElementById(prefix + lang);
+    if(el) el.style.display = 'block';
+  }
 
-<!-- ✅ SERVICES -->
-<section id="services" class="section">
-  <div class="container">
+  function updateLinks(code){
+    const btnComprar = document.getElementById("btn-comprar");
+    const btnVender = document.getElementById("btn-vender");
+    const contato = document.querySelector("a.contact-link");
 
-    <h2 id="sv-title" style="text-align:center;">Serviços</h2>
+    if(code === "pt"){
+      if(btnComprar) btnComprar.href = `contato-compra.html`;
+      if(btnVender) btnVender.href = `contato-venda.html`;
+      if(contato)   contato.href   = `contato.html`;
+    } else if(code === "en"){
+      if(btnComprar) btnComprar.href = `en/contact-buy.html`;
+      if(btnVender) btnVender.href = `en/contact-sell.html`;
+      if(contato)   contato.href   = `en/contact.html`;
+    } else if(code === "es"){
+      if(btnComprar) btnComprar.href = `es/compradores.html`;
+      if(btnVender) btnVender.href = `es/vendedores.html`;
+      if(contato)   contato.href   = `es/contato.html`;
+    } else if(code === "zh"){
+      if(btnComprar) btnComprar.href = `zh/contact-buy.html`;
+      if(btnVender) btnVender.href = `zh/contact-sell.html`;
+      if(contato)   contato.href   = `zh/contact.html`;
+    }
+  }
 
-    <div style="text-align:center;margin-bottom:20px;">
-      <button onclick="syncSection('#services','sv-','pt')" class="bt-lang-btn">PT</button>
-      <button onclick="syncSection('#services','sv-','en')" class="bt-lang-btn">EN</button>
-      <button onclick="syncSection('#services','sv-','es')" class="bt-lang-btn">ES</button>
-      <button onclick="syncSection('#services','sv-','zh')" class="bt-lang-btn">中文</button>
-    </div>
+  function initTradingView(locale){
+    const tvIndices = document.getElementById('tv-indices');
+    const tvCommod  = document.getElementById('tv-commodities');
 
-    <div id="sv-pt" class="bt-lang"><ul><li>Intermediação completa...</li></ul></div>
-    <div id="sv-en" class="bt-lang" style="display:none;">...</div>
-    <div id="sv-es" class="bt-lang" style="display:none;">...</div>
-    <div id="sv-zh" class="bt-lang" style="display:none;">...</div>
+    if(tvIndices) tvIndices.innerHTML = '';
+    if(tvCommod)  tvCommod.innerHTML  = '';
 
-  </div>
-</section>
+    const w1 = document.createElement('script');
+    w1.src  = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+    w1.text = JSON.stringify({
+      symbols:[
+        {proName:"FOREXCOM:EURUSD", title:"EUR/USD"},
+        {proName:"FOREXCOM:USDJPY", title:"USD/JPY"},
+        {proName:"OANDA:SPX500USD", title:"S&P 500"},
+        {proName:"NASDAQ:NDX", title:"NASDAQ 100"},
+        {proName:"BITSTAMP:BTCUSD", title:"Bitcoin"},
+        {proName:"BITSTAMP:ETHUSD", title:"Ethereum"}
+      ],
+      showSymbolLogo:true,
+      colorTheme:"light",
+      isTransparent:false,
+      displayMode:"adaptive",
+      locale: locale
+    });
+    tvIndices.appendChild(w1);
 
-<!-- ✅ MARKETS -->
-<section id="markets" class="section">
-  <div class="container">
-    <h2 id="mk-title" style="text-align:center;">Mercados</h2>
-    <div id="mk-pt" class="bt-lang"><ul><li>Ásia: China e Índia</li></ul></div>
-    <div id="mk-en" class="bt-lang" style="display:none;">...</div>
-    <div id="mk-es" class="bt-lang" style="display:none;">...</div>
-    <div id="mk-zh" class="bt-lang" style="display:none;">...</div>
-  </div>
-</section>
+    const w2 = document.createElement('script');
+    w2.src  = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+    w2.text = JSON.stringify({
+      symbols:[
+        {proName:"COMEX:GC1!", title:"Ouro"},
+        {proName:"ICEEUR:BRN1!", title:"Petróleo Brent"},
+        {proName:"CBOT:ZS1!", title:"Soja"},
+        {proName:"ICEUS:KC1!", title:"Café"},
+        {proName:"ICEUS:SB1!", title:"Açúcar"},
+        {proName:"ICEUS:CT1!", title:"Algodão"},
+        {proName:"COMEX:HG1!", title:"Cobre"},
+        {proName:"SGX:FEF1!", title:"Minério de Ferro"}
+      ],
+      showSymbolLogo:true,
+      colorTheme:"light",
+      isTransparent:false,
+      displayMode:"adaptive",
+      locale: locale
+    });
+    tvCommod.appendChild(w2);
+  }
 
-<!-- ✅ INSIGHTS -->
-<section id="insights" class="section">
-  <div class="container">
-    <h2 id="ins-title">Insights</h2>
-    <div id="ins-pt" class="bt-lang"><ul><li>Tendências de exportação...</li></ul></div>
-    <div id="ins-en" class="bt-lang" style="display:none;">...</div>
-    <div id="ins-es" class="bt-lang" style="display:none;">...</div>
-    <div id="ins-zh" class="bt-lang" style="display:none;">...</div>
-  </div>
-</section>
+  function applyLang(code){
+    const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
 
-</main>
+    document.querySelectorAll('header nav ul li a')
+      .forEach((a,i)=>{ if(t.nav[i]) a.textContent = t.nav[i]; });
 
-<!-- ✅ SCRIPT FINAL LIMPO -->
-<script>
+    document.querySelector('.hero-title').textContent = t.title;
+    document.querySelector('.hero-lead').textContent  = t.lead;
 
-const LANGS = ["pt","en","es","zh"];
-const FLAGS = {pt:"🇧🇷 PT", en:"🇬🇧 EN", es:"🇪🇸 ES", zh:"🇨🇳 中文"};
+    document.getElementById('btn-comprar').textContent = t.btnComprar;
+    document.getElementById('btn-vender').textContent  = t.btnVender;
 
-function syncSection(sectionSelector, prefix, lang){
-  document.querySelectorAll(`${sectionSelector} .bt-lang`)
-    .forEach(el=>el.style.display='none');
-  const el = document.getElementById(prefix + lang);
-  if(el) el.style.display='block';
-}
+    document.getElementById('langBtn').textContent = '🌎 ' + FLAGS[code];
 
-function applyLang(lang){
-  syncSection('#institutional','bt-',lang);
-  syncSection('#services','sv-',lang);
-  syncSection('#markets','mk-',lang);
-  syncSection('#insights','ins-',lang);
+    const seo = SEO[code];
+    document.title = seo.title;
+    document.getElementById('seo-desc').setAttribute("content", seo.desc);
 
-  document.getElementById('langBtn').textContent = '🌎 ' + FLAGS[lang];
-  localStorage.setItem('bt_lang', lang);
-}
+    syncSection('#institutional', 'bt-',  code);
+    syncSection('#services',      'sv-',  code);
+    syncSection('#markets',       'mk-',  code);
+    syncSection('#insights',      'ins-', code);
 
-document.addEventListener('DOMContentLoaded',function(){
-  let lang = localStorage.getItem('bt_lang') || 'pt';
-  applyLang(lang);
+    updateLinks(code);
+    initTradingView(code);
+    localStorage.setItem('bt_lang', code);
+  }
 
-  let idx = LANGS.indexOf(lang);
-  document.getElementById('langBtn').addEventListener('click',function(){
-    idx = (idx + 1) % LANGS.length;
-    applyLang(LANGS[idx]);
+  document.addEventListener('DOMContentLoaded', function(){
+    let code = localStorage.getItem('bt_lang');
+
+    if(!LANGS.includes(code)){
+      const navLang = (navigator.language || 'pt').substring(0,2);
+      code = LANGS.includes(navLang) ? navLang : 'pt';
+    }
+
+    applyLang(code);
+
+    let idx = LANGS.indexOf(code);
+    document.getElementById('langBtn').addEventListener('click', function(){
+      idx = (idx + 1) % LANGS.length;
+      applyLang(LANGS[idx]);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        const id = a.getAttribute('href').substring(1);
+        const el = document.getElementById(id);
+        if(el){
+          e.preventDefault();
+          window.scrollTo({
+            top: el.getBoundingClientRect().top + window.scrollY - 100,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
   });
-});
-</script>
+  </script>
 
 </body>
 </html>
