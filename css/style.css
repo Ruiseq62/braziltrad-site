@@ -617,3 +617,25 @@ footer a:hover {
   opacity: 1;
   transform: translateY(0);
 }
+/* ===== FIX DEFINITIVO DOS BOTÕES DE IDIOMA ===== */
+
+.lang-switch-group button,
+.bt-lang-btn {
+  background: #0F4C5C;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+}
+
+.lang-switch-group button:hover,
+.bt-lang-btn:hover {
+  background: #0b3d47;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
