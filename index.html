@@ -294,6 +294,11 @@ function applyLang(code){
   const langBtn = document.getElementById('langBtn'); if(langBtn) langBtn.textContent = '🌎 ' + (FLAGS[code]||FLAGS.pt);
   updateLinks(code);
   initTradingView(code);
+    // sincroniza o bloco institucional com o seletor principal
+  if(document.getElementById('bt-' + code)){
+    document.querySelectorAll('.bt-lang').forEach(el=>el.style.display='none');
+    document.getElementById('bt-' + code).style.display = 'block';
+  }
 }
 
 // Inicialização do TradingView (cria os scripts dinamicamente)
