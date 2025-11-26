@@ -375,7 +375,6 @@ function correctPathsForGitHub(){
 }
 
 // Inicialização depois do DOM carregar
-document.addEventListener('DOMContentLoaded', ()=>{
   correctPathsForGitHub();
   // linguagem inicial (salva em localStorage)
   const saved = localStorage.getItem('bt_lang');
@@ -394,7 +393,52 @@ document.addEventListener('DOMContentLoaded', ()=>{
   // smooth scroll for anchors
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click', e=>{ const id = a.getAttribute('href').substring(1); const el = document.getElementById(id); if(el){ e.preventDefault(); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' }); } }));
 });
+// ✅ INICIALIZAÇÃO ÚNICA E DEFINITIVA DO MULTILÍNGUE
+document.addEventListener('DOMContentLoaded', function () {
 
+  correctPathsForGitHub();
+
+  // idioma inicial
+  let code = localStorage.getItem('bt_lang');
+  if(!LANGS.includes(code)) code = 'pt';
+
+  // aplica idioma ao carregar
+  applyLang(code);
+
+  // ativa o botão 🌎
+  const langBtn = document.getElementById('langBtn');
+  if (!langBtn) {
+    console.warn('Botão langBtn não encontrado');
+    return;
+  }
+
+  let idx = LANGS.indexOf(code);
+
+  langBtn.addEventListener('click', function () {
+    idx = (idx + 1) % LANGS.length;
+    const next = LANGS[idx];
+    applyLang(next);
+    localStorage.setItem('bt_lang', next);
+    console.log('Idioma ativo:', next);
+  });
+
+  // scroll suave
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      const id = a.getAttribute('href').substring(1);
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        window.scrollTo({
+          top: el.getBoundingClientRect().top + window.scrollY - 100,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  console.log('Multilíngue carregado com sucesso ✅');
+});
  
 </script>
 
