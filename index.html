@@ -43,7 +43,7 @@
       </a>
       <nav>
         <ul>
-          <li><a href="#about">Sobre</a></li>
+          <li><a href="#institutional">Sobre</a></li>
           <li><a href="#services">Serviços</a></li>
           <li><a href="#products">Produtos</a></li>
           <li><a href="#markets">Mercados</a></li>
@@ -205,10 +205,12 @@ function btShowLang(lang){
   </footer>
 
   <!-- ===== SCRIPTS (colocados no fim para garantir DOM pronto) ===== -->
+    <!-- ===== SCRIPTS (colocados no fim para garantir DOM pronto) ===== -->
   <script>
 // ===== CONFIG =====
 const LANGS = ["pt","en","es","zh"];
 const FLAGS = {pt:"🇧🇷 PT", en:"🇬🇧 EN", es:"🇪🇸 ES", zh:"🇨🇳 中文"};
+
 const TRANSLATIONS = {
   pt:{
     nav:["Sobre","Serviços","Produtos","Mercados","Insights","Documentos","Links Úteis","Contato"],
@@ -238,55 +240,8 @@ const TRANSLATIONS = {
     btnComprar:"我要买",
     btnVender:"我要卖"
   }
-}; // ← ESSA CHAVE FINAL ESTAVA A FALTAR
+};
 
-
-function basePath(){ return window.location.hostname.includes("github") ? "/braziltrad-site-testes" : ""; }
-
-// Atualiza botões / links conforme idioma
-function updateLinks(code){
-  const base = basePath();
-  // comprar / vender / contato
-  const btnComprar = document.getElementById("btn-comprar");
-  const btnVender = document.getElementById("btn-vender");
- const contato = document.querySelector("a.contact-link");
-
-  if(code === "pt"){
-    if(btnComprar) btnComprar.href = `${base}/contato-compra.html`;
-    if(btnVender) btnVender.href = `${base}/contato-venda.html`;
-    if(contato) contato.href = `${base}/contato.html`;
-  } else if(code === "en"){
-    if(btnComprar) btnComprar.href = `${base}/en/contact-buy.html`;
-    if(btnVender) btnVender.href = `${base}/en/contact-sell.html`;
-    if(contato) contato.href = `${base}/en/contact.html`;
-  } else if(code === "es"){
-    if(btnComprar) btnComprar.href = `${base}/es/compradores.html`;
-    if(btnVender) btnVender.href = `${base}/es/vendedores.html`;
-    if(contato) contato.href = `${base}/es/contato.html`;
-  } else if(code === "zh"){
-    if(btnComprar) btnComprar.href = `${base}/zh/contact-buy.html`;
-    if(btnVender) btnVender.href = `${base}/zh/contact-sell.html`;
-    if(contato) contato.href = `${base}/zh/contact.html`;
-  }
-
-  // Documentos
-  const documentosLink = document.querySelector("a.doc-link");
-  if(documentosLink){
-    if(code === "pt") documentosLink.href = `${base}/documentos.html`;
-    if(code === "en") documentosLink.href = `${base}/en/documents.html`;
-    if(code === "es") documentosLink.href = `${base}/es/documentos.html`;
-    if(code === "zh") documentosLink.href = `${base}/zh/documents_cz.html`;
-  }
-
-  // Links Úteis
-  const linksLink = document.querySelector("a.links-link");
-  if(linksLink){
-    if(code === "pt") linksLink.href = `${base}/links-uteis.html`;
-    if(code === "en") linksLink.href = `${base}/en/useful-links.html`;
-    if(code === "es") linksLink.href = `${base}/es/enlaces-utiles.html`;
-    if(code === "zh") linksLink.href = `${base}/zh/useful-links.html`;
-  }
-}
 const SEO = {
   pt: {
     title: "Braziltrad — Conectando o Brasil ao mercado global de commodities",
@@ -305,44 +260,51 @@ const SEO = {
     desc: "提供可靠的金属、农产品和矿产中介服务，具备合规、产地验证及FOB/CIF国际物流能力。"
   }
 };
-function applyLang(code){
-  const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
-  // nav text
-  document.querySelectorAll('header nav ul li a').forEach((a,i)=>{ if(t.nav[i]) a.textContent = t.nav[i]; });
-  // hero
-  const heroTitle = document.querySelector('.hero-title'); if(heroTitle) heroTitle.textContent = t.title;
-  const heroLead = document.querySelector('.hero-lead'); if(heroLead) heroLead.textContent = t.lead;
-  const btnC = document.getElementById('btn-comprar'); if(btnC) btnC.textContent = t.btnComprar;
-  const btnV = document.getElementById('btn-vender'); if(btnV) btnV.textContent = t.btnVender;
-  const langBtn = document.getElementById('langBtn'); if(langBtn) langBtn.textContent = '🌎 ' + (FLAGS[code]||FLAGS.pt);
-  updateLinks(code);
-  initTradingView(code);
-  
 
-// SEO dinâmico por idioma
-const seo = SEO[code] || SEO.pt;
-const seoDesc = document.getElementById('seo-desc');
+function basePath(){
+  return window.location.hostname.includes("github") ? "/braziltrad-site-testes" : "";
+}
 
-document.title = seo.title;
-if(seoDesc) seoDesc.setAttribute("content", seo.desc);
+// Atualiza botões / links conforme idioma
+function updateLinks(code){
+  const base = basePath();
 
+  const btnComprar = document.getElementById("btn-comprar");
+  const btnVender = document.getElementById("btn-vender");
+  const contato = document.querySelector("a.contact-link");
 
-
-if(seoTitle) document.title = seo.title;
-if(seoDesc) seoDesc.setAttribute("content", seo.desc);
-  
-    // título institucional por idioma
-  const btTitle = document.getElementById('bt-title');
-  if(btTitle){
-    if(code === 'pt') btTitle.textContent = 'Braziltrad — Apresentação Institucional';
-    if(code === 'en') btTitle.textContent = 'Braziltrad — Institutional Overview';
-    if(code === 'es') btTitle.textContent = 'Braziltrad — Presentación Institucional';
-    if(code === 'zh') btTitle.textContent = 'Braziltrad — 公司简介';
+  if(code === "pt"){
+    if(btnComprar) btnComprar.href = `${base}/contato-compra.html`;
+    if(btnVender) btnVender.href = `${base}/contato-venda.html`;
+    if(contato)   contato.href   = `${base}/contato.html`;
+  } else if(code === "en"){
+    if(btnComprar) btnComprar.href = `${base}/en/contact-buy.html`;
+    if(btnVender) btnVender.href = `${base}/en/contact-sell.html`;
+    if(contato)   contato.href   = `${base}/en/contact.html`;
+  } else if(code === "es"){
+    if(btnComprar) btnComprar.href = `${base}/es/compradores.html`;
+    if(btnVender) btnVender.href = `${base}/es/vendedores.html`;
+    if(contato)   contato.href   = `${base}/es/contato.html`;
+  } else if(code === "zh"){
+    if(btnComprar) btnComprar.href = `${base}/zh/contact-buy.html`;
+    if(btnVender) btnVender.href = `${base}/zh/contact-sell.html`;
+    if(contato)   contato.href   = `${base}/zh/contact.html`;
   }
-    // sincroniza o bloco institucional com o seletor principal
-  if(document.getElementById('bt-' + code)){
-    document.querySelectorAll('.bt-lang').forEach(el=>el.style.display='none');
-    document.getElementById('bt-' + code).style.display = 'block';
+
+  const documentosLink = document.querySelector("a.doc-link");
+  if(documentosLink){
+    if(code === "pt") documentosLink.href = `${base}/documentos.html`;
+    if(code === "en") documentosLink.href = `${base}/en/documents.html`;
+    if(code === "es") documentosLink.href = `${base}/es/documentos.html`;
+    if(code === "zh") documentosLink.href = `${base}/zh/documents_cz.html`;
+  }
+
+  const linksLink = document.querySelector("a.links-link");
+  if(linksLink){
+    if(code === "pt") linksLink.href = `${base}/links-uteis.html`;
+    if(code === "en") linksLink.href = `${base}/en/useful-links.html`;
+    if(code === "es") linksLink.href = `${base}/es/enlaces-utiles.html`;
+    if(code === "zh") linksLink.href = `${base}/zh/useful-links.html`;
   }
 }
 
@@ -350,36 +312,127 @@ if(seoDesc) seoDesc.setAttribute("content", seo.desc);
 function initTradingView(locale){
   try{
     const tvIndices = document.getElementById('tv-indices');
-    const tvCommod = document.getElementById('tv-commodities');
+    const tvCommod  = document.getElementById('tv-commodities');
     if(tvIndices) tvIndices.innerHTML = '';
-    if(tvCommod) tvCommod.innerHTML = '';
+    if(tvCommod)  tvCommod.innerHTML  = '';
 
     const w1 = document.createElement('script');
-    w1.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
-    w1.text = JSON.stringify({"symbols":[{"proName":"FOREXCOM:EURUSD","title":"EUR/USD"},{"proName":"FOREXCOM:USDJPY","title":"USD/JPY"},{"proName":"OANDA:SPX500USD","title":"S&P 500"},{"proName":"NASDAQ:NDX","title":"NASDAQ 100"},{"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},{"proName":"BITSTAMP:ETHUSD","title":"Ethereum"}],"showSymbolLogo":true,"colorTheme":"light","isTransparent":false,"displayMode":"adaptive","locale":locale});
+    w1.src  = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+    w1.text = JSON.stringify({
+      symbols:[
+        {proName:"FOREXCOM:EURUSD",   title:"EUR/USD"},
+        {proName:"FOREXCOM:USDJPY",   title:"USD/JPY"},
+        {proName:"OANDA:SPX500USD",   title:"S&P 500"},
+        {proName:"NASDAQ:NDX",        title:"NASDAQ 100"},
+        {proName:"BITSTAMP:BTCUSD",   title:"Bitcoin"},
+        {proName:"BITSTAMP:ETHUSD",   title:"Ethereum"}
+      ],
+      showSymbolLogo:true,
+      colorTheme:"light",
+      isTransparent:false,
+      displayMode:"adaptive",
+      locale: locale
+    });
     if(tvIndices) tvIndices.appendChild(w1);
 
     const w2 = document.createElement('script');
-    w2.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
-    w2.text = JSON.stringify({"symbols":[{"proName":"COMEX:GC1!","title":"Ouro"},{"proName":"ICEEUR:BRN1!","title":"Petróleo Brent"},{"proName":"CBOT:ZS1!","title":"Soja"},{"proName":"ICEUS:KC1!","title":"Café"},{"proName":"ICEUS:SB1!","title":"Açúcar"},{"proName":"ICEUS:CT1!","title":"Algodão"},{"proName":"COMEX:HG1!","title":"Cobre"},{"proName":"SGX:FEF1!","title":"Minério de Ferro"}],"showSymbolLogo":true,"colorTheme":"light","isTransparent":false,"displayMode":"adaptive","locale":locale});
+    w2.src  = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+    w2.text = JSON.stringify({
+      symbols:[
+        {proName:"COMEX:GC1!",   title:"Ouro"},
+        {proName:"ICEEUR:BRN1!", title:"Petróleo Brent"},
+        {proName:"CBOT:ZS1!",    title:"Soja"},
+        {proName:"ICEUS:KC1!",   title:"Café"},
+        {proName:"ICEUS:SB1!",   title:"Açúcar"},
+        {proName:"ICEUS:CT1!",   title:"Algodão"},
+        {proName:"COMEX:HG1!",   title:"Cobre"},
+        {proName:"SGX:FEF1!",    title:"Minério de Ferro"}
+      ],
+      showSymbolLogo:true,
+      colorTheme:"light",
+      isTransparent:false,
+      displayMode:"adaptive",
+      locale: locale
+    });
     if(tvCommod) tvCommod.appendChild(w2);
-  }catch(e){console.warn('TradingView init error', e);} 
+  }catch(e){
+    console.warn('TradingView init error', e);
+  }
 }
 
 // correções de caminhos relativas para GitHub Pages (mantém compatibilidade)
 function correctPathsForGitHub(){
   const isGitHub = window.location.hostname.includes('github');
   const base = isGitHub ? '/braziltrad-site-testes' : '';
-  document.querySelectorAll('link[href^="./css"], link[href^="/css"]').forEach(link=>{ link.href = base + '/css/style.css'; });
-  document.querySelectorAll('img[src^="/assets"], img[src^="./assets"]').forEach(img=>{ img.src = base + '/' + img.getAttribute('src').replace(/^\.\//,'').replace(/^\//,''); });
+  document.querySelectorAll('link[href^="./css"], link[href^="/css"]').forEach(link=>{
+    link.href = base + '/css/style.css';
+  });
+  document.querySelectorAll('img[src^="/assets"], img[src^="./assets"]').forEach(img=>{
+    img.src = base + '/' + img.getAttribute('src').replace(/^\.\//,'').replace(/^\//,'');
+  });
+}
+
+// aplica idioma
+function applyLang(code){
+  const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
+
+  // nav
+  const navLinks = document.querySelectorAll('header nav ul li a');
+  navLinks.forEach((a,i)=>{
+    if(t.nav[i]) a.textContent = t.nav[i];
+  });
+
+  // hero
+  const heroTitle = document.querySelector('.hero-title');
+  if(heroTitle) heroTitle.textContent = t.title;
+
+  const heroLead = document.querySelector('.hero-lead');
+  if(heroLead) heroLead.textContent = t.lead;
+
+  const btnC = document.getElementById('btn-comprar');
+  if(btnC) btnC.textContent = t.btnComprar;
+
+  const btnV = document.getElementById('btn-vender');
+  if(btnV) btnV.textContent = t.btnVender;
+
+  const langBtn = document.getElementById('langBtn');
+  if(langBtn) langBtn.textContent = '🌎 ' + (FLAGS[code] || FLAGS.pt);
+
+  updateLinks(code);
+  initTradingView(code);
+
+  // SEO dinâmico
+  const seo = SEO[code] || SEO.pt;
+  const seoDesc = document.getElementById('seo-desc');
+  document.title = seo.title;
+  if(seoDesc) seoDesc.setAttribute("content", seo.desc);
+
+  // título institucional
+  const btTitle = document.getElementById('bt-title');
+  if(btTitle){
+    if(code === 'pt') btTitle.textContent = 'Braziltrad — Apresentação Institucional';
+    else if(code === 'en') btTitle.textContent = 'Braziltrad — Institutional Overview';
+    else if(code === 'es') btTitle.textContent = 'Braziltrad — Presentación Institucional';
+    else if(code === 'zh') btTitle.textContent = 'Braziltrad — 公司简介';
+  }
+
+  // bloco institucional
+  if(document.getElementById('bt-' + code)){
+    document.querySelectorAll('.bt-lang').forEach(el=>el.style.display='none');
+    document.getElementById('bt-' + code).style.display = 'block';
+  }
 }
 
 // Inicialização depois do DOM carregar
+document.addEventListener('DOMContentLoaded', function(){
   correctPathsForGitHub();
-  // linguagem inicial (salva em localStorage)
-  const saved = localStorage.getItem('bt_lang');
-  let code = saved || (navigator.language||'pt').substring(0,2);
-  if(!LANGS.includes(code)) code = 'pt';
+
+  // linguagem inicial
+  let code = localStorage.getItem('bt_lang');
+  if(!LANGS.includes(code)){
+    const navLang = (navigator.language || 'pt').substring(0,2);
+    code = LANGS.includes(navLang) ? navLang : 'pt';
+  }
 
   applyLang(code);
 
@@ -387,47 +440,21 @@ function correctPathsForGitHub(){
   const langBtn = document.getElementById('langBtn');
   if(langBtn){
     let idx = LANGS.indexOf(code);
-    langBtn.addEventListener('click', ()=>{ idx = (idx + 1) % LANGS.length; const next = LANGS[idx]; applyLang(next); localStorage.setItem('bt_lang', next); });
+    langBtn.addEventListener('click', function(){
+      idx = (idx + 1) % LANGS.length;
+      const next = LANGS[idx];
+      applyLang(next);
+      localStorage.setItem('bt_lang', next);
+      console.log('Idioma trocado para:', next);
+    });
   }
 
   // smooth scroll for anchors
-  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click', e=>{ const id = a.getAttribute('href').substring(1); const el = document.getElementById(id); if(el){ e.preventDefault(); window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' }); } }));
-});
-// ✅ INICIALIZAÇÃO ÚNICA E DEFINITIVA DO MULTILÍNGUE
-document.addEventListener('DOMContentLoaded', function () {
-
-  correctPathsForGitHub();
-
-  // idioma inicial
-  let code = localStorage.getItem('bt_lang');
-  if(!LANGS.includes(code)) code = 'pt';
-
-  // aplica idioma ao carregar
-  applyLang(code);
-
-  // ativa o botão 🌎
-  const langBtn = document.getElementById('langBtn');
-  if (!langBtn) {
-    console.warn('Botão langBtn não encontrado');
-    return;
-  }
-
-  let idx = LANGS.indexOf(code);
-
-  langBtn.addEventListener('click', function () {
-    idx = (idx + 1) % LANGS.length;
-    const next = LANGS[idx];
-    applyLang(next);
-    localStorage.setItem('bt_lang', next);
-    console.log('Idioma ativo:', next);
-  });
-
-  // scroll suave
-  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-    a.addEventListener('click', function (e) {
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
       const id = a.getAttribute('href').substring(1);
       const el = document.getElementById(id);
-      if (el) {
+      if(el){
         e.preventDefault();
         window.scrollTo({
           top: el.getBoundingClientRect().top + window.scrollY - 100,
@@ -439,8 +466,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   console.log('Multilíngue carregado com sucesso ✅');
 });
- 
-</script>
+  </script>
+
 
 </body>
 </html>
