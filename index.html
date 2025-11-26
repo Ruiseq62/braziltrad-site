@@ -184,10 +184,153 @@ function btShowLang(lang){
 }
 </script>
 
-    <section id="services" class="section"><div class="container"><h2>Serviços</h2><ul class="list"><li>Intermediação ponta a ponta entre produtor e comprador.</li><li>Due diligence: origem, documentação, compliance e KYC.</li><li>Logística FOB/CIF via portos brasileiros.</li><li>Negociação internacional: contratos, L/C, T/T.</li></ul></div></section>
+    <section id="services" class="section" style="background:#ffffff;">
+  <div class="container">
+
+    <h2 id="sv-title" style="text-align:center;margin-bottom:20px;">Serviços</h2>
+
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
+      <button onclick="svShowLang('pt')" class="bt-lang-btn">Português</button>
+      <button onclick="svShowLang('en')" class="bt-lang-btn">English</button>
+      <button onclick="svShowLang('es')" class="bt-lang-btn">Español</button>
+      <button onclick="svShowLang('zh')" class="bt-lang-btn">中文</button>
+    </div>
+
+    <ul id="sv-pt" class="bt-lang">
+      <li>Intermediação completa entre produtor e comprador</li>
+      <li>Due diligence, compliance e verificação documental</li>
+      <li>Estruturação de operações FOB e CIF</li>
+      <li>Apoio em contratos internacionais, L/C e T/T</li>
+    </ul>
+
+    <ul id="sv-en" class="bt-lang" style="display:none;">
+      <li>End-to-end intermediation between sellers and buyers</li>
+      <li>Due diligence, compliance and documentation verification</li>
+      <li>Structuring FOB and CIF export operations</li>
+      <li>Support in international contracts, L/C and T/T</li>
+    </ul>
+
+    <ul id="sv-es" class="bt-lang" style="display:none;">
+      <li>Intermediación completa entre vendedor y comprador</li>
+      <li>Due diligence, cumplimiento y verificación documental</li>
+      <li>Estructuración de operaciones FOB y CIF</li>
+      <li>Apoyo en contratos internacionales, L/C y T/T</li>
+    </ul>
+
+    <ul id="sv-zh" class="bt-lang" style="display:none;">
+      <li>生产商与买家之间的全流程对接</li>
+      <li>尽职调查、合规与文件审核</li>
+      <li>FOB 与 CIF 出口结构化</li>
+      <li>国际合同、信用证与电汇支持</li>
+    </ul>
+
+  </div>
+</section>
+
+<script>
+function svShowLang(lang){
+  document.querySelectorAll('#services .bt-lang').forEach(el=>el.style.display='none');
+  document.getElementById('sv-'+lang).style.display='block';
+}
+</script>
+
     <section id="products" class="section"><div class="container"><h2>Produtos</h2><div class="grid"><article class="card"><img src="assets/img/agricolas.png" alt="Agrícolas" /><h3>Agrícolas</h3><p>Soja, milho, açúcar e café.</p></article><article class="card"><img src="assets/img/energeticas.png" alt="Energéticas" /><h3>Energéticas</h3><p>Etanol, diesel renovável, biomassa.</p></article><article class="card"><img src="assets/img/minerais.png" alt="Minerais" /><h3>Minerais</h3><p>Lítio, ferro, nióbio e cobre.</p></article></div></div></section>
-    <section id="markets" class="section"><div class="container"><h2>Mercados</h2><ul class="list"><li>Ásia: foco em China e Índia (minerais e agrícolas).</li><li>EUA/UE: contratos com requisitos ESG e compliance.</li><li>Rede de fornecedores qualificados no Brasil.</li></ul></div></section>
-    <section id="insights" class="section"><div class="container"><h2>Insights</h2><div class="grid"><article class="card"><h3>Panorama do Lítio em 2025</h3><p>Demanda crescente na Ásia e novas rotas logísticas via Santos.</p></article><article class="card"><h3>Exportações agrícolas do Brasil</h3><p>Soja e açúcar com contratos FOB competitivos para China e Índia.</p></article><article class="card"><h3>Nióbio brasileiro</h3><p>Aplicações em ligas especiais e tendências de demanda para eletrificação.</p></article></div></div></section>
+    <section id="markets" class="section" style="background:#f8f8f8;">
+  <div class="container">
+
+    <h2 id="mk-title" style="text-align:center;margin-bottom:20px;">Mercados</h2>
+
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
+      <button onclick="mkShowLang('pt')" class="bt-lang-btn">Português</button>
+      <button onclick="mkShowLang('en')" class="bt-lang-btn">English</button>
+      <button onclick="mkShowLang('es')" class="bt-lang-btn">Español</button>
+      <button onclick="mkShowLang('zh')" class="bt-lang-btn">中文</button>
+    </div>
+
+    <ul id="mk-pt" class="bt-lang">
+      <li>Ásia: China e Índia</li>
+      <li>Europa e Estados Unidos</li>
+      <li>América Latina</li>
+      <li>Parcerias globais de fornecimento</li>
+    </ul>
+
+    <ul id="mk-en" class="bt-lang" style="display:none;">
+      <li>Asia: China and India</li>
+      <li>Europe and the United States</li>
+      <li>Latin America</li>
+      <li>Global supply partnerships</li>
+    </ul>
+
+    <ul id="mk-es" class="bt-lang" style="display:none;">
+      <li>Asia: China e India</li>
+      <li>Europa y Estados Unidos</li>
+      <li>América Latina</li>
+      <li>Alianzas globales de suministro</li>
+    </ul>
+
+    <ul id="mk-zh" class="bt-lang" style="display:none;">
+      <li>亚洲：中国与印度</li>
+      <li>欧洲与美国</li>
+      <li>拉丁美洲</li>
+      <li>全球供应合作伙伴</li>
+    </ul>
+
+  </div>
+</section>
+
+<script>
+function mkShowLang(lang){
+  document.querySelectorAll('#markets .bt-lang').forEach(el=>el.style.display='none');
+  document.getElementById('mk-'+lang).style.display='block';
+}
+</script>
+
+   <section id="insights" class="section" style="background:#ffffff;">
+  <div class="container">
+
+    <h2 id="ins-title" style="text-align:center;margin-bottom:20px;">Insights</h2>
+
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
+      <button onclick="insShowLang('pt')" class="bt-lang-btn">Português</button>
+      <button onclick="insShowLang('en')" class="bt-lang-btn">English</button>
+      <button onclick="insShowLang('es')" class="bt-lang-btn">Español</button>
+      <button onclick="insShowLang('zh')" class="bt-lang-btn">中文</button>
+    </div>
+
+    <ul id="ins-pt" class="bt-lang">
+      <li>Tendências de exportação do agronegócio</li>
+      <li>Demanda crescente por minerais estratégicos</li>
+      <li>Novas rotas logísticas globais</li>
+    </ul>
+
+    <ul id="ins-en" class="bt-lang" style="display:none;">
+      <li>Agribusiness export trends</li>
+      <li>Growing demand for strategic minerals</li>
+      <li>New global logistics routes</li>
+    </ul>
+
+    <ul id="ins-es" class="bt-lang" style="display:none;">
+      <li>Tendencias de exportación del agronegocio</li>
+      <li>Creciente demanda de minerales estratégicos</li>
+      <li>Nuevas rutas logísticas globales</li>
+    </ul>
+
+    <ul id="ins-zh" class="bt-lang" style="display:none;">
+      <li>农业出口趋势</li>
+      <li>战略矿产需求增长</li>
+      <li>全球物流新通道</li>
+    </ul>
+
+  </div>
+</section>
+
+<script>
+function insShowLang(lang){
+  document.querySelectorAll('#insights .bt-lang').forEach(el=>el.style.display='none');
+  document.getElementById('ins-'+lang).style.display='block';
+}
+</script>
+
   </main>
 
   <!-- ===== RODAPÉ ===== -->
@@ -414,6 +557,23 @@ function applyLang(code){
     else if(code === 'en') btTitle.textContent = 'Braziltrad — Institutional Overview';
     else if(code === 'es') btTitle.textContent = 'Braziltrad — Presentación Institucional';
     else if(code === 'zh') btTitle.textContent = 'Braziltrad — 公司简介';
+    // sincroniza serviços com o seletor global 🌎
+if(document.getElementById('sv-' + code)){
+  document.querySelectorAll('#services .bt-lang').forEach(el=>el.style.display='none');
+  document.getElementById('sv-' + code).style.display = 'block';
+}
+
+// sincroniza mercados com o seletor global 🌎
+if(document.getElementById('mk-' + code)){
+  document.querySelectorAll('#markets .bt-lang').forEach(el=>el.style.display='none');
+  document.getElementById('mk-' + code).style.display = 'block';
+}
+
+// sincroniza insights com o seletor global 🌎
+if(document.getElementById('ins-' + code)){
+  document.querySelectorAll('#insights .bt-lang').forEach(el=>el.style.display='none');
+  document.getElementById('ins-' + code).style.display = 'block';
+}
   }
 
   // bloco institucional
