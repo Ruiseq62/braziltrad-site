@@ -674,3 +674,47 @@ footer a:hover {
   line-height: 1.5;
   color: #444;
 }
+/* ===== PADRONIZAÇÃO VISUAL — BLOCO INSTITUCIONAL ===== */
+
+#institutional {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+#institutional h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#institutional h3 {
+  max-width: 900px;
+  margin: 40px auto 10px auto;
+  color: #0b4a5a;
+  font-size: 1.25rem;
+}
+
+#institutional p {
+  max-width: 900px;
+  margin: 0 auto 25px auto;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+#institutional ul {
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  padding-left: 20px;
+}
+
+#institutional li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  color: #444;
+}
+
+#institutional strong {
+  color: #0b4a5a;
+}
