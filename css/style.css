@@ -503,3 +503,99 @@ footer a:hover {
   font-size: 0.95rem;
   letter-spacing: 0.3px;
 }
+/* ===== AJUSTE FINAL BASEADO NO MODELO "INSIGHTS" ===== */
+
+/* Todas as seções no mesmo ritmo visual do Insights */
+.section {
+  padding: 70px 0;
+}
+
+.section .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Títulos iguais ao Insights */
+.section h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0F4C5C;
+  margin-bottom: 6px;
+}
+
+/* Sublinha discreta (igual Insights) */
+.section h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #0F4C5C;
+  margin: 10px auto 25px;
+  border-radius: 2px;
+}
+
+/* Texto MAIS LEVE (Insights-style) */
+.section p,
+.section li {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #2e2e2e;
+}
+
+/* Listas alinhadas como no Insights */
+#services ul,
+#markets ul,
+#insights ul {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: 18px;
+}
+
+/* Grupo de botões exatamente como Insights */
+.lang-switch-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* ===== RESTAURA PRODUTOS AO ESTILO BONITO ORIGINAL ===== */
+
+#products {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+#products .container {
+  max-width: 1200px;
+}
+
+#products .grid {
+  margin-top: 40px;
+  gap: 40px;
+}
+
+/* Garante que Produtos NÃO herda o estilo de listas */
+#products ul,
+#products li {
+  max-width: unset !important;
+  margin: unset !important;
+}
+
+/* Cartões continuam destacados */
+#products .card {
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  border-radius: 18px;
+}
+
+/* ===== RODAPÉ MANTÉM PREMIUM ===== */
+.footer {
+  background: linear-gradient(180deg, #0F4C5C, #083842);
+  padding: 60px 0 40px;
+}
+
+.footer div {
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
