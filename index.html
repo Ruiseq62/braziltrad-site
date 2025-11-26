@@ -70,7 +70,9 @@
     <section id="institutional" class="section" style="background:#ffffff;">
   <div class="container">
 
-    <h2 style="text-align:center;margin-bottom:20px;">Braziltrad — Institutional Overview</h2>
+    <h2 id="bt-title" style="text-align:center;margin-bottom:20px;"> Braziltrad — Apresentação Institucional
+</h2>
+
 
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
       <button onclick="btShowLang('pt')" class="bt-lang-btn">Português</button>
@@ -294,6 +296,14 @@ function applyLang(code){
   const langBtn = document.getElementById('langBtn'); if(langBtn) langBtn.textContent = '🌎 ' + (FLAGS[code]||FLAGS.pt);
   updateLinks(code);
   initTradingView(code);
+    // título institucional por idioma
+  const btTitle = document.getElementById('bt-title');
+  if(btTitle){
+    if(code === 'pt') btTitle.textContent = 'Braziltrad — Apresentação Institucional';
+    if(code === 'en') btTitle.textContent = 'Braziltrad — Institutional Overview';
+    if(code === 'es') btTitle.textContent = 'Braziltrad — Presentación Institucional';
+    if(code === 'zh') btTitle.textContent = 'Braziltrad — 公司简介';
+  }
     // sincroniza o bloco institucional com o seletor principal
   if(document.getElementById('bt-' + code)){
     document.querySelectorAll('.bt-lang').forEach(el=>el.style.display='none');
