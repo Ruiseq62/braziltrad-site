@@ -718,3 +718,40 @@ footer a:hover {
 #institutional strong {
   color: #0b4a5a;
 }
+/* ===== AJUSTE VISUAL PREMIUM — MERCADOS ===== */
+
+#markets {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#markets .lang-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0 40px 0;
+}
+
+#markets p {
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+#markets ul {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 0;
+  list-style-position: inside;
+  text-align: left;
+}
+
+#markets li {
+  margin-bottom: 12px;
+  line-height: 1.55;
+  color: #444;
+}
