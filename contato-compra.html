@@ -107,7 +107,6 @@ document.getElementById("contactForm").addEventListener("submit", async function
     await fetch(SCRIPT_URL, { method: "POST", body: fd });
 
     // Envio para o Zoho (agora deixamos o submit ir)
-    form.submit();
 
     // mensagem de sucesso
     msg.textContent = "Mensagem enviada com sucesso!";
