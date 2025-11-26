@@ -287,7 +287,24 @@ function updateLinks(code){
     if(code === "zh") linksLink.href = `${base}/zh/useful-links.html`;
   }
 }
-
+const SEO = {
+  pt: {
+    title: "Braziltrad — Conectando o Brasil ao mercado global de commodities",
+    desc: "Intermediação confiável de metais, agrícolas e minerais, com compliance, verificação de origem e logística FOB e CIF."
+  },
+  en: {
+    title: "Braziltrad — Connecting Brazil to the global commodities market",
+    desc: "Reliable intermediation of metals, agricultural products and minerals, with compliance, origin verification and FOB/CIF logistics."
+  },
+  es: {
+    title: "Braziltrad — Conectando a Brasil con el mercado global de commodities",
+    desc: "Intermediación confiable de metales, productos agrícolas y minerales, con cumplimiento, verificación de origen y logística FOB/CIF."
+  },
+  zh: {
+    title: "Braziltrad — 连接巴西与全球大宗商品市场",
+    desc: "提供可靠的金属、农产品和矿产中介服务，具备合规、产地验证及FOB/CIF国际物流能力。"
+  }
+};
 function applyLang(code){
   const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
   // nav text
