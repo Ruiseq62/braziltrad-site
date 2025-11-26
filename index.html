@@ -588,14 +588,13 @@ if(document.getElementById('ins-' + code)){
   document.querySelectorAll('#insights .bt-lang').forEach(el=>el.style.display='none');
   document.getElementById('ins-' + code).style.display = 'block';
 }
-  }
-
-  // bloco institucional
-  if(document.getElementById('bt-' + code)){
-    document.querySelectorAll('.bt-lang').forEach(el=>el.style.display='none');
-    document.getElementById('bt-' + code).style.display = 'block';
-  }
+// sincroniza SERVIÇOS com o seletor global 🌎
+if(document.getElementById('sv-' + code)){
+  document.querySelectorAll('#services .bt-lang').forEach(el=>el.style.display='none');
+  document.getElementById('sv-' + code).style.display = 'block';
 }
+
+
 
 // Inicialização depois do DOM carregar
 document.addEventListener('DOMContentLoaded', function(){
