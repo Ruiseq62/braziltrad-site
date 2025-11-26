@@ -599,3 +599,21 @@ footer a:hover {
   font-size: 0.95rem;
   letter-spacing: 0.3px;
 }
+/* ===== SUAVIZA TROCA DE IDIOMA (REMOVE O "SALTO") ===== */
+
+/* anima altura e opacidade dos blocos multilíngues */
+.bt-lang {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* quando escondido */
+.bt-lang[style*="display: none"] {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* quando visível */
+.bt-lang:not([style*="display: none"]) {
+  opacity: 1;
+  transform: translateY(0);
+}
