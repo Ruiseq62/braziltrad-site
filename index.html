@@ -575,10 +575,7 @@ function applyLang(code){
     else if(code === 'es') btTitle.textContent = 'Braziltrad — Presentación Institucional';
     else if(code === 'zh') btTitle.textContent = 'Braziltrad — 公司简介';
     // sincroniza serviços com o seletor global 🌎
-if(document.getElementById('sv-' + code)){
-  document.querySelectorAll('#services .bt-lang').forEach(el=>el.style.display='none');
-  document.getElementById('sv-' + code).style.display = 'block';
-}
+
 
 // sincroniza mercados com o seletor global 🌎
 if(document.getElementById('mk-' + code)){
