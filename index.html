@@ -644,7 +644,19 @@ document.addEventListener('DOMContentLoaded', function(){
   console.log('Multilíngue carregado com sucesso ✅');
 });
   </script>
+<script>
+function svShowLang(lang){
+  document.querySelectorAll('#services .bt-lang').forEach(el=>el.style.display='none');
+  const el = document.getElementById('sv-' + lang);
+  if(el) el.style.display = 'block';
+}
 
+// força mostrar português ao carregar
+document.addEventListener('DOMContentLoaded', ()=>{
+  const el = document.getElementById('sv-pt');
+  if(el) el.style.display = 'block';
+});
+</script>
 
 </body>
 </html>
