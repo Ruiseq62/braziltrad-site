@@ -186,45 +186,61 @@ function btShowLang(lang){
 
     <section id="services" class="section" style="background:#ffffff;">
   <div class="container">
+<h2 id="sv-title" class="section-title" style="text-align:center;margin-bottom:20px;">
+  Serviços
+</h2>
 
-    <h2 id="sv-title" style="text-align:center;margin-bottom:20px;">Serviços</h2>
+<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
+  <button onclick="btShowLang('pt')" class="bt-lang-btn">Português</button>
+  <button onclick="btShowLang('en')" class="bt-lang-btn">English</button>
+  <button onclick="btShowLang('es')" class="bt-lang-btn">Español</button>
+  <button onclick="btShowLang('zh')" class="bt-lang-btn">中文</button>
+</div>
 
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;">
-      <button onclick="svShowLang('pt')" class="bt-lang-btn">Português</button>
-      <button onclick="svShowLang('en')" class="bt-lang-btn">English</button>
-      <button onclick="svShowLang('es')" class="bt-lang-btn">Español</button>
-      <button onclick="svShowLang('zh')" class="bt-lang-btn">中文</button>
-    </div>
+<!-- PORTUGUÊS -->
+<div id="sv-pt" class="bt-lang">
+  <ul class="list">
+    <li>Intermediação completa entre produtores e compradores internacionais</li>
+    <li>Estruturação de operações de exportação</li>
+    <li>Negociação internacional e contratos</li>
+    <li>Documentação, compliance e verificação de origem</li>
+    <li>Coordenação logística FOB e CIF</li>
+  </ul>
+</div>
 
-    <ul id="sv-pt" class="bt-lang">
-      <li>Intermediação completa entre produtor e comprador</li>
-      <li>Due diligence, compliance e verificação documental</li>
-      <li>Estruturação de operações FOB e CIF</li>
-      <li>Apoio em contratos internacionais, L/C e T/T</li>
-    </ul>
+<!-- INGLÊS -->
+<div id="sv-en" class="bt-lang" style="display:none;">
+  <ul class="list">
+    <li>Full intermediation between producers and international buyers</li>
+    <li>Export operation structuring</li>
+    <li>International negotiation and contracts</li>
+    <li>Documentation, compliance and origin verification</li>
+    <li>FOB and CIF logistics coordination</li>
+  </ul>
+</div>
 
-    <ul id="sv-en" class="bt-lang" style="display:none;">
-      <li>End-to-end intermediation between sellers and buyers</li>
-      <li>Due diligence, compliance and documentation verification</li>
-      <li>Structuring FOB and CIF export operations</li>
-      <li>Support in international contracts, L/C and T/T</li>
-    </ul>
+<!-- ESPANHOL -->
+<div id="sv-es" class="bt-lang" style="display:none;">
+  <ul class="list">
+    <li>Intermediación completa entre productores y compradores internacionales</li>
+    <li>Estructuración de operaciones de exportación</li>
+    <li>Negociación internacional y contratos</li>
+    <li>Documentación, cumplimiento y verificación de origen</li>
+    <li>Coordinación logística FOB y CIF</li>
+  </ul>
+</div>
 
-    <ul id="sv-es" class="bt-lang" style="display:none;">
-      <li>Intermediación completa entre vendedor y comprador</li>
-      <li>Due diligence, cumplimiento y verificación documental</li>
-      <li>Estructuración de operaciones FOB y CIF</li>
-      <li>Apoyo en contratos internacionales, L/C y T/T</li>
-    </ul>
-
-    <ul id="sv-zh" class="bt-lang" style="display:none;">
-      <li>生产商与买家之间的全流程对接</li>
-      <li>尽职调查、合规与文件审核</li>
-      <li>FOB 与 CIF 出口结构化</li>
-      <li>国际合同、信用证与电汇支持</li>
-    </ul>
-
-  </div>
+<!-- CHINÊS -->
+<div id="sv-zh" class="bt-lang" style="display:none;">
+  <ul class="list">
+    <li>连接巴西生产商与国际买家</li>
+    <li>出口业务结构化</li>
+    <li>国际谈判与合同支持</li>
+    <li>文件、合规与产地验证</li>
+    <li>FOB 与 CIF 物流协调</li>
+  </ul>
+</div>
+    
 </section>
 
 <script>
