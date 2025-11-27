@@ -296,15 +296,15 @@
     </h2>
 
     <div class="lang-switch-group">
-      <button onclick="applyLang('pt')" class="bt-lang-btn">Português</button>
-<button onclick="applyLang('en')" class="bt-lang-btn">English</button>
-<button onclick="applyLang('es')" class="bt-lang-btn">Español</button>
-<button onclick="applyLang('zh')" class="bt-lang-btn">中文</button>
+      <button onclick="applyLang('pt')" class="-btn">Português</button>
+<button onclick="applyLang('en')" class="-btn">English</button>
+<button onclick="applyLang('es')" class="-btn">Español</button>
+<button onclick="applyLang('zh')" class="-btn">中文</button>
 
     </div>
 
     <!-- PT -->
-    <div id="sv-pt" class="bt-lang">
+    <div id="sv-pt" class="">
       <ul class="list">
         <li><strong>Exportação Assistida & Originação de Commodities</strong> — Estruturamos operações completas ligando produtores brasileiros diretamente a compradores internacionais.</li>
         <li><strong>Inteligência de Mercado & Precificação</strong> — Análise de oferta, demanda, tendências globais e formação estratégica de preço.</li>
@@ -315,7 +315,7 @@
     </div>
 
     <!-- EN -->
-    <div id="sv-en" class="bt-lang" style="display:none;">
+    <div id="sv-en" class="" style="display:none;">
       <ul class="list">
         <li><strong>Assisted Export & Commodity Origination</strong> — Full export structuring connecting Brazilian producers to global buyers.</li>
         <li><strong>Market Intelligence & Pricing Strategy</strong> — Supply, demand and global trend analysis for strategic pricing.</li>
@@ -326,7 +326,7 @@
     </div>
 
     <!-- ES -->
-    <div id="sv-es" class="bt-lang" style="display:none;">
+    <div id="sv-es" class="" style="display:none;">
       <ul class="list">
         <li><strong>Exportación Asistida y Originación</strong> — Operaciones completas de exportación entre Brasil y el mundo.</li>
         <li><strong>Inteligencia de Mercado y Precios</strong> — Análisis de oferta, demanda y tendencias globales.</li>
@@ -337,7 +337,7 @@
     </div>
 
     <!-- ZH -->
-    <div id="sv-zh" class="bt-lang" style="display:none;">
+    <div id="sv-zh" class="" style="display:none;">
       <ul class="list">
         <li><strong>出口协助与大宗商品原产</strong> — 完整出口结构连接巴西与全球买家。</li>
         <li><strong>市场情报与定价策略</strong> — 全球供需与趋势分析。</li>
@@ -723,6 +723,29 @@ function applyLang(code){
   document.getElementById('btn-comprar').textContent = t.btnComprar;
   document.getElementById('btn-vender').textContent  = t.btnVender;
 
+  // ✅ PRODUTOS (TÍTULO, TEXTO, BADGES)
+if (t.products) {
+  const cards = document.querySelectorAll('#products .card');
+
+  // Lead
+  const leadEl = document.querySelector('#products .lead');
+  if (leadEl) leadEl.textContent = t.products.lead;
+
+  // Cards
+  cards.forEach((card, i) => {
+    const data = t.products.cards[i];
+    if (!data) return;
+
+    const h3 = card.querySelector('h3');
+    const p  = card.querySelector('p');
+    const b  = card.querySelector('.badge');
+
+    if (h3) h3.textContent = data.title;
+    if (p)  p.textContent  = data.text;
+    if (b)  b.textContent  = data.badge;
+  });
+}
+
   // ✅ BOTÃO 🌎
   document.getElementById('langBtn').textContent = '🌎 ' + FLAGS[code];
 
@@ -750,9 +773,11 @@ function applyLang(code){
 
   // ✅ CONTEÚDOS MULTILÍNGUA
   syncSection('#institutional', 'bt-',  code);
-  syncSection('#services',      'sv-',  code);
-  syncSection('#markets',       'mk-',  code);
-  syncSection('#insights',      'ins-', code);
+syncSection('#services',      'sv-',  code);
+syncSection('#products',      'pr-',  code);   // ✅ ESTA FALTAVA
+syncSection('#markets',       'mk-',  code);
+syncSection('#insights',      'ins-', code);
+
 
   // ✅ LINKS
   updateLinks(code);
