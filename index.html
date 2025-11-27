@@ -788,45 +788,32 @@ function applyLang(code){
   }, 400);
 }
 
-// ===== INIT FINAL (AUTO-IDIOMA PERFEITO) =====
+// ===== INIT FINAL (FORÇA IDIOMA DO NAVEGADOR) =====
 document.addEventListener('DOMContentLoaded', function(){
 
-  let code = localStorage.getItem('bt_lang');
+  // ✅ DETETA DIRETO DO NAVEGADOR (IGNORA CACHE)
+  const navLang = (navigator.language || navigator.userLanguage || 'pt').substring(0,2);
+  const code = (["pt","en","es","zh"].includes(navLang)) ? navLang : "pt";
 
-const navLang = (navigator.language || navigator.userLanguage || 'pt').substring(0,2);
+  // ✅ APLICA O IDIOMA IMEDIATAMENTE
+  applyLang(code);
 
-// ✅ Se não existir idioma gravado OU navegador for diferente → usa navegador
-if (!code || !LANGS.includes(code)) {
-  code = LANGS.includes(navLang) ? navLang : 'pt';
-  localStorage.setItem('bt_lang', code);
-}
-
-// ✅ Se já existir mas for diferente do navegador, atualiza uma única vez
-if (LANGS.includes(navLang) && code !== navLang) {
-  code = navLang;
-  localStorage.setItem('bt_lang', code);
-}
-
-applyLang(code);
-
+  // ✅ BOTÃO 🌎 CONTINUA A FUNCIONAR
   let idx = LANGS.indexOf(code);
-
   document.getElementById('langBtn').addEventListener('click', function(){
     idx = (idx + 1) % LANGS.length;
     applyLang(LANGS[idx]);
   });
 
-  // ===== SCROLL SUAVE APENAS PARA ÂNCORAS REAIS =====
+  // ✅ SCROLL SUAVE APENAS PARA ÂNCORAS REAIS
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
 
       const target = a.getAttribute('href');
-
       if (!target || target === "#" || target.length < 2) return;
 
       const id = target.substring(1);
       const el = document.getElementById(id);
-
       if(el){
         e.preventDefault();
         window.scrollTo({
@@ -838,6 +825,7 @@ applyLang(code);
   });
 
 });
+
 
 </script>
 
