@@ -755,3 +755,49 @@ footer a:hover {
   line-height: 1.55;
   color: #444;
 }
+/* ===== CENTRALIZAÇÃO PREMIUM DOS TEXTOS ===== */
+
+/* Títulos já estão centrados, aqui garantimos consistência */
+.section h2,
+.section h3 {
+  text-align: center;
+}
+
+/* Parágrafos do Institucional */
+#institutional p {
+  text-align: center;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Blocos de listas (Serviços, Mercados, Insights) */
+#services ul,
+#markets ul,
+#insights ul {
+  list-style-position: inside;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+/* Itens das listas */
+#services li,
+#markets li,
+#insights li {
+  text-align: center;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* Subtítulo "Setores" no institucional */
+#institutional strong {
+  display: block;
+  text-align: center;
+}
+#services ul li strong,
+#markets ul li strong,
+#insights ul li strong {
+  color: #0F4C5C;
+}
