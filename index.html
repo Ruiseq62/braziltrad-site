@@ -500,269 +500,263 @@
 
   <!-- ===== SCRIPT FINAL ÚNICO (SEM CONFLITOS) ===== -->
   <script>
-  // ===== CONFIG =====
-  const LANGS = ["pt","en","es","zh"];
-  const FLAGS = {pt:"🇧🇷 PT", en:"🇬🇧 EN", es:"🇪🇸 ES", zh:"🇨🇳 中文"};
+ <script>
+// ===== CONFIG =====
+const LANGS = ["pt","en","es","zh"];
+const FLAGS = {pt:"🇧🇷 PT", en:"🇬🇧 EN", es:"🇪🇸 ES", zh:"🇨🇳 中文"};
 
-  const TRANSLATIONS = {
-    pt:{
-      nav:["Sobre","Serviços","Produtos","Mercados","Insights","Documentos","Links Úteis","Contato"],
-      title:"Conectando o Brasil ao mercado global de commodities",
-      lead:"Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF.",
-      btnComprar:"Quero comprar",
-      btnVender:"Quero vender"
-      products: {
-  lead: "Principais linhas de produtos que a Braziltrad intermedia no mercado global de commodities.",
-  cards: [
-    { title: "Agrícolas", text: "Soja, milho, açúcar e café.", badge: "Origem Brasil" },
-    { title: "Energéticas", text: "Etanol, diesel renovável, biomassa.", badge: "Energia renovável" },
-    { title: "Minerais",   text: "Lítio, ferro, nióbio e cobre.", badge: "Minerais estratégicos" }
-  ]
-}
-    },
-    en:{
-      nav:["About","Services","Products","Markets","Insights","Documents","Useful Links","Contact"],
-      title:"Connecting Brazil to the global commodities market",
-      lead:"Reliable intermediation of metals and agricultural products, with origin verification, compliance and efficient FOB/CIF logistics.",
-      btnComprar:"I want to buy",
-      btnVender:"I want to sell"
-      products: {
-  lead: "Main product lines that Braziltrad intermediates in the global commodities market.",
-  cards: [
-    { title: "Agricultural", text: "Soybeans, corn, sugar and coffee.", badge: "Brazilian origin" },
-    { title: "Energy",       text: "Ethanol, renewable diesel, biomass.", badge: "Renewable energy" },
-    { title: "Minerals",     text: "Lithium, iron ore, niobium and copper.", badge: "Strategic minerals" }
-  ]
-}
-    },
-    es:{
-      nav:["Sobre","Servicios","Productos","Mercados","Insights","Documentos","Enlaces Útiles","Contacto"],
-      title:"Conectando a Brasil con el mercado global de commodities",
-      lead:"Intermediación confiable de metales y agrícolas, con verificación de origen, cumplimiento y logística eficiente FOB/CIF.",
-      btnComprar:"Quiero comprar",
-      btnVender:"Quiero vender"
-      products: {
-  lead: "Principales líneas de productos que Braziltrad intermedia en el mercado global de commodities.",
-  cards: [
-    { title: "Agrícolas",   text: "Soja, maíz, azúcar y café.", badge: "Origen Brasil" },
-    { title: "Energéticas",text: "Etanol, diésel renovable, biomasa.", badge: "Energía renovable" },
-    { title: "Minerales",  text: "Litio, hierro, niobio y cobre.", badge: "Minerales estratégicos" }
-  ]
-}
-    },
-    zh:{
-      nav:["关于","服务","产品","市场","洞察","文件","实用链接","联系"],
-      title:"连接巴西与全球大宗商品市场",
-      lead:"提供可靠的金属与农产品中介服务，进行产地验证、合规与高效的FOB/CIF物流。",
-      btnComprar:"我要买",
-      btnVender:"我要卖"
-      products: {
-  lead: "Braziltrad 在全球大宗商品市场中介的主要产品类别。",
-  cards: [
-    { title: "农产品", text: "大豆、玉米、食糖和咖啡。", badge: "巴西原产" },
-    { title: "能源产品", text: "乙醇、可再生柴油、生物质能。", badge: "可再生能源" },
-    { title: "矿产", text: "锂、铁、铌和铜。", badge: "战略矿产" }
-  ]
-}
+const TRANSLATIONS = {
+  pt:{
+    nav:["Sobre","Serviços","Produtos","Mercados","Insights","Documentos","Links Úteis","Contato"],
+    title:"Conectando o Brasil ao mercado global de commodities",
+    lead:"Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF.",
+    btnComprar:"Quero comprar",
+    btnVender:"Quero vender",
+    products: {
+      lead: "Principais linhas de produtos que a Braziltrad intermedia no mercado global de commodities.",
+      cards: [
+        { title: "Agrícolas",  text: "Soja, milho, açúcar e café.",             badge: "Origem Brasil" },
+        { title: "Energéticas", text: "Etanol, diesel renovável, biomassa.",    badge: "Energia renovável" },
+        { title: "Minerais",   text: "Lítio, ferro, nióbio e cobre.",           badge: "Minerais estratégicos" }
+      ]
     }
-  };
-
-  const SEO = {
-    pt: {
-      title: "Braziltrad — Conectando o Brasil ao mercado global de commodities",
-      desc: "Intermediação confiável de metais, agrícolas e minerais, com compliance, verificação de origem e logística FOB e CIF."
-    },
-    en: {
-      title: "Braziltrad — Connecting Brazil to the global commodities market",
-      desc: "Reliable intermediation of metals, agricultural products and minerals, with compliance, origin verification and FOB/CIF logistics."
-    },
-    es: {
-      title: "Braziltrad — Conectando a Brasil con el mercado global de commodities",
-      desc: "Intermediación confiable de metales, productos agrícolas y minerales, con cumplimiento, verificación de origen y logística FOB/CIF."
-    },
-    zh: {
-      title: "Braziltrad — 连接巴西与全球大宗商品市场",
-      desc: "提供可靠的金属、农产品和矿产中介服务，具备合规、产地验证及FOB/CIF国际物流能力。"
+  },
+  en:{
+    nav:["About","Services","Products","Markets","Insights","Documents","Useful Links","Contact"],
+    title:"Connecting Brazil to the global commodities market",
+    lead:"Reliable intermediation of metals and agricultural products, with origin verification, compliance and efficient FOB/CIF logistics.",
+    btnComprar:"I want to buy",
+    btnVender:"I want to sell",
+    products: {
+      lead: "Main product lines that Braziltrad intermediates in the global commodities market.",
+      cards: [
+        { title: "Agricultural", text: "Soybeans, corn, sugar and coffee.",          badge: "Brazilian origin" },
+        { title: "Energy",       text: "Ethanol, renewable diesel, biomass.",        badge: "Renewable energy" },
+        { title: "Minerals",     text: "Lithium, iron ore, niobium and copper.",     badge: "Strategic minerals" }
+      ]
     }
-  };
-
-  function syncSection(sectionSelector, prefix, lang){
-    document.querySelectorAll(`${sectionSelector} .bt-lang`)
-      .forEach(el => el.style.display = 'none');
-
-    const el = document.getElementById(prefix + lang);
-    if(el) el.style.display = 'block';
-  }
-
-  function updateLinks(code){
-    const btnComprar = document.getElementById("btn-comprar");
-    const btnVender = document.getElementById("btn-vender");
-    const contato = document.querySelector("a.contact-link");
-
-    if(code === "pt"){
-      if(btnComprar) btnComprar.href = `contato-compra.html`;
-      if(btnVender) btnVender.href = `contato-venda.html`;
-      if(contato)   contato.href   = `contato.html`;
-    } else if(code === "en"){
-      if(btnComprar) btnComprar.href = `en/contact-buy.html`;
-      if(btnVender) btnVender.href = `en/contact-sell.html`;
-      if(contato)   contato.href   = `en/contact.html`;
-    } else if(code === "es"){
-      if(btnComprar) btnComprar.href = `es/compradores.html`;
-      if(btnVender) btnVender.href = `es/vendedores.html`;
-      if(contato)   contato.href   = `es/contato.html`;
-    } else if(code === "zh"){
-      if(btnComprar) btnComprar.href = `zh/contact-buy.html`;
-      if(btnVender) btnVender.href = `zh/contact-sell.html`;
-      if(contato)   contato.href   = `zh/contact.html`;
+  },
+  es:{
+    nav:["Sobre","Servicios","Productos","Mercados","Insights","Documentos","Enlaces Útiles","Contacto"],
+    title:"Conectando a Brasil con el mercado global de commodities",
+    lead:"Intermediación confiable de metales y agrícolas, con verificación de origen, cumplimiento y logística eficiente FOB/CIF.",
+    btnComprar:"Quiero comprar",
+    btnVender:"Quiero vender",
+    products: {
+      lead: "Principales líneas de productos que Braziltrad intermedia en el mercado global de commodities.",
+      cards: [
+        { title: "Agrícolas",   text: "Soja, maíz, azúcar y café.",                 badge: "Origen Brasil" },
+        { title: "Energéticas", text: "Etanol, diésel renovable, biomasa.",         badge: "Energía renovable" },
+        { title: "Minerales",   text: "Litio, hierro, niobio y cobre.",             badge: "Minerales estratégicos" }
+      ]
     }
-  }
-
-  function initTradingView(locale){
-    const tvIndices = document.getElementById('tv-indices');
-    const tvCommod  = document.getElementById('tv-commodities');
-
-    if(tvIndices) tvIndices.innerHTML = '';
-    if(tvCommod)  tvCommod.innerHTML  = '';
-
-    const w1 = document.createElement('script');
-    w1.src  = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
-    w1.text = JSON.stringify({
-      symbols:[
-        {proName:"FOREXCOM:EURUSD", title:"EUR/USD"},
-        {proName:"FOREXCOM:USDJPY", title:"USD/JPY"},
-        {proName:"OANDA:SPX500USD", title:"S&P 500"},
-        {proName:"NASDAQ:NDX", title:"NASDAQ 100"},
-        {proName:"BITSTAMP:BTCUSD", title:"Bitcoin"},
-        {proName:"BITSTAMP:ETHUSD", title:"Ethereum"}
-      ],
-      showSymbolLogo:true,
-      colorTheme:"light",
-      isTransparent:false,
-      displayMode:"adaptive",
-      locale: locale
-    });
-    tvIndices.appendChild(w1);
-
-    const w2 = document.createElement('script');
-    w2.src  = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
-    w2.text = JSON.stringify({
-      symbols:[
-        {proName:"COMEX:GC1!", title:"Ouro"},
-        {proName:"ICEEUR:BRN1!", title:"Petróleo Brent"},
-        {proName:"CBOT:ZS1!", title:"Soja"},
-        {proName:"ICEUS:KC1!", title:"Café"},
-        {proName:"ICEUS:SB1!", title:"Açúcar"},
-        {proName:"ICEUS:CT1!", title:"Algodão"},
-        {proName:"COMEX:HG1!", title:"Cobre"},
-        {proName:"SGX:FEF1!", title:"Minério de Ferro"}
-      ],
-      showSymbolLogo:true,
-      colorTheme:"light",
-      isTransparent:false,
-      displayMode:"adaptive",
-      locale: locale
-    });
-    tvCommod.appendChild(w2);
-  }
-
- // ===== TÍTULOS DAS SEÇÕES =====
-const titles = {
-  pt: {
-    institutional: "Braziltrad — Apresentação Institucional",
-    services: "Serviços",
-    products: "Produtos",
-    markets: "Mercados",
-    insights: "Insights"
   },
-  en: {
-    institutional: "Braziltrad — Institutional Presentation",
-    services: "Services",
-    products: "Products",
-    markets: "Markets",
-    insights: "Insights"
-  },
-  es: {
-    institutional: "Braziltrad — Presentación Institucional",
-    services: "Servicios",
-    products: "Productos",
-    markets: "Mercados",
-    insights: "Insights"
-  },
-  zh: {
-    institutional: "Braziltrad — 公司介绍",
-    services: "服务",
-    products: "产品",
-    markets: "市场",
-    insights: "洞察"
+  zh:{
+    nav:["关于","服务","产品","市场","洞察","文件","实用链接","联系"],
+    title:"连接巴西与全球大宗商品市场",
+    lead:"提供可靠的金属与农产品中介服务，进行产地验证、合规与高效的FOB/CIF物流。",
+    btnComprar:"我要买",
+    btnVender:"我要卖",
+    products: {
+      lead: "Braziltrad 在全球大宗商品市场中介的主要产品类别。",
+      cards: [
+        { title: "农产品",   text: "大豆、玉米、食糖和咖啡。",       badge: "巴西原产" },
+        { title: "能源产品", text: "乙醇、可再生柴油、生物质能。",   badge: "可再生能源" },
+        { title: "矿产",     text: "锂、铁、铌和铜。",               badge: "战略矿产" }
+      ]
+    }
   }
 };
 
+const SEO = {
+  pt: {
+    title: "Braziltrad — Conectando o Brasil ao mercado global de commodities",
+    desc: "Intermediação confiável de metais, agrícolas e minerais, com compliance, verificação de origem e logística FOB e CIF."
+  },
+  en: {
+    title: "Braziltrad — Connecting Brazil to the global commodities market",
+    desc: "Reliable intermediation of metals, agricultural products and minerals, with compliance, origin verification and FOB/CIF logistics."
+  },
+  es: {
+    title: "Braziltrad — Conectando a Brasil con el mercado global de commodities",
+    desc: "Intermediación confiable de metales, productos agrícolas y minerales, con cumplimiento, verificación de origen y logística FOB/CIF."
+  },
+  zh: {
+    title: "Braziltrad — 连接巴西与全球大宗商品市场",
+    desc: "提供可靠的金属、农产品和矿产中介服务，具备合规、产地验证及FOB/CIF国际物流能力。"
+  }
+};
+
+function syncSection(sectionSelector, prefix, lang){
+  document.querySelectorAll(`${sectionSelector} .bt-lang`)
+    .forEach(el => el.style.display = 'none');
+
+  const el = document.getElementById(prefix + lang);
+  if(el) el.style.display = 'block';
+}
+
+function updateLinks(code){
+  const btnComprar = document.getElementById("btn-comprar");
+  const btnVender = document.getElementById("btn-vender");
+  const contato   = document.querySelector("a.contact-link");
+
+  if(code === "pt"){
+    if(btnComprar) btnComprar.href = `contato-compra.html`;
+    if(btnVender)  btnVender.href  = `contato-venda.html`;
+    if(contato)    contato.href    = `contato.html`;
+  } else if(code === "en"){
+    if(btnComprar) btnComprar.href = `en/contact-buy.html`;
+    if(btnVender)  btnVender.href  = `en/contact-sell.html`;
+    if(contato)    contato.href    = `en/contact.html`;
+  } else if(code === "es"){
+    if(btnComprar) btnComprar.href = `es/compradores.html`;
+    if(btnVender)  btnVender.href  = `es/vendedores.html`;
+    if(contato)    contato.href    = `es/contato.html`;
+  } else if(code === "zh"){
+    if(btnComprar) btnComprar.href = `zh/contact-buy.html`;
+    if(btnVender)  btnVender.href  = `zh/contact-sell.html`;
+    if(contato)    contato.href    = `zh/contact.html`;
+  }
+}
+
+function initTradingView(locale){
+  const tvIndices = document.getElementById('tv-indices');
+  const tvCommod  = document.getElementById('tv-commodities');
+
+  if(tvIndices) tvIndices.innerHTML = '';
+  if(tvCommod)  tvCommod.innerHTML  = '';
+
+  const w1 = document.createElement('script');
+  w1.src  = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+  w1.text = JSON.stringify({
+    symbols:[
+      {proName:"FOREXCOM:EURUSD", title:"EUR/USD"},
+      {proName:"FOREXCOM:USDJPY", title:"USD/JPY"},
+      {proName:"OANDA:SPX500USD", title:"S&P 500"},
+      {proName:"NASDAQ:NDX",      title:"NASDAQ 100"},
+      {proName:"BITSTAMP:BTCUSD", title:"Bitcoin"},
+      {proName:"BITSTAMP:ETHUSD", title:"Ethereum"}
+    ],
+    showSymbolLogo:true,
+    colorTheme:"light",
+    isTransparent:false,
+    displayMode:"adaptive",
+    locale: locale
+  });
+  tvIndices.appendChild(w1);
+
+  const w2 = document.createElement('script');
+  w2.src  = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+  w2.text = JSON.stringify({
+    symbols:[
+      {proName:"COMEX:GC1!",    title:"Ouro"},
+      {proName:"ICEEUR:BRN1!",  title:"Petróleo Brent"},
+      {proName:"CBOT:ZS1!",     title:"Soja"},
+      {proName:"ICEUS:KC1!",    title:"Café"},
+      {proName:"ICEUS:SB1!",    title:"Açúcar"},
+      {proName:"ICEUS:CT1!",    title:"Algodão"},
+      {proName:"COMEX:HG1!",    title:"Cobre"},
+      {proName:"SGX:FEF1!",     title:"Minério de Ferro"}
+    ],
+    showSymbolLogo:true,
+    colorTheme:"light",
+    isTransparent:false,
+    displayMode:"adaptive",
+    locale: locale
+  });
+  tvCommod.appendChild(w2);
+}
+
+// ===== TÍTULOS DAS SEÇÕES =====
+const titles = {
+  pt: {
+    institutional: "Braziltrad — Apresentação Institucional",
+    services:      "Serviços",
+    products:      "Produtos",
+    markets:       "Mercados",
+    insights:      "Insights"
+  },
+  en: {
+    institutional: "Braziltrad — Institutional Presentation",
+    services:      "Services",
+    products:      "Products",
+    markets:       "Markets",
+    insights:      "Insights"
+  },
+  es: {
+    institutional: "Braziltrad — Presentación Institucional",
+    services:      "Servicios",
+    products:      "Productos",
+    markets:       "Mercados",
+    insights:      "Insights"
+  },
+  zh: {
+    institutional: "Braziltrad — 公司介绍",
+    services:      "服务",
+    products:      "产品",
+    markets:       "市场",
+    insights:      "洞察"
+  }
+};
 
 // ===== FUNÇÃO PRINCIPAL (SEM SALTINHO / SEM TRAVAR) =====
 function applyLang(code){
-
-  const main = document.querySelector("main");
   const body = document.body;
+  const t    = TRANSLATIONS[code] || TRANSLATIONS.pt;
 
-  // ✅ 1. FREEZE TOTAL DO VIEWPORT
-  body.style.height = body.offsetHeight + "px";
+  // 1. Congela viewport
+  body.style.height   = body.offsetHeight + "px";
   body.style.overflow = "hidden";
 
-  const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
-
-  // ✅ MENU
+  // MENU
   document.querySelectorAll('header nav ul li a')
     .forEach((a,i)=>{ if(t.nav[i]) a.textContent = t.nav[i]; });
 
-  // ✅ HERO
+  // HERO
   document.querySelector('.hero-title').textContent = t.title;
   document.querySelector('.hero-lead').textContent  = t.lead;
 
-  // ✅ BOTÕES
+  // BOTÕES HERO
   document.getElementById('btn-comprar').textContent = t.btnComprar;
   document.getElementById('btn-vender').textContent  = t.btnVender;
 
-  // ✅ PRODUTOS (TÍTULO, TEXTO, BADGES)
-if (t.products) {
-  const cards = document.querySelectorAll('#products .card');
+  // PRODUTOS (TÍTULO, TEXTO, BADGES)
+  if (t.products) {
+    const cards = document.querySelectorAll('#products .card');
 
-  // Lead
-  const leadEl = document.querySelector('#products .lead');
-  if (leadEl) leadEl.textContent = t.products.lead;
+    const leadEl = document.querySelector('#products .lead');
+    if (leadEl) leadEl.textContent = t.products.lead;
 
-  // Cards
-  cards.forEach((card, i) => {
-    const data = t.products.cards[i];
-    if (!data) return;
+    cards.forEach((card, i) => {
+      const data = t.products.cards[i];
+      if (!data) return;
 
-    const h3 = card.querySelector('h3');
-    const p  = card.querySelector('p');
-    const b  = card.querySelector('.badge');
+      const h3 = card.querySelector('h3');
+      const p  = card.querySelector('p');
+      const b  = card.querySelector('.badge');
 
-    if (h3) h3.textContent = data.title;
-    if (p)  p.textContent  = data.text;
-    if (b)  b.textContent  = data.badge;
-  });
-}
+      if (h3) h3.textContent = data.title;
+      if (p)  p.textContent  = data.text;
+      if (b)  b.textContent  = data.badge;
+    });
+  }
 
-  // ✅ BOTÃO 🌎
+  // BOTÃO 🌎
   document.getElementById('langBtn').textContent = '🌎 ' + FLAGS[code];
 
-  // ✅ SEO
+  // SEO
   const seo = SEO[code];
   document.title = seo.title;
-  document.getElementById('seo-desc')
-    .setAttribute("content", seo.desc);
+  document.getElementById('seo-desc').setAttribute("content", seo.desc);
 
-  // ✅ TÍTULOS DAS SEÇÕES
+  // TÍTULOS DAS SEÇÕES
   if(document.getElementById("bt-title"))
     document.getElementById("bt-title").textContent = titles[code].institutional;
 
   if(document.getElementById("sv-title"))
     document.getElementById("sv-title").textContent = titles[code].services;
 
-  if(document.getElementById("products")?.querySelector("h2"))
+  if(document.querySelector("#products h2"))
     document.querySelector("#products h2").textContent = titles[code].products;
 
   if(document.getElementById("mk-title"))
@@ -771,36 +765,29 @@ if (t.products) {
   if(document.getElementById("ins-title"))
     document.getElementById("ins-title").textContent = titles[code].insights;
 
-  // ✅ CONTEÚDOS MULTILÍNGUA
+  // CONTEÚDOS MULTILÍNGUA (SECÇÕES COM bt-lang)
   syncSection('#institutional', 'bt-',  code);
-syncSection('#services',      'sv-',  code);
-syncSection('#products',      'pr-',  code);   // ✅ ESTA FALTAVA
-syncSection('#markets',       'mk-',  code);
-syncSection('#insights',      'ins-', code);
+  syncSection('#services',      'sv-',  code);
+  syncSection('#markets',       'mk-',  code);
+  syncSection('#insights',      'ins-', code);
 
-
-  // ✅ LINKS
+  // LINKS
   updateLinks(code);
 
-  // ✅ PERSISTÊNCIA
+  // PERSISTÊNCIA
   localStorage.setItem('bt_lang', code);
 
-  // ✅ 2. REINICIALIZA TRADINGVIEW COM VIEWPORT CONGELADO
+  // TradingView + desbloqueio
   setTimeout(() => {
     initTradingView(code);
-
-    // ✅ 3. SÓ DEPOIS DE TUDO ESTÁVEL, LIBERTA O SITE
     requestAnimationFrame(() => {
       body.style.overflow = "auto";
-      body.style.height = "auto";
+      body.style.height   = "auto";
     });
-
   }, 400);
 }
 
-
-
-// ===== INIT FINAL (AO CARREGAR A PÁGINA) =====
+// ===== INIT FINAL =====
 document.addEventListener('DOMContentLoaded', function(){
   let code = localStorage.getItem('bt_lang');
 
@@ -831,6 +818,7 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 });
-  </script>
+</script>
+
 </body>
 </html>
