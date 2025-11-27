@@ -600,6 +600,26 @@ function updateLinks(code){
   const btnComprar = document.getElementById("btn-comprar");
   const btnVender = document.getElementById("btn-vender");
   const contato   = document.querySelector("a.contact-link");
+  const doc = document.querySelector("a.doc-link");
+  const links = document.querySelector("a.links-link");
+
+if(code === "pt"){
+  doc.href   = `documentos.html`;
+  links.href = `links-uteis.html`;
+}
+if(code === "en"){
+  doc.href   = `en/documentos.html`;
+  links.href = `en/links-uteis.html`;
+}
+if(code === "es"){
+  doc.href   = `es/documentos.html`;
+  links.href = `es/links-uteis.html`;
+}
+if(code === "zh"){
+  doc.href   = `zh/documentos.html`;
+  links.href = `zh/links-uteis.html`;
+}
+
 
   if(code === "pt"){
     if(btnComprar) btnComprar.href = `contato-compra.html`;
