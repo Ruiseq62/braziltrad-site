@@ -961,23 +961,28 @@ function switchLocalLang(section, prefix, lang){
     });
   });
 <script>
-  let currentLang = localStorage.getItem("siteLang") || "pt";
-
   function switchLang(lang) {
-    currentLang = lang;
     localStorage.setItem("siteLang", lang);
 
     document.querySelectorAll("[data-lang]").forEach(el => {
       const value = el.getAttribute("data-" + lang);
       if (value) el.innerHTML = value;
     });
+
+    // ✅ Atualiza o rótulo do botão global, se existir
+    const langLabel = document.getElementById("langBtn");
+    if (langLabel) {
+      langLabel.textContent = lang.toUpperCase();
+    }
   }
 
-  // ✅ Aplica idioma automaticamente ao carregar a página
+  // ✅ Aplica idioma automaticamente ao abrir a página
   document.addEventListener("DOMContentLoaded", function () {
-    switchLang(currentLang);
+    const savedLang = localStorage.getItem("siteLang") || "pt";
+    switchLang(savedLang);
   });
 </script>
+
 
 
 </body>
