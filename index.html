@@ -155,11 +155,10 @@
         </h2>
 
         <div class="lang-switch-group">
-          <button onclick="switchLocalLang('#institutional','bt-','pt')">Português</button>
-<button onclick="switchLocalLang('#institutional','bt-','en')">English</button>
-<button onclick="switchLocalLang('#institutional','bt-','es')">Español</button>
-<button onclick="switchLocalLang('#institutional','bt-','zh')">中文</button>
-
+          <button onclick="syncSection('#institutional','bt-','pt')" class="bt-lang-btn">Português</button>
+          <button onclick="syncSection('#institutional','bt-','en')" class="bt-lang-btn">English</button>
+          <button onclick="syncSection('#institutional','bt-','es')" class="bt-lang-btn">Español</button>
+          <button onclick="syncSection('#institutional','bt-','zh')" class="bt-lang-btn">中文</button>
         </div>
         <!-- ========= INSTITUCIONAL — PORTUGUÊS ========= -->
         <div id="bt-pt" class="bt-lang">
@@ -289,235 +288,65 @@
 
     <!-- ===== SERVIÇOS ===== -->
     <section id="services" class="section" style="background:#ffffff;">
-  <div class="container">
+      <div class="container">
 
-    <h2 id="sv-title">Serviços</h2>
+        <h2 id="sv-title" class="section-title" style="text-align:center;margin-bottom:20px;">
+          Serviços
+        </h2>
 
-    <div class="lang-switch-group">
-      <button class="bt-lang-btn" onclick="switchLocalLang('#services','sv-','pt')">Português</button>
-      <button class="bt-lang-btn" onclick="switchLocalLang('#services','sv-','en')">English</button>
-      <button class="bt-lang-btn" onclick="switchLocalLang('#services','sv-','es')">Español</button>
-      <button class="bt-lang-btn" onclick="switchLocalLang('#services','sv-','zh')">中文</button>
-    </div>
+        <div class="lang-switch-group">
+          <button onclick="syncSection('#services','sv-','pt')" class="bt-lang-btn">Português</button>
+          <button onclick="syncSection('#services','sv-','en')" class="bt-lang-btn">English</button>
+          <button onclick="syncSection('#services','sv-','es')" class="bt-lang-btn">Español</button>
+          <button onclick="syncSection('#services','sv-','zh')" class="bt-lang-btn">中文</button>
+        </div>
 
-    <!-- ========== PORTUGUÊS ========== -->
-    <div id="sv-pt" class="bt-lang">
-      <p>
-        <strong>Estruturamos, viabilizamos e executamos operações completas de exportação</strong>,
-        conectando produtores brasileiros a compradores internacionais com segurança, previsibilidade
-        e eficiência.
-      </p>
+        <!-- PT -->
+        <div id="sv-pt" class="bt-lang">
+          <ul class="list">
+            <li>Intermediação completa entre produtores e compradores internacionais</li>
+            <li>Estruturação de operações de exportação</li>
+            <li>Negociação internacional e contratos</li>
+            <li>Documentação, compliance e verificação de origem</li>
+            <li>Coordenação logística FOB e CIF</li>
+          </ul>
+        </div>
 
-      <h3>1. Intermediação Comercial Internacional</h3>
-      <ul class="list">
-        <li>Conexão direta entre produtores brasileiros e compradores globais qualificados</li>
-        <li>Prospecção e qualificação de demanda internacional</li>
-        <li>Negociação comercial internacional e apoio à formalização contratual</li>
-      </ul>
+        <!-- EN -->
+        <div id="sv-en" class="bt-lang" style="display:none;">
+          <ul class="list">
+            <li>Full intermediation between producers and international buyers</li>
+            <li>Export operation structuring</li>
+            <li>International negotiation and contracts</li>
+            <li>Documentation, compliance and origin verification</li>
+            <li>FOB and CIF logistics coordination</li>
+          </ul>
+        </div>
 
-      <h3>2. Estruturação de Exportação</h3>
-      <ul class="list">
-        <li>Análise de viabilidade da operação e do produto</li>
-        <li>Definição do modelo comercial (FOB / CIF) mais adequado</li>
-        <li>Organização documental completa para exportação</li>
-        <li>Apoio em certificações e requisitos específicos de cada mercado</li>
-      </ul>
+        <!-- ES -->
+        <div id="sv-es" class="bt-lang" style="display:none;">
+          <ul class="list">
+            <li>Intermediación completa entre productores y compradores internacionales</li>
+            <li>Estructuración de operaciones de exportación</li>
+            <li>Negociación internacional y contratos</li>
+            <li>Documentación, cumplimiento y verificación de origen</li>
+            <li>Coordinación logística FOB y CIF</li>
+          </ul>
+        </div>
 
-      <h3>3. Compliance, Segurança e Origem</h3>
-      <ul class="list">
-        <li>Verificação de origem e rastreabilidade da mercadoria</li>
-        <li>Validação de fornecedores e parceiros</li>
-        <li>Compliance documental e regulatório para reduzir riscos comerciais e jurídicos</li>
-      </ul>
+        <!-- ZH -->
+        <div id="sv-zh" class="bt-lang" style="display:none;">
+          <ul class="list">
+            <li>连接巴西生产商与国际买家</li>
+            <li>出口业务结构化</li>
+            <li>国际谈判与合同支持</li>
+            <li>文件、合规与产地验证</li>
+            <li>FOB 与 CIF 物流协调</li>
+          </ul>
+        </div>
 
-      <h3>4. Logística Internacional</h3>
-      <ul class="list">
-        <li>Planejamento logístico internacional porta a porta</li>
-        <li>Coordenação com agentes de carga e terminais</li>
-        <li>Gestão de embarques sob regimes FOB e CIF</li>
-        <li>Acompanhamento até o destino final</li>
-      </ul>
-
-      <h3>5. Small Export & Grandes Volumes</h3>
-      <ul class="list">
-        <li>Estruturação de operações de <em>small export</em> para pequenos produtores</li>
-        <li>Consolidação de cargas e agrupamento de fornecedores</li>
-        <li>Gestão de contratos recorrentes e grandes volumes para médios e grandes produtores</li>
-      </ul>
-
-      <h3>Diferenciais Braziltrad</h3>
-      <ul class="list">
-        <li>Modelo híbrido: pequeno produtor, grande comprador, operação estruturada</li>
-        <li>Foco em segurança jurídica, rastreabilidade e transparência</li>
-        <li>Redução de risco para ambas as partes da operação</li>
-        <li>Visão de parceria de longo prazo, não apenas comissão pontual</li>
-      </ul>
-    </div>
-
-    <!-- ========== ENGLISH ========== -->
-    <div id="sv-en" class="bt-lang" style="display:none;">
-      <p>
-        <strong>We design, structure and execute full export operations</strong>,
-        connecting Brazilian producers with international buyers in a secure,
-        predictable and efficient way.
-      </p>
-
-      <h3>1. International Commercial Intermediation</h3>
-      <ul class="list">
-        <li>Direct connection between Brazilian producers and qualified global buyers</li>
-        <li>Prospecting and qualification of international demand</li>
-        <li>Support in international negotiations and contract formalization</li>
-      </ul>
-
-      <h3>2. Export Structuring</h3>
-      <ul class="list">
-        <li>Feasibility analysis of products and operations</li>
-        <li>Definition of the most suitable commercial model (FOB / CIF)</li>
-        <li>Full export documentation organization</li>
-        <li>Support for certifications and market-specific requirements</li>
-      </ul>
-
-      <h3>3. Compliance, Risk & Origin</h3>
-      <ul class="list">
-        <li>Origin verification and product traceability</li>
-        <li>Supplier and partner validation</li>
-        <li>Regulatory and documentary compliance to mitigate legal and commercial risk</li>
-      </ul>
-
-      <h3>4. International Logistics</h3>
-      <ul class="list">
-        <li>End-to-end international logistics planning</li>
-        <li>Coordination with freight forwarders and terminals</li>
-        <li>Management of shipments under FOB and CIF terms</li>
-        <li>Monitoring up to final destination</li>
-      </ul>
-
-      <h3>5. Small Export & Large Volumes</h3>
-      <ul class="list">
-        <li>Structuring small export operations for smaller producers</li>
-        <li>Cargo consolidation and multi-supplier operations</li>
-        <li>Management of recurring contracts and large-scale volumes</li>
-      </ul>
-
-      <h3>Braziltrad Differentials</h3>
-      <ul class="list">
-        <li>Hybrid model: small producer, large buyer, structured operation</li>
-        <li>Strong focus on legal security, traceability and transparency</li>
-        <li>Risk reduction for both sides of the transaction</li>
-        <li>Long-term partnership mindset, not only one-off commissions</li>
-      </ul>
-    </div>
-
-    <!-- ========== ESPAÑOL ========== -->
-    <div id="sv-es" class="bt-lang" style="display:none;">
-      <p>
-        <strong>Estructuramos y ejecutamos operaciones completas de exportación</strong>,
-        conectando productores brasileños con compradores internacionales de forma segura,
-        previsible y eficiente.
-      </p>
-
-      <h3>1. Intermediación Comercial Internacional</h3>
-      <ul class="list">
-        <li>Conexión directa entre productores brasileños y compradores globales calificados</li>
-        <li>Prospección y calificación de demanda internacional</li>
-        <li>Apoyo en negociación internacional y formalización de contratos</li>
-      </ul>
-
-      <h3>2. Estructuración de Exportaciones</h3>
-      <ul class="list">
-        <li>Análisis de viabilidad del producto y de la operación</li>
-        <li>Definición del modelo comercial más adecuado (FOB / CIF)</li>
-        <li>Organización completa de la documentación de exportación</li>
-        <li>Soporte en certificaciones y requisitos específicos por país</li>
-      </ul>
-
-      <h3>3. Compliance, Riesgo y Origen</h3>
-      <ul class="list">
-        <li>Verificación de origen y trazabilidad de la mercancía</li>
-        <li>Validación de proveedores y socios</li>
-        <li>Compliance documental y regulatorio para reducir riesgos comerciales y jurídicos</li>
-      </ul>
-
-      <h3>4. Logística Internacional</h3>
-      <ul class="list">
-        <li>Planificación logística internacional de extremo a extremo</li>
-        <li>Coordinación con agentes de carga y terminales</li>
-        <li>Gestión de embarques en condiciones FOB y CIF</li>
-        <li>Seguimiento hasta el destino final</li>
-      </ul>
-
-      <h3>5. Small Export y Grandes Volúmenes</h3>
-      <ul class="list">
-        <li>Estructuración de operaciones de <em>small export</em> para pequeños productores</li>
-        <li>Consolidación de carga y agrupación de proveedores</li>
-        <li>Gestión de contratos recurrentes y grandes volúmenes</li>
-      </ul>
-
-      <h3>Diferenciales de Braziltrad</h3>
-      <ul class="list">
-        <li>Modelo híbrido: pequeño productor, gran comprador, operación estructurada</li>
-        <li>Enfoque en seguridad jurídica, trazabilidad y transparencia</li>
-        <li>Reducción de riesgo para ambas partes de la operación</li>
-        <li>Visión de asociación a largo plazo, no solo comisiones puntuales</li>
-      </ul>
-    </div>
-
-    <!-- ========== 中文 ========== -->
-    <div id="sv-zh" class="bt-lang" style="display:none;">
-      <p>
-        <strong>我们为出口业务提供完整的一站式解决方案</strong>，
-        将巴西生产商与全球买家安全、高效地连接起来，确保贸易过程可控、透明、可追溯。
-      </p>
-
-      <h3>1. 国际商务对接</h3>
-      <ul class="list">
-        <li>对接巴西供应商与全球优质买家</li>
-        <li>开发并评估国际采购需求</li>
-        <li>支持商务谈判与合同条款设计</li>
-      </ul>
-
-      <h3>2. 出口业务结构化</h3>
-      <ul class="list">
-        <li>评估产品与出口可行性</li>
-        <li>设计最合适的贸易模式（FOB / CIF）</li>
-        <li>整理与管理全套出口单证</li>
-        <li>协助办理认证及各国特定合规要求</li>
-      </ul>
-
-      <h3>3. 合规、风控与原产地管理</h3>
-      <ul class="list">
-        <li>产品原产地与供应链可追溯管理</li>
-        <li>供应商与合作伙伴资质核查</li>
-        <li>文件与法规合规，降低商业与法律风险</li>
-      </ul>
-
-      <h3>4. 国际物流协同</h3>
-      <ul class="list">
-        <li>整体物流方案设计与时间规划</li>
-        <li>协调货运代理、港口与相关服务商</li>
-        <li>管理 FOB / CIF 条件下的装运与交付</li>
-        <li>全程跟踪直至货物抵达目的地</li>
-      </ul>
-
-      <h3>5. 小额出口与大宗业务</h3>
-      <ul class="list">
-        <li>为中小生产商设计小额出口方案</li>
-        <li>整合多家供应商货源，实现拼箱与合并出货</li>
-        <li>为大宗客户管理长期合作与批量订单</li>
-      </ul>
-
-      <h3>Braziltrad 优势</h3>
-      <ul class="list">
-        <li>兼顾中小生产商与大型买家的混合模式</li>
-        <li>强调法律安全性、透明度与可追溯性</li>
-        <li>降低买卖双方的交易风险</li>
-        <li>以长期合作伙伴关系为目标，而不仅是单次佣金</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
+      </div>
+    </section>
     <!-- ===== FIM SERVIÇOS ===== -->
 
     <!-- ===== PRODUTOS ===== -->
@@ -550,78 +379,48 @@
     </section>
     <!-- ===== FIM PRODUTOS ===== -->
     <!-- ===== MERCADOS ===== -->
-    <section id="markets" class="section">
-  <div class="container">
+    <section id="markets" class="section" style="background:#f8f8f8;">
+      <div class="container">
 
-    <h2 id="mk-title">Mercados</h2>
+        <h2 id="mk-title" style="text-align:center;margin-bottom:20px;">Mercados</h2>
 
-    <div class="lang-switch-group">
-      <button class="bt-lang-btn" onclick="switchLocalLang('#markets','mk-','pt')">Português</button>
-      <button class="bt-lang-btn" onclick="switchLocalLang('#markets','mk-','en')">English</button>
-      <button class="bt-lang-btn" onclick="switchLocalLang('#markets','mk-','es')">Español</button>
-      <button class="bt-lang-btn" onclick="switchLocalLang('#markets','mk-','zh')">中文</button>
-    </div>
+       <div class="lang-switch-group">
+          <button onclick="syncSection('#markets','mk-','pt')" class="bt-lang-btn">Português</button>
+          <button onclick="syncSection('#markets','mk-','en')" class="bt-lang-btn">English</button>
+          <button onclick="syncSection('#markets','mk-','es')" class="bt-lang-btn">Español</button>
+          <button onclick="syncSection('#markets','mk-','zh')" class="bt-lang-btn">中文</button>
+        </div>
 
-    <!-- ===== PT ===== -->
-    <div id="mk-pt" class="bt-lang">
-      <p>
-        A Braziltrad atua de forma estratégica nos principais polos globais de consumo, conectando o Brasil aos mercados de maior demanda por commodities, alimentos, energia e minerais, com foco em relações comerciais sustentáveis, seguras e de longo prazo.
-      </p>
+        <ul id="mk-pt" class="bt-lang">
+          <li>Ásia: China e Índia</li>
+          <li>Europa e Estados Unidos</li>
+          <li>América Latina</li>
+          <li>Parcerias globais de fornecimento</li>
+        </ul>
 
-      <ul>
-        <li>Ásia (China e Índia) — Principal motor da demanda global por alimentos, energia e minerais estratégicos.</li>
-        <li>Europa e Estados Unidos — Mercados exigentes, regulados e de alto valor agregado para produtos de origem certificada.</li>
-        <li>América Latina — Integração regional, operações ágeis e complementaridade produtiva.</li>
-        <li>Parcerias Globais de Fornecimento — Estruturação de contratos recorrentes, garantindo previsibilidade, escala e estabilidade operacional.</li>
-      </ul>
-    </div>
+        <ul id="mk-en" class="bt-lang" style="display:none;">
+          <li>Asia: China and India</li>
+          <li>Europe and the United States</li>
+          <li>Latin America</li>
+          <li>Global supply partnerships</li>
+        </ul>
 
-    <!-- ===== EN ===== -->
-    <div id="mk-en" class="bt-lang" style="display:none;">
-      <p>
-        Braziltrad operates strategically in the world’s main consumption hubs, connecting Brazil to the markets with the highest demand for commodities, food, energy and minerals, with a focus on sustainable, secure and long-term relationships.
-      </p>
+        <ul id="mk-es" class="bt-lang" style="display:none;">
+          <li>Asia: China e India</li>
+          <li>Europa y Estados Unidos</li>
+          <li>América Latina</li>
+          <li>Alianzas globales de suministro</li>
+        </ul>
 
-      <ul>
-        <li>Asia (China and India) — Main driver of global demand for food, energy and strategic minerals.</li>
-        <li>Europe and the United States — Highly regulated and demanding markets with high added value for certified origin products.</li>
-        <li>Latin America — Regional integration, agile operations and productive complementarity.</li>
-        <li>Global Supply Partnerships — Structuring recurring supply contracts, ensuring predictability, scale and operational stability.</li>
-      </ul>
-    </div>
+        <ul id="mk-zh" class="bt-lang" style="display:none;">
+          <li>亚洲：中国与印度</li>
+          <li>欧洲与美国</li>
+          <li>拉丁美洲</li>
+          <li>全球供应合作伙伴</li>
+        </ul>
 
-    <!-- ===== ES ===== -->
-    <div id="mk-es" class="bt-lang" style="display:none;">
-      <p>
-        Braziltrad actúa de forma estratégica en los principales polos globales de consumo, conectando Brasil con los mercados de mayor demanda por commodities, alimentos, energía y minerales.
-      </p>
-
-      <ul>
-        <li>Asia — Principal motor de la demanda global.</li>
-        <li>Europa y Estados Unidos — Mercados exigentes y regulados.</li>
-        <li>América Latina — Integración regional y operaciones ágiles.</li>
-        <li>Alianzas Globales — Contratos recurrentes y estabilidad operativa.</li>
-      </ul>
-    </div>
-
-    <!-- ===== ZH ===== -->
-    <div id="mk-zh" class="bt-lang" style="display:none;">
-      <p>
-        Braziltrad 战略性地活跃于全球主要消费中心，将巴西与对大宗商品、食品、能源和矿产需求最大的市场连接起来。
-      </p>
-
-      <ul>
-        <li>亚洲 — 全球需求的主要驱动力。</li>
-        <li>欧洲和美国 — 高监管、高附加值市场。</li>
-        <li>拉丁美洲 — 区域一体化与灵活运营。</li>
-        <li>全球供应合作 — 长期稳定合同。</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-
+      </div>
+    </section>
     <!-- ===== FIM MERCADOS ===== -->
 
     <!-- ===== INSIGHTS ===== -->
@@ -631,48 +430,35 @@
         <h2 id="ins-title" style="text-align:center;margin-bottom:20px;">Insights</h2>
 
         <div class="lang-switch-group">
-          <button onclick="switchLocalLang('#insights','ins-','pt')">Português</button>
-<button onclick="switchLocalLang('#insights','ins-','en')">English</button>
-<button onclick="switchLocalLang('#insights','ins-','es')">Español</button>
-<button onclick="switchLocalLang('#insights','ins-','zh')">中文</button>
-
+          <button onclick="syncSection('#insights','ins-','pt')" class="bt-lang-btn">Português</button>
+          <button onclick="syncSection('#insights','ins-','en')" class="bt-lang-btn">English</button>
+          <button onclick="syncSection('#insights','ins-','es')" class="bt-lang-btn">Español</button>
+          <button onclick="syncSection('#insights','ins-','zh')" class="bt-lang-btn">中文</button>
         </div>
 
         <ul id="ins-pt" class="bt-lang">
-  <li>Análises estratégicas sobre o mercado global de commodities</li>
-  <li>Tendências de exportação do agronegócio brasileiro</li>
-  <li>Movimentos da demanda internacional por minerais estratégicos</li>
-  <li>Novas rotas logísticas e mudanças no comércio global</li>
-  <li>Oportunidades emergentes para pequenos e médios exportadores</li>
-</ul>
-
+          <li>Tendências de exportação do agronegócio</li>
+          <li>Demanda crescente por minerais estratégicos</li>
+          <li>Novas rotas logísticas globais</li>
+        </ul>
 
         <ul id="ins-en" class="bt-lang" style="display:none;">
-  <li>Strategic analysis of the global commodities market</li>
-  <li>Brazilian agribusiness export trends</li>
-  <li>International demand movements for strategic minerals</li>
-  <li>New logistics routes and shifts in global trade</li>
-  <li>Emerging opportunities for small and mid-sized exporters</li>
-</ul>
-
+          <li>Agribusiness export trends</li>
+          <li>Growing demand for strategic minerals</li>
+          <li>New global logistics routes</li>
+        </ul>
 
         <ul id="ins-es" class="bt-lang" style="display:none;">
-  <li>Análisis estratégico del mercado global de commodities</li>
-  <li>Tendencias de exportación del agronegocio brasileño</li>
-  <li>Movimientos de la demanda internacional de minerales estratégicos</li>
-  <li>Nuevas rutas logísticas y cambios en el comercio global</li>
-  <li>Oportunidades emergentes para pequeños y medianos exportadores</li>
-</ul>
-
+          <li>Tendencias de exportación del agronegocio</li>
+          <li>Creciente demanda de minerales estratégicos</li>
+          <li>Nuevas rutas logísticas globales</li>
+        </ul>
 
         <ul id="ins-zh" class="bt-lang" style="display:none;">
-  <li>全球大宗商品市场的战略分析</li>
-  <li>巴西农业出口趋势</li>
-  <li>战略矿产的国际需求变化</li>
-  <li>全球贸易与物流新通道</li>
-  <li>中小出口商的新兴市场机会</li>
-</ul>
-
+          <li>农业出口趋势</li>
+          <li>战略矿产需求增长</li>
+          <li>全球物流新通道</li>
+        </ul>
 
       </div>
     </section>
@@ -903,63 +689,6 @@ if(document.getElementById("ins-title"))
     initTradingView(code);
     localStorage.setItem('bt_lang', code);
   }
-function switchLocalLang(section, prefix, lang){
-  const container = document.querySelector(section);
-
-  // ✅ 1. Guarda a altura atual para evitar salto
-  const currentHeight = container.offsetHeight;
-  container.style.minHeight = currentHeight + "px";
-
-  // ✅ 2. Troca os blocos de idioma
-  syncSection(section, prefix, lang);
-
-  // ✅ 3. Atualiza apenas o título correto
-  const titles = {
-    pt:{ institutional:"Braziltrad — Apresentação Institucional", services:"Serviços", products:"Produtos", markets:"Mercados", insights:"Insights" },
-    en:{ institutional:"Braziltrad — Institutional Presentation", services:"Services", products:"Products", markets:"Markets", insights:"Insights" },
-    es:{ institutional:"Braziltrad — Presentación Institucional", services:"Servicios", products:"Productos", markets:"Mercados", insights:"Insights" },
-    zh:{ institutional:"Braziltrad — 公司介绍", services:"服务", products:"产品", markets:"市场", insights:"洞察" }
-  };
-
-  if(prefix === "bt-" && document.getElementById("bt-title"))
-    document.getElementById("bt-title").textContent = titles[lang].institutional;
-
-  if(prefix === "sv-" && document.getElementById("sv-title"))
-    document.getElementById("sv-title").textContent = titles[lang].services;
-
-  if(prefix === "mk-" && document.getElementById("mk-title"))
-    document.getElementById("mk-title").textContent = titles[lang].markets;
-
-  if(prefix === "ins-" && document.getElementById("ins-title"))
-    document.getElementById("ins-title").textContent = titles[lang].insights;
-
-  if(section === "#products" && document.querySelector("#products h2"))
-    document.querySelector("#products h2").textContent = titles[lang].products;
-
-  // ✅ 4. Liberta a altura depois da renderização
-  setTimeout(() => {
-    container.style.minHeight = "auto";
-  }, 50);
-}
-
-  };
-
-  // Atualiza apenas o título correto
-  if(prefix === "bt-" && document.getElementById("bt-title"))
-    document.getElementById("bt-title").textContent = titles[lang].institutional;
-
-  if(prefix === "sv-" && document.getElementById("sv-title"))
-    document.getElementById("sv-title").textContent = titles[lang].services;
-
-  if(prefix === "mk-" && document.getElementById("mk-title"))
-    document.getElementById("mk-title").textContent = titles[lang].markets;
-
-  if(prefix === "ins-" && document.getElementById("ins-title"))
-    document.getElementById("ins-title").textContent = titles[lang].insights;
-
-  if(section === "#products" && document.querySelector("#products h2"))
-    document.querySelector("#products h2").textContent = titles[lang].products;
-}
 
   document.addEventListener('DOMContentLoaded', function(){
     let code = localStorage.getItem('bt_lang');
@@ -977,7 +706,7 @@ function switchLocalLang(section, prefix, lang){
       applyLang(LANGS[idx]);
     });
 
-        document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
       a.addEventListener('click', function(e){
         const id = a.getAttribute('href').substring(1);
         const el = document.getElementById(id);
@@ -990,80 +719,8 @@ function switchLocalLang(section, prefix, lang){
         }
       });
     });
-
-  });  <!-- ✅ ESTA LINHA ESTAVA EM FALTA -->
-<script>
-function switchLocalLang(section, prefix, lang){
-  const container = document.querySelector(section);
-
-  if(container){
-    const currentHeight = container.offsetHeight;
-    container.style.minHeight = currentHeight + "px";
-  }
-
-  syncSection(section, prefix, lang);
-
-  const titles = {
-    pt:{ institutional:"Braziltrad — Apresentação Institucional", services:"Serviços", products:"Produtos", markets:"Mercados", insights:"Insights" },
-    en:{ institutional:"Braziltrad — Institutional Presentation", services:"Services", products:"Products", markets:"Markets", insights:"Insights" },
-    es:{ institutional:"Braziltrad — Presentación Institucional", services:"Servicios", products:"Productos", markets:"Mercados", insights:"Insights" },
-    zh:{ institutional:"Braziltrad — 公司介绍", services:"服务", products:"产品", markets:"市场", insights:"洞察" }
-  };
-
-  if(prefix === "bt-" && document.getElementById("bt-title"))
-    document.getElementById("bt-title").textContent = titles[lang].institutional;
-
-  if(prefix === "sv-" && document.getElementById("sv-title"))
-    document.getElementById("sv-title").textContent = titles[lang].services;
-
-  if(prefix === "mk-" && document.getElementById("mk-title"))
-    document.getElementById("mk-title").textContent = titles[lang].markets;
-
-  if(prefix === "ins-" && document.getElementById("ins-title"))
-    document.getElementById("ins-title").textContent = titles[lang].insights;
-
-  if(section === "#products" && document.querySelector("#products h2"))
-    document.querySelector("#products h2").textContent = titles[lang].products;
-
-  if(container){
-    setTimeout(() => {
-      container.style.minHeight = "auto";
-    }, 50);
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function(){
-  let code = localStorage.getItem('bt_lang');
-
-  if(!LANGS.includes(code)){
-    const navLang = (navigator.language || 'pt').substring(0,2);
-    code = LANGS.includes(navLang) ? navLang : 'pt';
-  }
-
-  applyLang(code);
-
-  let idx = LANGS.indexOf(code);
-  document.getElementById('langBtn').addEventListener('click', function(){
-    idx = (idx + 1) % LANGS.length;
-    applyLang(LANGS[idx]);
   });
-
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      const id = a.getAttribute('href').substring(1);
-      const el = document.getElementById(id);
-      if(el){
-        e.preventDefault();
-        window.scrollTo({
-          top: el.getBoundingClientRect().top + window.scrollY - 100,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-});
-
-</script>
+  </script>
 
 </body>
 </html>
