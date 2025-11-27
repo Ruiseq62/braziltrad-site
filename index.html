@@ -958,7 +958,6 @@ function switchLocalLang(section, prefix, lang){
           });
         }
       });
-    });
   });
 <script>
   function switchLang(lang) {
@@ -968,22 +967,13 @@ function switchLocalLang(section, prefix, lang){
       const value = el.getAttribute("data-" + lang);
       if (value) el.innerHTML = value;
     });
-
-    // ✅ Atualiza o rótulo do botão global, se existir
-    const langLabel = document.getElementById("langBtn");
-    if (langLabel) {
-      langLabel.textContent = lang.toUpperCase();
-    }
   }
 
-  // ✅ Aplica idioma automaticamente ao abrir a página
   document.addEventListener("DOMContentLoaded", function () {
     const savedLang = localStorage.getItem("siteLang") || "pt";
     switchLang(savedLang);
   });
 </script>
-
-
 
 </body>
 </html>
