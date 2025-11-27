@@ -793,23 +793,21 @@ document.addEventListener('DOMContentLoaded', function(){
 
   let code = localStorage.getItem('bt_lang');
 
-// ✅ Se veio do servidor como "pt" mas o navegador é outro idioma, respeita o navegador
 const navLang = (navigator.language || navigator.userLanguage || 'pt').substring(0,2);
 
+// ✅ Se não existir idioma gravado OU navegador for diferente → usa navegador
 if (!code || !LANGS.includes(code)) {
   code = LANGS.includes(navLang) ? navLang : 'pt';
   localStorage.setItem('bt_lang', code);
 }
 
+// ✅ Se já existir mas for diferente do navegador, atualiza uma única vez
+if (LANGS.includes(navLang) && code !== navLang) {
+  code = navLang;
+  localStorage.setItem('bt_lang', code);
+}
 
-  // ✅ Se nunca escolheu idioma, usa o idioma real do navegador
-  if(!code){
-    const navLang = (navigator.language || navigator.userLanguage || 'pt').substring(0,2);
-    code = LANGS.includes(navLang) ? navLang : 'pt';
-    localStorage.setItem('bt_lang', code);
-  }
-
-  applyLang(code);
+applyLang(code);
 
   let idx = LANGS.indexOf(code);
 
