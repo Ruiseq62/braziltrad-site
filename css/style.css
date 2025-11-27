@@ -437,7 +437,7 @@ header nav ul li a:hover {
   position: relative;
   width: 100%;
   max-width: 1200px;
-  height: 520px;              /* ✅ LIMITA A ALTURA */
+  height: auto;             /* ✅ LIMITA A ALTURA */
   margin: 90px auto;
   border-radius: 18px;
   overflow: hidden;
