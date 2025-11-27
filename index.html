@@ -960,7 +960,25 @@ function switchLocalLang(section, prefix, lang){
       });
     });
   });
-  </script>
+<script>
+  let currentLang = localStorage.getItem("siteLang") || "pt";
+
+  function switchLang(lang) {
+    currentLang = lang;
+    localStorage.setItem("siteLang", lang);
+
+    document.querySelectorAll("[data-lang]").forEach(el => {
+      const value = el.getAttribute("data-" + lang);
+      if (value) el.innerHTML = value;
+    });
+  }
+
+  // ✅ Aplica idioma automaticamente ao carregar a página
+  document.addEventListener("DOMContentLoaded", function () {
+    switchLang(currentLang);
+  });
+</script>
+
 
 </body>
 </html>
