@@ -959,21 +959,6 @@ function switchLocalLang(section, prefix, lang){
         }
       });
   });
-<script>
-  function switchLang(lang) {
-    localStorage.setItem("siteLang", lang);
-
-    document.querySelectorAll("[data-lang]").forEach(el => {
-      const value = el.getAttribute("data-" + lang);
-      if (value) el.innerHTML = value;
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const savedLang = localStorage.getItem("siteLang") || "pt";
-    switchLang(savedLang);
-  });
-</script>
 
 </body>
 </html>
