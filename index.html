@@ -641,9 +641,8 @@ function applyLang(code){
   const main = document.querySelector("main");
   const body = document.body;
 
-  // ✅ 1. TRAVA SCROLL E ALTURA TOTAL
-  const currentHeight = main.offsetHeight;
-  main.style.minHeight = currentHeight + "px";
+  // ✅ 1. FREEZE TOTAL DO VIEWPORT
+  body.style.height = body.offsetHeight + "px";
   body.style.overflow = "hidden";
 
   const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
@@ -685,7 +684,7 @@ function applyLang(code){
   if(document.getElementById("ins-title"))
     document.getElementById("ins-title").textContent = titles[code].insights;
 
-  // ✅ CONTEÚDO MULTILÍNGUA
+  // ✅ CONTEÚDOS MULTILÍNGUA
   syncSection('#institutional', 'bt-',  code);
   syncSection('#services',      'sv-',  code);
   syncSection('#markets',       'mk-',  code);
@@ -697,16 +696,17 @@ function applyLang(code){
   // ✅ PERSISTÊNCIA
   localStorage.setItem('bt_lang', code);
 
-  // ✅ 2. AGUARDA O TRADINGVIEW ANTES DE LIBERTAR
+  // ✅ 2. REINICIALIZA TRADINGVIEW COM VIEWPORT CONGELADO
   setTimeout(() => {
     initTradingView(code);
 
+    // ✅ 3. SÓ DEPOIS DE TUDO ESTÁVEL, LIBERTA O SITE
     requestAnimationFrame(() => {
-      main.style.minHeight = "auto";
       body.style.overflow = "auto";
+      body.style.height = "auto";
     });
 
-  }, 300);
+  }, 400);
 }
 
 
