@@ -806,32 +806,34 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 
   // ===== SCROLL SUAVE APENAS PARA ÂNCORAS VÁLIDAS =====
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click', function(e){
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
 
-    const target = a.getAttribute('href');
+      const target = a.getAttribute('href');
 
-    // ✅ Ignora links vazios ou apenas "#"
-    if (!target || target === "#" || target.length < 2) {
-      return;
-    }
+      // ✅ Ignora links vazios ou apenas "#"
+      if (!target || target === "#" || target.length < 2) {
+        return;
+      }
 
-    const id = target.substring(1);
-    const el = document.getElementById(id);
+      const id = target.substring(1);
+      const el = document.getElementById(id);
 
-    // ✅ Só faz scroll se o ID existir
-    if(el){
-      e.preventDefault();
-      window.scrollTo({
-        top: el.getBoundingClientRect().top + window.scrollY - 100,
-        behavior: 'smooth'
-      });
-    }
+      // ✅ Só faz scroll se o ID existir
+      if(el){
+        e.preventDefault();
+        window.scrollTo({
+          top: el.getBoundingClientRect().top + window.scrollY - 100,
+          behavior: 'smooth'
+        });
+      }
 
+    });
   });
-});
 
+});  // ✅ fecha o DOMContentLoaded
 </script>
+
 
 </body>
 </html>
