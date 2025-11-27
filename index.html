@@ -788,38 +788,38 @@ function applyLang(code){
   }, 400);
 }
 
-// ===== INIT FINAL =====
+// ===== INIT FINAL (AUTO-IDIOMA PERFEITO) =====
 document.addEventListener('DOMContentLoaded', function(){
+
   let code = localStorage.getItem('bt_lang');
 
-  if(!LANGS.includes(code)){
-    const navLang = (navigator.language || 'pt').substring(0,2);
+  // ✅ Se nunca escolheu idioma, usa o idioma real do navegador
+  if(!code){
+    const navLang = (navigator.language || navigator.userLanguage || 'pt').substring(0,2);
     code = LANGS.includes(navLang) ? navLang : 'pt';
+    localStorage.setItem('bt_lang', code);
   }
 
   applyLang(code);
 
   let idx = LANGS.indexOf(code);
+
   document.getElementById('langBtn').addEventListener('click', function(){
     idx = (idx + 1) % LANGS.length;
     applyLang(LANGS[idx]);
   });
 
-  // ===== SCROLL SUAVE APENAS PARA ÂNCORAS VÁLIDAS =====
+  // ===== SCROLL SUAVE APENAS PARA ÂNCORAS REAIS =====
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
 
       const target = a.getAttribute('href');
 
-      // ✅ Ignora links vazios ou apenas "#"
-      if (!target || target === "#" || target.length < 2) {
-        return;
-      }
+      if (!target || target === "#" || target.length < 2) return;
 
       const id = target.substring(1);
       const el = document.getElementById(id);
 
-      // ✅ Só faz scroll se o ID existir
       if(el){
         e.preventDefault();
         window.scrollTo({
@@ -827,11 +827,11 @@ document.addEventListener('DOMContentLoaded', function(){
           behavior: 'smooth'
         });
       }
-
     });
   });
 
-});  // ✅ fecha o DOMContentLoaded
+});
+
 </script>
 
 
