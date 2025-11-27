@@ -557,10 +557,11 @@
   </h2>
 
   <div class="lang-buttons">
-    <button onclick="switchLang('pt')">Português</button>
-    <button onclick="switchLang('en')">English</button>
-    <button onclick="switchLang('es')">Español</button>
-    <button onclick="switchLang('zh')">中文</button>
+    <button onclick="applyLang('pt')">Português</button>
+<button onclick="applyLang('en')">English</button>
+<button onclick="applyLang('es')">Español</button>
+<button onclick="applyLang('zh')">中文</button>
+
   </div>
 
   <!-- TEXTO INTRODUTÓRIO -->
@@ -946,7 +947,7 @@ function switchLocalLang(section, prefix, lang){
       applyLang(LANGS[idx]);
     });
 
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        document.querySelectorAll('a[href^="#"]').forEach(function(a){
       a.addEventListener('click', function(e){
         const id = a.getAttribute('href').substring(1);
         const el = document.getElementById(id);
@@ -958,7 +959,11 @@ function switchLocalLang(section, prefix, lang){
           });
         }
       });
-  });
+    });
+
+  });  <!-- ✅ ESTA LINHA ESTAVA EM FALTA -->
+
 </script>
+
 </body>
 </html>
