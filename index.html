@@ -992,38 +992,22 @@ function switchLocalLang(section, prefix, lang){
     });
 
   });  <!-- ✅ ESTA LINHA ESTAVA EM FALTA -->
+<script>
 function switchLocalLang(section, prefix, lang){
+  const container = document.querySelector(section);
+
+  if(container){
+    const currentHeight = container.offsetHeight;
+    container.style.minHeight = currentHeight + "px";
+  }
+
   syncSection(section, prefix, lang);
 
   const titles = {
-    pt: {
-      institutional: "Braziltrad — Apresentação Institucional",
-      services: "Serviços",
-      products: "Produtos",
-      markets: "Mercados",
-      insights: "Insights"
-    },
-    en: {
-      institutional: "Braziltrad — Institutional Presentation",
-      services: "Services",
-      products: "Products",
-      markets: "Markets",
-      insights: "Insights"
-    },
-    es: {
-      institutional: "Braziltrad — Presentación Institucional",
-      services: "Servicios",
-      products: "Productos",
-      markets: "Mercados",
-      insights: "Insights"
-    },
-    zh: {
-      institutional: "Braziltrad — 公司介绍",
-      services: "服务",
-      products: "产品",
-      markets: "市场",
-      insights: "洞察"
-    }
+    pt:{ institutional:"Braziltrad — Apresentação Institucional", services:"Serviços", products:"Produtos", markets:"Mercados", insights:"Insights" },
+    en:{ institutional:"Braziltrad — Institutional Presentation", services:"Services", products:"Products", markets:"Markets", insights:"Insights" },
+    es:{ institutional:"Braziltrad — Presentación Institucional", services:"Servicios", products:"Productos", markets:"Mercados", insights:"Insights" },
+    zh:{ institutional:"Braziltrad — 公司介绍", services:"服务", products:"产品", markets:"市场", insights:"洞察" }
   };
 
   if(prefix === "bt-" && document.getElementById("bt-title"))
@@ -1032,9 +1016,53 @@ function switchLocalLang(section, prefix, lang){
   if(prefix === "sv-" && document.getElementById("sv-title"))
     document.getElementById("sv-title").textContent = titles[lang].services;
 
+  if(prefix === "mk-" && document.getElementById("mk-title"))
+    document.getElementById("mk-title").textContent = titles[lang].markets;
+
   if(prefix === "ins-" && document.getElementById("ins-title"))
     document.getElementById("ins-title").textContent = titles[lang].insights;
+
+  if(section === "#products" && document.querySelector("#products h2"))
+    document.querySelector("#products h2").textContent = titles[lang].products;
+
+  if(container){
+    setTimeout(() => {
+      container.style.minHeight = "auto";
+    }, 50);
+  }
 }
+
+document.addEventListener('DOMContentLoaded', function(){
+  let code = localStorage.getItem('bt_lang');
+
+  if(!LANGS.includes(code)){
+    const navLang = (navigator.language || 'pt').substring(0,2);
+    code = LANGS.includes(navLang) ? navLang : 'pt';
+  }
+
+  applyLang(code);
+
+  let idx = LANGS.indexOf(code);
+  document.getElementById('langBtn').addEventListener('click', function(){
+    idx = (idx + 1) % LANGS.length;
+    applyLang(LANGS[idx]);
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      const id = a.getAttribute('href').substring(1);
+      const el = document.getElementById(id);
+      if(el){
+        e.preventDefault();
+        window.scrollTo({
+          top: el.getBoundingClientRect().top + window.scrollY - 100,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+});
+
 </script>
 
 </body>
