@@ -603,22 +603,61 @@
   }
 
   function applyLang(code){
-    const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
 
-    document.querySelectorAll('header nav ul li a')
-      .forEach((a,i)=>{ if(t.nav[i]) a.textContent = t.nav[i]; });
+  const main = document.querySelector("main");
 
-    document.querySelector('.hero-title').textContent = t.title;
-    document.querySelector('.hero-lead').textContent  = t.lead;
+  // ✅ 1. TRAVA A ALTURA ATUAL (ANTES DE MUDAR O IDIOMA)
+  const currentHeight = main.offsetHeight;
+  main.style.minHeight = currentHeight + "px";
 
-    document.getElementById('btn-comprar').textContent = t.btnComprar;
-    document.getElementById('btn-vender').textContent  = t.btnVender;
+  const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
 
-    document.getElementById('langBtn').textContent = '🌎 ' + FLAGS[code];
+  document.querySelectorAll('header nav ul li a')
+    .forEach((a,i)=>{ if(t.nav[i]) a.textContent = t.nav[i]; });
 
-    const seo = SEO[code];
-    document.title = seo.title;
-    document.getElementById('seo-desc').setAttribute("content", seo.desc);
+  document.querySelector('.hero-title').textContent = t.title;
+  document.querySelector('.hero-lead').textContent  = t.lead;
+
+  document.getElementById('btn-comprar').textContent = t.btnComprar;
+  document.getElementById('btn-vender').textContent  = t.btnVender;
+
+  document.getElementById('langBtn').textContent = '🌎 ' + FLAGS[code];
+
+  const seo = SEO[code];
+  document.title = seo.title;
+  document.getElementById('seo-desc')
+    .setAttribute("content", seo.desc);
+
+  if(document.getElementById("bt-title"))
+    document.getElementById("bt-title").textContent = titles[code].institutional;
+
+  if(document.getElementById("sv-title"))
+    document.getElementById("sv-title").textContent = titles[code].services;
+
+  if(document.getElementById("products")?.querySelector("h2"))
+    document.querySelector("#products h2").textContent = titles[code].products;
+
+  if(document.getElementById("mk-title"))
+    document.getElementById("mk-title").textContent = titles[code].markets;
+
+  if(document.getElementById("ins-title"))
+    document.getElementById("ins-title").textContent = titles[code].insights;
+
+  syncSection('#institutional', 'bt-',  code);
+  syncSection('#services',      'sv-',  code);
+  syncSection('#markets',       'mk-',  code);
+  syncSection('#insights',      'ins-', code);
+
+  updateLinks(code);
+  initTradingView(code);
+  localStorage.setItem('bt_lang', code);
+
+  // ✅ 2. LIBERTA A ALTURA DEPOIS DA TROCA (SEM SALTO)
+  setTimeout(() => {
+    main.style.minHeight = "auto";
+  }, 100);
+}
+
 // ===== TÍTULOS DAS SEÇÕES =====
 const titles = {
   pt: {
