@@ -639,10 +639,12 @@ const titles = {
 function applyLang(code){
 
   const main = document.querySelector("main");
+  const body = document.body;
 
-  // ✅ 1. TRAVA A ALTURA ANTES DA TROCA
+  // ✅ 1. TRAVA SCROLL E ALTURA TOTAL
   const currentHeight = main.offsetHeight;
   main.style.minHeight = currentHeight + "px";
+  body.style.overflow = "hidden";
 
   const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
 
@@ -683,24 +685,30 @@ function applyLang(code){
   if(document.getElementById("ins-title"))
     document.getElementById("ins-title").textContent = titles[code].insights;
 
-  // ✅ CONTEÚDOS MULTILÍNGUA
+  // ✅ CONTEÚDO MULTILÍNGUA
   syncSection('#institutional', 'bt-',  code);
   syncSection('#services',      'sv-',  code);
   syncSection('#markets',       'mk-',  code);
   syncSection('#insights',      'ins-', code);
 
-  // ✅ LINKS + WIDGETS
+  // ✅ LINKS
   updateLinks(code);
-  initTradingView(code);
 
   // ✅ PERSISTÊNCIA
   localStorage.setItem('bt_lang', code);
 
-  // ✅ 2. LIBERTA ALTURA SEM SALTO
+  // ✅ 2. AGUARDA O TRADINGVIEW ANTES DE LIBERTAR
   setTimeout(() => {
-    main.style.minHeight = "auto";
-  }, 100);
+    initTradingView(code);
+
+    requestAnimationFrame(() => {
+      main.style.minHeight = "auto";
+      body.style.overflow = "auto";
+    });
+
+  }, 300);
 }
+
 
 
 // ===== INIT FINAL (AO CARREGAR A PÁGINA) =====
