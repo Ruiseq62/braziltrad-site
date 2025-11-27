@@ -602,63 +602,7 @@
     tvCommod.appendChild(w2);
   }
 
-  function applyLang(code){
-
-  const main = document.querySelector("main");
-
-  // ✅ 1. TRAVA A ALTURA ATUAL (ANTES DE MUDAR O IDIOMA)
-  const currentHeight = main.offsetHeight;
-  main.style.minHeight = currentHeight + "px";
-
-  const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
-
-  document.querySelectorAll('header nav ul li a')
-    .forEach((a,i)=>{ if(t.nav[i]) a.textContent = t.nav[i]; });
-
-  document.querySelector('.hero-title').textContent = t.title;
-  document.querySelector('.hero-lead').textContent  = t.lead;
-
-  document.getElementById('btn-comprar').textContent = t.btnComprar;
-  document.getElementById('btn-vender').textContent  = t.btnVender;
-
-  document.getElementById('langBtn').textContent = '🌎 ' + FLAGS[code];
-
-  const seo = SEO[code];
-  document.title = seo.title;
-  document.getElementById('seo-desc')
-    .setAttribute("content", seo.desc);
-
-  if(document.getElementById("bt-title"))
-    document.getElementById("bt-title").textContent = titles[code].institutional;
-
-  if(document.getElementById("sv-title"))
-    document.getElementById("sv-title").textContent = titles[code].services;
-
-  if(document.getElementById("products")?.querySelector("h2"))
-    document.querySelector("#products h2").textContent = titles[code].products;
-
-  if(document.getElementById("mk-title"))
-    document.getElementById("mk-title").textContent = titles[code].markets;
-
-  if(document.getElementById("ins-title"))
-    document.getElementById("ins-title").textContent = titles[code].insights;
-
-  syncSection('#institutional', 'bt-',  code);
-  syncSection('#services',      'sv-',  code);
-  syncSection('#markets',       'mk-',  code);
-  syncSection('#insights',      'ins-', code);
-
-  updateLinks(code);
-  initTradingView(code);
-  localStorage.setItem('bt_lang', code);
-
-  // ✅ 2. LIBERTA A ALTURA DEPOIS DA TROCA (SEM SALTO)
-  setTimeout(() => {
-    main.style.minHeight = "auto";
-  }, 100);
-}
-
-// ===== TÍTULOS DAS SEÇÕES =====
+ // ===== TÍTULOS DAS SEÇÕES =====
 const titles = {
   pt: {
     institutional: "Braziltrad — Apresentação Institucional",
@@ -690,62 +634,106 @@ const titles = {
   }
 };
 
-if(document.getElementById("bt-title"))
-  document.getElementById("bt-title").textContent = titles[code].institutional;
 
-if(document.getElementById("sv-title"))
-  document.getElementById("sv-title").textContent = titles[code].services;
+// ===== FUNÇÃO PRINCIPAL (SEM SALTINHO / SEM TRAVAR) =====
+function applyLang(code){
 
-if(document.getElementById("products")?.querySelector("h2"))
-  document.querySelector("#products h2").textContent = titles[code].products;
+  const main = document.querySelector("main");
 
-if(document.getElementById("mk-title"))
-  document.getElementById("mk-title").textContent = titles[code].markets;
+  // ✅ 1. TRAVA A ALTURA ANTES DA TROCA
+  const currentHeight = main.offsetHeight;
+  main.style.minHeight = currentHeight + "px";
 
-if(document.getElementById("ins-title"))
-  document.getElementById("ins-title").textContent = titles[code].insights;
+  const t = TRANSLATIONS[code] || TRANSLATIONS.pt;
 
-    syncSection('#institutional', 'bt-',  code);
-    syncSection('#services',      'sv-',  code);
-    syncSection('#markets',       'mk-',  code);
-    syncSection('#insights',      'ins-', code);
+  // ✅ MENU
+  document.querySelectorAll('header nav ul li a')
+    .forEach((a,i)=>{ if(t.nav[i]) a.textContent = t.nav[i]; });
 
-    updateLinks(code);
-    initTradingView(code);
-    localStorage.setItem('bt_lang', code);
+  // ✅ HERO
+  document.querySelector('.hero-title').textContent = t.title;
+  document.querySelector('.hero-lead').textContent  = t.lead;
+
+  // ✅ BOTÕES
+  document.getElementById('btn-comprar').textContent = t.btnComprar;
+  document.getElementById('btn-vender').textContent  = t.btnVender;
+
+  // ✅ BOTÃO 🌎
+  document.getElementById('langBtn').textContent = '🌎 ' + FLAGS[code];
+
+  // ✅ SEO
+  const seo = SEO[code];
+  document.title = seo.title;
+  document.getElementById('seo-desc')
+    .setAttribute("content", seo.desc);
+
+  // ✅ TÍTULOS DAS SEÇÕES
+  if(document.getElementById("bt-title"))
+    document.getElementById("bt-title").textContent = titles[code].institutional;
+
+  if(document.getElementById("sv-title"))
+    document.getElementById("sv-title").textContent = titles[code].services;
+
+  if(document.getElementById("products")?.querySelector("h2"))
+    document.querySelector("#products h2").textContent = titles[code].products;
+
+  if(document.getElementById("mk-title"))
+    document.getElementById("mk-title").textContent = titles[code].markets;
+
+  if(document.getElementById("ins-title"))
+    document.getElementById("ins-title").textContent = titles[code].insights;
+
+  // ✅ CONTEÚDOS MULTILÍNGUA
+  syncSection('#institutional', 'bt-',  code);
+  syncSection('#services',      'sv-',  code);
+  syncSection('#markets',       'mk-',  code);
+  syncSection('#insights',      'ins-', code);
+
+  // ✅ LINKS + WIDGETS
+  updateLinks(code);
+  initTradingView(code);
+
+  // ✅ PERSISTÊNCIA
+  localStorage.setItem('bt_lang', code);
+
+  // ✅ 2. LIBERTA ALTURA SEM SALTO
+  setTimeout(() => {
+    main.style.minHeight = "auto";
+  }, 100);
+}
+
+
+// ===== INIT FINAL (AO CARREGAR A PÁGINA) =====
+document.addEventListener('DOMContentLoaded', function(){
+  let code = localStorage.getItem('bt_lang');
+
+  if(!LANGS.includes(code)){
+    const navLang = (navigator.language || 'pt').substring(0,2);
+    code = LANGS.includes(navLang) ? navLang : 'pt';
   }
 
-  document.addEventListener('DOMContentLoaded', function(){
-    let code = localStorage.getItem('bt_lang');
+  applyLang(code);
 
-    if(!LANGS.includes(code)){
-      const navLang = (navigator.language || 'pt').substring(0,2);
-      code = LANGS.includes(navLang) ? navLang : 'pt';
-    }
+  let idx = LANGS.indexOf(code);
+  document.getElementById('langBtn').addEventListener('click', function(){
+    idx = (idx + 1) % LANGS.length;
+    applyLang(LANGS[idx]);
+  });
 
-    applyLang(code);
-
-    let idx = LANGS.indexOf(code);
-    document.getElementById('langBtn').addEventListener('click', function(){
-      idx = (idx + 1) % LANGS.length;
-      applyLang(LANGS[idx]);
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-      a.addEventListener('click', function(e){
-        const id = a.getAttribute('href').substring(1);
-        const el = document.getElementById(id);
-        if(el){
-          e.preventDefault();
-          window.scrollTo({
-            top: el.getBoundingClientRect().top + window.scrollY - 100,
-            behavior: 'smooth'
-          });
-        }
-      });
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      const id = a.getAttribute('href').substring(1);
+      const el = document.getElementById(id);
+      if(el){
+        e.preventDefault();
+        window.scrollTo({
+          top: el.getBoundingClientRect().top + window.scrollY - 100,
+          behavior: 'smooth'
+        });
+      }
     });
   });
+});
   </script>
-
 </body>
 </html>
