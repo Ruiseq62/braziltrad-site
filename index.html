@@ -149,13 +149,44 @@
 
 <!-- BLOCO DE IMPACTO - PROBLEMA → SOLUÇÃO -->
 <section class="bloco-impacto">
+
   <img 
-    src="assets/img/Plataforma-de-Comercio-Global-Brasiltrad.png" 
-    alt="Transformamos pequenos produtores em exportadores globais através da Braziltrad"
+    src="assets/img/Plataforma-de-Comercio-Global-Brasiltrad.png"
+    alt="Braziltrad - Conectando produtores ao mercado global"
     loading="lazy"
   >
-  
+
+  <!-- BLOCO 1 - TOPO -->
+  <div class="impacto-card card-top">
+    <h3 data-i18n="impact.problem.title"></h3>
+    <ul>
+      <li data-i18n="impact.problem.p1"></li>
+      <li data-i18n="impact.problem.p2"></li>
+      <li data-i18n="impact.problem.p3"></li>
+      <li data-i18n="impact.problem.p4"></li>
+      <li data-i18n="impact.problem.p5"></li>
+    </ul>
+  </div>
+
+  <!-- BLOCO 2 - MEIO -->
+  <div class="impacto-card card-middle">
+    <h3 data-i18n="impact.solution.title"></h3>
+    <ul>
+      <li data-i18n="impact.solution.s1"></li>
+      <li data-i18n="impact.solution.s2"></li>
+      <li data-i18n="impact.solution.s3"></li>
+      <li data-i18n="impact.solution.s4"></li>
+      <li data-i18n="impact.solution.s5"></li>
+    </ul>
+  </div>
+
+  <!-- BLOCO 3 - FRASE FINAL -->
+  <div class="impacto-footer">
+    <span data-i18n="impact.footer"></span>
+  </div>
+
 </section>
+
 
     <!-- ===== INSTITUCIONAL (INÍCIO) ===== -->
     <section id="institutional" class="section" style="background:#ffffff;">
@@ -523,14 +554,35 @@ const TRANSLATIONS = {
     lead:"Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF.",
     btnComprar:"Quero comprar",
     btnVender:"Quero vender",
-    products: {
+    products: {  
       lead: "Principais linhas de produtos que a Braziltrad intermedia no mercado global de commodities.",
       cards: [
         { title: "Agrícolas",  text: "Soja, milho, açúcar e café.",             badge: "Origem Brasil" },
         { title: "Energéticas", text: "Etanol, diesel renovável, biomassa.",    badge: "Energia renovável" },
         { title: "Minerais",   text: "Lítio, ferro, nióbio e cobre.",           badge: "Minerais estratégicos" }
       ]
-    }
+    },
+impact: {
+  problem: {
+    title: "O Problema",
+    p1: "Plataforma completa de intermediação internacional",
+    p2: "Estrutura jurídica internacional",
+    p3: "Acesso a compradores globais",
+    p4: "Logística integrada",
+    p5: "Crédito e garantias"
+  },
+
+  solution: {
+    title: "A Solução: Braziltrad",
+    s1: "Conecta produtores a compradores globais",
+    s2: "Estrutura contratos internacionais",
+    s3: "Garante compliance e segurança jurídica",
+    s4: "Organiza pagamentos internacionais",
+    s5: "Coordena logística e documentação"
+  },
+
+  footer: "Transformamos pequenos produtores em exportadores globais"
+}
   },
   en:{
     nav:["About","Services","Products","Markets","Insights","Documents","Useful Links","Contact"],
@@ -545,8 +597,30 @@ const TRANSLATIONS = {
         { title: "Energy",       text: "Ethanol, renewable diesel, biomass.",        badge: "Renewable energy" },
         { title: "Minerals",     text: "Lithium, iron ore, niobium and copper.",     badge: "Strategic minerals" }
       ]
-    }
   },
+impact: {
+  problem: {
+    title: "The Problem",
+    p1: "Complete international trading platform",
+    p2: "International legal structure",
+    p3: "Access to global buyers",
+    p4: "Integrated logistics",
+    p5: "Credit and guarantees"
+  },
+
+  solution: {
+    title: "The Solution: Braziltrad",
+    s1: "Connects producers to global buyers",
+    s2: "Structures international contracts",
+    s3: "Ensures compliance and legal security",
+    s4: "Manages international payments",
+    s5: "Coordinates logistics and documentation"
+  },
+
+  footer: "We turn small producers into global exporters"
+}
+},
+  
   es:{
     nav:["Sobre","Servicios","Productos","Mercados","Insights","Documentos","Enlaces Útiles","Contacto"],
     title:"Conectando a Brasil con el mercado global de commodities",
@@ -560,7 +634,30 @@ const TRANSLATIONS = {
         { title: "Energéticas", text: "Etanol, diésel renovable, biomasa.",         badge: "Energía renovable" },
         { title: "Minerales",   text: "Litio, hierro, niobio y cobre.",             badge: "Minerales estratégicos" }
       ]
-    }
+   },
+    
+impact: {
+  problem: {
+    title: "El Problema",
+    p1: "Plataforma completa de intermediación internacional",
+    p2: "Estructura jurídica internacional",
+    p3: "Acceso a compradores globales",
+    p4: "Logística integrada",
+    p5: "Crédito y garantías"
+  },
+
+  solution: {
+    title: "La Solución: Braziltrad",
+    s1: "Conecta productores con compradores globales",
+    s2: "Estructura contratos internacionales",
+    s3: "Garantiza cumplimiento y seguridad jurídica",
+    s4: "Organiza pagos internacionales",
+    s5: "Coordina logística y documentación"
+  },
+
+  footer: "Transformamos pequeños productores en exportadores globales"
+}
+
   },
   zh:{
     nav:["关于","服务","产品","市场","洞察","文件","实用链接","联系"],
@@ -575,8 +672,30 @@ const TRANSLATIONS = {
         { title: "能源产品", text: "乙醇、可再生柴油、生物质能。",   badge: "可再生能源" },
         { title: "矿产",     text: "锂、铁、铌和铜。",               badge: "战略矿产" }
       ]
-    }
-  }
+    },
+    ,
+impact: {
+  problem: {
+    title: "问题",
+    p1: "完整的国际贸易平台",
+    p2: "国际法律结构",
+    p3: "全球买家渠道",
+    p4: "一体化物流",
+    p5: "金融支持与担保"
+  },
+
+  solution: {
+    title: "解决方案：Braziltrad",
+    s1: "连接生产商与全球买家",
+    s2: "构建国际合同体系",
+    s3: "确保合规与法律安全",
+    s4: "管理国际支付",
+    s5: "协调物流与出口文件"
+  },
+
+  footer: "我们将小型生产商转变为全球出口商"
+}
+  },
 };
 
 const SEO = {
