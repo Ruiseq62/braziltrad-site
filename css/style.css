@@ -529,3 +529,38 @@ header nav ul li a:hover {
   font-weight: 600;
   box-shadow: 0 18px 40px rgba(0,0,0,0.35);
 }
+.bloco-impacto {
+  position: relative;
+}
+
+.impact-text {
+  position: absolute;
+  color: white;
+  max-width: 420px;
+  background: rgba(0,0,0,0.55);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.impacto-problema {
+  top: 40px;
+  left: 40px;
+}
+
+.impacto-solucao {
+  bottom: 120px;
+  right: 40px;
+}
+
+.impact-footer {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  background: rgba(0,0,0,0.6);
+  padding: 12px 24px;
+  border-radius: 30px;
+}
