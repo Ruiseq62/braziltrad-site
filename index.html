@@ -867,6 +867,10 @@ const titles = {
 
 // ===== FUNÇÃO PRINCIPAL (SEM SALTINHO / SEM TRAVAR) =====
 function applyLang(code){
+
+  // ✅ ISTO É O QUE ESTÁ A FALTAR NO TEU SITE
+  applyTranslations(code);
+
   const body = document.body;
   const t    = TRANSLATIONS[code] || TRANSLATIONS.pt;
 
