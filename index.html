@@ -186,62 +186,182 @@
 
     <!-- ===== INSTITUCIONAL (INÍCIO) ===== -->
     <section id="institutional" class="section" style="background:#ffffff;">
-  <div class="container">
+      <div class="container">
 
-    <h2 data-i18n="institutional.title">Braziltrad — Apresentação Institucional</h2>
-    
-        style="text-align:center;margin-bottom:20px;"></h2>
+        <h2 id="bt-title" style="text-align:center;margin-bottom:20px;">
+          Braziltrad — Apresentação Institucional
+        </h2>
 
-    <h3 data-i18n="institutional.who.title"></h3>
+        <div class="lang-switch-group">
+         <button onclick="changeLanguage('pt')" class="bt-lang-btn">Português</button>
+<button onclick="changeLanguage('en')" class="bt-lang-btn">English</button>
+<button onclick="changeLanguage('es')" class="bt-lang-btn">Español</button>
+<button onclick="changeLanguage('zh')" class="bt-lang-btn">中文</button>
 
-    <p data-i18n="institutional.who.p1"></p>
-    <p data-i18n="institutional.who.p2"></p>
 
-    <h3 data-i18n="institutional.what.title"></h3>
+        </div>
+        <!-- ========= INSTITUCIONAL — PORTUGUÊS ========= -->
+        <div id="bt-pt" class="bt-lang">
+          <h3>Quem Somos</h3>
+          <p>
+            A <strong>Braziltrad</strong> é uma plataforma brasileira especializada na intermediação de exportações,
+            conectando produtores e fornecedores do Brasil a compradores internacionais de forma segura,
+            rápida e eficiente.
+          </p>
+          <p>
+            Facilitamos o acesso ao comércio exterior, especialmente para pequenos e médios produtores,
+            oferecendo suporte completo desde a prospecção até a entrega final.
+          </p>
 
-    <ul>
-      <li data-i18n="institutional.what.i1"></li>
-      <li data-i18n="institutional.what.i2"></li>
-      <li data-i18n="institutional.what.i3"></li>
-      <li data-i18n="institutional.what.i4"></li>
-    </ul>
+          <h3>O Que Fazemos</h3>
+          <ul>
+            <li>Conectamos produtores brasileiros a compradores internacionais</li>
+            <li>Estruturamos operações de exportação</li>
+            <li>Apoiamos na negociação, documentação e logística</li>
+            <li>Atuamos em operações de small export e grandes volumes</li>
+          </ul>
 
-    <p>
-      <strong data-i18n="institutional.sectors.label"></strong>
-      <span data-i18n="institutional.sectors.text"></span>
-    </p>
+          <p>
+            <strong>Setores:</strong> Agronegócio, Alimentos, Commodities, Minerais e Produtos sob demanda.
+          </p>
 
-    <p>
-      <strong>Braziltrad</strong><br>
-      <span data-i18n="institutional.closing"></span>
-    </p>
+          <p>
+            <strong>Braziltrad</strong><br>
+            O Brasil produz. O mundo compra. A Braziltrad conecta.
+          </p>
+        </div>
 
-  </div>
-</section>
+        <!-- ========= INSTITUCIONAL — ENGLISH ========= -->
+        <div id="bt-en" class="bt-lang" style="display:none;">
+          <h3>Who We Are</h3>
+          <p>
+            <strong>Braziltrad</strong> is a Brazilian trading platform specialized in export intermediation,
+            connecting Brazilian producers and suppliers with international buyers in a fast, secure,
+            and efficient way.
+          </p>
+          <p>
+            We simplify access to global trade, especially for small and medium producers, offering
+            full support from buyer prospecting to final delivery.
+          </p>
 
+          <h3>What We Do</h3>
+          <ul>
+            <li>Connect Brazilian suppliers with global buyers</li>
+            <li>Structure export operations</li>
+            <li>Support negotiation, documentation, and logistics</li>
+            <li>Operate small export and high-volume trades</li>
+          </ul>
+
+          <p>
+            <strong>Sectors:</strong> Agribusiness, Food, Commodities, Minerals, and Custom Products.
+          </p>
+
+          <p>
+            <strong>Braziltrad</strong><br>
+            Brazil produces. The world buys. Braziltrad connects.
+          </p>
+        </div>
+
+        <!-- ========= INSTITUCIONAL — ESPAÑOL ========= -->
+        <div id="bt-es" class="bt-lang" style="display:none;">
+          <h3>Quiénes Somos</h3>
+          <p>
+            <strong>Braziltrad</strong> es una plataforma brasileña especializada en la intermediación de exportaciones,
+            que conecta productores de Brasil con compradores internacionales de forma segura, rápida y eficiente.
+          </p>
+          <p>
+            Facilitamos el acceso al comercio exterior, especialmente para pequeños y medianos productores,
+            ofreciendo soporte completo desde la prospección hasta la entrega final.
+          </p>
+
+          <h3>Qué Hacemos</h3>
+          <ul>
+            <li>Conectamos proveedores brasileños con compradores internacionales</li>
+            <li>Estructuramos operaciones de exportación</li>
+            <li>Apoyamos en negociación, documentación y logística</li>
+            <li>Operamos small export y grandes volúmenes</li>
+          </ul>
+
+          <p>
+            <strong>Sectores:</strong> Agroindustria, Alimentos, Commodities, Minerales y Productos bajo demanda.
+          </p>
+
+          <p>
+            <strong>Braziltrad</strong><br>
+            Brasil produce. El mundo compra. Braziltrad conecta.
+          </p>
+        </div>
+
+        <!-- ========= INSTITUCIONAL — CHINÊS ========= -->
+        <div id="bt-zh" class="bt-lang" style="display:none;">
+          <h3>关于我们</h3>
+          <p>
+            <strong>Braziltrad</strong> 是一家来自巴西的国际贸易平台，
+            专注于出口业务对接，安全、高效地连接巴西生产商与全球买家。
+          </p>
+          <p>
+            我们为中小型生产商提供从买家对接到最终交付的全流程支持，
+            帮助其进入国际市场。
+          </p>
+
+          <h3>我们的服务</h3>
+          <ul>
+            <li>连接巴西供应商与国际买家</li>
+            <li>结构化出口业务</li>
+            <li>商务、文件与物流支持</li>
+            <li>小额出口与大宗贸易</li>
+          </ul>
+
+          <p>
+            <strong>业务领域：</strong> 农业、食品、大宗商品、矿产及定制产品。
+          </p>
+
+          <p>
+            <strong>Braziltrad</strong><br>
+            巴西负责生产。世界负责采购。Braziltrad 负责连接。
+          </p>
+        </div>
+
+      </div>
+    </section>
     <!-- ===== FIM DO INSTITUCIONAL ===== -->
 
     <!-- ===== SERVIÇOS ===== -->
 <section id="services" class="section" style="background:#ffffff;">
   <div class="container">
 
-   <h2 class="section-title" style="text-align:center;margin-bottom:20px;" data-i18n="services.title"></h2>
+    <h2 id="sv-title" class="section-title" style="text-align:center;margin-bottom:20px;">
+      Serviços
+    </h2>
 
-<div class="lang-switch-group">
-  <button onclick="applyLang('pt')" class="bt-lang-btn">Português</button>
-  <button onclick="applyLang('en')" class="bt-lang-btn">English</button>
-  <button onclick="applyLang('es')" class="bt-lang-btn">Español</button>
-  <button onclick="applyLang('zh')" class="bt-lang-btn">中文</button>
-</div>
+    <div class="lang-switch-group">
+      <button onclick="applyLang('pt')" class="bt-lang-btn">Português</button>
+<button onclick="applyLang('en')" class="bt-lang-btn">English</button>
+<button onclick="applyLang('es')" class="bt-lang-btn">Español</button>
+<button onclick="applyLang('zh')" class="bt-lang-btn">中文</button>
 
-<ul class="list">
-  <li><strong data-i18n="services.i1_t"></strong> — <span data-i18n="services.i1_d"></span></li>
-  <li><strong data-i18n="services.i2_t"></strong> — <span data-i18n="services.i2_d"></span></li>
-  <li><strong data-i18n="services.i3_t"></strong> — <span data-i18n="services.i3_d"></span></li>
-  <li><strong data-i18n="services.i4_t"></strong> — <span data-i18n="services.i4_d"></span></li>
-  <li><strong data-i18n="services.i5_t"></strong> — <span data-i18n="services.i5_d"></span></li>
-</ul>
+    </div>
 
+    <!-- PT -->
+    <div id="sv-pt" class="">
+      <ul class="list">
+        <li><strong>Exportação Assistida & Originação de Commodities</strong> — Estruturamos operações completas ligando produtores brasileiros diretamente a compradores internacionais.</li>
+        <li><strong>Inteligência de Mercado & Precificação</strong> — Análise de oferta, demanda, tendências globais e formação estratégica de preço.</li>
+        <li><strong>Estruturação Financeira & Pagamentos Internacionais</strong> — Câmbio, contratos, recebimentos e mitigação de riscos.</li>
+        <li><strong>Compliance, Documentação & Rastreabilidade</strong> — Conformidade legal, verificação de origem e padrões internacionais.</li>
+        <li><strong>Acesso Global para Pequenos Produtores</strong> — Inclusão de pequenos e médios exportadores no comércio internacional.</li>
+      </ul>
+    </div>
+
+    <!-- EN -->
+    <div id="sv-en" class="" style="display:none;">
+      <ul class="list">
+        <li><strong>Assisted Export & Commodity Origination</strong> — Full export structuring connecting Brazilian producers to global buyers.</li>
+        <li><strong>Market Intelligence & Pricing Strategy</strong> — Supply, demand and global trend analysis for strategic pricing.</li>
+        <li><strong>Financial Structuring & International Payments</strong> — FX, contracts, receivables and risk mitigation.</li>
+        <li><strong>Compliance, Documentation & Traceability</strong> — Legal conformity, origin verification and international standards.</li>
+        <li><strong>Global Access for Small Producers</strong> — International market entry for small and mid-sized exporters.</li>
+      </ul>
     </div>
 
     <!-- ES -->
@@ -307,23 +427,47 @@
 <section id="markets" class="section" style="background:#f8f8f8;">
   <div class="container">
 
-    <h2 class="section-title" style="text-align:center;margin-bottom:20px;" data-i18n="markets.title"></h2>
+    <h2 id="mk-title" style="text-align:center;margin-bottom:20px;">Mercados</h2>
 
-<div class="lang-switch-group">
-  <button onclick="applyLang('pt')" class="bt-lang-btn">Português</button>
-  <button onclick="applyLang('en')" class="bt-lang-btn">English</button>
-  <button onclick="applyLang('es')" class="bt-lang-btn">Español</button>
-  <button onclick="applyLang('zh')" class="bt-lang-btn">中文</button>
-</div>
+    <div class="lang-switch-group">
+     <button onclick="applyLang('pt')" class="bt-lang-btn">Português</button>
+<button onclick="applyLang('en')" class="bt-lang-btn">English</button>
+<button onclick="applyLang('es')" class="bt-lang-btn">Español</button>
+<button onclick="applyLang('zh')" class="bt-lang-btn">中文</button>
 
-<ul class="list">
-  <li data-i18n="markets.m1"></li>
-  <li data-i18n="markets.m2"></li>
-  <li data-i18n="markets.m3"></li>
-  <li data-i18n="markets.m4"></li>
-  <li data-i18n="markets.m5"></li>
-</ul>
+    </div>
 
+    <ul id="mk-pt" class="bt-lang">
+      <li>🇨🇳 China — Maior importador global de grãos, proteínas e minerais</li>
+      <li>🇪🇺 União Europeia — Mercado premium e altamente regulado</li>
+      <li>🇸🇦 Oriente Médio — Forte demanda por alimentos e proteínas</li>
+      <li>🇺🇸 América do Norte — Consumo de alto valor agregado</li>
+      <li>🇯🇵 Ásia Desenvolvida — Qualidade, rastreabilidade e margens premium</li>
+    </ul>
+
+    <ul id="mk-en" class="bt-lang" style="display:none;">
+      <li>🇨🇳 China — World’s largest grain, protein and mineral importer</li>
+      <li>🇪🇺 European Union — Highly regulated premium market</li>
+      <li>🇸🇦 Middle East — Strong food and protein demand</li>
+      <li>🇺🇸 North America — High value-added consumption</li>
+      <li>🇯🇵 Developed Asia — Quality, traceability and premium margins</li>
+    </ul>
+
+    <ul id="mk-es" class="bt-lang" style="display:none;">
+      <li>🇨🇳 China — Mayor importador de granos, proteínas y minerales</li>
+      <li>🇪🇺 Unión Europea — Mercado premium altamente regulado</li>
+      <li>🇸🇦 Medio Oriente — Alta demanda de alimentos y proteínas</li>
+      <li>🇺🇸 América del Norte — Consumo de alto valor agregado</li>
+      <li>🇯🇵 Asia Desarrollada — Calidad, trazabilidad y márgenes premium</li>
+    </ul>
+
+    <ul id="mk-zh" class="bt-lang" style="display:none;">
+      <li>🇨🇳 中国 — 全球最大粮食、蛋白与矿产进口国</li>
+      <li>🇪🇺 欧盟 — 高度监管的高端市场</li>
+      <li>🇸🇦 中东 — 食品与蛋白强劲需求</li>
+      <li>🇺🇸 北美 — 高附加值消费</li>
+      <li>🇯🇵 发达亚洲 — 高品质与溯源溢价市场</li>
+    </ul>
 
   </div>
 </section>
@@ -401,183 +545,155 @@ const LANGS = ["pt","en","es","zh"];
 const FLAGS = {pt:"🇧🇷 PT", en:"🇬🇧 EN", es:"🇪🇸 ES", zh:"🇨🇳 中文"};
 
 const TRANSLATIONS = {
-
-  pt: {
+  pt:{
     nav:["Sobre","Serviços","Produtos","Mercados","Insights","Documentos","Links Úteis","Contato"],
     title:"Conectando o Brasil ao mercado global de commodities",
     lead:"Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF.",
     btnComprar:"Quero comprar",
     btnVender:"Quero vender",
-
     products: {  
       lead: "Principais linhas de produtos que a Braziltrad intermedia no mercado global de commodities.",
       cards: [
-        { title: "Agrícolas",  text: "Soja, milho, açúcar e café.", badge: "Origem Brasil" },
-        { title: "Energéticas", text: "Etanol, diesel renovável, biomassa.", badge: "Energia renovável" },
-        { title: "Minerais", text: "Lítio, ferro, nióbio e cobre.", badge: "Minerais estratégicos" }
+        { title: "Agrícolas",  text: "Soja, milho, açúcar e café.",             badge: "Origem Brasil" },
+        { title: "Energéticas", text: "Etanol, diesel renovável, biomassa.",    badge: "Energia renovável" },
+        { title: "Minerais",   text: "Lítio, ferro, nióbio e cobre.",           badge: "Minerais estratégicos" }
       ]
     },
-
-    impact: {
-      problem: {
-        title: "O Problema",
-        p1: "Plataforma completa de intermediação internacional",
-        p2: "Estrutura jurídica internacional",
-        p3: "Acesso a compradores globais",
-        p4: "Logística integrada",
-        p5: "Crédito e garantias"
-      },
-      solution: {
-        title: "A Solução: Braziltrad",
-        s1: "Conecta produtores a compradores globais",
-        s2: "Estrutura contratos internacionais",
-        s3: "Garante compliance e segurança jurídica",
-        s4: "Organiza pagamentos internacionais",
-        s5: "Coordena logística e documentação"
-      },
-      footer: "Transformamos pequenos produtores em exportadores globais"
-    },
-
-    institutional: {
-      title: "Braziltrad — Apresentação Institucional",
-      who: {
-        title: "Quem Somos",
-        p1: "A Braziltrad é uma plataforma brasileira especializada na intermediação de exportações.",
-        p2: "Facilitamos o acesso ao comércio exterior para pequenos e médios produtores."
-      },
-      what: {
-        title: "O Que Fazemos",
-        i1: "Conectamos produtores brasileiros a compradores internacionais",
-        i2: "Estruturamos operações de exportação",
-        i3: "Apoiamos na negociação, documentação e logística",
-        i4: "Atuamos em small export e grandes volumes"
-      },
-      sectors: {
-        label: "Setores:",
-        text: "Agronegócio, Alimentos, Commodities, Minerais e Produtos sob demanda."
-      },
-      closing: "O Brasil produz. O mundo compra. A Braziltrad conecta."
-    },
-
-    services: {
-      title: "Serviços",
-      i1_t: "Exportação Assistida & Originação",
-      i1_d: "Estruturamos operações completas ligando produtores a compradores.",
-      i2_t: "Inteligência de Mercado",
-      i2_d: "Análise de oferta, demanda e tendências.",
-      i3_t: "Estruturação Financeira",
-      i3_d: "Câmbio, contratos, recebimentos.",
-      i4_t: "Compliance & Rastreabilidade",
-      i4_d: "Verificação de origem e padrões.",
-      i5_t: "Acesso Global",
-      i5_d: "Inclusão de pequenos produtores."
-    },
-
-    markets: {
-      title: "Mercados",
-      m1: "🇨🇳 China — Maior importador global",
-      m2: "🇪🇺 União Europeia — Mercado premium",
-      m3: "🇸🇦 Oriente Médio — Forte demanda",
-      m4: "🇺🇸 América do Norte — Alto valor agregado",
-      m5: "🇯🇵 Ásia Desenvolvida — Margens premium"
-    }
+impact: {
+  problem: {
+    title: "O Problema",
+    p1: "Plataforma completa de intermediação internacional",
+    p2: "Estrutura jurídica internacional",
+    p3: "Acesso a compradores globais",
+    p4: "Logística integrada",
+    p5: "Crédito e garantias"
   },
 
-  en: {
+  solution: {
+    title: "A Solução: Braziltrad",
+    s1: "Conecta produtores a compradores globais",
+    s2: "Estrutura contratos internacionais",
+    s3: "Garante compliance e segurança jurídica",
+    s4: "Organiza pagamentos internacionais",
+    s5: "Coordena logística e documentação"
+  },
+
+  footer: "Transformamos pequenos produtores em exportadores globais"
+}
+  },
+  en:{
     nav:["About","Services","Products","Markets","Insights","Documents","Useful Links","Contact"],
     title:"Connecting Brazil to the global commodities market",
-    lead:"Reliable intermediation of metals and agricultural products.",
+    lead:"Reliable intermediation of metals and agricultural products, with origin verification, compliance and efficient FOB/CIF logistics.",
     btnComprar:"I want to buy",
     btnVender:"I want to sell",
-
-    services: {
-      title: "Services",
-      i1_t: "Assisted Export",
-      i1_d: "Full export structuring.",
-      i2_t: "Market Intelligence",
-      i2_d: "Supply and demand analysis.",
-      i3_t: "Financial Structuring",
-      i3_d: "FX, contracts and receivables.",
-      i4_t: "Compliance",
-      i4_d: "Legal conformity and traceability.",
-      i5_t: "Global Access",
-      i5_d: "International entry for small exporters."
-    },
-
-    markets: {
-      title: "Markets",
-      m1: "🇨🇳 China — Largest importer",
-      m2: "🇪🇺 European Union — Premium market",
-      m3: "🇸🇦 Middle East — Strong demand",
-      m4: "🇺🇸 North America — High value added",
-      m5: "🇯🇵 Developed Asia — Premium margins"
-    }
+    products: {
+      lead: "Main product lines that Braziltrad intermediates in the global commodities market.",
+      cards: [
+        { title: "Agricultural", text: "Soybeans, corn, sugar and coffee.",          badge: "Brazilian origin" },
+        { title: "Energy",       text: "Ethanol, renewable diesel, biomass.",        badge: "Renewable energy" },
+        { title: "Minerals",     text: "Lithium, iron ore, niobium and copper.",     badge: "Strategic minerals" }
+      ]
+  },
+impact: {
+  problem: {
+    title: "The Problem",
+    p1: "Complete international trading platform",
+    p2: "International legal structure",
+    p3: "Access to global buyers",
+    p4: "Integrated logistics",
+    p5: "Credit and guarantees"
   },
 
-  es: {
+  solution: {
+    title: "The Solution: Braziltrad",
+    s1: "Connects producers to global buyers",
+    s2: "Structures international contracts",
+    s3: "Ensures compliance and legal security",
+    s4: "Manages international payments",
+    s5: "Coordinates logistics and documentation"
+  },
+
+  footer: "We turn small producers into global exporters"
+}
+},
+  
+  es:{
     nav:["Sobre","Servicios","Productos","Mercados","Insights","Documentos","Enlaces Útiles","Contacto"],
-    title:"Conectando a Brasil con el mercado global",
-    lead:"Intermediación confiable de metales y agrícolas.",
+    title:"Conectando a Brasil con el mercado global de commodities",
+    lead:"Intermediación confiable de metales y agrícolas, con verificación de origen, cumplimiento y logística eficiente FOB/CIF.",
     btnComprar:"Quiero comprar",
     btnVender:"Quiero vender",
-
-    services: {
-      title: "Servicios",
-      i1_t: "Exportación Asistida",
-      i1_d: "Operaciones completas de exportación.",
-      i2_t: "Inteligencia de Mercado",
-      i2_d: "Análisis de oferta y demanda.",
-      i3_t: "Estructuración Financiera",
-      i3_d: "Cambio y contratos.",
-      i4_t: "Compliance",
-      i4_d: "Verificación de origen.",
-      i5_t: "Acceso Global",
-      i5_d: "Entrada al mercado internacional."
-    },
-
-    markets: {
-      title: "Mercados",
-      m1: "🇨🇳 China",
-      m2: "🇪🇺 Unión Europea",
-      m3: "🇸🇦 Medio Oriente",
-      m4: "🇺🇸 América del Norte",
-      m5: "🇯🇵 Asia Desarrollada"
-    }
+    products: {
+      lead: "Principales líneas de productos que Braziltrad intermedia en el mercado global de commodities.",
+      cards: [
+        { title: "Agrícolas",   text: "Soja, maíz, azúcar y café.",                 badge: "Origen Brasil" },
+        { title: "Energéticas", text: "Etanol, diésel renovable, biomasa.",         badge: "Energía renovable" },
+        { title: "Minerales",   text: "Litio, hierro, niobio y cobre.",             badge: "Minerales estratégicos" }
+      ]
+   },
+    
+impact: {
+  problem: {
+    title: "El Problema",
+    p1: "Plataforma completa de intermediación internacional",
+    p2: "Estructura jurídica internacional",
+    p3: "Acceso a compradores globales",
+    p4: "Logística integrada",
+    p5: "Crédito y garantías"
   },
 
-  zh: {
+  solution: {
+    title: "La Solución: Braziltrad",
+    s1: "Conecta productores con compradores globales",
+    s2: "Estructura contratos internacionales",
+    s3: "Garantiza cumplimiento y seguridad jurídica",
+    s4: "Organiza pagos internacionales",
+    s5: "Coordina logística y documentación"
+  },
+
+  footer: "Transformamos pequeños productores en exportadores globales"
+}
+
+  },
+  zh:{
     nav:["关于","服务","产品","市场","洞察","文件","实用链接","联系"],
-    title:"连接巴西与全球市场",
-    lead:"提供可靠的大宗商品中介服务。",
+    title:"连接巴西与全球大宗商品市场",
+    lead:"提供可靠的金属与农产品中介服务，进行产地验证、合规与高效的FOB/CIF物流。",
     btnComprar:"我要买",
     btnVender:"我要卖",
-
-    services: {
-      title: "服务",
-      i1_t: "出口协助",
-      i1_d: "完整出口结构。",
-      i2_t: "市场情报",
-      i2_d: "供需分析。",
-      i3_t: "金融结构",
-      i3_d: "外汇与合同。",
-      i4_t: "合规",
-      i4_d: "国际合规验证。",
-      i5_t: "全球通道",
-      i5_d: "中小生产商进入市场。"
+    products: {
+      lead: "Braziltrad 在全球大宗商品市场中介的主要产品类别。",
+      cards: [
+        { title: "农产品",   text: "大豆、玉米、食糖和咖啡。",       badge: "巴西原产" },
+        { title: "能源产品", text: "乙醇、可再生柴油、生物质能。",   badge: "可再生能源" },
+        { title: "矿产",     text: "锂、铁、铌和铜。",               badge: "战略矿产" }
+      ]
     },
+    
+impact: {
+  problem: {
+    title: "问题",
+    p1: "完整的国际贸易平台",
+    p2: "国际法律结构",
+    p3: "全球买家渠道",
+    p4: "一体化物流",
+    p5: "金融支持与担保"
+  },
 
-    markets: {
-      title: "市场",
-      m1: "🇨🇳 中国",
-      m2: "🇪🇺 欧盟",
-      m3: "🇸🇦 中东",
-      m4: "🇺🇸 北美",
-      m5: "🇯🇵 发达亚洲"
-    }
-  }
+  solution: {
+    title: "解决方案：Braziltrad",
+    s1: "连接生产商与全球买家",
+    s2: "构建国际合同体系",
+    s3: "确保合规与法律安全",
+    s4: "管理国际支付",
+    s5: "协调物流与出口文件"
+  },
 
+  footer: "我们将小型生产商转变为全球出口商"
+}
+  },
 };
-
 function applyTranslations(lang) {
   if (!TRANSLATIONS[lang]) return;
 
