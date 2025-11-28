@@ -693,7 +693,28 @@ impact: {
 }
   },
 };
+function applyTranslations(lang) {
+  if (!TRANSLATIONS[lang]) return;
 
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    const keys = key.split(".");
+    let value = TRANSLATIONS[lang];
+
+    try {
+      keys.forEach(k => value = value[k]);
+      if (value !== undefined) el.textContent = value;
+    } catch (e) {
+      console.warn("Chave de tradução não encontrada:", key);
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  applyTranslations("pt");
+});
+
+   
 const SEO = {
   pt: {
     title: "Braziltrad — Conectando o Brasil ao mercado global de commodities",
