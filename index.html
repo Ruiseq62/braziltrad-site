@@ -193,10 +193,11 @@
         </h2>
 
         <div class="lang-switch-group">
-         <button onclick="applyLang('pt')" class="bt-lang-btn">Português</button>
-<button onclick="applyLang('en')" class="bt-lang-btn">English</button>
-<button onclick="applyLang('es')" class="bt-lang-btn">Español</button>
-<button onclick="applyLang('zh')" class="bt-lang-btn">中文</button>
+         <button onclick="changeLanguage('pt')" class="bt-lang-btn">Português</button>
+<button onclick="changeLanguage('en')" class="bt-lang-btn">English</button>
+<button onclick="changeLanguage('es')" class="bt-lang-btn">Español</button>
+<button onclick="changeLanguage('zh')" class="bt-lang-btn">中文</button>
+
 
         </div>
         <!-- ========= INSTITUCIONAL — PORTUGUÊS ========= -->
@@ -711,8 +712,13 @@ function applyTranslations(lang) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  applyTranslations("pt");
+  const savedLang = localStorage.getItem("lang") || "pt";
+  applyTranslations(savedLang);
 });
+function changeLanguage(lang) {
+  localStorage.setItem("lang", lang);
+  applyTranslations(lang);
+}
 
    
 const SEO = {
