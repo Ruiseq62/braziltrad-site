@@ -740,13 +740,6 @@ const SEO = {
   }
 };
 
-function syncSection(sectionSelector, prefix, lang){
-  document.querySelectorAll(`${sectionSelector} .bt-lang`)
-    .forEach(el => el.style.display = 'none');
-
-  const el = document.getElementById(prefix + lang);
-  if(el) el.style.display = 'block';
-}
 
 function updateLinks(code){
   const btnComprar = document.getElementById("btn-comprar");
@@ -937,12 +930,6 @@ function applyLang(code){
 
   if(document.getElementById("ins-title"))
     document.getElementById("ins-title").textContent = titles[code].insights;
-
-  // CONTEÚDOS MULTILÍNGUA (SECÇÕES COM bt-lang)
-  syncSection('#institutional', 'bt-',  code);
-  syncSection('#services',      'sv-',  code);
-  syncSection('#markets',       'mk-',  code);
-  syncSection('#insights',      'ins-', code);
 
   // LINKS
   updateLinks(code);
