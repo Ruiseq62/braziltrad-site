@@ -564,3 +564,88 @@ header nav ul li a:hover {
   padding: 12px 24px;
   border-radius: 30px;
 }
+/* === CORREÇÃO DEFINITIVA DO BLOCO IMPACTO === */
+
+.bloco-impacto {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 90px auto;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,.25);
+  background: #000;
+}
+
+.bloco-impacto img {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* TEXTO SOBRE A IMAGEM */
+.overlay-texto {
+  position: absolute;
+  z-index: 5;
+  background: rgba(8, 32, 55, 0.88);
+  color: #fff;
+  padding: 28px 32px;
+  border-radius: 14px;
+  max-width: 420px;
+}
+
+.overlay-texto h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.overlay-texto ul {
+  padding-left: 18px;
+}
+
+.overlay-texto li {
+  margin-bottom: 8px;
+}
+
+/* POSIÇÕES */
+.overlay-texto.problema {
+  top: 40px;
+  left: 40px;
+}
+
+.overlay-texto.solucao {
+  bottom: 100px;
+  right: 40px;
+}
+
+/* TEXTO FINAL */
+.overlay-footer {
+  position: absolute;
+  z-index: 6;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(5, 20, 40, 0.9);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .overlay-texto {
+    position: relative;
+    max-width: 100%;
+    margin: 14px;
+  }
+
+  .overlay-footer {
+    position: relative;
+    transform: none;
+    margin: 20px auto;
+  }
+}
