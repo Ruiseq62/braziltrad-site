@@ -306,47 +306,23 @@
 <section id="markets" class="section" style="background:#f8f8f8;">
   <div class="container">
 
-    <h2 id="mk-title" style="text-align:center;margin-bottom:20px;">Mercados</h2>
+    <h2 class="section-title" style="text-align:center;margin-bottom:20px;" data-i18n="markets.title"></h2>
 
-    <div class="lang-switch-group">
-     <button onclick="applyLang('pt')" class="bt-lang-btn">Português</button>
-<button onclick="applyLang('en')" class="bt-lang-btn">English</button>
-<button onclick="applyLang('es')" class="bt-lang-btn">Español</button>
-<button onclick="applyLang('zh')" class="bt-lang-btn">中文</button>
+<div class="lang-switch-group">
+  <button onclick="applyLang('pt')" class="bt-lang-btn">Português</button>
+  <button onclick="applyLang('en')" class="bt-lang-btn">English</button>
+  <button onclick="applyLang('es')" class="bt-lang-btn">Español</button>
+  <button onclick="applyLang('zh')" class="bt-lang-btn">中文</button>
+</div>
 
-    </div>
+<ul class="list">
+  <li data-i18n="markets.m1"></li>
+  <li data-i18n="markets.m2"></li>
+  <li data-i18n="markets.m3"></li>
+  <li data-i18n="markets.m4"></li>
+  <li data-i18n="markets.m5"></li>
+</ul>
 
-    <ul id="mk-pt" class="bt-lang">
-      <li>🇨🇳 China — Maior importador global de grãos, proteínas e minerais</li>
-      <li>🇪🇺 União Europeia — Mercado premium e altamente regulado</li>
-      <li>🇸🇦 Oriente Médio — Forte demanda por alimentos e proteínas</li>
-      <li>🇺🇸 América do Norte — Consumo de alto valor agregado</li>
-      <li>🇯🇵 Ásia Desenvolvida — Qualidade, rastreabilidade e margens premium</li>
-    </ul>
-
-    <ul id="mk-en" class="bt-lang" style="display:none;">
-      <li>🇨🇳 China — World’s largest grain, protein and mineral importer</li>
-      <li>🇪🇺 European Union — Highly regulated premium market</li>
-      <li>🇸🇦 Middle East — Strong food and protein demand</li>
-      <li>🇺🇸 North America — High value-added consumption</li>
-      <li>🇯🇵 Developed Asia — Quality, traceability and premium margins</li>
-    </ul>
-
-    <ul id="mk-es" class="bt-lang" style="display:none;">
-      <li>🇨🇳 China — Mayor importador de granos, proteínas y minerales</li>
-      <li>🇪🇺 Unión Europea — Mercado premium altamente regulado</li>
-      <li>🇸🇦 Medio Oriente — Alta demanda de alimentos y proteínas</li>
-      <li>🇺🇸 América del Norte — Consumo de alto valor agregado</li>
-      <li>🇯🇵 Asia Desarrollada — Calidad, trazabilidad y márgenes premium</li>
-    </ul>
-
-    <ul id="mk-zh" class="bt-lang" style="display:none;">
-      <li>🇨🇳 中国 — 全球最大粮食、蛋白与矿产进口国</li>
-      <li>🇪🇺 欧盟 — 高度监管的高端市场</li>
-      <li>🇸🇦 中东 — 食品与蛋白强劲需求</li>
-      <li>🇺🇸 北美 — 高附加值消费</li>
-      <li>🇯🇵 发达亚洲 — 高品质与溯源溢价市场</li>
-    </ul>
 
   </div>
 </section>
@@ -502,7 +478,15 @@ services: {
   i5_t: "Acesso Global para Pequenos Produtores",
   i5_d: "Inclusão de pequenos e médios exportadores no comércio internacional."
 }
+markets: {
+  title: "Mercados",
 
+  m1: "🇨🇳 China — Maior importador global de grãos, proteínas e minerais",
+  m2: "🇪🇺 União Europeia — Mercado premium e altamente regulado",
+  m3: "🇸🇦 Oriente Médio — Forte demanda por alimentos e proteínas",
+  m4: "🇺🇸 América do Norte — Consumo de alto valor agregado",
+  m5: "🇯🇵 Ásia Desenvolvida — Qualidade, rastreabilidade e margens premium"
+}
    },
   en:{
     nav:["About","Services","Products","Markets","Insights","Documents","Useful Links","Contact"],
@@ -582,7 +566,15 @@ services: {
   i5_t: "Global Access for Small Producers",
   i5_d: "International market entry for small and mid-sized exporters."
 }
+markets: {
+  title: "Markets",
 
+  m1: "🇨🇳 China — World’s largest grain, protein and mineral importer",
+  m2: "🇪🇺 European Union — Highly regulated premium market",
+  m3: "🇸🇦 Middle East — Strong food and protein demand",
+  m4: "🇺🇸 North America — High value-added consumption",
+  m5: "🇯🇵 Developed Asia — Quality, traceability and premium margins"
+}
 },
   
   es:{
@@ -664,8 +656,9 @@ services: {
 
   i5_t: "Acceso Global para Pequeños Productores",
   i5_d: "Entrada al mercado internacional con soporte completo."
-},
-  }
+}
+    
+  },
   zh:{
     nav:["关于","服务","产品","市场","洞察","文件","实用链接","联系"],
     title:"连接巴西与全球大宗商品市场",
@@ -746,7 +739,16 @@ services: {
   i5_t: "小型生产商全球通道",
   i5_d: "中小生产商进入国际市场。"
 }
-  },
+  markets: {
+  title: "市场",
+
+  m1: "🇨🇳 中国 — 全球最大粮食、蛋白与矿产进口国",
+  m2: "🇪🇺 欧盟 — 高度监管的高端市场",
+  m3: "🇸🇦 中东 — 食品与蛋白强劲需求",
+  m4: "🇺🇸 北美 — 高附加值消费",
+  m5: "🇯🇵 发达亚洲 — 高品质与溯源溢价市场"
+},
+
 };
 function applyTranslations(lang) {
   if (!TRANSLATIONS[lang]) return;
