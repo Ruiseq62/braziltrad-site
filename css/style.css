@@ -83,19 +83,54 @@ body {
 /* =================================================
    4. HEADER
 ================================================= */
+/* 🔒 HEADER DEFINITIVAMENTE TRAVADO (ANTI-SALTO) */
 .header {
   background: #ffffff;
   border-bottom: 1px solid rgba(0,0,0,0.06);
-  padding: 14px 0;
   position: sticky;
   top: 0;
   z-index: 9999;
+
+  height: 70px;
+  min-height: 70px;
+  max-height: 70px;
+  overflow: hidden;
+  padding: 0;
+}
+
+
+/* Trava alinhamento interno */
+.header nav {
+  height: 40px;
+  min-height: 40px;
+}
+
+/* Segurança extra */
+.header * {
+  line-height: 1.2;
 }
 
 .header .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.header nav ul {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+
+.header nav ul li {
+  flex-shrink: 0;
+}
+.header nav ul li a {
+  padding-left: 0.4ch;
+  padding-right: 0.4ch;
+}
+.header .slogan {
+  min-height: 20px;
+  line-height: 20px;
 }
 
 .brand {
@@ -145,7 +180,13 @@ header nav ul li a:hover {
   padding: 80px 20px 100px;
   background: #f4f7f9;
   text-align: center;
+
+  /* ✅ ADIÇÃO ANTI-SALTO */
+  min-height: 520px;
+  display: flex;
+  align-items: center;
 }
+
 
 .hero h1 {
   font-size: 2.6rem;
@@ -162,7 +203,14 @@ header nav ul li a:hover {
   line-height: 1.6;
   color: #555;
 }
+/* ✅ ESTABILIZA ALTURA DOS TEXTOS ENTRE IDIOMAS */
+.hero-title {
+  min-height: 120px;
+}
 
+.hero-lead {
+  min-height: 72px;
+}
 .cta {
   display: flex;
   justify-content: center;
@@ -542,6 +590,11 @@ header nav ul li a:hover {
   font-size: 1.05rem !important;
   border-radius: 32px !important;
 }
+.lang-btn {
+  width: 110px;
+  text-align: center;
+}
+
 .hero .cta{
   margin-top: 40px;
 }
@@ -663,3 +716,213 @@ header nav ul li a:hover {
   color: #0F4C5C;
   font-size: 0.9rem;
 }
+html.lang-lock,
+body.lang-lock {
+  overflow: hidden !important;
+}
+/* 🔒 Tira o widget do fluxo normal para impedir reflow */
+
+
+/* Dá espaço artificial no topo para compensar o widget */
+body {
+  padding-top: 68px; /* ajuste fino se necessário */
+}
+/* === CORREÇÃO DEFINITIVA DOS SALTOS DE IDIOMA === */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* altura real do header */
+}
+
+.section {
+  scroll-margin-top: 90px;
+}
+#export-insurance h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+#export-insurance h3 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+#export-insurance .card {
+  min-height: 280px;
+}
+/* ===== TRAVA VISUAL ANTI-FLICKER NA TROCA DE IDIOMA ===== */
+.lang-lock {
+  overflow: hidden !important;
+}
+
+body.lang-lock * {
+  transition: none !important;
+  animation: none !important;
+}
+
+.lang-fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lang-show {
+  opacity: 1;
+  transition: opacity 0.15s linear;
+}
+.lang-freeze-safe {
+  overflow: hidden !important;
+}
+
+.lang-freeze-safe * {
+  transition: none !important;
+  animation: none !important;
+}
+.market-widget-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: white;
+}
+
+/* Primeira barra */
+.market-widget-wrapper .main-bar {
+  position: relative;
+  z-index: 9999;
+}
+
+/* Segunda barra */
+.market-widget-wrapper .commodities-bar {
+  position: relative;
+  z-index: 9998;
+}
+/* === FIXAÇÃO DEFINITIVA DAS BARRAS DE COTAÇÃO === */
+
+.market-widget-wrapper {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: #fff;
+}
+
+/* Ajuste das barras internas */
+.market-widget-wrapper .tradingview-widget-container {
+  position: relative !important;
+  background: #fff;
+}
+
+/* Empurra o site para baixo para não ficar tapado */
+body {
+  padding-top: 86px !important; /* ajusta depois se precisares: 80 a 100 */
+}
+/* Compensação no body para não tapar conteúdo */
+body {
+  padding-top: 84px; /* ajusta à soma real das duas barras */
+}
+/* === ESTABILIZA O HERO NA TROCA DE IDIOMA (ANTI-SALTO FINAL) === */
+.hero {
+  min-height: 420px;   /* pode ajustar entre 380 e 460 se quiseres */
+  display: flex;
+  align-items: center;
+}
+/* ==========================================
+   FIX DEFINITIVO DOS SALTOS APÓS A HERO
+========================================== */
+
+/* 🔒 Trava os cards principais de idioma */
+#export-insurance .card,
+.export-card,
+.insurance-card {
+  min-height: 300px;
+}
+
+/* 🔒 Trava os títulos dos cards */
+#export-insurance h3 {
+  min-height: 38px;
+}
+
+/* 🔒 Trava os textos internos */
+#export-insurance p {
+  min-height: 90px;
+}
+
+/* 🔒 Trava a seção inteira contra recalculo */
+#export-insurance {
+  min-height: 700px;
+}
+
+/* 🔒 Trava o bloco de vantagens */
+#export-insurance ul {
+  min-height: 140px;
+}
+
+/* 🔒 Trava TODAS as sections que mudam idioma */
+.section {
+  min-height: 420px;
+  will-change: transform;
+}
+
+/* ✅ Remove qualquer animação residual em troca de idioma */
+body.lang-lock *,
+body.lang-freeze-safe * {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* ✅ Safari anti-reflow */
+html, body {
+  overflow-anchor: none;
+}
+/* ==========================================
+   FIX DEFINITIVO ABSOLUTO — SEÇÃO DE SEGURO
+========================================== */
+
+#export-insurance {
+  min-height: 900px;        /* trava completamente a área */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid dos cards */
+#export-insurance .grid {
+  min-height: 360px;
+  align-items: stretch;
+}
+
+/* Cada card */
+#export-insurance .card {
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Títulos dos cards */
+#export-insurance .card h3 {
+  min-height: 44px;
+}
+
+/* Texto dos cards */
+#export-insurance .card p {
+  min-height: 110px;
+}
+
+/* Lista de vantagens */
+#export-insurance ul,
+#export-insurance .vantagens {
+  min-height: 180px;
+}
+
+/* Título principal */
+#export-insurance h2 {
+  min-height: 54px;
+}
+
+/* Anti-reflow Safari */
+#export-insurance * {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
