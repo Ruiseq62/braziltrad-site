@@ -1099,20 +1099,29 @@
     tvCommod.appendChild(w2);
   }
 
+let isLangSwitching = false;
+
 function applyLangSafe(code){
+  // 🔒 Impede execução dupla
+  if (isLangSwitching) return;
+  isLangSwitching = true;
+
   const scrollY = window.scrollY;
 
-  // Congela apenas repaint (não usa fixed!)
-  document.documentElement.style.scrollBehavior = "auto";
-  document.body.style.pointerEvents = "none";
+  // Troca o idioma apenas UMA vez
+  applyLang(code);
 
   requestAnimationFrame(() => {
-    applyLang(code);
-
-    requestAnimationFrame(() => {
-      window.scrollTo(0, scrollY);
-      document.body.style.pointerEvents = "";
+    window.scrollTo({
+      top: scrollY,
+      left: 0,
+      behavior: "auto"
     });
+
+    // 🔓 Libera após estabilizar
+    setTimeout(() => {
+      isLangSwitching = false;
+    }, 120);
   });
 }
 
