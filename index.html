@@ -22,7 +22,7 @@
   <link rel="alternate" hreflang="x-default" href="https://braziltrad.com/" />
 
   <!-- =========================
-       OPEN GRAPH (WhatsApp, LinkedIn, redes)
+       OPEN GRAPH
   ========================== -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Braziltrad | Trading, Exportação e Intermediação de Commodities">
@@ -37,7 +37,7 @@
   <meta name="twitter:image" content="https://braziltrad.com/assets/img/braziltrad-logo.png">
 
   <!-- =========================
-       SCHEMA MARKUP (AUTORIDADE GOOGLE)
+       SCHEMA MARKUP
   ========================== -->
   <script type="application/ld+json">
   {
@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="./css/style.css">
 
   <!-- =========================
-       AJUSTES VISUAIS EXISTENTES (mantidos)
+       AJUSTES VISUAIS EXISTENTES
   ========================== -->
   <style>
     @media (max-width:420px){
@@ -134,12 +134,14 @@
 <body>
 
   <!-- ===== BARRAS TRADINGVIEW ===== -->
-  <div class="tradingview-widget-container main-bar">
-    <div id="tv-indices"></div>
-  </div>
+  <div class="market-widget-wrapper">
+    <div class="tradingview-widget-container main-bar">
+      <div id="tv-indices"></div>
+    </div>
 
-  <div class="tradingview-widget-container commodities-bar">
-    <div id="tv-commodities"></div>
+    <div class="tradingview-widget-container commodities-bar">
+      <div id="tv-commodities"></div>
+    </div>
   </div>
 
   <!-- ===== BOTÃO DE IDIOMA ===== -->
@@ -162,6 +164,7 @@
         <ul>
           <li><a href="#institutional">Sobre</a></li>
           <li><a href="#services">Serviços</a></li>
+          <li><a href="#export-insurance">Seguro</a></li>
           <li><a href="#products">Produtos</a></li>
           <li><a href="#markets">Mercados</a></li>
           <li><a href="#insights">Insights</a></li>
@@ -174,7 +177,8 @@
   </header>
 
   <!-- ===== CONTEÚDO PRINCIPAL ===== -->
-  <main>
+ <main id="lang-container">
+
 
     <!-- ===== HERO ===== -->
     <section class="hero">
@@ -199,7 +203,7 @@
       </div>
     </section>
 
-    <!-- BLOCO DE IMPACTO - PROBLEMA → SOLUÇÃO -->
+    <!-- ===== BLOCO DE IMPACTO ===== -->
     <section class="bloco-impacto">
       <img src="assets/img/impacto-braziltrad.png" alt="Braziltrad" loading="lazy">
 
@@ -296,6 +300,80 @@
     </section>
     <!-- ===== FIM SERVIÇOS ===== -->
 
+    <!-- =====================================================
+         SEGURO DE EXPORTAÇÃO — MULTILÍNGUE
+    ====================================================== -->
+    <section id="export-insurance" class="section" style="background:#f8f8f8;padding:70px 0 60px 0;">
+
+      <div class="container">
+
+        <h2 data-i18n="insurance.title" style="text-align:center;margin-bottom:18px;">
+          Seguro de Exportação BrazilTrad
+        </h2>
+
+        <p class="lead" data-i18n="insurance.subtitle" style="text-align:center;max-width:800px;margin:0 auto 28px;">
+          Venda com segurança, reduza riscos e tenha garantia de recebimento nas suas operações internacionais.
+        </p>
+
+        <div class="grid">
+
+          <article class="card">
+            <h3 data-i18n="insurance.what.title">O que é?</h3>
+            <p data-i18n="insurance.what.text">
+              O Seguro de Crédito à Exportação protege o exportador contra inadimplência, falência do comprador, riscos políticos, guerras, sanções e bloqueios cambiais.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="insurance.cover.title">O que cobre?</h3>
+            <p data-i18n="insurance.cover.text">
+              Calote do importador, atrasos de pagamento, crises no país de destino e riscos geopolíticos.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 data-i18n="insurance.for.title">Para quem?</h3>
+            <p data-i18n="insurance.for.text">
+              Exportadores de commodities, alimentos, minerais, produtos industriais e small export.
+            </p>
+          </article>
+
+        </div>
+
+        <div style="margin-top:40px;">
+
+          <h3 data-i18n="insurance.advantages.title">Vantagens</h3>
+          <ul>
+            <li data-i18n="insurance.advantages.items.0">Receba mesmo se o comprador não pagar</li>
+            <li data-i18n="insurance.advantages.items.1">Venda para novos mercados com mais segurança</li>
+            <li data-i18n="insurance.advantages.items.2">Mais facilidade para financiar a exportação</li>
+            <li data-i18n="insurance.advantages.items.3">Redução de perdas com inadimplência</li>
+          </ul>
+
+          <h3 style="margin-top:28px;" data-i18n="insurance.flow.title">Como funciona</h3>
+          <ol>
+            <li data-i18n="insurance.flow.s1">Cadastro da operação</li>
+            <li data-i18n="insurance.flow.s2">Análise de risco do comprador</li>
+            <li data-i18n="insurance.flow.s3">Oferta de seguro</li>
+            <li data-i18n="insurance.flow.s4">Venda com proteção ativa</li>
+            <li data-i18n="insurance.flow.s5">Indenização em caso de inadimplência</li>
+          </ol>
+
+          <h3 style="margin-top:28px;" data-i18n="insurance.cost.title">Custo médio</h3>
+          <p data-i18n="insurance.cost.text">
+            O custo varia geralmente entre 1% e 5% do valor da operação.
+          </p>
+
+        </div>
+
+        <div class="cta" style="margin-top:32px;text-align:center;">
+          <a href="#contact" class="button" data-i18n="insurance.cta">Solicitar Análise de Seguro</a>
+        </div>
+
+      </div>
+
+    </section>
+
     <!-- ===== PRODUTOS ===== -->
     <section id="products" class="section">
       <div class="container">
@@ -368,7 +446,7 @@
   </main>
 
   <!-- ===== RODAPÉ ===== -->
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="inner container">
       <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" style="height:34px;width:auto;margin:0 auto 10px">
       <div>© BrazilTrad. Conectando produtores brasileiros a mercados globais.</div>
@@ -389,12 +467,13 @@
 
   const TRANSLATIONS = {
     pt:{
-      nav:["Sobre","Serviços","Produtos","Mercados","Insights","Documentos","Links Úteis","Contato"],
+      nav:["Sobre","Serviços","Seguro","Produtos","Mercados","Insights","Documentos","Links Úteis","Contato"],
       title:"Conectando o Brasil ao mercado global de commodities",
       lead:"Intermediação confiável de metais e agrícolas, com verificação de origem, compliance e logística eficiente sob FOB/CIF.",
       btnComprar:"Quero comprar",
       btnVender:"Quero vender",
       heroSlogan:"Conectando produtores brasileiros a mercados globais",
+
       products: {  
         title: "Produtos",
         lead: "Principais linhas de produtos que a Braziltrad intermedia no mercado global de commodities.",
@@ -404,6 +483,7 @@
           { title: "Minerais",    text: "Lítio, ferro, nióbio e cobre.",         badge: "Minerais estratégicos" }
         ]
       },
+
       impact: {
         problem: {
           title: "O Problema",
@@ -423,6 +503,7 @@
         },
         footer: "Transformamos pequenos produtores em exportadores globais"
       },
+
       institutional: {
         title: "Braziltrad — Apresentação Institucional",
         who: {
@@ -443,6 +524,7 @@
         },
         closing: "O Brasil produz. O mundo compra. A Braziltrad conecta."
       },
+
       services: {
         title: "Serviços",
         i1_t: "Exportação Assistida & Originação de Commodities",
@@ -456,6 +538,7 @@
         i5_t: "Acesso Global para Pequenos Produtores",
         i5_d: "Inclusão de pequenos e médios exportadores no comércio internacional."
       },
+
       markets: {
         title: "Mercados",
         m1: "🇨🇳 China — Maior importador global de grãos, proteínas e minerais",
@@ -464,22 +547,63 @@
         m4: "🇺🇸 América do Norte — Consumo de alto valor agregado",
         m5: "🇯🇵 Ásia Desenvolvida — Qualidade, rastreabilidade e margens premium"
       },
+
       insights: {
         title: "Insights",
         i1: "Tendências globais de preços de commodities",
         i2: "Fluxos de importação e exportação",
         i3: "Geopolítica, riscos e logística internacional",
         i4: "Oportunidades estratégicas para produtores e investidores"
+      },
+
+      insurance: {
+        title: "Seguro de Exportação BrazilTrad",
+        subtitle: "Venda com segurança, reduza riscos e tenha garantia de recebimento nas suas operações internacionais.",
+        what: {
+          title: "O que é?",
+          text: "O Seguro de Crédito à Exportação protege o exportador contra inadimplência, falência do comprador, riscos políticos, guerras, sanções e bloqueios cambiais."
+        },
+        cover: {
+          title: "O que cobre?",
+          text: "Calote do importador, atrasos de pagamento, crises no país de destino e riscos geopolíticos."
+        },
+        for: {
+          title: "Para quem?",
+          text: "Exportadores de commodities, alimentos, minerais, produtos industriais e small export."
+        },
+        advantages: {
+          title: "Vantagens",
+          items: [
+            "Receba mesmo se o comprador não pagar",
+            "Venda para novos mercados com mais segurança",
+            "Mais facilidade para financiar a exportação",
+            "Redução de perdas com inadimplência"
+          ]
+        },
+        flow: {
+          title:"Como funciona",
+          s1:"Cadastro da operação",
+          s2:"Análise de risco do comprador",
+          s3:"Oferta de seguro",
+          s4:"Venda com proteção ativa",
+          s5:"Indenização em caso de inadimplência"
+        },
+        cost: {
+          title:"Custo médio",
+          text:"O custo varia em geral entre 1% e 5% do valor da operação."
+        },
+        cta: "Solicitar Análise de Seguro"
       }
     },
 
     en:{
-      nav:["About","Services","Products","Markets","Insights","Documents","Useful Links","Contact"],
+      nav:["About","Services","Insurance","Products","Markets","Insights","Documents","Useful Links","Contact"],
       title:"Connecting Brazil to the global commodities market",
       lead:"Reliable intermediation of metals and agricultural products, with origin verification, compliance and efficient FOB/CIF logistics.",
       btnComprar:"I want to buy",
       btnVender:"I want to sell",
       heroSlogan:"Connecting Brazilian producers to global markets",
+
       products: {
         title: "Products",
         lead: "Main product lines that Braziltrad intermediates in the global commodities market.",
@@ -489,11 +613,12 @@
           { title: "Minerals",     text: "Lithium, iron ore, niobium and copper.",  badge: "Strategic minerals" }
         ]
       },
+
       impact: {
         problem: {
           title: "The Problem",
           p1: "Lack of a complete international intermediation platform",
-          p2: "Complex international legal structure",
+          p2: "Complex international legal structure for exporting",
           p3: "Limited access to global buyers",
           p4: "Fragmented international logistics",
           p5: "Limited credit and guarantees for small exporters"
@@ -508,19 +633,20 @@
         },
         footer: "We turn small producers into global exporters"
       },
+
       institutional: {
         title: "Braziltrad — Institutional Presentation",
         who: {
           title: "Who We Are",
-          p1: "Braziltrad is a Brazilian trading platform specialized in export intermediation, connecting Brazilian producers and suppliers with international buyers in a fast, secure and efficient way.",
-          p2: "We simplify access to global trade, especially for small and medium producers, offering full support from buyer prospecting to final delivery."
+          p1: "Braziltrad is a Brazilian platform specialized in export intermediation, connecting producers and suppliers with international buyers.",
+          p2: "We simplify access to global trade, especially for small and medium producers."
         },
         what: {
           title: "What We Do",
           i1: "We connect Brazilian producers with international buyers",
           i2: "We structure export operations",
           i3: "We support negotiation, documentation and logistics",
-          i4: "We operate in small export operations and large volumes"
+          i4: "We operate both small and large export volumes"
         },
         sectors: {
           label: "Sectors:",
@@ -528,12 +654,13 @@
         },
         closing: "Brazil produces. The world buys. Braziltrad connects."
       },
+
       services: {
         title: "Services",
         i1_t: "Assisted Export & Commodity Origination",
         i1_d: "Full export structuring connecting Brazilian producers to global buyers.",
         i2_t: "Market Intelligence & Pricing Strategy",
-        i2_d: "Supply, demand and global trend analysis for strategic pricing.",
+        i2_d: "Supply, demand and global trend analysis.",
         i3_t: "Financial Structuring & International Payments",
         i3_d: "FX, contracts, receivables and risk mitigation.",
         i4_t: "Compliance, Documentation & Traceability",
@@ -541,6 +668,7 @@
         i5_t: "Global Access for Small Producers",
         i5_d: "International market entry for small and mid-sized exporters."
       },
+
       markets: {
         title: "Markets",
         m1: "🇨🇳 China — World’s largest grain, protein and mineral importer",
@@ -549,22 +677,63 @@
         m4: "🇺🇸 North America — High value-added consumption",
         m5: "🇯🇵 Developed Asia — Quality, traceability and premium margins"
       },
+
       insights: {
         title: "Insights",
         i1: "Global commodity price trends",
         i2: "Import and export flows",
-        i3: "Geopolitics, risks and logistics",
+        i3: "Geopolitics, risks and international logistics",
         i4: "Strategic opportunities for producers and investors"
+      },
+
+      insurance: {
+        title: "Export Insurance – BrazilTrad",
+        subtitle: "Sell safely, reduce risks and secure guaranteed payments in your international operations.",
+        what: {
+          title: "What is it?",
+          text: "Export Credit Insurance protects exporters against default, buyer bankruptcy, political risks, wars, sanctions and currency restrictions."
+        },
+        cover: {
+          title: "What does it cover?",
+          text: "Importer default, payment delays, destination country crises and geopolitical risks."
+        },
+        for: {
+          title: "Who is it for?",
+          text: "Exporters of commodities, food, minerals, industrial products and small exports."
+        },
+        advantages: {
+          title: "Advantages",
+          items: [
+            "Get paid even if the buyer defaults",
+            "Access new markets with greater security",
+            "Easier access to export financing",
+            "Reduced default losses"
+          ]
+        },
+        flow: {
+          title:"How it works",
+          s1:"Operation registration",
+          s2:"Buyer risk analysis",
+          s3:"Insurance offer",
+          s4:"Sale with active protection",
+          s5:"Indemnity in case of default"
+        },
+        cost: {
+          title:"Average cost",
+          text:"The cost usually ranges between 1% and 5% of the transaction value."
+        },
+        cta: "Request Insurance Analysis"
       }
     },
 
     es:{
-      nav:["Sobre","Servicios","Productos","Mercados","Insights","Documentos","Links Útiles","Contacto"],
+      nav:["Sobre","Servicios","Seguro","Productos","Mercados","Insights","Documentos","Links Útiles","Contacto"],
       title:"Conectando a Brasil con el mercado global de commodities",
       lead:"Intermediación confiable de metales y agrícolas, con verificación de origen, cumplimiento y logística eficiente FOB/CIF.",
       btnComprar:"Quiero comprar",
       btnVender:"Quiero vender",
       heroSlogan:"Conectando productores brasileños con mercados globales",
+
       products: {
         title: "Productos",
         lead: "Principales líneas de productos que Braziltrad intermedia en el mercado global de commodities.",
@@ -574,11 +743,12 @@
           { title: "Minerales",   text: "Litio, hierro, niobio y cobre.",         badge: "Minerales estratégicos" }
         ]
       },
+
       impact: {
         problem: {
           title: "El Problema",
           p1: "Falta de una plataforma completa de intermediación internacional",
-          p2: "Estructura jurídica internacional compleja",
+          p2: "Estructura jurídica compleja para exportar",
           p3: "Acceso limitado a compradores globales",
           p4: "Logística internacional fragmentada",
           p5: "Crédito y garantías limitadas para pequeños exportadores"
@@ -593,19 +763,20 @@
         },
         footer: "Transformamos pequeños productores en exportadores globales"
       },
+
       institutional: {
         title: "Braziltrad — Presentación Institucional",
         who: {
           title: "Quiénes Somos",
-          p1: "Braziltrad es una plataforma brasileña especializada en la intermediación de exportaciones, que conecta productores y proveedores de Brasil con compradores internacionales de forma segura, rápida y eficiente.",
-          p2: "Facilitamos el acceso al comercio exterior, especialmente para pequeños y medianos productores, ofreciendo soporte completo desde la prospección hasta la entrega final."
+          p1: "Braziltrad es una plataforma brasileña especializada en la intermediación de exportaciones.",
+          p2: "Facilitamos el acceso al comercio exterior con soporte integral."
         },
         what: {
           title: "Qué Hacemos",
           i1: "Conectamos productores brasileños con compradores internacionales",
           i2: "Estructuramos operaciones de exportación",
-          i3: "Apoyamos en la negociación, documentación y logística",
-          i4: "Operamos en small export y grandes volúmenes"
+          i3: "Apoyamos en negociación, documentación y logística",
+          i4: "Actuamos en small export y grandes volúmenes"
         },
         sectors: {
           label: "Sectores:",
@@ -613,6 +784,7 @@
         },
         closing: "Brasil produce. El mundo compra. Braziltrad conecta."
       },
+
       services: {
         title: "Servicios",
         i1_t: "Exportación Asistida y Originación",
@@ -626,6 +798,7 @@
         i5_t: "Acceso Global para Pequeños Productores",
         i5_d: "Entrada al mercado internacional con soporte completo."
       },
+
       markets: {
         title: "Mercados",
         m1: "🇨🇳 China — Mayor importador de granos, proteínas y minerales",
@@ -634,22 +807,63 @@
         m4: "🇺🇸 América del Norte — Consumo de alto valor agregado",
         m5: "🇯🇵 Asia Desarrollada — Calidad, trazabilidad y márgenes premium"
       },
+
       insights: {
         title: "Insights",
         i1: "Tendencias globales de precios",
         i2: "Flujos de importación y exportación",
-        i3: "Geopolítica, riesgos y logística",
+        i3: "Geopolítica, riesgos y logística internacional",
         i4: "Oportunidades estratégicas para productores e inversores"
+      },
+
+      insurance: {
+        title: "Seguro de Exportación – BrazilTrad",
+        subtitle: "Venda con seguridad, reduzca riesgos y garantice el cobro en sus operaciones internacionales.",
+        what: {
+          title: "¿Qué es?",
+          text: "El Seguro de Crédito a la Exportación protege al exportador contra impagos, quiebra del comprador, riesgos políticos, guerras, sanciones y bloqueos cambiarios."
+        },
+        cover: {
+          title: "¿Qué cubre?",
+          text: "Impago del importador, retrasos en el pago, crisis en el país de destino y riesgos geopolíticos."
+        },
+        for: {
+          title: "¿Para quién?",
+          text: "Exportadores de commodities, alimentos, minerales, productos industriales y small export."
+        },
+        advantages: {
+          title: "Ventajas",
+          items: [
+            "Cobra incluso si el comprador no paga",
+            "Acceso a nuevos mercados con mayor seguridad",
+            "Mayor facilidad para financiar exportaciones",
+            "Reducción de pérdidas por impago"
+          ]
+        },
+        flow: {
+          title:"Cómo funciona",
+          s1:"Registro de la operación",
+          s2:"Análisis de riesgo del comprador",
+          s3:"Oferta de seguro",
+          s4:"Venta con protección activa",
+          s5:"Indemnización en caso de impago"
+        },
+        cost: {
+          title:"Costo medio",
+          text:"El costo suele variar entre 1% y 5% del valor de la operación."
+        },
+        cta: "Solicitar Análisis del Seguro"
       }
     },
 
     zh:{
-      nav:["关于","服务","产品","市场","洞察","文件","实用链接","联系"],
+      nav:["关于","服务","保险","产品","市场","洞察","文件","实用链接","联系"],
       title:"连接巴西与全球大宗商品市场",
       lead:"提供可靠的金属与农产品中介服务，进行产地验证、合规与高效的FOB/CIF物流。",
       btnComprar:"我要买",
       btnVender:"我要卖",
       heroSlogan:"连接巴西生产者与全球市场",
+
       products: {
         title: "产品",
         lead: "Braziltrad 在全球大宗商品市场中介的主要产品类别。",
@@ -659,6 +873,7 @@
           { title: "矿产",     text: "锂、铁、铌和铜。",               badge: "战略矿产" }
         ]
       },
+
       impact: {
         problem: {
           title: "问题",
@@ -678,17 +893,18 @@
         },
         footer: "我们将小型生产商转变为全球出口商"
       },
+
       institutional: {
         title: "Braziltrad — 公司介绍",
         who: {
           title: "关于我们",
-          p1: "Braziltrad 是一家来自巴西的国际贸易平台，专注于出口业务对接，安全高效地连接巴西生产商与全球买家。",
-          p2: "我们为中小型生产商提供从买家对接到最终交付的全流程支持，帮助其进入国际市场。"
+          p1: "Braziltrad 是一家来自巴西的国际贸易平台，专注于出口业务对接。",
+          p2: "我们为中小型生产商提供从买家对接到最终交付的全流程支持。"
         },
         what: {
           title: "我们的服务",
           i1: "连接巴西生产商与国际买家",
-          i2: "构建出口业务结构",
+          i2: "搭建出口业务结构",
           i3: "提供谈判、文件与物流支持",
           i4: "支持小额出口与大宗贸易"
         },
@@ -698,6 +914,7 @@
         },
         closing: "巴西负责生产。世界负责采购。Braziltrad 负责连接。"
       },
+
       services: {
         title: "服务",
         i1_t: "出口协助与大宗商品原产",
@@ -709,22 +926,63 @@
         i4_t: "合规、文件与溯源",
         i4_d: "国际合规与原产地验证。",
         i5_t: "小型生产商全球通道",
-        i5_d: "中小生产商进入国际市场。"
+        i5_d: "帮助中小生产商进入国际市场。"
       },
+
       markets: {
         title: "市场",
         m1: "🇨🇳 中国 — 全球最大粮食、蛋白与矿产进口国",
         m2: "🇪🇺 欧盟 — 高度监管的高端市场",
         m3: "🇸🇦 中东 — 食品与蛋白强劲需求",
         m4: "🇺🇸 北美 — 高附加值消费",
-        m5: "🇯🇵 发达亚洲 — 高品质与溯源溢价市场"
+        m5: "🇯🇵 发达亚洲 — 重视品质与溯源的溢价市场"
       },
+
       insights: {
         title: "洞察",
         i1: "全球大宗商品价格趋势",
         i2: "进出口流动分析",
         i3: "地缘政治、风险与物流",
         i4: "生产商与投资者的战略机会"
+      },
+
+      insurance: {
+        title: "出口信用保险 – BrazilTrad",
+        subtitle: "安全销售，降低风险，保障国际贸易收款。",
+        what: {
+          title: "什么是出口保险？",
+          text: "出口信用保险可保护出口商免受买方违约、破产及政治风险的影响。"
+        },
+        cover: {
+          title: "保障范围",
+          text: "买方违约、延迟付款、目的国危机及地缘政治风险。"
+        },
+        for: {
+          title: "适用对象",
+          text: "大宗商品、食品、矿产、工业产品及小额出口商。"
+        },
+        advantages: {
+          title: "优势",
+          items: [
+            "即使买方违约也可收款",
+            "更安全地进入新市场",
+            "更容易获得出口融资",
+            "减少坏账损失"
+          ]
+        },
+        flow: {
+          title:"流程",
+          s1:"操作登记",
+          s2:"买方风险分析",
+          s3:"保险方案报价",
+          s4:"承保并进行受保护销售",
+          s5:"发生违约时理赔"
+        },
+        cost: {
+          title:"平均费用",
+          text:"通常为交易金额的 1%–5%。"
+        },
+        cta: "申请保险分析"
       }
     }
   };
@@ -840,26 +1098,26 @@
     });
     tvCommod.appendChild(w2);
   }
-function applyLangSafe(code){
-  const body = document.body;
-  const height = body.offsetHeight;
 
-  // Congela a altura atual
-  body.style.height = height + "px";
-  body.style.overflow = "hidden";
+function applyLangSafe(code){
+  const scrollY = window.scrollY;
+
+  // Congela apenas repaint (não usa fixed!)
+  document.documentElement.style.scrollBehavior = "auto";
+  document.body.style.pointerEvents = "none";
 
   requestAnimationFrame(() => {
     applyLang(code);
 
-
-
-    // Liberta após renderização
-    setTimeout(() => {
-      body.style.height = "";
-      body.style.overflow = "";
-    }, 50);
+    requestAnimationFrame(() => {
+      window.scrollTo(0, scrollY);
+      document.body.style.pointerEvents = "";
+    });
   });
 }
+
+
+
   // ===== FUNÇÃO PRINCIPAL =====
   function applyLang(code) {
     document.documentElement.setAttribute("lang", code);
@@ -934,10 +1192,15 @@ function applyLangSafe(code){
     updateLinks(code);
 
     // TRADINGVIEW
-    initTradingView(code);
+   if(!window.__tvInitialized){
+  initTradingView(code);
+  window.__tvInitialized = true;
+}
+
 
     // PERSISTÊNCIA
     localStorage.setItem("bt_lang", code);
+    document.dispatchEvent(new Event("bt:langChanged"));
   }
 
   // ===== INIT FINAL =====
@@ -948,7 +1211,6 @@ function applyLangSafe(code){
 
     applyLangSafe(code);
 
-
     // Botão global de idioma
     let idx = LANGS.indexOf(code);
     const langBtn = document.getElementById('langBtn');
@@ -956,7 +1218,6 @@ function applyLangSafe(code){
       langBtn.addEventListener('click', function(){
         idx = (idx + 1) % LANGS.length;
         applyLangSafe(LANGS[idx]);
-
       });
     }
 
@@ -979,32 +1240,32 @@ function applyLangSafe(code){
     });
   });
   </script>
-<script>
-  function removeImpactBoxesMobile(){
-    if(window.innerWidth <= 768){
-      const caixas = document.querySelectorAll(
-        ".bloco-impacto .overlay-texto, .bloco-impacto .overlay-texto.problema, .bloco-impacto .overlay-texto.solucao"
-      );
-      caixas.forEach(caixa => {
-        caixa.remove();
-      });
+
+  <!-- ===== SCRIPT: IMPACTO MOBILE ===== -->
+  <script>
+    function removeImpactBoxesMobile(){
+      if(window.innerWidth <= 768){
+        const caixas = document.querySelectorAll(
+          ".bloco-impacto .overlay-texto, .bloco-impacto .overlay-texto.problema, .bloco-impacto .overlay-texto.solucao"
+        );
+        caixas.forEach(caixa => {
+          caixa.remove();
+        });
+      }
     }
-  }
 
-  // Executa ao carregar
-  document.addEventListener("DOMContentLoaded", removeImpactBoxesMobile);
+    // Executa ao carregar
+    document.addEventListener("DOMContentLoaded", removeImpactBoxesMobile);
 
-  // Executa ao mudar de idioma
-  const originalApplyLang = window.applyLang;
-  window.applyLang = function(code){
-    if(originalApplyLang) originalApplyLang(code);
-    setTimeout(removeImpactBoxesMobile, 50);
-  };
+    // Executa ao mudar de idioma
+    document.addEventListener("bt:langChanged", function () {
+  setTimeout(removeImpactBoxesMobile, 50);
+});
 
-  // Executa se rodar o ecrã
-  window.addEventListener("resize", removeImpactBoxesMobile);
-</script>
 
-  
+    // Executa se rodar o ecrã
+    window.addEventListener("resize", removeImpactBoxesMobile);
+  </script>
+
 </body>
 </html>
