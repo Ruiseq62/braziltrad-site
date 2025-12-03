@@ -65,6 +65,45 @@ body {
   border-radius: 2px;
 }
 
+/* ✅ PADRÃO LIMPO PARA CONTAINER DE TODAS AS SEÇÕES */
+.section .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ✅ PADRÃO GLOBAL PARA SUBTÍTULOS (.lead) */
+.section .lead {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 48px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   HEADER PADRÃO DE TODAS AS SEÇÕES
+========================================= */
+
+.section-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.section-header h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--primary);
+  margin: 12px auto 24px;
+  border-radius: 2px;
+}
+
+.section-header .lead {
+  margin-top: 0;
+}
+
 .section p,
 .section li {
   font-size: 1.02rem;
@@ -83,13 +122,16 @@ body {
 /* =================================================
    4. HEADER
 ================================================= */
-/* 🔒 HEADER DEFINITIVAMENTE TRAVADO (ANTI-SALTO) */
+/* HEADER TRAVADO */
 .header {
   background: #ffffff;
   border-bottom: 1px solid rgba(0,0,0,0.06);
-  position: sticky;
-  top: 0;
-  z-index: 9999;
+  position: fixed;
+  top: 76px;                 /* 38px + 38px das barras */
+  left: 0;
+  width: 100%;
+
+  z-index: 99997;            /* ENTRE as barras e o botão de idioma */
 
   height: 70px;
   min-height: 70px;
@@ -114,20 +156,25 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 70px;              /* igual à altura da barra */
 }
+
+
 .header nav ul {
   flex-wrap: nowrap;
   white-space: nowrap;
 }
 
-
+/* itens do menu */
 .header nav ul li {
   flex-shrink: 0;
 }
+
 .header nav ul li a {
   padding-left: 0.4ch;
   padding-right: 0.4ch;
 }
+
 .header .slogan {
   min-height: 20px;
   line-height: 20px;
@@ -139,6 +186,8 @@ body {
   gap: 12px;
   color: var(--primary);
   text-decoration: none;
+  height: 70px;
+  transform: translateY(2px);  /* ✅ DESCE SUAVEMENTE */
 }
 
 .brand img {
@@ -154,7 +203,17 @@ body {
 .brand .slogan {
   font-size: 0.85rem;
   color: #777;
+
+  min-height: 34px;
+  line-height: 17px;
+
+  display: flex;
+  align-items: center;
+
+  margin-top: 4px;   /* ✅ DESCE O TEXTO UM POUQUINHO */
 }
+
+
 
 header nav ul {
   display: flex;
@@ -181,12 +240,11 @@ header nav ul li a:hover {
   background: #f4f7f9;
   text-align: center;
 
-  /* ✅ ADIÇÃO ANTI-SALTO */
+  /* anti-salto de texto */
   min-height: 520px;
   display: flex;
   align-items: center;
 }
-
 
 .hero h1 {
   font-size: 2.6rem;
@@ -203,7 +261,7 @@ header nav ul li a:hover {
   line-height: 1.6;
   color: #555;
 }
-/* ✅ ESTABILIZA ALTURA DOS TEXTOS ENTRE IDIOMAS */
+
 .hero-title {
   min-height: 120px;
 }
@@ -211,6 +269,7 @@ header nav ul li a:hover {
 .hero-lead {
   min-height: 72px;
 }
+
 .cta {
   display: flex;
   justify-content: center;
@@ -418,8 +477,9 @@ header nav ul li a:hover {
     max-width: 320px;
   }
 }
+
 /* ============================= */
-/* ✅ FIX DEFINITIVO — PRODUTOS */
+/* 12. FIX PRODUTOS              */
 /* ============================= */
 
 #products {
@@ -470,7 +530,7 @@ header nav ul li a:hover {
   margin-bottom: 16px;
 }
 
-/* ✅ MOBILE */
+/* ✅ MOBILE PRODUTOS */
 @media (max-width: 600px) {
   #products .grid {
     grid-template-columns: 1fr;
@@ -481,8 +541,9 @@ header nav ul li a:hover {
     height: 170px;
   }
 }
+
 /* =================================================
-   BLOCO IMPACTO — VERSÃO FINAL LIMPA (PRODUÇÃO)
+   BLOCO IMPACTO
 ================================================= */
 
 .bloco-impacto{
@@ -560,7 +621,7 @@ header nav ul li a:hover {
 }
 
 /* =================================================
-   MOBILE — LIMPO, SEM CAIXAS GRANDES
+   MOBILE BLOCO IMPACTO
 ================================================= */
 @media (max-width: 768px){
 
@@ -583,23 +644,36 @@ header nav ul li a:hover {
     font-size: 13px;
     padding: 10px 16px;
   }
-
 }
+
+/* =================================================
+   BOTÃO DE IDIOMA (HEADER)
+================================================= */
+
 .lang-btn{
   padding: 11px 24px !important;
   font-size: 1.05rem !important;
   border-radius: 32px !important;
 }
+
 .lang-btn {
   width: 110px;
   text-align: center;
 }
 
+/* =================================================
+   AJUSTES EXTRAS
+================================================= */
+
 .hero .cta{
   margin-top: 40px;
 }
-.links-link { white-space: nowrap; 
-            }
+
+.links-link { 
+  white-space: nowrap; 
+}
+
+/* BARRAS SIMPLES (SEM FIX FINAL) */
 .tv-top-bar {
   width: 100%;
   min-height: 48px;
@@ -614,6 +688,9 @@ header nav ul li a:hover {
   width: 100%;
   min-height: 48px;
 }
+
+/* DOCUMENTOS – HERO E LISTA */
+
 .docs-hero {
   text-align: center;
   padding: 40px 20px 20px;
@@ -665,128 +742,54 @@ header nav ul li a:hover {
   color: #0F4C5C;
   font-size: 0.9rem;
 }
-.docs-hero {
-  text-align: center;
-  padding: 40px 20px 20px;
+/* =========================================
+   AJUSTE FINO DO TEXTO SOB O LOGO
+   (sem quebrar layout)
+========================================= */
+.brand .slogan {
+  margin-top: 2px;
+  line-height: 1.2;
 }
 
-.docs-hero h1 {
-  font-size: 2rem;
-  color: #0F4C5C;
-  margin-bottom: 8px;
-}
 
-.docs-hero p {
-  color: #555;
-  font-size: 0.95rem;
-}
+/* =========================================
+   FIXAÇÃO CORRETA DA BARRA BRANCA (HEADER)
+   sem gerar espaço extra nem saltos
+========================================= */
 
-.docs-section {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
 
-.docs-section h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #0F4C5C;
-}
-
-.docs-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.docs-list li {
-  background: #fff;
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin-bottom: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-}
-
-.docs-list a {
-  text-decoration: none;
-  font-weight: 600;
-  color: #0F4C5C;
-  font-size: 0.9rem;
-}
-/* ===================================================
-   ✅ FIX FINAL LIMPO — SEM CONFLITOS (PRODUÇÃO)
-=================================================== */
-
-/* ===== BARRAS FIXAS ===== */
-.market-widget-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10000;
-  background: #fff;
-}
-
-.market-widget-wrapper .tradingview-widget-container {
+/* =========================================
+   COMPENSAÇÃO ÚNICA DO BODY
+   (exatamente a soma: barras + header)
+========================================= */
+/* AJUSTE FINO DO TEXTO SOB O LOGO (SEM ALTERAR ALTURAS) */
+.brand .slogan {
+  margin-top: 5px;
   position: relative;
-  background: #fff;
-}
-
-/* Compensação única no body (SÓ UMA VEZ) */
-body {
-  padding-top: 86px;
-}
-
-/* ===== HERO ESTÁVEL ===== */
-.hero {
-  min-height: 420px;
-  display: flex;
-  align-items: center;
-}
-
-/* ===== SEÇÃO DE SEGURO TOTALMENTE TRAVADA ===== */
-#export-insurance {
-  min-height: 880px;
-  position: relative;
-  overflow: hidden;
-}
-
-#export-insurance .grid {
-  min-height: 360px;
-}
-
-#export-insurance .card {
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-#export-insurance .card h3 {
-  min-height: 42px;
-}
-
-#export-insurance .card p {
-  min-height: 110px;
-}
-
-#export-insurance ul {
-  min-height: 170px;
-}
-
-#export-insurance h2 {
-  min-height: 52px;
-}
-
-/* ===== ANTI-REPAINT SAFARI ===== */
-#export-insurance * {
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  top: 2px;
+  line-height: 1.2;
 }
 
 html, body {
-  overflow-anchor: none;
+  overflow-anchor: none !important;
+}
+#export-insurance .section-header {
+  min-height: 140px;
+}
+/* ✅ CENTRAR VERTICALMENTE OS ITENS DO MENU */
+header,
+nav,
+.navbar,
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+nav a,
+.navbar a,
+.menu a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  line-height: 1;
 }
