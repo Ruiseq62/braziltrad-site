@@ -94,7 +94,8 @@
       z-index: 99998;
     }
 
-    body { margin-top: 86px !important; }
+    body { margin-top: 146px !important; }
+
 
     .lang-btn {
       position: fixed;
@@ -133,8 +134,12 @@
 </head>
 <body>
 
+  
   <!-- ===== BARRAS TRADINGVIEW ===== -->
+<div class="tradingview-slot">
+
   <div class="market-widget-wrapper">
+
     <div class="tradingview-widget-container main-bar">
       <div id="tv-indices"></div>
     </div>
@@ -142,13 +147,17 @@
     <div class="tradingview-widget-container commodities-bar">
       <div id="tv-commodities"></div>
     </div>
+
   </div>
+
+</div>
 
   <!-- ===== BOTÃO DE IDIOMA ===== -->
   <button id="langBtn" class="lang-btn">🌎 🇧🇷 PT</button>
 
   <!-- ===== CABEÇALHO ===== -->
-  <header class="header">
+ <header class="header">
+   
     <div class="container nav">
       <a class="brand" href="./">
         <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" />
@@ -303,76 +312,81 @@
     <!-- =====================================================
          SEGURO DE EXPORTAÇÃO — MULTILÍNGUE
     ====================================================== -->
-    <section id="export-insurance" class="section" style="background:#f8f8f8;padding:70px 0 60px 0;">
+   <section id="export-insurance" class="section export-insurance">
 
-      <div class="container">
+  <div class="container">
 
-        <h2 data-i18n="insurance.title" style="text-align:center;margin-bottom:18px;">
-          Seguro de Exportação BrazilTrad
-        </h2>
+    <div class="section-header">
+      <h2 data-i18n="insurance.title">
+        Seguro de Exportação BrazilTrad
+      </h2>
 
-        <p class="lead" data-i18n="insurance.subtitle" style="text-align:center;max-width:800px;margin:0 auto 28px;">
-          Venda com segurança, reduza riscos e tenha garantia de recebimento nas suas operações internacionais.
+      <p class="lead" data-i18n="insurance.subtitle">
+        Venda com segurança, reduza riscos e tenha garantia de recebimento nas suas operações internacionais.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <h3 data-i18n="insurance.what.title">O que é?</h3>
+        <p data-i18n="insurance.what.text">
+          O Seguro de Crédito à Exportação protege o exportador contra inadimplência, falência do comprador, riscos políticos, guerras, sanções e bloqueios cambiais.
         </p>
+      </article>
 
-        <div class="grid">
+      <article class="card">
+        <h3 data-i18n="insurance.cover.title">O que cobre?</h3>
+        <p data-i18n="insurance.cover.text">
+          Calote do importador, atrasos de pagamento, crises no país de destino e riscos geopolíticos.
+        </p>
+      </article>
 
-          <article class="card">
-            <h3 data-i18n="insurance.what.title">O que é?</h3>
-            <p data-i18n="insurance.what.text">
-              O Seguro de Crédito à Exportação protege o exportador contra inadimplência, falência do comprador, riscos políticos, guerras, sanções e bloqueios cambiais.
-            </p>
-          </article>
+      <article class="card">
+        <h3 data-i18n="insurance.for.title">Para quem?</h3>
+        <p data-i18n="insurance.for.text">
+          Exportadores de commodities, alimentos, minerais, produtos industriais e small export.
+        </p>
+      </article>
 
-          <article class="card">
-            <h3 data-i18n="insurance.cover.title">O que cobre?</h3>
-            <p data-i18n="insurance.cover.text">
-              Calote do importador, atrasos de pagamento, crises no país de destino e riscos geopolíticos.
-            </p>
-          </article>
+    </div>
 
-          <article class="card">
-            <h3 data-i18n="insurance.for.title">Para quem?</h3>
-            <p data-i18n="insurance.for.text">
-              Exportadores de commodities, alimentos, minerais, produtos industriais e small export.
-            </p>
-          </article>
+    <div style="margin-top:40px;">
 
-        </div>
+      <h3 data-i18n="insurance.advantages.title">Vantagens</h3>
+      <ul>
+        <li data-i18n="insurance.advantages.items.0">Receba mesmo se o comprador não pagar</li>
+        <li data-i18n="insurance.advantages.items.1">Venda para novos mercados com mais segurança</li>
+        <li data-i18n="insurance.advantages.items.2">Mais facilidade para financiar a exportação</li>
+        <li data-i18n="insurance.advantages.items.3">Redução de perdas com inadimplência</li>
+      </ul>
 
-        <div style="margin-top:40px;">
+      <h3 style="margin-top:28px;" data-i18n="insurance.flow.title">Como funciona</h3>
+      <ol>
+        <li data-i18n="insurance.flow.s1">Cadastro da operação</li>
+        <li data-i18n="insurance.flow.s2">Análise de risco do comprador</li>
+        <li data-i18n="insurance.flow.s3">Oferta de seguro</li>
+        <li data-i18n="insurance.flow.s4">Venda com proteção ativa</li>
+        <li data-i18n="insurance.flow.s5">Indenização em caso de inadimplência</li>
+      </ol>
 
-          <h3 data-i18n="insurance.advantages.title">Vantagens</h3>
-          <ul>
-            <li data-i18n="insurance.advantages.items.0">Receba mesmo se o comprador não pagar</li>
-            <li data-i18n="insurance.advantages.items.1">Venda para novos mercados com mais segurança</li>
-            <li data-i18n="insurance.advantages.items.2">Mais facilidade para financiar a exportação</li>
-            <li data-i18n="insurance.advantages.items.3">Redução de perdas com inadimplência</li>
-          </ul>
+      <h3 style="margin-top:28px;" data-i18n="insurance.cost.title">Custo médio</h3>
+      <p data-i18n="insurance.cost.text">
+        O custo varia geralmente entre 1% e 5% do valor da operação.
+      </p>
 
-          <h3 style="margin-top:28px;" data-i18n="insurance.flow.title">Como funciona</h3>
-          <ol>
-            <li data-i18n="insurance.flow.s1">Cadastro da operação</li>
-            <li data-i18n="insurance.flow.s2">Análise de risco do comprador</li>
-            <li data-i18n="insurance.flow.s3">Oferta de seguro</li>
-            <li data-i18n="insurance.flow.s4">Venda com proteção ativa</li>
-            <li data-i18n="insurance.flow.s5">Indenização em caso de inadimplência</li>
-          </ol>
+    </div>
 
-          <h3 style="margin-top:28px;" data-i18n="insurance.cost.title">Custo médio</h3>
-          <p data-i18n="insurance.cost.text">
-            O custo varia geralmente entre 1% e 5% do valor da operação.
-          </p>
+    <div class="cta" style="margin-top:32px;text-align:center;">
+      <a href="#contact" class="button" data-i18n="insurance.cta">
+        Solicitar Análise de Seguro
+      </a>
+    </div>
 
-        </div>
+  </div> <!-- ✅ AGORA SÓ FECHA O CONTAINER AQUI -->
 
-        <div class="cta" style="margin-top:32px;text-align:center;">
-          <a href="#contact" class="button" data-i18n="insurance.cta">Solicitar Análise de Seguro</a>
-        </div>
+</section>
 
-      </div>
-
-    </section>
 
     <!-- ===== PRODUTOS ===== -->
     <section id="products" class="section">
@@ -1100,30 +1114,40 @@
   }
 
 let isLangSwitching = false;
+let lastScrollY = 0;
 
 function applyLangSafe(code){
-  // 🔒 Impede execução dupla
   if (isLangSwitching) return;
   isLangSwitching = true;
 
-  const scrollY = window.scrollY;
+  lastScrollY = window.scrollY;
 
-  // Troca o idioma apenas UMA vez
+  // Trava completamente o scroll
+  document.documentElement.style.scrollBehavior = "auto";
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${lastScrollY}px`;
+  document.body.style.width = "100%";
+
   applyLang(code);
 
   requestAnimationFrame(() => {
+    // Restaura perfeitamente a posição
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+
     window.scrollTo({
-      top: scrollY,
+      top: lastScrollY,
       left: 0,
       behavior: "auto"
     });
 
-    // 🔓 Libera após estabilizar
     setTimeout(() => {
       isLangSwitching = false;
-    }, 120);
+    }, 80);
   });
 }
+
 
 
 
@@ -1200,11 +1224,12 @@ function applyLangSafe(code){
     // LINKS
     updateLinks(code);
 
-    // TRADINGVIEW
-   if(!window.__tvInitialized){
-  initTradingView(code);
+// TRADINGVIEW — inicializa só UMA vez, SEM recriar ao mudar idioma
+if (!window.__tvInitialized) {
+  initTradingView("pt"); // fixa PT como idioma das barras
   window.__tvInitialized = true;
 }
+
 
 
     // PERSISTÊNCIA
@@ -1241,7 +1266,7 @@ function applyLangSafe(code){
         if(el){
           e.preventDefault();
           window.scrollTo({
-            top: el.getBoundingClientRect().top + window.scrollY - 100,
+            top: el.getBoundingClientRect().top + window.scrollY - 146,
             behavior: 'smooth'
           });
         }
