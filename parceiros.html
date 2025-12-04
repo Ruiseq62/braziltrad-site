@@ -58,39 +58,7 @@
     </div>
 
     <!-- ✅ FORMULÁRIO -->
-    <form id="form-parceiro" class="contact-form">
-
-  <input type="text" name="nome" placeholder="Nome completo *" required>
-  <input type="email" name="email" placeholder="E-mail *" required>
-  <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
-  <input type="text" name="empresa" placeholder="Empresa">
-
-  <select name="tipo_parceiro" required>
-    <option disabled selected>Tipo de parceiro *</option>
-    <option>Produtor</option>
-    <option>Trader / Broker</option>
-    <option>Distribuidor</option>
-    <option>Investidor</option>
-  </select>
-
-  <textarea name="mensagem" placeholder="Conte-nos brevemente sobre o seu perfil"></textarea>
-
-  <!-- CAMPOS OCULTOS -->
-  <input type="hidden" name="idioma" value="PT">
-  <input type="hidden" name="origem" value="Parceiro">
-
-  <button type="submit" class="btn-submit">Enviar</button>
-
-  <div id="msg-sucesso-parceiro" class="success-message">
-    ✅ Pedido de parceria enviado com sucesso!  
-    <br>Em breve a nossa equipa entrará em contacto.
-  </div>
-
-  <button type="button" class="btn-submit btn-voltar" onclick="history.back()">
-    ← Voltar ao site
-  </button>
-
-</form>
+    
 
     <!-- ✅ MENSAGEM DE SUCESSO PADRÃO -->
     <div id="msg-sucesso-parceiro" class="success-message">
@@ -98,7 +66,45 @@
   <br>Em breve a nossa equipa entrará em contacto.
 </div>
 
+<form id="form-parceiro" class="partner-form">
 
+  <h2>Seja um Parceiro</h2>
+
+  <div class="form-grid-parceiros">
+
+    <input type="text" name="nome" placeholder="Nome completo *" required>
+    <input type="email" name="email" placeholder="E-mail *" required>
+
+    <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
+    <input type="text" name="empresa" placeholder="Empresa">
+
+    <select name="tipo_parceiro" required class="full">
+      <option value="" disabled selected>Tipo de parceiro *</option>
+      <option>Produtor</option>
+      <option>Trader / Broker</option>
+      <option>Distribuidor</option>
+      <option>Investidor</option>
+    </select>
+
+    <textarea name="mensagem" placeholder="Descreva brevemente o seu perfil" class="full"></textarea>
+
+    <!-- CAMPOS OCULTOS PARA O CRM -->
+    <input type="hidden" name="idioma" value="PT">
+    <input type="hidden" name="origem" value="Parceiro">
+
+  </div>
+
+  <div class="botoes-form">
+    <button type="submit" class="btn-submit">Enviar</button>
+
+    <button type="button" class="btn-submit" onclick="history.back()">
+      ← Voltar
+    </button>
+  </div>
+
+  <div id="msg-sucesso-parceiro" class="msg-sucesso" style="display:none;"></div>
+
+</form>
   </div>
 </section>
 
