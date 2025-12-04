@@ -113,18 +113,17 @@ document.getElementById("partnerForm").addEventListener("submit", function(e) {
     },
     body: JSON.stringify(data)
   })
-  .then(r => r.json())
-  .then(res => {
-    if (res.status === "ok") {
-      document.getElementById("formMessage").innerText = "✅ Registration sent successfully!";
-      document.getElementById("partnerForm").reset();
-    } else {
-      document.getElementById("formMessage").innerText = "❌ Error sending. Try again.";
-    }
-  })
-  .catch(() => {
-    document.getElementById("formMessage").innerText = "❌ Connection error.";
-  });
+  .then(() => {
+  const msg = document.getElementById("formMessage");
+  msg.innerText = "✅ Message sent successfully! We will contact you soon.";
+  msg.style.color = "#1f9d55";
+  document.getElementById("partnerForm").reset();
+})
+.catch(() => {
+  const msg = document.getElementById("formMessage");
+  msg.innerText = "❌ Connection error.";
+  msg.style.color = "#dc2626";
+});
 });
 </script>
 
