@@ -804,7 +804,7 @@ nav a,
 }
 @media (max-width: 768px) {
 
-  /* ✅ MANTÉM AS DUAS BARRAS VISÍVEIS NO TOPO */
+  /* ✅ BARRA 1 */
   .tradingview-widget-container.main-bar {
     position: fixed !important;
     top: 0 !important;
@@ -812,6 +812,7 @@ nav a,
     z-index: 99999;
   }
 
+  /* ✅ BARRA 2 */
   .tradingview-widget-container.commodities-bar {
     position: fixed !important;
     top: 38px !important;
@@ -819,21 +820,33 @@ nav a,
     z-index: 99998;
   }
 
-  /* ✅ COMPENSAÇÃO CORRETA DO BODY NO MOBILE */
-  body {
-    margin-top: 146px !important; /* 38 + 38 + header */
+  /* ✅ HEADER */
+  .header {
+    position: fixed !important;
+    top: 76px !important; /* 38 + 38 */
+    height: 70px;
+    z-index: 99997;
   }
 
-  /* ✅ BOTÃO DE IDIOMA AJUSTADO */
+  /* ✅ COMPENSAÇÃO TOTAL PERFEITA */
+  body {
+    margin-top: 146px !important; /* 38 + 38 + 70 */
+    padding-top: 0 !important;
+  }
+
+  /* ✅ BOTÃO DE IDIOMA NO LUGAR CERTO */
   .lang-btn {
     top: 92px !important;
+    transform: scale(0.8);
   }
 }
+
 
   body {
     padding-top: 0 !important;
   }
 }
+
 /* ✅ BOTÃO DE IDIOMA — AJUSTE MOBILE */
 @media (max-width: 768px) {
   .lang-switcher,
@@ -903,4 +916,175 @@ nav a,
   transform: translateY(-3px);
   box-shadow: 0 12px 26px rgba(0,0,0,0.35);
 }
+/* ✅ TERCEIRO BOTÃO — PARCEIRO */
+.button.ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 2px dashed var(--primary);
+  box-shadow: none;
+}
 
+.button.ghost:hover {
+  background: var(--primary);
+  color: #fff;
+  border-style: solid;
+}
+
+/* ✅ AJUSTE PARA 3 BOTÕES */
+.cta-3 {
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .cta-3 .button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+/* ===============================
+   PARCEIROS – VERSÃO FINAL LIMPA
+=============================== */
+
+/* HERO */
+.parceiros-hero {
+  padding: 90px 20px 60px;
+  text-align: center;
+  background: #f3f7f9;
+  min-height: auto;
+}
+
+.parceiros-hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #0b3d47;
+}
+
+.parceiros-hero p {
+  font-size: 18px;
+  max-width: 720px;
+  margin: 0 auto;
+  color: #555;
+}
+
+/* SEÇÕES */
+.parceiros-section {
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.parceiros-bg {
+  background: #f6f8f9;
+}
+
+.parceiros-section .container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.parceiros-section h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 26px;
+  color: #0b3d47;
+}
+
+/* GRID */
+.parceiros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+/* CARDS */
+.parceiros-card {
+  background: #ffffff;
+  padding: 28px 22px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+}
+
+.parceiros-card h3 {
+  margin-bottom: 10px;
+  font-size: 17px;
+  color: #083c44;
+}
+
+.parceiros-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.10);
+}
+
+/* ===============================
+   FORMULÁRIO FINAL ESTÁVEL
+=============================== */
+
+.partner-form {
+  max-width: 900px;
+  margin: 50px auto 0;
+  text-align: center;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.form-grid textarea {
+  grid-column: span 2;
+  min-height: 180px;
+  resize: vertical;
+}
+
+.btn-submit {
+  background: #0b3c44;
+  color: #fff;
+  padding: 12px 40px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid textarea {
+    grid-column: span 1;
+  }
+
+  .parceiros-hero h1 {
+    font-size: 28px;
+  }
+}
+.button.tertiary{
+  background:#ffffff;
+  color:#0F4C5C;
+  border:2px solid #0F4C5C;
+}
+
+.button.tertiary:hover{
+  background:#0F4C5C;
+  color:#ffffff;
+}
