@@ -1088,3 +1088,10 @@ nav a,
   background:#0F4C5C;
   color:#ffffff;
 }
+.success-message {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+  color: #0F4C5C;
+  font-weight: 600;
+}
