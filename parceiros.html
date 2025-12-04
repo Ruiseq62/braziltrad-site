@@ -58,48 +58,39 @@
     </div>
 
     <!-- ✅ FORMULÁRIO -->
-    <form id="form-parceiro" class="partner-form">
+    <form id="form-parceiro" class="contact-form">
 
-      <h2>Seja um Parceiro</h2>
+  <input type="text" name="nome" placeholder="Nome completo *" required>
+  <input type="email" name="email" placeholder="E-mail *" required>
+  <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
+  <input type="text" name="empresa" placeholder="Empresa">
 
-      <div class="form-grid">
+  <select name="tipo_parceiro" required>
+    <option disabled selected>Tipo de parceiro *</option>
+    <option>Produtor</option>
+    <option>Trader / Broker</option>
+    <option>Distribuidor</option>
+    <option>Investidor</option>
+  </select>
 
-        <input type="text" name="nome" placeholder="Nome completo" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
-        <input type="text" name="empresa" placeholder="Empresa">
-        <input type="text" name="pais" placeholder="País">
-        <input type="text" name="produto" placeholder="Produto principal">
-        <input type="text" name="volume" placeholder="Volume mensal / anual">
+  <textarea name="mensagem" placeholder="Conte-nos brevemente sobre o seu perfil"></textarea>
 
-        <select name="tipo_parceiro" required>
-          <option disabled selected>Tipo de parceiro</option>
-          <option>Produtor</option>
-          <option>Trader / Broker</option>
-          <option>Distribuidor</option>
-          <option>Investidor</option>
-        </select>
+  <!-- CAMPOS OCULTOS -->
+  <input type="hidden" name="idioma" value="PT">
+  <input type="hidden" name="origem" value="Parceiro">
 
-        <textarea name="mensagem" placeholder="Descreva brevemente o seu perfil"></textarea>
+  <button type="submit" class="btn-submit">Enviar</button>
 
-        <!-- ✅ CAMPOS OCULTOS PARA O CRM -->
-        <input type="hidden" name="idioma" value="PT">
-        <input type="hidden" name="origem" value="Parceiro">
+  <div id="msg-sucesso-parceiro" class="success-message">
+    ✅ Pedido de parceria enviado com sucesso!  
+    <br>Em breve a nossa equipa entrará em contacto.
+  </div>
 
-      </div>
+  <button type="button" class="btn-submit btn-voltar" onclick="history.back()">
+    ← Voltar ao site
+  </button>
 
-      <div style="display:flex;justify-content:center;gap:16px;">
-        <button type="submit" class="btn-submit">Enviar</button>
-
-        <button type="button"
-                class="btn-submit"
-                onclick="history.back()"
-                style="display:flex;align-items:center;">
-          ← Voltar
-        </button>
-      </div>
-
-    </form>
+</form>
 
     <!-- ✅ MENSAGEM DE SUCESSO PADRÃO -->
     <div id="msg-sucesso-parceiro" class="success-message">
