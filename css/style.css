@@ -1095,3 +1095,23 @@ nav a,
   color: #0F4C5C;
   font-weight: 600;
 }
+/* ✅ Layout correto do formulário de parceiro */
+#form-parceiro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+#form-parceiro textarea,
+#form-parceiro select {
+  grid-column: 1 / -1;
+}
+
+#form-parceiro .btn-submit {
+  grid-column: span 1;
+}
+
+#form-parceiro .btn-voltar {
+  grid-column: span 1;
+}
