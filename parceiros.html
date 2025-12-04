@@ -70,34 +70,34 @@
 
   <h2>Seja um Parceiro</h2>
 
-  <div class="form-grid-parceiros">
-
-    <input type="text" name="nome" placeholder="Nome completo *" required>
-    <input type="email" name="email" placeholder="E-mail *" required>
+  <div class="form-grid">
+    <input type="text" name="nome" placeholder="Nome completo" required>
+    <input type="email" name="email" placeholder="Email" required>
 
     <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
     <input type="text" name="empresa" placeholder="Empresa">
 
-    <select name="tipo_parceiro" required class="full">
-      <option value="" disabled selected>Tipo de parceiro *</option>
+    <select name="tipo_parceiro" required>
+      <option disabled selected>Tipo de parceiro</option>
       <option>Produtor</option>
       <option>Trader / Broker</option>
       <option>Distribuidor</option>
       <option>Investidor</option>
     </select>
 
-    <textarea name="mensagem" placeholder="Descreva brevemente o seu perfil" class="full"></textarea>
+    <textarea name="mensagem" placeholder="Descreva brevemente o seu perfil"></textarea>
 
-    <!-- CAMPOS OCULTOS PARA O CRM -->
     <input type="hidden" name="idioma" value="PT">
     <input type="hidden" name="origem" value="Parceiro">
-
   </div>
 
-  <div class="botoes-form">
+  <div style="display:flex;justify-content:center;gap:16px;">
     <button type="submit" class="btn-submit">Enviar</button>
 
-    <button type="button" class="btn-submit" onclick="history.back()">
+    <button type="button"
+            class="btn-submit"
+            onclick="history.back()"
+            style="display:flex;align-items:center;">
       ← Voltar
     </button>
   </div>
@@ -105,6 +105,7 @@
   <div id="msg-sucesso-parceiro" class="msg-sucesso" style="display:none;"></div>
 
 </form>
+
   </div>
 </section>
 
