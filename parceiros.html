@@ -57,56 +57,61 @@
       <div class="parceiros-card">4️⃣ Início das operações</div>
     </div>
 
+    <!-- ✅ FORMULÁRIO -->
     <form id="form-parceiro" class="partner-form">
 
-  <h2>Seja um Parceiro</h2>
+      <h2>Seja um Parceiro</h2>
 
-  <div class="form-grid">
+      <div class="form-grid">
 
-    <input type="text" name="nome" placeholder="Nome completo" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
-    <input type="text" name="empresa" placeholder="Empresa">
-    <input type="text" name="pais" placeholder="País">
-    <input type="text" name="produto" placeholder="Produto principal">
-    <input type="text" name="volume" placeholder="Volume mensal / anual">
+        <input type="text" name="nome" placeholder="Nome completo" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="telefone" placeholder="Telefone / WhatsApp">
+        <input type="text" name="empresa" placeholder="Empresa">
+        <input type="text" name="pais" placeholder="País">
+        <input type="text" name="produto" placeholder="Produto principal">
+        <input type="text" name="volume" placeholder="Volume mensal / anual">
 
-    <select name="tipo_parceiro">
-      <option disabled selected>Tipo de parceiro</option>
-      <option>Produtor</option>
-      <option>Trader / Broker</option>
-      <option>Distribuidor</option>
-      <option>Investidor</option>
-    </select>
+        <select name="tipo_parceiro" required>
+          <option disabled selected>Tipo de parceiro</option>
+          <option>Produtor</option>
+          <option>Trader / Broker</option>
+          <option>Distribuidor</option>
+          <option>Investidor</option>
+        </select>
 
-    <textarea name="mensagem" placeholder="Descreva brevemente o seu perfil"></textarea>
+        <textarea name="mensagem" placeholder="Descreva brevemente o seu perfil"></textarea>
 
-    <!-- CAMPOS OCULTOS PARA O TEU CRM -->
-    <input type="hidden" name="idioma" value="PT">
-    <input type="hidden" name="origem" value="Parceiro">
+        <!-- ✅ CAMPOS OCULTOS PARA O CRM -->
+        <input type="hidden" name="idioma" value="PT">
+        <input type="hidden" name="origem" value="Parceiro">
 
-  </div>
+      </div>
 
-  <div style="display:flex;justify-content:center;gap:16px;">
-    <button type="submit" class="btn-submit">Enviar</button>
+      <div style="display:flex;justify-content:center;gap:16px;">
+        <button type="submit" class="btn-submit">Enviar</button>
 
-    <button type="button"
-            class="btn-submit"
-            onclick="history.back()"
-            style="display:flex;align-items:center;">
-      ← Voltar
-    </button>
-  </div>
+        <button type="button"
+                class="btn-submit"
+                onclick="history.back()"
+                style="display:flex;align-items:center;">
+          ← Voltar
+        </button>
+      </div>
 
-</form>
+    </form>
+
+    <!-- ✅ MENSAGEM DE SUCESSO PADRÃO -->
+    <div id="msg-sucesso-parceiro"
+         style="display:none; margin-top:20px; text-align:center; color:green; font-weight:600;">
+      ✅ Pedido de parceria enviado com sucesso!  
+      <br>Em breve a nossa equipa entrará em contacto.
+    </div>
 
   </div>
 </section>
-</form>
-</div>
-</section>
 
-<!-- ✅ COLOCA O SCRIPT AQUI (NA LINHA 105) -->
+<!-- ✅ SCRIPT FINAL FUNCIONAL -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -133,10 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (result.status === "ok") {
         form.reset();
-        if (msg) {
-          msg.style.display = "block";
-          msg.innerHTML = "✅ Pedido de parceria enviado com sucesso.<br>Em breve a nossa equipa entrará em contacto.";
-        }
+        msg.style.display = "block";
       } else {
         alert("❌ Erro ao enviar: " + (result.detalhe || "tente novamente."));
         console.error("Erro:", result);
@@ -150,9 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
-
-
-<!-- ✅ FIM DO SCRIPT -->
 
 </body>
 </html>
