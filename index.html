@@ -171,16 +171,17 @@
 
       <nav>
         <ul>
-          <li><a href="#institutional">Sobre</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#export-insurance">Seguro</a></li>
-          <li><a href="#products">Produtos</a></li>
-          <li><a href="#markets">Mercados</a></li>
-          <li><a href="#insights">Insights</a></li>
-          <li><a class="doc-link" href="documentos.html">Documentos</a></li>
-          <li><a class="links-link" href="links-uteis.html">Links Úteis</a></li>
-          <li><a class="contact-link" href="#contact">Contato</a></li>
-        </ul>
+  <li><a href="#institutional">Sobre</a></li>
+  <li><a href="#services">Serviços</a></li>
+  <li><a href="#export-insurance">Seguro</a></li>
+  <li><a href="#products">Produtos</a></li>
+  <li><a href="#markets">Mercados</a></li>
+  <li><a href="#insights">Insights</a></li>
+  <li><a class="doc-link" href="documentos.html">Documentos</a></li>
+  <li><a class="links-link" href="links-uteis.html">Links Úteis</a></li>
+  <li><a class="contact-link" href="#contact-anchor">Contato</a></li>
+</ul>
+
       </nav>
     </div>
   </header>
@@ -460,15 +461,21 @@
   </main>
 
   <!-- ===== RODAPÉ ===== -->
+ <div id="contact-anchor" style="position: relative; top: -140px;"></div>
   <footer class="footer" id="contact">
     <div class="inner container">
       <img src="assets/img/braziltrad-logo.png" alt="BrazilTrad" style="height:34px;width:auto;margin:0 auto 10px">
       <div>© BrazilTrad. Conectando produtores brasileiros a mercados globais.</div>
-      <div style="margin-top:8px;">
-        🌐 <a href="https://braziltrad.com" target="_blank">braziltrad.com</a> |
-        ✉️ <a href="mailto:rsequeira@braziltrad.com">rsequeira@braziltrad.com</a> |
-        💼 <a href="https://www.linkedin.com/company/braziltrad/" target="_blank">LinkedIn</a>
-      </div>
+      <div style="margin-top:10px;">
+  👤 <a id="footerContato" href="contato.html">Contato</a> |
+  🌐 <a href="https://braziltrad.com" target="_blank">braziltrad.com</a> |
+  ✉️ <a href="mailto:rsequeira@braziltrad.com">rsequeira@braziltrad.com</a> |
+  💼 <a href="https://www.linkedin.com/company/braziltrad/" target="_blank">LinkedIn</a> |
+  📱 <a href="https://wa.me/5511922260188" target="_blank">WhatsApp</a>
+</div>
+
+
+
       <div style="margin-top:8px;opacity:0.9;">São Paulo — Brasil</div>
     </div>
   </footer>
@@ -1026,7 +1033,8 @@
     const contato    = document.querySelector("a.contact-link");
     const doc        = document.querySelector("a.doc-link");
     const links      = document.querySelector("a.links-link");
-
+    const footerContato = document.getElementById("footerContato");
+  
     if(!doc || !links) return;
 
     if(code === "pt"){
@@ -1045,7 +1053,13 @@
       doc.href   = "zh/documents_cz.html";
       links.href = "zh/useful-links.html";
     }
-
+// ✅ CONTATO DO RODAPÉ ACOMPANHA O IDIOMA
+if (footerContato) {
+  if (code === "pt") footerContato.href = "contato.html";
+  if (code === "en") footerContato.href = "en/contact.html";
+  if (code === "es") footerContato.href = "es/contato.html";
+  if (code === "zh") footerContato.href = "zh/contact.html";
+}
     if(code === "pt"){
       if(btnComprar) btnComprar.href = "contato-compra.html";
       if(btnVender)  btnVender.href  = "contato-venda.html";
@@ -1086,7 +1100,7 @@
       showSymbolLogo:true,
       colorTheme:"light",
       isTransparent:false,
-      displayMode:"adaptive",
+      displayMode:"regular",
       locale: locale
     });
     tvIndices.appendChild(w1);
@@ -1107,7 +1121,7 @@
       showSymbolLogo:true,
       colorTheme:"light",
       isTransparent:false,
-      displayMode:"adaptive",
+      displayMode:"regular",
       locale: locale
     });
     tvCommod.appendChild(w2);
@@ -1158,9 +1172,17 @@ function applyLangSafe(code){
 
     // MENU
     const navLinks = document.querySelectorAll('header nav ul li a');
-    navLinks.forEach((a,i)=>{
-      if(t.nav && t.nav[i]) a.textContent = t.nav[i];
-    });
+
+navLinks.forEach((a, i) => {
+  if (t.nav && t.nav[i]) {
+    a.textContent = t.nav[i];
+  } else {
+    // ✅ fallback seguro: mantém o texto original do HTML
+    a.textContent = a.textContent;
+  }
+});
+
+
 
     // HERO
     const heroTitle = document.querySelector('.hero-title');
@@ -1300,6 +1322,16 @@ if (!window.__tvInitialized) {
     // Executa se rodar o ecrã
     window.addEventListener("resize", removeImpactBoxesMobile);
   </script>
+  
+<a href="https://wa.me/5511922260188"
+   class="whatsapp-float"
+   target="_blank"
+   aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" width="26" height="26" fill="white">
+    <path d="M19.11 17.87c-.29-.14-1.72-.85-1.99-.95-.27-.1-.47-.14-.67.14-.2.29-.77.95-.95 1.14-.17.19-.35.21-.65.07-.29-.14-1.23-.45-2.34-1.44-.87-.78-1.45-1.75-1.62-2.04-.17-.29-.02-.45.13-.59.13-.13.29-.35.43-.52.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.44s1.02 2.83 1.17 3.03c.14.19 2 3.06 4.85 4.29.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.72-.7 1.97-1.38.24-.68.24-1.26.17-1.38-.07-.12-.26-.19-.55-.33z"/>
+  </svg>
+</a>
 
+  
 </body>
 </html>
