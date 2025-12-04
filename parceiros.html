@@ -123,8 +123,17 @@ document.getElementById("form-parceiro").addEventListener("submit", async functi
     const result = await response.json();
 
     if (result.status === "ok") {
-      alert("✅ Cadastro enviado com sucesso!\nID do Lead: " + result.idLead);
-      form.reset();
+      a<p id="msg-sucesso-parceiro" style="
+  display:none;
+  margin-top:16px;
+  color:#0c7a3e;
+  font-weight:600;
+  text-align:center;
+">
+✅ Pedido de parceria enviado com sucesso.  
+A nossa equipa irá analisar o seu perfil e entrar em contacto.
+</p>
+
     } else {
       alert("❌ Erro: " + (result.detalhe || "tente novamente."));
       console.error("Erro:", result);
